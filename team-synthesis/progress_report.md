@@ -23,7 +23,7 @@ Use `rq_definition.md`.
 |---|---|---:|---:|---:|---:|
 | Hào | IEEE | | | | |
 | An | ACM | | | | |
-| Khôi | OpenAlex | | | | |
+| Khôi | OpenAlex | 3441 | 23 | 23 | 18 |
 | Khoa | Semantic Scholar / Scholar | | | | |
 
 ## 5. Technical Demo
