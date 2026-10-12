@@ -9,9 +9,9 @@ Nguồn chính: **ACM Digital Library**. Truy vấn dùng chung và tiêu chí I
 | `search-log.md`, `search_log.csv` | Bốn lượt tìm S0–S3, truy vấn, số hit, snowballing |
 | `01_all_records.csv` | 823 bản ghi (747 ACM + 76 snowballing), cột `source`, `seed` |
 | `02_after_screening_v1.csv` | Quyết định screening từng bản ghi (vòng 1 và vòng 2) |
-| `03_final_included.csv` | 62 bài included |
+| `03_final_included.csv` | 6 bài được chọn (5 ACM + 1 snowballing); 56 bài dự phòng ở `03_reserve_eligible.csv` |
 | `prisma-flow.md` | Số liệu PRISMA và quy tắc screening |
-| `evidence-table.md`, `evidence_table.csv` | Bảng trích xuất cho 62 bài included |
+| `evidence-table.md`, `evidence_table.csv` | Bảng trích xuất cho 6 bài được chọn (đọc toàn văn 5 bài) |
 | `candidate_papers.csv` | Bản ghi qua vòng 1 và kết quả vòng 2 (mẫu của nhóm) |
 
 ## Dữ liệu và công cụ

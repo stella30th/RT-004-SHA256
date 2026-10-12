@@ -16,7 +16,13 @@
     "Exclude|E1": 5,
     "Exclude|E4": 1
   },
-  "final_included": 62,
-  "final_included_acm": 55,
-  "final_included_snowball": 7
+  "round3": {
+    "Selected": 6,
+    "Reserve": 56
+  },
+  "eligible_after_round2": 62,
+  "reserve_eligible": 56,
+  "final_included": 6,
+  "final_included_acm": 5,
+  "final_included_snowball": 1
 }

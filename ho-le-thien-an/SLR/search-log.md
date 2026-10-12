@@ -74,16 +74,16 @@ Công cụ: `tools/snowball_openalex.py`, chạy 2026-10-11, lọc năm từ 202
 
 | Seed | Backward (tài liệu seed trích dẫn) | Forward (bài trích dẫn seed) | Record mới | Kết quả screening |
 |---|---|---|---|---|
-| ACM_0041, *Using Large Language Models to Generate JUnit Tests: An Empirical Study* (10.1145/3661167.3661216) | 22 tìm được; 17 trước 2022; 5 mới | 93 tìm được; 22 đã có trong bản ghi ACM; 71 mới | 76 (SB_0001 đến SB_0076) | 7 included, xem `prisma-flow.md` |
+| ACM_0041, *Using Large Language Models to Generate JUnit Tests: An Empirical Study* (10.1145/3661167.3661216) | 22 tìm được; 17 trước 2022; 5 mới | 93 tìm được; 22 đã có trong bản ghi ACM; 71 mới | 76 (SB_0001 đến SB_0076) | 7 đạt tiêu chí, 1 được chọn; xem `prisma-flow.md` |
 
 Lý do chọn seed: bài dùng HumanEval và JUnit, trùng bối cảnh RQ; là một trong 4 bài của lượt S3. Dữ liệu trích dẫn lấy từ OpenAlex (chỉ ghi 25 tham chiếu cho seed).
 
 ## Kết quả screening (tóm tắt)
 
-| Nguồn | Bản ghi duy nhất | Vòng 1 còn lại | Included |
+| Nguồn | Bản ghi duy nhất | Vòng 1 còn lại | Kết quả |
 |---|---|---|---|
-| ACM (S0–S3 gộp) | 747 | 164 | 55 |
-| Snowballing | 76 | 35 | 7 |
-| **Tổng** | 823 | 199 | **62** |
+| ACM (S0–S3 gộp) | 747 | 164 | 55 đạt tiêu chí, 5 được chọn |
+| Snowballing | 76 | 35 | 7 đạt tiêu chí, 1 được chọn |
+| **Tổng** | 823 | 199 | 62 đạt tiêu chí, **6 được chọn** |
 
 Chi tiết và quy tắc: `prisma-flow.md`; quyết định từng bài: `02_after_screening_v1.csv`, `screening_decisions.csv`.
