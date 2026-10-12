@@ -1,0 +1,22 @@
+{
+  "acm_unique_records": 747,
+  "snowball_new_records": 76,
+  "round1": {
+    "Include|": 132,
+    "Exclude|E2": 12,
+    "Exclude|E1": 443,
+    "Maybe|": 67,
+    "Exclude|E5": 167,
+    "Exclude|E4": 2
+  },
+  "round2": {
+    "Include|": 62,
+    "Exclude|E3": 40,
+    "Exclude|I2": 91,
+    "Exclude|E1": 5,
+    "Exclude|E4": 1
+  },
+  "final_included": 62,
+  "final_included_acm": 55,
+  "final_included_snowball": 7
+}

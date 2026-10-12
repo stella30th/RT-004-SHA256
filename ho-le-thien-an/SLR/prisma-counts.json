@@ -1,0 +1,62 @@
+{
+  "from_year_rule": 2022,
+  "per_run": {
+    "ACM-S0": {
+      "file": "acm_ACM-S0_results.json",
+      "reported": 612,
+      "rows": 612,
+      "public": 590,
+      "locked": 22,
+      "unknown": 0,
+      "scan_started_utc": "2026-10-11T11:23:00.084Z",
+      "new_unique": 612,
+      "duplicates": 0
+    },
+    "ACM-S1": {
+      "file": "acm_ACM-S1_results.json",
+      "reported": 196,
+      "rows": 196,
+      "public": 185,
+      "locked": 10,
+      "unknown": 1,
+      "scan_started_utc": "2026-10-10T18:40:51.007Z",
+      "new_unique": 135,
+      "duplicates": 61
+    },
+    "ACM-S2": {
+      "file": "acm_ACM-S2_results.json",
+      "reported": 28,
+      "rows": 28,
+      "public": 26,
+      "locked": 2,
+      "unknown": 0,
+      "scan_started_utc": "2026-10-11T04:37:15.920Z",
+      "new_unique": 0,
+      "duplicates": 28
+    },
+    "ACM-S3": {
+      "file": "acm_ACM-S3_results.json",
+      "reported": 4,
+      "rows": 4,
+      "public": 4,
+      "locked": 0,
+      "unknown": 0,
+      "scan_started_utc": "2026-10-10T19:25:28.967Z",
+      "new_unique": 0,
+      "duplicates": 4
+    }
+  },
+  "identified_total_rows": 840,
+  "duplicates_removed": 93,
+  "unique_records": 747,
+  "flags": {
+    "PRE_2022": 1,
+    "NO_YEAR": 15,
+    "PROCEEDINGS_VOLUME": 167,
+    "LOCKED": 29,
+    "NO_PDF": 198,
+    "NO_ABSTRACT": 86,
+    "ABSTRACT_TRUNCATED": 81,
+    "NO_DOI": 0
+  }
+}
