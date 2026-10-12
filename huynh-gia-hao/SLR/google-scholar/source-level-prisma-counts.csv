@@ -1,8 +1,0 @@
-metric,value,status,note
-records_identified,600,working,"Approximate visible result slots from 6 queries x 10 pages x ~10 results/page"
-within_source_duplicates_removed,144,working,"Title-level/query-overlap count"
-unique_records_screened,456,done,"After within-GS dedup"
-records_excluded_title_screening,437,done,"Two-pass title/snippet screening"
-candidates_for_cross_source_merge,19,done,"Source-level final candidates"
-full_text_reports_assessed,,deferred,"Team stage after cross-source dedup"
-final_included_studies,,deferred,"Team stage after full-text screening"
