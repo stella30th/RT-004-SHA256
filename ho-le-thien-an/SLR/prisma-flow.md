@@ -37,7 +37,8 @@ Bộ lọc năm của cô (từ 2022): chỉ 1 bản ghi trước 2022 (ACM_0747
 | Loại E1 (nhìn toàn văn thấy không phải sinh test: ACM_0045, 0057, 0242, 0606, 0725) | 5 |
 | Loại E4 (bản hội nghị của cùng công trình, giữ bản đầy đủ hơn: ACM_0699) | 1 |
 | Loại I2 (toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra) | 90 |
-| **Đạt tiêu chí vòng 2 (ACM)** | **55** |
+| Loại EC-S (PDF dưới 4 trang: ACM_0628, ACM_0644) | 2 |
+| **Đạt tiêu chí vòng 2 (ACM)** | **53** |
 
 ## 4. Snowballing (seed ACM_0041, một lượt lùi + một lượt tiến)
 
@@ -52,41 +53,41 @@ Seed: *Using Large Language Models to Generate JUnit Tests: An Empirical Study* 
 | Vòng | Kết quả |
 |---|---|
 | Vòng 1 (tiêu đề/abstract), 76 bản ghi | Include 27, Maybe 8, loại E1 34, E2 5, E4 2 (trùng tiêu đề) |
-| Vòng 2 (35 bản ghi Include/Maybe) | Đạt tiêu chí 7; loại E3 27 (chưa có toàn văn, abstract không đủ hoặc trống); loại I2 1 |
-| **Đạt tiêu chí vòng 2 (snowballing)** | **7** |
+| Vòng 2 (35 bản ghi Include/Maybe) | Loại E3 27 (chưa có toàn văn, abstract không đủ hoặc trống); loại EC-A 7 (không có PDF để xác minh toàn văn); loại I2 1 |
+| **Đạt tiêu chí vòng 2 (snowballing)** | **0** |
 
 OpenAlex chỉ ghi 25 tham chiếu cho seed (22 tài liệu truy xuất được), có thể thiếu so với danh sách tham khảo trong PDF.
 
-## 5. Chọn lọc cho bảng tổng hợp (6 bài)
+## 5. Sáu bài trọng tâm cho bảng trích xuất
 
-Nhóm cần từ 12 bài included trở lên cho cả nhóm, nên mỗi thành viên đóng góp khoảng 6 bài. Từ 62 bài đạt tiêu chí, 6 bài được chọn theo mức liên quan với RQ: có HumanEval, có đo tỉ lệ biên dịch/chạy của test do LLM sinh, có vòng sửa theo phản hồi, có kiểu prompt, có ChatGPT/Gemini hoặc baseline người, và đọc được toàn văn.
+Từ 53 bài ACM đạt tiêu chí vòng 2, chọn 6 bài gần RQ nhất và kiểm tra trực tiếp PDF (đều từ 4 trang trở lên, có kết quả định lượng trong Table/Figure). Đây là phạm vi trích xuất hiện tại của An, không phải hạn ngạch sàng lọc: 47 bài còn lại vẫn đủ điều kiện vòng 2. Không có bài nào trong sáu bài thử đồng thời ChatGPT và Gemini trên HumanEval-Java với cùng thiết kế một lượt sửa; không suy diễn rằng chưa có bài như vậy ngoài tập tìm kiếm này.
 
 | Bài | Lý do chọn |
 |---|---|
 | ACM_0041 | HumanEval + JUnit5, 3 LLM, đo tỉ lệ biên dịch trực tiếp; bài seed |
-| ACM_0009 | ChatGPT: 57,9% test lỗi biên dịch; có vòng refine sửa lỗi biên dịch |
-| ACM_0644 | Vòng sửa theo phản hồi compiler, so zero-shot, few-shot, CoT trên 3 dự án Java |
-| ACM_0025 | HumanEval, GPT-4o, few-shot; đo compilation correctness và pass rate |
-| ACM_0001 | Prompt có cấu trúc hai bước (khớp RQ), Java; ~64% test không dùng được |
-| SB_0070 | Có Gemini và baseline người; chỉ xét theo abstract |
+| ACM_0009 | ChatGPT và ChatTester: tỷ lệ biên dịch/chạy trước và sau vòng cải thiện, trên Java |
+| ACM_0024 | TestART: tỷ lệ chạy qua và ablation của bước sửa trên Defects4J Java |
+| ACM_0004 | CATGen: compilation success rate và ablation của bước sửa trên Java |
+| ACM_0001 | Prompt có cấu trúc hai bước trên Java; đo coverage/mutation và nêu test không dùng được |
+| ACM_0025 | HumanEval, GPT-4o, few-shot và rule-based repair; nghiên cứu Python nên chỉ đối chiếu phương pháp |
 
-56 bài còn lại đạt tiêu chí nhưng không chọn, nằm ở `03_reserve_eligible.csv` (dự phòng nếu nhóm cần thêm bài). Hai bài dự phòng liên quan nhất: SB_0030 (đo lỗi biên dịch theo kiểu prompt, tới 86%) và SB_0061 (Gemini 2.5 Pro, pass rate).
+47 bài còn lại đạt tiêu chí nhưng chưa trích xuất, nằm ở `03_reserve_eligible.csv`. Các bản ghi snowballing có tín hiệu liên quan nhưng thiếu PDF không được đưa vào danh sách này.
 
 ## 6. Kết quả cuối
 
 | Nguồn | Được chọn |
 |---|---|
-| ACM (4 lượt tìm) | 5 |
-| Snowballing | 1 |
+| ACM (4 lượt tìm) | 6 |
+| Snowballing | 0 |
 | **Tổng được chọn** | **6** |
-| Đạt tiêu chí nhưng dự phòng | 56 (gồm 2 bài tổng quan: ACM_0003, SB_0007) |
+| Đạt tiêu chí nhưng chưa trích xuất | 47 |
 
 Danh sách chọn: `03_final_included.csv`. Dự phòng: `03_reserve_eligible.csv`. Bảng trích xuất: `evidence-table.md`.
 
 ## Ghi chú phương pháp và hạn chế
 
-- Tiêu chí: I1, I2, E1–E5 của sheet 05_Screening_Guide. Mã `I2` ở cột lý do loại nghĩa là bài không đạt tiêu chí bao gồm I2, ngưỡng cụ thể ở mục dưới. Mã này không có trong danh sách E1–E5, nên ghi rõ ở đây.
-- Ngưỡng I2 (vòng 2): toàn văn có ít nhất 8 câu nêu biên dịch (compile) gắn với tỉ lệ/lỗi/thành công, hoặc ít nhất 4 câu biên dịch kèm 4 câu thực thi hoặc 3 câu sửa lỗi, hoặc ít nhất 12 câu về thực thi cùng ít nhất 30 lần nhắc unit test. Số đếm nằm trong `fulltext_signals.csv`; các bài sát ngưỡng đã được đọc lại câu gốc. Ngoại lệ đọc tay: ACM_0001 (prompt có cấu trúc, toàn văn nêu test không biên dịch được) và ACM_0628 (đánh giá quy mô lớn prompting có xử lý lỗi biên dịch) được thêm vào dù chưa đạt ngưỡng đếm.
+- Tiêu chí gốc: I1, I2, E1–E5 của sheet 05_Screening_Guide. Mã `I2` ở cột lý do loại nghĩa là bài không đạt tiêu chí bao gồm I2. Bổ sung EC-S cho PDF dưới 4 trang và EC-A cho bản ghi chưa có PDF toàn văn theo hướng dẫn RBL-1. Hai mã bổ sung áp dụng ở vòng rà soát sau, không thay đổi log tìm kiếm gốc.
+- Ngưỡng I2 (vòng 2) trong pipeline cũ: toàn văn có ít nhất 8 câu nêu biên dịch (compile) gắn với tỉ lệ/lỗi/thành công, hoặc ít nhất 4 câu biên dịch kèm 4 câu thực thi hoặc 3 câu sửa lỗi, hoặc ít nhất 12 câu về thực thi cùng ít nhất 30 lần nhắc unit test. Số đếm nằm trong `fulltext_signals.csv`; các bài sát ngưỡng đã được đọc lại câu gốc. ACM_0001 được giữ sau khi đọc tay vì trực tiếp khảo sát prompt có cấu trúc và test không biên dịch được; ACM_0628 bị loại do dưới 4 trang.
 - Screening vòng 1 và vòng 2 có hỗ trợ của công cụ AI (đọc tiêu đề, abstract, toàn văn và đếm câu trong `fulltext_signals.csv`). Hồ Lê Thiên An rà soát và chịu trách nhiệm về các quyết định. Chưa có reviewer thứ hai nên `reviewer_decision` và `conflict?` để trống.
 - Năm xuất bản và abstract đầy đủ lấy từ OpenAlex theo DOI; 26 DOI không có trong OpenAlex nên dùng abstract rút gọn của ACM.
 - Bài ACM bị khoá (29 bài) không có toàn văn. Chưa bổ sung bài khoá do thành viên tải thêm.

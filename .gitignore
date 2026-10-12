@@ -39,4 +39,5 @@ workspaces/
 
 # SLR: PDF bài báo (bản quyền, nặng); chia sẻ qua Drive
 ho-le-thien-an/SLR/papers/*.pdf
+ho-le-thien-an/SLR/papers/superseded/*.pdf
 .browser-profile/

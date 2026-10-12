@@ -1,13 +1,13 @@
 ﻿record_id,round1,round1_code,round1_note,round2,round2_code,round2_note,round3,round3_note
-ACM_0001,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"cấu trúc prompt có cấu trúc (khớp RQ), bài báo cáo test không biên dịch được (compile=5, execute=0, repair=0)",Selected,"Prompt có cấu trúc hai bước (khớp RQ), Java; báo ~64% test không dùng được"
+ACM_0001,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"cấu trúc prompt có cấu trúc (khớp RQ), bài báo cáo test không biên dịch được (compile=5, execute=0, repair=0)",Selected,Prompt hai bước có cấu trúc; Java; Table 2 báo coverage và mutation score
 ACM_0002,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=10, execute=15, repair=0)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0003,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=20, execute=35, repair=7); tổng quan (secondary)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
-ACM_0004,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=52, execute=9, repair=8)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+ACM_0004,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=52, execute=9, repair=8)",Selected,CATGen trên 183 Java focal methods và Defects4J; Table 2-3 có tỷ lệ biên dịch
 ACM_0005,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn (ACM khoá/không tải được),,
 ACM_0006,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=9, execute=4, repair=3)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0007,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=42, execute=19, repair=5)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0008,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=31, execute=2, repair=3)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
-ACM_0009,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=67, execute=41, repair=0)",Selected,"ChatGPT: 57,9% test lỗi biên dịch; có vòng refine sửa lỗi biên dịch; mã nguồn công khai"
+ACM_0009,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=67, execute=41, repair=0)",Selected,ChatGPT/ChatTester; Table 7 có tỷ lệ biên dịch và chạy
 ACM_0010,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=25, execute=5, repair=0)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0011,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=13, execute=1, repair=3)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0012,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn (ACM khoá/không tải được),,
@@ -22,8 +22,8 @@ ACM_0020,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM 
 ACM_0021,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
 ACM_0022,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=8, execute=1, repair=3)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0023,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=1, execute=22, repair=0)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
-ACM_0024,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=38, execute=11, repair=15)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
-ACM_0025,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=8, execute=7, repair=4)",Selected,"HumanEval, GPT-4o, few-shot; đo compilation correctness, pass rate; dữ liệu công khai"
+ACM_0024,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=38, execute=11, repair=15)",Selected,"TestART; Java; Table 2 và 4 có lỗi biên dịch, lỗi chạy và pass rate"
+ACM_0025,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=8, execute=7, repair=4)",Selected,HumanEval Python; Table 1 có compilability và pass rate theo nguồn ví dụ
 ACM_0026,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
 ACM_0027,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,E3,Không có toàn văn (ACM khoá/không tải được),,
 ACM_0028,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
@@ -39,7 +39,7 @@ ACM_0037,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, be
 ACM_0038,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
 ACM_0039,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
 ACM_0040,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
-ACM_0041,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=39, execute=0, repair=2)",Selected,"HumanEval + JUnit5, 3 LLM, đo tỉ lệ biên dịch trực tiếp; bài seed"
+ACM_0041,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=39, execute=0, repair=2)",Selected,HumanEval Java + JUnit5; Table 1 có tỷ lệ biên dịch; seed snowballing
 ACM_0042,Exclude,E1,"Không về sinh test/unit test (sinh code, sửa lỗi, benchmark chung, hệ thống LLM...)",,,,,
 ACM_0043,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=3, execute=3, repair=0)",,
 ACM_0044,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=2, execute=13, repair=1)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
@@ -626,7 +626,7 @@ ACM_0624,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM 
 ACM_0625,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=0, repair=0)",,
 ACM_0626,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=0, execute=18, repair=2)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
 ACM_0627,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=5, execute=2, repair=1)",,
-ACM_0628,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đánh giá quy mô lớn prompting cho sinh unit test, có xử lý lỗi biên dịch (compile=3, execute=0, repair=0)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+ACM_0628,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,EC-S,PDF toàn văn 2 trang; dưới ngưỡng 4 trang của RBL-1,,
 ACM_0629,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=3, repair=0)",,
 ACM_0630,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=0, repair=0)",,
 ACM_0631,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=2, execute=8, repair=0)",,
@@ -642,7 +642,7 @@ ACM_0640,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM 
 ACM_0641,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=0, repair=0)",,
 ACM_0642,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=3, execute=11, repair=0)",,
 ACM_0643,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=3, repair=0)",,
-ACM_0644,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Include,,"đạt ngưỡng I2 (compile=6, execute=0, repair=4)",Selected,"Vòng sửa theo phản hồi compiler, so zero-shot/few-shot/CoT, tỉ lệ biên dịch theo dự án Java"
+ACM_0644,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,EC-S,PDF toàn văn 3 trang; dưới ngưỡng 4 trang của RBL-1,,
 ACM_0645,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=5, repair=0)",,
 ACM_0646,Include,,LLM sinh test/assertion/oracle hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=0, execute=0, repair=0)",,
 ACM_0647,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin trong abstract",Exclude,I2,"Toàn văn không có bằng chứng định lượng về biên dịch/chạy/sửa lỗi của test sinh ra (compile=2, execute=2, repair=2)",,
@@ -752,7 +752,7 @@ SB_0003,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0004,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0005,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0006,Exclude,E1,Không về sinh test/unit test,,,,,
-SB_0007,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,tổng quan LLM sinh test case; abstract nêu lỗi biên dịch (xét theo abstract; chưa có toàn văn),Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+SB_0007,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0008,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin",Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0009,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0010,Exclude,E1,Không về sinh test/unit test,,,,,
@@ -775,7 +775,7 @@ SB_0026,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sin
 SB_0027,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin",Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0028,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0029,Exclude,E1,Không về sinh test/unit test,,,,,
-SB_0030,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,"đánh giá quy mô lớn prompt engineering; đo compilability, hallucination (xét theo abstract; chưa có toàn văn)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+SB_0030,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0031,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0032,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0033,Exclude,E1,Không về sinh test/unit test,,,,,
@@ -785,7 +785,7 @@ SB_0036,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0037,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin",Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0038,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0039,Exclude,E1,Không về sinh test/unit test,,,,,
-SB_0040,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,AgoneTest bản tạp chí; đo tỉ lệ test biên dịch được (xét theo abstract; chưa có toàn văn),Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+SB_0040,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0041,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0042,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0043,Exclude,E2,Về test nhưng không dùng LLM/GenAI,,,,,
@@ -804,18 +804,18 @@ SB_0055,Exclude,E2,Về test nhưng không dùng LLM/GenAI,,,,,
 SB_0056,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0057,Exclude,E2,Về test nhưng không dùng LLM/GenAI,,,,,
 SB_0058,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin",Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
-SB_0059,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,"khung đánh giá, có Build & Successful Execution Rate (xét theo abstract; chưa có toàn văn)",Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+SB_0059,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0060,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
-SB_0061,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,đo test pass rate của test do LLM sinh (xét theo abstract; chưa có toàn văn),Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+SB_0061,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0062,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0063,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
-SB_0064,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,sửa test do LLM sinh bị lỗi cú pháp/phụ thuộc (xét theo abstract; chưa có toàn văn),Reserve,Đạt tiêu chí nhưng không chọn vào bảng tổng hợp (giới hạn 6 bài mỗi thành viên)
+SB_0064,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0065,Exclude,E4,"Trùng tiêu đề với SB_0053 (cùng công trình, khác bản ghi)",,,,,
 SB_0066,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0067,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
 SB_0068,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,I2,"Chỉ phân tích tĩnh AST, không có bằng chứng biên dịch/chạy",,
 SB_0069,Maybe,,"Sinh test bằng LLM nhưng ngoài mức unit test, hoặc chưa đủ thông tin",Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,
-SB_0070,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Include,,"chỉ số tin cậy; hệ thống build, repair và đo test (xét theo abstract; chưa có toàn văn)",Selected,"Có Gemini và baseline người (hai yếu tố RQ); chưa có toàn văn, xét theo abstract"
+SB_0070,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,EC-A,Chưa có PDF toàn văn trong bộ dữ liệu; abstract không đủ cho sàng lọc vòng 2,,
 SB_0071,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0072,Exclude,E1,Không về sinh test/unit test,,,,,
 SB_0073,Include,,LLM sinh unit test/test case hoặc đánh giá test do LLM sinh (I1),Exclude,E3,Không có toàn văn; abstract không đủ để xác nhận I2,,

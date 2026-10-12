@@ -10,19 +10,21 @@
     "Exclude|E4": 2
   },
   "round2": {
-    "Include|": 62,
+    "Include|": 53,
     "Exclude|E3": 40,
     "Exclude|I2": 91,
     "Exclude|E1": 5,
-    "Exclude|E4": 1
+    "Exclude|EC-S": 2,
+    "Exclude|E4": 1,
+    "Exclude|EC-A": 7
   },
   "round3": {
     "Selected": 6,
-    "Reserve": 56
+    "Reserve": 47
   },
-  "eligible_after_round2": 62,
-  "reserve_eligible": 56,
+  "eligible_after_round2": 53,
+  "reserve_eligible": 47,
   "final_included": 6,
-  "final_included_acm": 5,
-  "final_included_snowball": 1
+  "final_included_acm": 6,
+  "final_included_snowball": 0
 }

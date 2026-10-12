@@ -9,9 +9,9 @@ Nguồn chính: **ACM Digital Library**. Truy vấn dùng chung và tiêu chí I
 | `search-log.md`, `search_log.csv` | Bốn lượt tìm S0–S3, truy vấn, số hit, snowballing |
 | `01_all_records.csv` | 823 bản ghi (747 ACM + 76 snowballing), cột `source`, `seed` |
 | `02_after_screening_v1.csv` | Quyết định screening từng bản ghi (vòng 1 và vòng 2) |
-| `03_final_included.csv` | 6 bài được chọn (5 ACM + 1 snowballing); 56 bài dự phòng ở `03_reserve_eligible.csv` |
+| `03_final_included.csv` | 6 bài ACM trọng tâm có PDF toàn văn; 47 bài đủ điều kiện nhưng chưa trích xuất ở `03_reserve_eligible.csv` |
 | `prisma-flow.md` | Số liệu PRISMA và quy tắc screening |
-| `evidence-table.md`, `evidence_table.csv` | Bảng trích xuất cho 6 bài được chọn (đọc toàn văn 5 bài) |
+| `evidence-table.md`, `evidence_table.csv` | Bảng trích xuất cho 6 bài đã đọc PDF toàn văn và kiểm số từ Table/Figure |
 | `candidate_papers.csv` | Bản ghi qua vòng 1 và kết quả vòng 2 (mẫu của nhóm) |
 
 ## Dữ liệu và công cụ
@@ -22,7 +22,7 @@ Nguồn chính: **ACM Digital Library**. Truy vấn dùng chung và tiêu chí I
 | `enrichment/openalex_by_doi.json` | Năm xuất bản và abstract đầy đủ theo DOI (OpenAlex) |
 | `snowball/` | Dữ liệu snowballing của seed ACM_0041 |
 | `records_audit.csv`, `duplicate-log.csv`, `prisma-counts*.json`, `fulltext_signals.csv`, `screening_decisions.csv` | Dữ liệu kiểm tra và quyết định screening |
-| `papers/` | PDF các bài included (không đưa lên git, xem `papers/README.md`) |
+| `papers/` | PDF sáu bài trọng tâm (không đưa lên git, xem `papers/README.md`) |
 | `tools/` | Script Python tái tạo toàn bộ kết quả |
 
 ## Chạy lại
