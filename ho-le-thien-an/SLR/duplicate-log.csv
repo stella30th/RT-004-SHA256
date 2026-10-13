@@ -1,0 +1,94 @@
+﻿kept_record_id,dup_run,dup_rank,dup_title,matched_by,same_run
+ACM_0002,ACM-S1,1,Reference-Based Retrieval-Augmented Unit Test Generation,DOI,no
+ACM_0008,ACM-S1,2,Understanding and Mitigating Hallucinations in Industrial LLM-based Unit Test Generation,DOI,no
+ACM_0004,ACM-S1,7,Context Matters: Improving the Practical Reliability of LLM-Based Unit Test Generation (Experience Paper),DOI,no
+ACM_0012,ACM-S1,10,Rug: Turbo LLM for Rust Unit Test Generation,DOI,no
+ACM_0005,ACM-S1,11,Test Intention Guided LLM-Based Unit Test Generation,DOI,no
+ACM_0003,ACM-S1,12,Enhancing Automated Unit Test Generation with Large Language Models: A Systematic Literature Review,DOI,no
+ACM_0006,ACM-S1,13,Leveraging GPT-4 for Vulnerability-Witnessing Unit Test Generation,DOI,no
+ACM_0165,ACM-S1,15,Domain Adaptation for Code Model-Based Unit Test Case Generation,DOI,no
+ACM_0009,ACM-S1,19,Evaluating and Improving ChatGPT for Unit Test Generation,DOI,no
+ACM_0001,ACM-S1,20,From Scenario to Code: Structured Prompting for LLM-Based Unit Test Generation,DOI,no
+ACM_0007,ACM-S1,22,CITYWALK: Enhancing LLM-Based C++ Unit Test Generation via Project-Dependency Awareness and Language-Specific Knowledge,DOI,no
+ACM_0015,ACM-S1,23,JUnitGenie: A Framework for Path-Sensitive Unit Test Generation with Large Language Models,DOI,no
+ACM_0014,ACM-S1,28,STRUT: Structured Seed Case Guided Unit Test Generation for C Programs using LLMs,DOI,no
+ACM_0011,ACM-S1,29,On the Evaluation of Large Language Models in Unit Test Generation,DOI,no
+ACM_0010,ACM-S1,30,Automated Unit Test Generation via Chain-of-Thought Prompt and Reinforcement Learning from Coverage Feedback,DOI,no
+ACM_0019,ACM-S1,31,An initial investigation of ChatGPT unit test generation capability,DOI,no
+ACM_0013,ACM-S1,32,Less Is More: On the Importance of Data Quality for Unit Test Generation,DOI,no
+ACM_0017,ACM-S1,33,HITS: High-coverage LLM-based Unit Test Generation via Method Slicing,DOI,no
+ACM_0020,ACM-S1,36,Unit Test Generation using Large Language Models for Unity Game Development,DOI,no
+ACM_0016,ACM-S1,37,Unit Test Generation using Generative AI : A Comparative Performance Analysis of Autogeneration Tools,DOI,no
+ACM_0056,ACM-S1,39,Retrieval-Augmented Unit Test Suggestion Generation,DOI,no
+ACM_0103,ACM-S1,41,"Test Case Generation Using Large Language Models: Review, Classification and Challenges",DOI,no
+ACM_0185,ACM-S1,42,Evaluating LLM-Based Regression Test Generation,DOI,no
+ACM_0023,ACM-S1,45,Retrieval-Augmented Test Generation: How Far Are We?,DOI,no
+ACM_0162,ACM-S1,47,Type-aware LLM-based Test Generation for Python Programs,DOI,no
+ACM_0118,ACM-S1,49,On the Evaluation of Large Language Models in Unit Test Evolution (Experience Paper),DOI,no
+ACM_0270,ACM-S1,59,Just-in-Time Catching Test Generation at Meta,DOI,no
+ACM_0128,ACM-S1,61,Less Is More: Failing Test Generation with Large Language Models,DOI,no
+ACM_0027,ACM-S1,76,TestSpark: IntelliJ IDEA's Ultimate Test Generation Companion,DOI,no
+ACM_0189,ACM-S1,81,Tracking the Moving Target: A Framework for Continuous Evaluation of LLM Test Generation in Industry,DOI,no
+ACM_0379,ACM-S1,85,Automated Unit Test Improvement using Large Language Models at Meta,DOI,no
+ACM_0610,ACM-S1,86,Code-Aware Prompting: A Study of Coverage-Guided Test Generation in Regression Setting using LLM,DOI,no
+ACM_0376,ACM-S1,90,Using GitHub Copilot for Test Generation in Python: An Empirical Study,DOI,no
+ACM_0024,ACM-S1,93,TestART: Improving LLM-based Unit Testing via Co-evolution of Automated Generation and Repair Iteration,DOI,no
+ACM_0022,ACM-S1,94,Evaluating and Mitigating the Misguidance Effect of Buggy Code in LLM-Generated Unit Tests,DOI,no
+ACM_0041,ACM-S1,95,Using Large Language Models to Generate JUnit Tests: An Empirical Study,DOI,no
+ACM_0043,ACM-S1,97,On the Diffusion of Test Smells in LLM-Generated Unit Tests,DOI,no
+ACM_0044,ACM-S1,98,VibeCheck: Assessing the Quality of LLM-Generated Unit Tests: A Multi-agent Empirical Study across Heterogeneous Repositories,DOI,no
+ACM_0074,ACM-S1,99,Can LLMs Make Software Testing Greener? An Empirical Study on JUnit Test Energy Reengineering,DOI,no
+ACM_0124,ACM-S1,102,Reducing Hallucinations in LLM-Generated Code via Semantic Triangulation,DOI,no
+ACM_0055,ACM-S1,103,Bug Whisperer: Unleashing LLMs to Craft Context-Aware Tests Guided by Path Constraints and Bug Clues,DOI,no
+ACM_0121,ACM-S1,104,Do Coverage and Mutation Scores of LLM-Generated Test Suites Correlate with Their Effectiveness? (Replicability Study),DOI,no
+ACM_0062,ACM-S1,107,TestTailor: Generating High-Coverage Tests via Path-Proximal Tests with LLMs,DOI,no
+ACM_0032,ACM-S1,114,Nuances Are the Key: Unlocking ChatGPT to Find Failure-Inducing Tests with Differential Prompting,DOI,no
+ACM_0066,ACM-S1,116,Unrestricted Use of LLMs in a Software Project Course: Student Perceptions on Learning and Impact on Course Performance,DOI,no
+ACM_0262,ACM-S1,118,Can Vibe Coding Beat Graduate CS Students? An LLM vs. Human Coding Tournament on Market-driven Strategic Planning,DOI,no
+ACM_0060,ACM-S1,123,STARS: Static Analysis-Guided Assertion Synthesis using Large Language Models,DOI,no
+ACM_0025,ACM-S1,129,Automated Test Suite Enhancement Using Large Language Models with Few-shot Prompting,DOI,no
+ACM_0152,ACM-S1,139,From Greedy Steps to Global Optimization: Learning Sequential Test Suite Generation,DOI,no
+ACM_0071,ACM-S1,143,Beyond Coverage: Automatic Test Suite Augmentation for Enhanced Effectiveness using Large Language Models,DOI,no
+ACM_0248,ACM-S1,145,Breaking the Silence: the Threats of Using LLMs in Software Engineering,DOI,no
+ACM_0428,ACM-S1,161,A Large-Scale Empirical Study on Fine-Tuning Large Language Models for Unit Testing,DOI,no
+ACM_0129,ACM-S1,162,LLM4Code '26: Proceedings of the 3rd International Workshop on Large Language Models For Code,DOI,no
+ACM_0608,ACM-S1,171,Advancing Code Coverage: Incorporating Program Analysis with Large Language Models,DOI,no
+ACM_0399,ACM-S1,173,Quality Assessment of Python Tests Generated by Large Language Models,DOI,no
+ACM_0501,ACM-S1,181,LlamaRestTest: Effective REST API Testing with Small Language Models,DOI,no
+ACM_0294,ACM-S1,184,Exploring Automated Assertion Generation via Large Language Models,DOI,no
+ACM_0212,ACM-S1,188,LLM4Code '24: Proceedings of the 1st International Workshop on Large Language Models for Code,DOI,no
+ACM_0072,ACM-S1,191,CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios,DOI,no
+ACM_0058,ACM-S1,192,Natural Symbolic Execution-Based Testing for Big Data Analytics,DOI,no
+ACM_0057,ACM-S1,194,WhiteFox: White-Box Compiler Fuzzing Empowered by Large Language Models,DOI,no
+ACM_0711,ACM-S2,1,A Survey on Feedback Types in Automated Programming Assessment Systems,DOI,no
+ACM_0024,ACM-S2,2,TestART: Improving LLM-based Unit Testing via Co-evolution of Automated Generation and Repair Iteration,DOI,no
+ACM_0614,ACM-S2,3,Fusing LLMs and Genetic Algorithm for High-Quality Unit Test Generation,DOI,no
+ACM_0118,ACM-S2,4,On the Evaluation of Large Language Models in Unit Test Evolution (Experience Paper),DOI,no
+ACM_0004,ACM-S2,5,Context Matters: Improving the Practical Reliability of LLM-Based Unit Test Generation (Experience Paper),DOI,no
+ACM_0698,ACM-S2,6,Finding Typing-Related Bugs in JVM Implementations,DOI,no
+ACM_0657,ACM-S2,7,Understandable Test Generation Through Capture/Replay and LLMs,DOI,no
+ACM_0003,ACM-S2,8,Enhancing Automated Unit Test Generation with Large Language Models: A Systematic Literature Review,DOI,no
+ACM_0701,ACM-S2,9,Toward a Multi-Agent System for Reliable Mocking of Static Methods and Continuous Integration,DOI,no
+ACM_0007,ACM-S2,10,CITYWALK: Enhancing LLM-Based C++ Unit Test Generation via Project-Dependency Awareness and Language-Specific Knowledge,DOI,no
+ACM_0012,ACM-S2,11,Rug: Turbo LLM for Rust Unit Test Generation,DOI,no
+ACM_0676,ACM-S2,12,RefAgent: A Multi-agent LLM-based Framework for Automatic Software Refactoring,DOI,no
+ACM_0008,ACM-S2,13,Understanding and Mitigating Hallucinations in Industrial LLM-based Unit Test Generation,DOI,no
+ACM_0009,ACM-S2,14,Evaluating and Improving ChatGPT for Unit Test Generation,DOI,no
+ACM_0712,ACM-S2,15,Automated Testing of COBOL to Java Transformation,DOI,no
+ACM_0635,ACM-S2,16,UTFix: Change Aware Unit Test Repairing using LLM,DOI,no
+ACM_0694,ACM-S2,17,Automated Validation of COBOL to Java Transformation,DOI,no
+ACM_0648,ACM-S2,18,ChatUniTest: A Framework for LLM-Based Test Generation,DOI,no
+ACM_0618,ACM-S2,19,TestAgent: A Multi-Agent LLM Framework for Repository-Level Unit Test Generation,DOI,no
+ACM_0626,ACM-S2,20,Synthesizing File-Level Data for Unit Test Generation with Chain-of-Thoughts via Self-Debugging,DOI,no
+ACM_0060,ACM-S2,21,STARS: Static Analysis-Guided Assertion Synthesis using Large Language Models,DOI,no
+ACM_0055,ACM-S2,22,Bug Whisperer: Unleashing LLMs to Craft Context-Aware Tests Guided by Path Constraints and Bug Clues,DOI,no
+ACM_0043,ACM-S2,23,On the Diffusion of Test Smells in LLM-Generated Unit Tests,DOI,no
+ACM_0056,ACM-S2,24,Retrieval-Augmented Unit Test Suggestion Generation,DOI,no
+ACM_0071,ACM-S2,25,Beyond Coverage: Automatic Test Suite Augmentation for Enhanced Effectiveness using Large Language Models,DOI,no
+ACM_0678,ACM-S2,26,Reality Check: Assessing GPT-4 in Fixing Real-World Software Vulnerabilities,DOI,no
+ACM_0294,ACM-S2,27,Exploring Automated Assertion Generation via Large Language Models,DOI,no
+ACM_0032,ACM-S2,28,Nuances Are the Key: Unlocking ChatGPT to Find Failure-Inducing Tests with Differential Prompting,DOI,no
+ACM_0041,ACM-S3,1,Using Large Language Models to Generate JUnit Tests: An Empirical Study,DOI,no
+ACM_0025,ACM-S3,2,Automated Test Suite Enhancement Using Large Language Models with Few-shot Prompting,DOI,no
+ACM_0688,ACM-S3,3,From Prompts to Properties: Rethinking LLM Code Generation with Property-Based Testing,DOI,no
+ACM_0735,ACM-S3,4,Generating Software Tests for Mobile Applications Using Fine-Tuned Large Language Models,DOI,no

@@ -1,0 +1,200 @@
+﻿record_id,title,year,pdf_found,text_chars,unit_test_mentions,compile_evidence,execute_evidence,repair_evidence
+ACM_0001,From Scenario to Code: Structured Prompting for LLM-Based Unit Test Generation,2025,yes,31733,51,5,0,0
+ACM_0002,Reference-Based Retrieval-Augmented Unit Test Generation,2025,yes,98091,205,10,15,0
+ACM_0003,Enhancing Automated Unit Test Generation with Large Language Models: A Systematic Literature Review,2026,yes,177084,248,20,35,7
+ACM_0004,Context Matters: Improving the Practical Reliability of LLM-Based Unit Test Generation (Experience Paper),2026,yes,76853,49,52,9,8
+ACM_0005,Test Intention Guided LLM-Based Unit Test Generation,2025,no,0,0,0,0,0
+ACM_0006,Leveraging GPT-4 for Vulnerability-Witnessing Unit Test Generation,2025,yes,54609,62,9,4,3
+ACM_0007,CITYWALK: Enhancing LLM-Based C++ Unit Test Generation via Project-Dependency Awareness and Language-Specific Knowledge,2025,yes,97589,213,42,19,5
+ACM_0008,Understanding and Mitigating Hallucinations in Industrial LLM-based Unit Test Generation,2026,yes,58752,95,31,2,3
+ACM_0009,Evaluating and Improving ChatGPT for Unit Test Generation,2024,yes,67749,58,67,41,0
+ACM_0010,Automated Unit Test Generation via Chain-of-Thought Prompt and Reinforcement Learning from Coverage Feedback,2025,yes,93391,84,25,5,0
+ACM_0011,On the Evaluation of Large Language Models in Unit Test Generation,2024,yes,67547,185,13,1,3
+ACM_0012,Rug: Turbo LLM for Rust Unit Test Generation,2025,no,0,0,0,0,0
+ACM_0013,Less Is More: On the Importance of Data Quality for Unit Test Generation,2025,yes,77500,113,14,1,0
+ACM_0014,STRUT: Structured Seed Case Guided Unit Test Generation for C Programs using LLMs,2025,yes,68931,192,13,16,1
+ACM_0015,JUnitGenie: A Framework for Path-Sensitive Unit Test Generation with Large Language Models,2026,yes,22710,17,4,5,2
+ACM_0016,Unit Test Generation using Generative AI : A Comparative Performance Analysis of Autogeneration Tools,2024,yes,32197,60,2,0,0
+ACM_0017,HITS: High-coverage LLM-based Unit Test Generation via Method Slicing,2024,yes,53928,92,4,14,3
+ACM_0019,An initial investigation of ChatGPT unit test generation capability,2023,yes,50188,70,0,5,0
+ACM_0020,Unit Test Generation using Large Language Models for Unity Game Development,2024,yes,37573,47,2,3,0
+ACM_0022,Evaluating and Mitigating the Misguidance Effect of Buggy Code in LLM-Generated Unit Tests,2026,yes,81304,48,8,1,3
+ACM_0023,Retrieval-Augmented Test Generation: How Far Are We?,2026,yes,69109,84,1,22,0
+ACM_0024,TestART: Improving LLM-based Unit Testing via Co-evolution of Automated Generation and Repair Iteration,2026,yes,78119,169,38,11,15
+ACM_0025,Automated Test Suite Enhancement Using Large Language Models with Few-shot Prompting,2026,yes,64317,111,8,7,4
+ACM_0027,TestSpark: IntelliJ IDEA's Ultimate Test Generation Companion,2024,no,0,0,0,0,0
+ACM_0032,Nuances Are the Key: Unlocking ChatGPT to Find Failure-Inducing Tests with Differential Prompting,2023,no,0,0,0,0,0
+ACM_0041,Using Large Language Models to Generate JUnit Tests: An Empirical Study,2024,yes,57446,107,39,0,2
+ACM_0043,On the Diffusion of Test Smells in LLM-Generated Unit Tests,2026,yes,169420,68,3,3,0
+ACM_0044,VibeCheck: Assessing the Quality of LLM-Generated Unit Tests: A Multi-agent Empirical Study across Heterogeneous Repositories,2026,yes,42525,33,2,13,1
+ACM_0045,FitGen: Validation and Guided Repair of LLM Generated Executable Fitness Functions for Search Based Software Testing,2026,yes,41624,1,9,8,1
+ACM_0055,Bug Whisperer: Unleashing LLMs to Craft Context-Aware Tests Guided by Path Constraints and Bug Clues,2026,yes,114623,112,30,13,1
+ACM_0056,Retrieval-Augmented Unit Test Suggestion Generation,2026,yes,102569,69,7,8,0
+ACM_0057,WhiteFox: White-Box Compiler Fuzzing Empowered by Large Language Models,2024,yes,89313,11,19,2,1
+ACM_0058,Natural Symbolic Execution-Based Testing for Big Data Analytics,2024,yes,73847,9,0,17,0
+ACM_0060,STARS: Static Analysis-Guided Assertion Synthesis using Large Language Models,2026,yes,83257,17,7,2,2
+ACM_0062,TestTailor: Generating High-Coverage Tests via Path-Proximal Tests with LLMs,2026,yes,71029,37,3,7,1
+ACM_0068,Sakura: An Approach for Generating Complex Tests from Natural Language Test Descriptions,2026,yes,81926,9,17,6,0
+ACM_0071,Beyond Coverage: Automatic Test Suite Augmentation for Enhanced Effectiveness using Large Language Models,2026,yes,89978,170,11,7,5
+ACM_0072,CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios,2024,yes,69783,33,2,1,0
+ACM_0074,Can LLMs Make Software Testing Greener? An Empirical Study on JUnit Test Energy Reengineering,2026,yes,60376,45,0,4,0
+ACM_0094,Towards Understanding the Effectiveness of Large Language Models on Directed Test Input Generation,2024,yes,64835,16,0,5,0
+ACM_0101,An Empirical Study on Focal Methods in Deep-Learning-Based Approaches for Assertion Generation,2024,yes,71353,82,0,0,0
+ACM_0103,"Test Case Generation Using Large Language Models: Review, Classification and Challenges",2026,yes,40949,31,2,5,0
+ACM_0113,Towards More Realistic Assertion Generation under Mixed-Assertion Scenario,2026,yes,84354,19,5,6,2
+ACM_0118,On the Evaluation of Large Language Models in Unit Test Evolution (Experience Paper),2026,yes,81885,70,17,10,6
+ACM_0121,Do Coverage and Mutation Scores of LLM-Generated Test Suites Correlate with Their Effectiveness? (Replicability Study),2026,yes,74580,18,8,0,1
+ACM_0128,Less Is More: Failing Test Generation with Large Language Models,2026,yes,113301,33,1,8,0
+ACM_0132,RAT: Retrieval-Augmented Testing of Certificate Revocation List Parsers in TLS Implementations,2026,yes,69277,35,0,1,0
+ACM_0152,From Greedy Steps to Global Optimization: Learning Sequential Test Suite Generation,2026,yes,75899,60,6,33,0
+ACM_0156,Leveraging Change Types and Contexts to Guide LLMs for Automated Test Code Updating,2026,yes,50346,22,2,0,1
+ACM_0162,Type-aware LLM-based Test Generation for Python Programs,2026,yes,73913,87,0,11,4
+ACM_0165,Domain Adaptation for Code Model-Based Unit Test Case Generation,2024,yes,66634,152,23,3,1
+ACM_0174,Test Oracle Automation in the Era of LLMs,2025,yes,69373,77,0,3,0
+ACM_0185,Evaluating LLM-Based Regression Test Generation,2026,yes,84449,78,0,10,0
+ACM_0187,LLM-Powered On-Demand Test Suites in Self-Graded Student Programming Assignments,2026,yes,22350,46,0,4,0
+ACM_0189,Tracking the Moving Target: A Framework for Continuous Evaluation of LLM Test Generation in Industry,2025,yes,53472,17,12,2,0
+ACM_0198,"Preemptive, Buffered, or Guided? Empirical Studies on Human–AI Interaction Strategies for Software Test Case Development",2026,yes,109412,145,0,0,0
+ACM_0211,Make LLM a Testing Expert: Bringing Human-like Interaction to Mobile GUI Testing via Functionality-aware Decisions,2024,yes,61543,2,0,1,0
+ACM_0234,MioHint: LLM-Assisted Request Mutation for Whitebox REST API Testing,2026,yes,68191,40,0,2,0
+ACM_0242,LLM4JMH: Studying the Use of LLMs for Generating Java Performance Microbenchmarks,2026,yes,69529,11,5,6,0
+ACM_0253,LLMs for Intelligent Software Testing: A Comparative Study,2024,yes,34979,25,1,1,0
+ACM_0270,Just-in-Time Catching Test Generation at Meta,2026,yes,56013,17,0,3,0
+ACM_0273,LLM4VV: Exploring LLM-as-a-Judge for Validation and Verification Testsuites,2024,no,0,0,0,0,0
+ACM_0277,MR-Coupler: Automated Metamorphic Test Generation via Functional Coupling Analysis,2026,yes,81137,20,2,13,0
+ACM_0294,Exploring Automated Assertion Generation via Large Language Models,2024,yes,81662,33,0,1,0
+ACM_0360,Improving Deep Assertion Generation via Fine-Tuning Retrieval-Augmented Pre-Trained Language Models,2025,yes,72470,18,0,0,0
+ACM_0362,Large Language Models Are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via Large Language Models,2023,yes,72206,8,1,3,0
+ACM_0376,Using GitHub Copilot for Test Generation in Python: An Empirical Study,2024,yes,60068,11,2,1,0
+ACM_0379,Automated Unit Test Improvement using Large Language Models at Meta,2024,yes,60774,79,0,5,0
+ACM_0399,Quality Assessment of Python Tests Generated by Large Language Models,2025,yes,51107,22,0,4,0
+ACM_0417,Fuzz4All: Universal Fuzzing with Large Language Models,2024,yes,67014,4,7,0,0
+ACM_0428,A Large-Scale Empirical Study on Fine-Tuning Large Language Models for Unit Testing,2025,yes,72641,67,1,3,0
+ACM_0487,Probe to Generate: Program Variant-Guided Test Augmentation for Repository-Level Repair Benchmarks,2026,yes,68615,3,0,4,1
+ACM_0488,Testing the Limits: Unusual Text Inputs Generation for Mobile App Crash Detection with Large Language Model,2024,no,0,0,0,0,0
+ACM_0501,LlamaRestTest: Effective REST API Testing with Small Language Models,2025,yes,77421,9,0,0,1
+ACM_0527,A Survey of Testing Techniques Based on Large Language Models,2024,no,0,0,0,0,0
+ACM_0606,HarnessLLM: Rust Verification Harness Generation with Large Language Models,2026,yes,62237,19,12,3,4
+ACM_0608,Advancing Code Coverage: Incorporating Program Analysis with Large Language Models,2025,yes,93354,18,1,9,0
+ACM_0610,Code-Aware Prompting: A Study of Coverage-Guided Test Generation in Regression Setting using LLM,2024,yes,62880,24,0,9,1
+ACM_0613,SCOUT: A Scenario-Guided Unit Test Generation Tool for Compact Open-Source LLMs,2026,yes,23816,34,5,4,1
+ACM_0614,Fusing LLMs and Genetic Algorithm for High-Quality Unit Test Generation,2026,yes,111913,69,14,26,10
+ACM_0615,Test vs Mutant: Adversarial LLM Agents for Robust Unit Test Generation,2026,yes,67724,59,10,4,0
+ACM_0616,Benchmarking LLMs for Unit Test Generation from Real-World Functions,2026,yes,116564,144,1,15,0
+ACM_0617,Uncovering Business Logic Bugs via Semantics-Driven Unit Test Generation (Experience Paper),2026,yes,79604,51,7,4,4
+ACM_0618,TestAgent: A Multi-Agent LLM Framework for Repository-Level Unit Test Generation,2026,yes,21292,35,6,10,0
+ACM_0619,WiseUT: An Intelligent Framework for Unit Test Generation,2026,yes,20506,19,1,1,0
+ACM_0620,Knowledge Matters: Injecting Project and Testing Knowledge into LLM-based Unit Test Generation,2026,yes,67579,92,9,10,4
+ACM_0621,"EvoLLM: High-Coverage, Readable, and Token-Efficient Unit Test Generation for Industrial Java Codebases",2026,yes,68329,16,11,22,2
+ACM_0622,LSPRAG: LSP-Guided RAG for Language-Agnostic Real-Time Unit Test Generation,2026,yes,66352,58,5,2,3
+ACM_0623,Static Program Analysis Guided LLM Based Unit Test Generation,2024,yes,19214,47,1,0,0
+ACM_0624,JSTestCraft: Addressing Context Deficits in JavaScript Unit Test Generation via Agentic Multi-Level Contextual Analysis,2026,yes,110914,45,1,28,1
+ACM_0625,Large Language Model-based Test Case Generation for GP Agents,2024,yes,51313,104,0,0,0
+ACM_0626,Synthesizing File-Level Data for Unit Test Generation with Chain-of-Thoughts via Self-Debugging,2026,yes,61105,61,0,18,2
+ACM_0627,LSPAI: An IDE Plugin for LLM-Powered Multi-Language Unit Test Generation with Language Server Protocol,2025,yes,31666,67,5,2,1
+ACM_0628,LLMs and Prompting for Unit Test Generation: A Large-Scale Evaluation,2024,yes,8393,7,3,0,0
+ACM_0629,Optimizing Search-Based Unit Test Generation with Large Language Models: An Empirical Study,2024,yes,46558,60,0,3,0
+ACM_0630,Accurate Specification Recovery for Effective Test Generation,2026,yes,11725,1,0,0,0
+ACM_0631,LLM-Based Test Case Generation in DBMS through Monte Carlo Tree Search,2026,yes,56407,77,2,8,0
+ACM_0632,LLM Test Generation via Iterative Hybrid Program Analysis,2026,yes,60681,29,4,0,5
+ACM_0633,Hallucination to Consensus: Multi-Agent LLMs for End-to-End JUnit Test Generation,2026,yes,85243,77,3,3,1
+ACM_0635,UTFix: Change Aware Unit Test Repairing using LLM,2025,yes,78782,82,5,4,32
+ACM_0636,Evaluating the Complex Reasoning and Performance Capabilities of Large Language Models for Test Case Generation,2026,yes,35694,39,0,1,0
+ACM_0637,PALM: Path-aware LLM-based Test Generation with Comprehension,2026,yes,51330,6,0,11,0
+ACM_0638,Leveraging Large Language Models for Automated Discriminatory Test Generation,2026,yes,37420,4,0,1,0
+ACM_0639,Beyond Input Maturity: Evolving LLM-Based Test Generation,2026,yes,27990,1,0,4,0
+ACM_0640,ConUT: Condition-Aware Test Generation for Complex Java Code,2026,yes,72500,37,5,10,1
+ACM_0641,Test Case Generation for Requirements in Natural Language - An LLM Comparison Study,2025,yes,22850,75,0,0,0
+ACM_0642,AutoHIL: LLM-Based ECU Functional Test Generation through Domain Knowledge Augmentation,2026,yes,80612,5,3,11,0
+ACM_0643,FAiLGen: Calibrating LLM for Failing Test Generation with Monte Carlo Tree Search,2026,yes,66165,19,0,3,0
+ACM_0644,A Qualitative and Quantitative Exploration of LLM-Based Test Generation Repair Loops,2026,yes,10815,3,6,0,4
+ACM_0645,LIReDroid: LLM-Enhanced Test Case Generation for Static Sensitive Behavior Replication,2024,yes,23006,4,0,5,0
+ACM_0646,Mutation-Guided LLM-based Test Generation at Meta,2025,yes,57899,22,0,0,0
+ACM_0647,Bug Relevant Test Generation for Better Fault Localization,2026,yes,8742,3,2,2,2
+ACM_0648,ChatUniTest: A Framework for LLM-Based Test Generation,2024,yes,24511,27,8,0,4
+ACM_0649,LLM4Fin: Fully Automating LLM-Powered Test Case Generation for FinTech Software Acceptance Testing,2024,yes,70636,115,0,2,0
+ACM_0650,Grounding AI Agents in Contracts: An Empirical Evaluation of Spec-Driven Test Generation,2026,yes,59186,4,4,2,5
+ACM_0651,SAINT: Service-level Integration Test Generation with Program Analysis and LLM-based Agents,2026,yes,71675,12,1,1,0
+ACM_0652,Measuring the Influence of Incorrect Code on Test Generation,2026,yes,69911,139,0,5,0
+ACM_0653,LogiDroid: Individual Functional Test Generation via Business Logic Extraction and Adaptation,2026,yes,94792,165,0,6,0
+ACM_0655,RustGTC: Constraint-Guided Test Generation for Rust APIs via Comment Analysis and Code Context,2026,yes,69191,19,20,2,11
+ACM_0656,iCoRe: An Iterative Correlation-Aware Retriever for Bug Reproduction Test Generation,2026,yes,80840,20,0,4,3
+ACM_0657,Understandable Test Generation Through Capture/Replay and LLMs,2024,yes,11536,32,0,1,0
+ACM_0658,Feature-Driven End-to-End Test Generation,2025,no,0,0,0,0,0
+ACM_0659,PRIMG : Efficient LLM-driven Test Generation Using Mutant Prioritization,2025,yes,49378,93,5,0,2
+ACM_0660,CoverUp: Effective High Coverage Test Generation for Python,2025,yes,65344,7,2,0,5
+ACM_0661,Large Language Models for Automated Web-Form-Test Generation: An Empirical Study,2025,yes,109597,8,0,2,0
+ACM_0662,CASCADE: Detecting Inconsistencies between Code and Documentation with Automatic Test Generation,2026,yes,75002,30,1,4,1
+ACM_0663,Semantic Constraint Inference for Web Form Test Generation,2024,yes,64581,23,0,0,0
+ACM_0664,ChatGPT-Based Test Generation for Refactoring Engines Enhanced by Feature Analysis on Examples,2025,no,0,0,0,0,0
+ACM_0665,Large Language Models for Automated Web-Form-Test Generation: An Empirical Study — RCR Report,2026,yes,21289,0,0,1,0
+ACM_0666,Domain Knowledge is All You Need: A Field Deployment of LLM-Powered Test Case Generation in FinTech Domain,2024,yes,11419,17,0,0,0
+ACM_0668,Doc2Test: An Industrial Multi-agent Framework for Document-Driven End-to-End Selenium Test Generation,2026,yes,65297,3,0,5,1
+ACM_0669,Using a Large Language Model as a Building Block to Generate UsableValidation and Verification Suite for OpenMP,2025,yes,48091,3,13,7,2
+ACM_0670,Automated Software Test Generation at Industry Scale Using a Multi-Agent Architecture and Workflow Integration,2026,yes,56430,23,1,8,2
+ACM_0671,CodaMosa: Escaping Coverage Plateaus in Test Generation with Pre-Trained Large Language Models,2023,no,0,0,0,0,0
+ACM_0673,kS-LLM: k-Step based Automatic LLM Test Case Generator using Caching Mechanism to Achieve Higher Code Coverage,2026,yes,30973,60,0,2,0
+ACM_0677,On the Flakiness of LLM-Generated Tests for Industrial and Open-Source Database Management Systems,2026,yes,59324,13,11,9,0
+ACM_0679,Correct According to Whom? Auditing What LLM-Generated Tests Actually Check,2026,yes,12237,3,1,0,0
+ACM_0681,Is Three the Magic Number? An Empirical Evaluation of LLM-Based Repair Loops,2026,yes,22168,2,2,4,1
+ACM_0682,Whose Specification Did You Test? The Hidden Interpretation Bias in LLM-Generated Test Suites,2026,yes,19410,0,0,0,0
+ACM_0683,Scenario-Guided LLM-based Mobile App GUI Testing,2026,yes,138775,7,0,22,2
+ACM_0684,LLM-Assisted Input-Requirement-Aware Differential Testing of Array Programming Frameworks,2026,yes,80611,4,0,1,0
+ACM_0690,Harden and Catch for Just-in-Time Assured LLM-Based Software Testing: Open Research Challenges,2025,yes,91912,19,0,2,1
+ACM_0691,Pay Attention! Human-Centric Improvements of LLM-based Interfaces for Assisting Software Test Case Development,2024,yes,12966,14,0,0,0
+ACM_0695,exLong: Generating Exceptional Behavior Tests with Large Language Models,2025,no,0,0,0,0,0
+ACM_0696,Large Language Models are Few-Shot Testers: Exploring LLM-Based General Bug Reproduction,2023,no,0,0,0,0,0
+ACM_0697,UniTSyn: A Large-Scale Dataset Capable of Enhancing the Prowess of Large Language Models for Program Testing,2024,yes,58615,42,0,2,0
+ACM_0699,AgoneTest: Automated creation and assessment of Unit tests leveraging Large Language Models,2024,yes,9472,14,3,1,0
+ACM_0701,Toward a Multi-Agent System for Reliable Mocking of Static Methods and Continuous Integration,2026,yes,11357,19,4,2,0
+ACM_0704,"TestWeaver: Execution-aware, Feedback-driven Regression Testing Generation with Large Language Models",2026,yes,66731,109,3,24,0
+ACM_0708,Assertion Messages with Large Language Models (LLMs) for Code,2025,yes,49765,3,0,0,0
+ACM_0714,UAgent: Adversarial Co-evolution for Targeted Bug Revelation in Unit Testing,2025,yes,32314,31,3,3,1
+ACM_0717,CTForge: Automatically Generating Test Suites for Software Configuration,2026,yes,61609,13,1,7,1
+ACM_0719,Generating Project-Specific Test Cases with Requirement Validation Intention,2026,yes,78020,33,12,13,3
+ACM_0721,Generalizing Test Cases for Comprehensive Test Scenario Coverage,2026,yes,82350,45,7,7,2
+ACM_0722,KQFuzz: Knowledge-Guided Fuzzing for Quantum Libraries via Large Language Models,2026,yes,63920,14,1,5,0
+ACM_0723,LLMutantKiller: Using Large Language Models to Generate Tests That Kill Mutants,2026,yes,77511,36,2,5,0
+ACM_0725,From Prompts to Pareto Fronts: Using Code LMs as Semantic Genetic Operators for Compiler Bug Discovery,2026,yes,42184,4,17,3,1
+ACM_0728,An Empirical Analysis of Test Failures in AI-Generated Pull Requests,2026,yes,23227,3,23,6,2
+ACM_0732,Testora: Using Natural Language Intent to Detect Behavioral Regressions,2026,yes,61689,34,0,1,0
+ACM_0734,Automated Knowledge-Aware Test Reuse,2026,yes,101657,14,7,2,1
+ACM_0735,Generating Software Tests for Mobile Applications Using Fine-Tuned Large Language Models,2024,yes,7482,17,0,0,0
+ACM_0737,CAT-LM Training Language Models on Aligned Code and Tests,2023,no,0,0,0,0,0
+ACM_0740,"Change And Cover: Last-Mile, Pull Request-Based Regression Test Augmentation",2026,yes,61412,16,0,1,3
+ACM_0743,Enhancing the Resiliency of Automated Web Tests with Natural Language,2024,yes,33497,5,0,3,0
+SB_0007,A Review of Large Language Models for Automated Test Case Generation,2025,no,0,0,0,0,0
+SB_0008,Leveraging Large Language Models for Enhancing the Understandability of Generated Unit Tests,2025,no,0,0,0,0,0
+SB_0011,A System for Automated Unit Test Generation using Large Language Models and Assessment of Generated Test Suites,2025,no,0,0,0,0,0
+SB_0014,Enriching automatic test case generation by extracting relevant test inputs from bug reports,2025,no,0,0,0,0,0
+SB_0015,LLM-based methods for the creation of unit tests in game development,2024,no,0,0,0,0,0
+SB_0016,"Test Wars: A Comparative Study of SBST, Symbolic Execution, and LLM-Based Approaches to Unit Test Generation",2025,no,0,0,0,0,0
+SB_0017,Automating Autograding: Large Language Models as Test Suite Generators for Introductory Programming,2024,no,0,0,0,0,0
+SB_0018,Harnessing Large Language Models for Automated Software Testing: A Leap Towards Scalable Test Case Generation,2025,no,0,0,0,0,0
+SB_0019,AI-Powered Multi-Agent Framework for Automated Unit Test Case Generation: Enhancing Software Quality through LLM’s,2024,no,0,0,0,0,0
+SB_0022,Improving the Readability of Automatically Generated Tests Using Large Language Models,2025,no,0,0,0,0,0
+SB_0023,CubeTesterAI: Automated JUnit Test Generation Using the LLaMA Model,2025,no,0,0,0,0,0
+SB_0026,A Systematic Approach for Assessing Large Language Models’ Test Case Generation Capability,2025,no,0,0,0,0,0
+SB_0027,Evaluating LLMs for Multimodal GUI Test Generation in Android Applications,2025,no,0,0,0,0,0
+SB_0030,Prompt engineering in LLMs for automated unit test generation: A large-scale study,2026,no,0,0,0,0,0
+SB_0037,Mutant-Driven Test Generation for Ethereum Smart Contracts via LLMs,2025,no,0,0,0,0,0
+SB_0038,LLMs as Test Generators: A Comparative Benchmarking Study,2025,no,0,0,0,0,0
+SB_0040,LLMs for Automated Unit Test Generation and Assessment in Java: The AgoneTest Framework,2025,no,0,0,0,0,0
+SB_0041,Consistency Meets Verification: Enhancing Test Generation Quality in Large Language Models Without Ground-Truth Solutions,2026,no,0,0,0,0,0
+SB_0050,Retry and Refine: A Multi-agent Framework for LLM Based Reliable Unit Test Generation,2025,no,0,0,0,0,0
+SB_0051,HieraTest: Hierarchical Dependency-Driven Framework with Multi-Strategy Repair for LLM-Based Unit Test Generation,2026,no,0,0,0,0,0
+SB_0053,BenjiTest: An Agentic Framework for Evaluating LLM-Based Unit Test Generation and Correction,2026,no,0,0,0,0,0
+SB_0054,An Empirical Study on the Detection of Test Smells in Test Codes Generated by GitHub Copilot,2024,no,0,0,0,0,0
+SB_0056,"Generación de Pruebas Unitarias con LLMs en Entornos Industriales: Desafíos, Evolución y Lecciones Prácticas",2025,no,0,0,0,0,0
+SB_0058,Rethinking Cognitive Complexity for Unit Tests: Toward a Readability-Aware Metric Grounded in Developer Perception,2025,no,0,0,0,0,0
+SB_0059,An Evaluation Framework for Software Unit Tests Generated by Large Language Models,2025,no,0,0,0,0,0
+SB_0060,Multi-Agent Assisted Automatic Test Generation for Java JSON Libraries,2025,no,0,0,0,0,0
+SB_0061,"LLM-Based Unit Test Cases Generation for React, Vue, and Angular Components",2026,no,0,0,0,0,0
+SB_0063,Improving the Quality of GitHub Copilot Generated Unit Tests,2026,no,0,0,0,0,0
+SB_0064,A Multi-Stage Approach for LLM-Based Automated Repair of Test Cases,2026,no,0,0,0,0,0
+SB_0067,When Generative AI Writes Test Cases: Scenario-Driven Evaluation of Generated Tests,2026,no,0,0,0,0,0
+SB_0068,Beyond Test Presence: Assessing the Quality and Robustness of Agent-Generated Tests in Open-Source Projects,2026,no,0,0,0,0,0
+SB_0069,A Test Script Generation Method Based on Large Language Models with Model Sensitivity Analysis in Semi-physical Simulation,2026,no,0,0,0,0,0
+SB_0070,A Formal Trustworthiness Construct for Large Language Model-Based Test Generation: A Multidimensional Index Empirically Evaluated Through a Multi-Agent Study,2026,no,0,0,0,0,0
+SB_0073,Improving LLM-Based Unit Test Generation Through Root-Cause-Driven Prompt Design,2026,no,0,0,0,0,0
+SB_0074,Reinforcement Learning from Testing Targets for Effective SLM Test Generation,2026,no,0,0,0,0,0

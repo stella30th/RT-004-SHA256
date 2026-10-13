@@ -1,0 +1,1167 @@
+{
+ "seed": {
+  "openalex_id": "https://openalex.org/W4399668074",
+  "doi": "10.1145/3661167.3661216",
+  "title": "Using Large Language Models to Generate JUnit Tests: An Empirical Study",
+  "year": 2024,
+  "type": "conference-paper",
+  "authors": "Mohammed Latif Siddiq; Joanna C. S. Santos; Ridwanul Hasan Tanvir; Noshin Ulfat; Fahmid Al Rifat; Vinícius Carvalho Lopes",
+  "venue": "International Conference on Evaluation and Assessment in Software Engineering (EASE)",
+  "abstract": "A code generation model generates code by taking a prompt from a code comment, existing code, or a combination of both. Although code generation models (e.g., GitHub Copilot) are increasingly being adopted in practice, it is unclear whether they can successfully be used for unit test generation without fine-tuning for a strongly typed language like Java. To fill this gap, we investigated how well three models (Codex, GPT-3.5-Turbo, and StarCoder) can generate unit tests. We used two benchmarks (HumanEval and Evosuite SF110) to investigate the effect of context generation on the unit test generation process. We evaluated the models based on compilation rates, test correctness, test coverage, and test smells. We found that the Codex model achieved above 80% coverage for the HumanEval dataset, but no model had more than 2% coverage for the EvoSuite SF110 benchmark. The generated tests also suffered from test smells, such as Duplicated Asserts and Empty Tests."
+ },
+ "n_references": 25,
+ "backward": [
+  {
+   "openalex_id": "https://openalex.org/W1987971958",
+   "doi": "10.1016/0377-0427(87)90125-7",
+   "title": "Silhouettes: A graphical aid to the interpretation and validation of cluster analysis",
+   "year": 1987,
+   "type": "article",
+   "authors": "Peter J. Rousseeuw",
+   "venue": "Journal of Computational and Applied Mathematics",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W2150593711",
+   "doi": "10.1109/tit.1982.1056489",
+   "title": "Least squares quantization in PCM",
+   "year": 1982,
+   "type": "article",
+   "authors": "Sheelagh Lloyd",
+   "venue": "IEEE Transactions on Information Theory",
+   "abstract": "It has long been realized that in pulse-code modulation (PCM), with a given ensemble of signals to handle, the quantum values should be spaced more closely in the voltage regions where the signal amplitude is more likely to fall. It has been shown by Panter and Dite that, in the limit as the number of quanta becomes infinite, the asymptotic fractional density of quanta per unit voltage should vary as the one-third power of the probability density per unit voltage of signal amplitudes. In this paper the corresponding result for any finite number of quanta is derived; that is, necessary conditions are found that the quanta and associated quantization intervals of an optimum finite quantization scheme must satisfy. The optimization criterion used is that the average quantization noise power be a minimum. It is shown that the result obtained here goes over into the Panter and Dite result as the number of quanta become large. The optimum quautization schemes for2^{b}quanta,b=1,2, \\cdots, 7, are given numerically for Gaussian and for Laplacian distribution of signal amplitudes."
+  },
+  {
+   "openalex_id": "https://openalex.org/W3198685994",
+   "doi": "10.18653/v1/2021.emnlp-main.685",
+   "title": "CodeT5: Identifier-aware Unified Pre-trained Encoder-Decoder Models for Code Understanding and Generation",
+   "year": 2021,
+   "type": "conference-paper",
+   "authors": "Yue Wang; Weishi Wang; Shafiq Joty; Steven C. H. Hoi",
+   "venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+   "abstract": "Pre-trained models for Natural Languages (NL) like BERT and GPT have been recently shown to transfer well to Programming Languages (PL) and largely benefit a broad set of code-related tasks.Despite their success, most current methods either rely on an encoder-only (or decoder-only) pre-training that is suboptimal for generation (resp.understanding) tasks or process the code snippet in the same way as NL, neglecting the special characteristics of PL such as token types.We present CodeT5, a unified pre-trained encoder-decoder Transformer model that better leverages the code semantics conveyed from the developer-assigned identifiers.Our model employs a unified framework to seamlessly support both code understanding and generation tasks and allows for multi-task learning.Besides, we propose a novel identifier-aware pre-training task that enables the model to distinguish which code tokens are identifiers and to recover them when they are masked.Furthermore, we propose to exploit the user-written code comments with a bimodal dual generation task for better NL-PL alignment.Comprehensive experiments show that CodeT5 significantly outperforms prior methods on understanding tasks such as code defect detection and clone detection, and generation tasks across various directions including PL-NL, NL-PL, and PL-PL.Further analysis reveals that our model can better capture semantic information from code.Our code and pre-trained models are released at https: //github.com/salesforce/CodeT5."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2014309790",
+   "doi": "",
+   "title": "Test Driven Development: By Example",
+   "year": 2002,
+   "type": "book",
+   "authors": "Beck",
+   "venue": "Addison-Wesley Longman Publishing Co., Inc. eBooks",
+   "abstract": "From the Book:\r\n“Clean code that works” is Ron Jeffries’ pithy phrase. The goal is clean code that works, and for a whole bunch of reasons:\r\nClean code that works is a predictable way to develop. You know when you are finished, without having to worry about a long bug trail.Clean code that works gives you a chance to learn all the lessons that the code has to teach you. If you only ever slap together the first thing you think of, you never have time to think of a second, better, thing. Clean code that works improves the lives of users of our software.Clean code that works lets your teammates count on you, and you on them.Writing clean code that works feels good.But how do you get to clean code that works? Many forces drive you away from clean code, and even code that works. Without taking too much counsel of our fears, here’s what we do—drive development with automated tests, a style of development called “Test-Driven Development” (TDD for short). \r\nIn Test-Driven Development, you:\r\nWrite new code only if you first have a failing automated test.Eliminate duplication.\r\n\r\nTwo simple rules, but they generate complex individual and group behavior. Some of the technical implications are:You must design organically, with running code providing feedback between decisionsYou must write your own tests, since you can’t wait twenty times a day for someone else to write a testYour development environment must provide rapid response to small changesYour designs must consist of many highly cohesive, loosely coupled components, just to make testing easy\r\n\r\nThe two rules imply an order to the tasks ofprogramming:\r\n1. Red—write a little test that doesn’t work, perhaps doesn’t even compile at first\r\n2. Green—make the test work quickly, committing whatever sins necessary in the process\r\n3. Refactor—eliminate all the duplication created in just getting the test to work\r\n\r\n\r\nRed/green/refactor. The TDD’s mantra.\r\n\r\nAssuming for the moment that such a style is possible, it might be possible to dramatically reduce the defect density of code and make the subject of work crystal clear to all involved. If so, writing only code demanded by failing tests also has social implications:\r\nIf the defect density can be reduced enough, QA can shift from reactive to pro-active workIf the number of nasty surprises can be reduced enough, project managers can estimate accurately enough to involve real customers in daily developmentIf the topics of technical conversations can be made clear enough, programmers can work in minute-by-minute collaboration instead of daily or weekly collaborationAgain, if the defect density can be reduced enough, we can have shippable software with new functionality every day, leading to new business relationships with customers\r\n\r\n\r\nSo, the concept is simple, but what’s my motivation? Why would a programmer take on the additional work of writing automated tests? Why would a programmer work in tiny little steps when their mind is capable of great soaring swoops of design? Courage.\r\nCourage\r\nTest-driven development is a way of managing fear during programming. I don’t mean fear in a bad way, pow widdle prwogwammew needs a pacifiew, but fear in the legitimate, this-is-a-hard-problem-and-I-can’t-see-the-end-from-the-beginning sense. If pain is nature’s way of saying “Stop!”, fear is nature’s way of saying “Be careful.” Being careful is good, but fear has a host of other effects:\r\nMakes you tentativeMakes you want to communicate lessMakes you shy from feedbackMakes you grumpy\r\n\r\nNone of these effects are helpful when programming, especially when programming something hard. So, how can you face a difficult situation and:\r\nInstead of being tentative, begin learning concretely as quickly as possible.Instead of clamming up, communicate more clearly.Instead of avoiding feedback, search out helpful, concrete feedback.(You’ll have to work on grumpiness on your own.) \r\n\r\nImagine programming as turning a crank to pull a bucket of water from a well. When the bucket is small, a free-spinning crank is fine. When the bucket is big and full of water, you’re going to get tired before the bucket is all the way up. You need a ratchet mechanism to enable you to rest between bouts of cranking. The heavier the bucket, the closer the teeth need to be on the ratchet.\r\n\r\nThe tests in test-driven development are the teeth of the ratchet. Once you get one test working, you know it is working, now and forever. You are one step closer to having everything working than you were when the test was broken. Now get the next one working, and the next, and the next. By analogy, the tougher the programming problem, the less ground should be covered by each test.\r\n\r\nReaders of Extreme Programming Explained will notice a difference in tone between XP and TDD. TDD isn’t an absolute like Extreme Programming. XP says, “Here are things you must be able to do to be prepared to evolve further.” TDD is a little fuzzier. TDD is an awareness of the gap between decision and feedback during programming, and techniques to control that gap. “What if I do a paper design for a week, then test-drive the code? Is that TDD?” Sure, it’s TDD. You were aware of the gap between decision and feedback and you controlled the gap deliberately.\r\n\r\nThat said, most people who learn TDD find their programming practice changed for good. “Test Infected” is the phrase Erich Gamma coined to describe this shift. You might find yourself writing more tests earlier, and working in smaller steps than you ever dreamed would be sensible. On the other hand, some programmers learn TDD and go back to their earlier practices, reserving TDD for special occasions when ordinary programming isn’t making progress.\r\n\r\nThere are certainly programming tasks that can’t be driven solely by tests (or at least, not yet). Security software and concurrency, for example, are two topics where TDD is not sufficient to mechanically demonstrate that the goals of the software have been met. Security relies on essentially defect-free code, true, but also on human judgement about the methods used to secure the software. Subtle concurrency problems can’t be reliably duplicated by running the code.\r\n\r\nOnce you are finished reading this book, you should be ready to:\r\nStart simplyWrite automated testsRefactor to add design decisions one at a time\r\n\r\nThis book is organized into three sections.\r\nAn example of writing typical model code using TDD. The example is one I got from Ward Cunningham years ago, and have used many times since, multi-currency arithmetic. In it you will learn to write tests before code and grow a design organically.An example of testing more complicated logic, including reflection and exceptions, by developing a framework for automated testing. This example also serves to introduce you to the xUnit architecture that is at the heart of many programmer-oriented testing tools. In the second example you will learn to work in even smaller steps than in the first example, including the kind of self-referential hooha beloved of computer scientists.Patterns for TDD. Included are patterns for the deciding what tests to write, how to write tests using xUnit, and a greatest hits selection of the design patterns and refactorings used in the examples.\r\n\r\nI wrote the examples imagining a pair programming session. If you like looking at the map before wandering around, you may want to go straight to the patterns in Section 3 and use the examples as illustrations. If you prefer just wandering around and then looking at the map to see where you’ve been, try reading the examples through and refering to the patterns when you want more detail about a technique, then using the patterns as a reference.\r\n\r\nSeveral reviewers have commented they got the most out of the examples when they started up a programming environment and entered the code and ran the tests as they read.\r\n\r\nA note about the examples. Both examples, multi-currency calculation and a testing framework, appear simple. There are (and I have seen) complicated, ugly, messy ways of solving the same problems. I could have chosen one of those complicated, ugly, messy solutions to give the book an air of “reality.” However, my goal, and I hope your goal, is to write clean code that works. Before teeing off on the examples as being too simple, spend 15 seconds imagining a programming world in which all code was this clear and direct, where there were no complicated solutions, only apparently complicated problems begging for careful thought. TDD is a practice that can help you lead yourself to exactly that careful thought."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2133414060",
+   "doi": "10.1109/ms.2006.91",
+   "title": "A survey of unit testing practices",
+   "year": 2006,
+   "type": "article",
+   "authors": "Per Runeson",
+   "venue": "IEEE Software",
+   "abstract": "Unit testing is testing of individual units or groups of related units. What are a company's typical strengths and weaknesses when applying unit testing? Per Beremark and the author surveyed unit testing practices on the basis of focus group discussions in software process improvement network (SPIN) and launched a questionnaire to validate the results. This survey is an indication of unit testing in several companies. You can use the questionnaire at your own company to clarify what you mean by unit testing, to identify the strengths and weaknesses of your unit testing practices, and to compare with other organizations to improve those practices"
+  },
+  {
+   "openalex_id": "https://openalex.org/W2147002252",
+   "doi": "10.1145/2685612",
+   "title": "A Large-Scale Evaluation of Automated Unit Test Generation Using EvoSuite",
+   "year": 2014,
+   "type": "article",
+   "authors": "Gordon Fraser; Andrea Arcuri",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Research on software testing produces many innovative automated techniques, but because software testing is by necessity incomplete and approximate, any new technique faces the challenge of an empirical assessment. In the past, we have demonstrated scientific advance in automated unit test generation with the E VO S UITE tool by evaluating it on manually selected open-source projects or examples that represent a particular problem addressed by the underlying technique. However, demonstrating scientific advance is not necessarily the same as demonstrating practical value; even if VO S UITE worked well on the software projects we selected for evaluation, it might not scale up to the complexity of real systems. Ideally, one would use large “real-world” software systems to minimize the threats to external validity when evaluating research tools. However, neither choosing such software systems nor applying research prototypes to them are trivial tasks. In this article we present the results of a large experiment in unit test generation using the VO S UITE tool on 100 randomly chosen open-source projects, the 10 most popular open-source projects according to the SourceForge Web site, seven industrial projects, and 11 automatically generated software projects. The study confirms that VO S UITE can achieve good levels of branch coverage (on average, 71% per class) in practice. However, the study also exemplifies how the choice of software systems for an empirical study can influence the results of the experiments, which can serve to inform researchers to make more conscious choices in the selection of software system subjects. Furthermore, our experiments demonstrate how practical limitations interfere with scientific advances, branch coverage on an unbiased sample is affected by predominant environmental dependencies. The surprisingly large effect of such practical engineering problems in unit testing will hopefully lead to a larger appreciation of work in this area, thus supporting transfer of knowledge from software testing research to practice."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4384302749",
+   "doi": "10.1109/icse48619.2023.00205",
+   "title": "Retrieval-Based Prompt Selection for Code-Related Few-Shot Learning",
+   "year": 2023,
+   "type": "conference-paper",
+   "authors": "Noor Nashid; Mifta Sintaha; Ali Mesbah",
+   "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+   "abstract": "Large language models trained on massive code corpora can generalize to new tasks without the need for task-specific fine-tuning. In few-shot learning, these models take as input a prompt, composed of natural language instructions, a few instances of task demonstration, and a query and generate an output. However, the creation of an effective prompt for code-related tasks in few-shot learning has received little attention. We present a technique for prompt creation that automatically retrieves code demonstrations similar to the developer task, based on embedding or frequency analysis. We apply our approach, Cedar, to two different programming languages, statically and dynamically typed, and two different tasks, namely, test assertion generation and program repair. For each task, we compare Cedar with state-of-the-art task-specific and fine-tuned models. The empirical results show that, with only a few relevant code demonstrations, our prompt creation technique is effective in both tasks with an accuracy of 76% and 52% for exact matches in test assertion generation and program repair tasks, respectively. For assertion generation, Cedar outperforms existing task-specific and fine-tuned models by 333% and 11%, respectively. For program repair, Cedar yields 189% better accuracy than task-specific models and is competitive with recent fine-tuned models. These findings have practical implications for practitioners, as Cedar could potentially be applied to multilingual and multitask settings without task or language-specific training with minimal examples and effort."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2146511370",
+   "doi": "10.1109/icst.2015.7102609",
+   "title": "Understanding the Test Automation Culture of App Developers",
+   "year": 2015,
+   "type": "conference-paper",
+   "authors": "Pavneet Singh Kochhar; Ferdian Thung; Nachiappan Nagappan; Thomas Zimmermann; David Lo",
+   "venue": "IEEE International Conference on Software Testing, Verification and Validation (ICST)",
+   "abstract": "Smartphone applications (apps) have gained popularity recently. Millions of smartphone applications (apps) are available on different app stores which gives users plethora of options to choose from, however, it also raises concern if these apps are adequately tested before they are released for public use. In this study, we want to understand the test automation culture prevalent among app developers. Specifically, we want to examine the current state of testing of apps, the tools that are commonly used by app developers, and the problems faced by them. To get an insight on the test automation culture, we conduct two different studies. In the first study, we analyse over 600 Android apps collected from F- Droid, one of the largest repositories containing information about open-source Android apps. We check for the presence of test cases and calculate code coverage to measure the adequacy of testing in these apps. We also survey developers who have hosted their applications on GitHub to understand the testing practices followed by them. We ask developers about the tools that they use and ''pain points'' that they face while testing Android apps. For the second study, based on the responses from Android developers, we improve our survey questions and resend it to Windows app developers within Microsoft. We conclude that many Android apps are poorly tested - only about 14% of the apps contain test cases and only about 9% of the apps that have executable test cases have coverage above 40\\%. Also, we find that Android app developers use automated testing tools such as JUnit, Monkeyrunner, Robotium, and Robolectric, however, they often prefer to test their apps manually, whereas Windows app developers prefer to use in-house tools such as Visual Studio and Microsoft Test Manager. Both Android and Windows app developers face many challenges such as time constraints, compatibility issues, lack of exposure, cumbersome tools, etc. We give suggestions to improve the test automation culture in the growing app community."
+  },
+  {
+   "openalex_id": "https://openalex.org/W1964730672",
+   "doi": "10.1145/2786805.2786838",
+   "title": "Modeling readability to improve unit tests",
+   "year": 2015,
+   "type": "conference-paper",
+   "authors": "Ermira Daka; José Campos; Gordon Fraser; Jonathan G. Dorn; Westley R. Weimer",
+   "venue": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)",
+   "abstract": "Writing good unit tests can be tedious and error prone, but even once they are written, the job is not done: Developers need to reason about unit tests throughout software development and evolution, in order to diagnose test failures, maintain the tests, and to understand code written by other developers. Unreadable tests are more difficult to maintain and lose some of their value to developers. To overcome this problem, we propose a domain-specific model of unit test readability based on human judgements, and use this model to augment automated unit test generation. The resulting approach can automatically generate test suites with both high coverage and also improved readability. In human studies users prefer our improved tests and are able to answer maintenance questions about them 14% more quickly at the same level of accuracy."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4366204357",
+   "doi": "10.1109/tse.2023.3267446",
+   "title": "MultiPL-E: A Scalable and Polyglot Approach to Benchmarking Neural Code Generation",
+   "year": 2023,
+   "type": "article",
+   "authors": "Federico Cassano; John Gouwar; Daniel Nguyen; Sydney Nguyen; Luna Phipps-Costin; Donald Pinckney; Ming‐Ho Yee; Yangtian Zi; Carolyn Jane Anderson; Molly Q Feldman; Arjun Guha; Michael Greenberg; Abhinav Jangda",
+   "venue": "IEEE Transactions on Software Engineering",
+   "abstract": "Large language models have demonstrated the ability to generate both natural language and programming language text. Although contemporary code generation models are trained on corpora with several programming languages, they are tested using benchmarks that are typically monolingual. The most widely used code generation benchmarks only target Python, so there is little quantitative evidence of how code generation models perform on other programming languages. We propose MultiPL-E, a system for translating unit test-driven code generation benchmarks to new languages. We create the first massively multilingual code generation benchmark by using MultiPL-E to translate two popular Python code generation benchmarks to 18 additional programming languages. We use MultiPL-E to extend the HumanEval benchmark [1] and MBPP benchmark [2] to 18 languages that encompass a range of programming paradigms and popularity. Using these new parallel benchmarks, we evaluate the multi-language performance of three state-of-the-art code generation models: Codex [1], CodeGen [3]and InCoder [4]. We find that Codex matches or even exceeds its performance on Python for several other languages. The range of programming languages represented in MultiPL-E allow us to explore the impact of language frequency and language features on model performance. Finally, the MultiPL-E approach of compiling code generation benchmarks to new programming languages is both scalable and extensible, making it straightforward to evaluate new models, benchmarks, and languages."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4382653968",
+   "doi": "10.1145/3587102.3588792",
+   "title": "Can Generative Pre-trained Transformers (GPT) Pass Assessments in Higher Education Programming Courses?",
+   "year": 2023,
+   "type": "conference-paper",
+   "authors": "Jaromír Šavelka; Arav Agarwal; Christopher Bogart; Yifan Song; Majd F. Sakr",
+   "venue": "",
+   "abstract": "We evaluated the capability of generative pre-trained transformers (GPT), to pass assessments in introductory and intermediate Python programming courses at the postsecondary level. Discussions of potential uses (e.g., exercise generation, code explanation) and misuses (e.g., cheating) of this emerging technology in programming education have intensified, but to date there has not been a rigorous analysis of the models' capabilities in the realistic context of a full-fledged programming course with diverse set of assessment instruments. We evaluated GPT on three Python courses that employ assessments ranging from simple multiple-choice questions (no code involved) to complex programming projects with code bases distributed into multiple files (599 exercises overall). Further, we studied if and how successfully GPT models leverage feedback provided by an auto-grader. We found that the current models are not capable of passing the full spectrum of assessments typically involved in a Python programming course (<70% on even entry-level modules). Yet, it is clear that a straightforward application of these easily accessible models could enable a learner to obtain a non-trivial portion of the overall available score (>55%) in introductory and intermediate courses alike. While the models exhibit remarkable capabilities, including correcting solutions based on auto-grader's feedback, some limitations exist (e.g., poor handling of exercises requiring complex chains of reasoning steps). These findings can be leveraged by instructors wishing to adapt their assessments so that GPT becomes a valuable assistant for a learner as opposed to an end-to-end solution."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2056514427",
+   "doi": "10.1145/2699688",
+   "title": "Does Automated Unit Test Generation Really Help Software Testers? A Controlled Empirical Study",
+   "year": 2015,
+   "type": "article",
+   "authors": "Gordon Fraser; Matt Staats; Phil McMinn; Andrea Arcuri; Frank Padberg",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Work on automated test generation has produced several tools capable of generating test data which achieves high structural coverage over a program. In the absence of a specification, developers are expected to manually construct or verify the test oracle for each test input. Nevertheless, it is assumed that these generated tests ease the task of testing for the developer, as testing is reduced to checking the results of tests. While this assumption has persisted for decades, there has been no conclusive evidence to date confirming it. However, the limited adoption in industry indicates this assumption may not be correct, and calls into question the practical value of test generation tools. To investigate this issue, we performed two controlled experiments comparing a total of 97 subjects split between writing tests manually and writing tests with the aid of an automated unit test generation tool, E vo S uite . We found that, on one hand, tool support leads to clear improvements in commonly applied quality metrics such as code coverage (up to 300% increase). However, on the other hand, there was no measurable improvement in the number of bugs actually found by developers. Our results not only cast some doubt on how the research community evaluates test generation tools, but also point to improvements and future work necessary before automated test generation tools will be widely adopted by practitioners."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2395052532",
+   "doi": "10.1145/2897010.2897016",
+   "title": "On the diffusion of test smells in automatically generated test code",
+   "year": 2016,
+   "type": "conference-paper",
+   "authors": "Fabio Palomba; Dario Di Nucci; Annibale Panichella; Rocco Oliveto; Andrea De Lucia",
+   "venue": "",
+   "abstract": "The role of software testing in the software development process is widely recognized as a key activity for successful projects. This is the reason why in the last decade several automatic unit test generation tools have been proposed, focusing particularly on high code coverage. Despite the effort spent by the research community, there is still a lack of empirical investigation aimed at analyzing the characteristics of the produced test code. Indeed, while some studies inspected the effectiveness and the usability of these tools in practice, it is still unknown whether test code is maintainable. In this paper, we conducted a large scale empirical study in order to analyze the diffusion of bad design solutions, namely test smells, in automatically generated unit test classes. Results of the study show the high diffusion of test smells as well as the frequent co-occurrence of different types of design problems. Finally we found that all test smells have strong positive correlation with structural characteristics of the systems such as size or number of classes."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2888078871",
+   "doi": "10.1145/3238147.3238183",
+   "title": "A large-scale study of test coverage evolution",
+   "year": 2018,
+   "type": "conference-paper",
+   "authors": "Michael L. Hilton; Jonathan Bell; Darko Marinov",
+   "venue": "IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+   "abstract": "Statement coverage is commonly used as a measure of test suite quality. Coverage is often used as a part of a code review process: if a patch decreases overall coverage, or is itself not covered, then the patch is scrutinized more closely. Traditional studies of how coverage changes with code evolution have examined the overall coverage of the entire program, and more recent work directly examines the coverage of patches (changed statements). We present an evaluation much larger than prior studies and moreover consider a new, important kind of change --- coverage changes of unchanged statements. We present a large-scale evaluation of code coverage evolution over 7,816 builds of 47 projects written in popular languages including Java, Python, and Scala. We find that in large, mature projects, simply measuring the change to statement coverage does not capture the nuances of code evolution. Going beyond considering statement coverage as a simple ratio, we examine how the set of statements covered evolves between project revisions. We present and study new ways to assess the impact of a patch on a project's test suite quality that both separates coverage of the patch from coverage of the non-patch, and separates changes in coverage from changes in the set of statements covered."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4312994886",
+   "doi": "10.1145/3524610.3527907",
+   "title": "M2TS",
+   "year": 2022,
+   "type": "conference-paper",
+   "authors": "Yuexiu Gao; Chen Lyu",
+   "venue": "IEEE/ACM International Conference on Program Comprehension (ICPC)",
+   "abstract": "Source code summarization aims to generate natural language descriptions of code snippets. Many existing studies learn the syntactic and semantic knowledge of code snippets from their token sequences and Abstract Syntax Trees (ASTs). They use the learned code representations as input to code summarization models, which can accordingly generate summaries describing source code. Traditional models traverse ASTs as sequences or split ASTs into paths as input. However, the former loses the structural properties of ASTs, and the latter destroys the overall structure of ASTs. Therefore, comprehensively capturing the structural features of ASTs in learning code representations for source code summarization remains a challenging problem to be solved. In this paper, we propose M2TS, a Multi-scale Multi-modal approach based on Transformer for source code Summarization. M2TS uses a multi-scale AST feature extraction method, which can extract the structures of ASTs more completely and accurately at multiple local and global levels. To complement missing semantic information in ASTs, we also obtain code token features, and further combine them with the extracted AST features using a cross modality fusion method that not only fuses the syntactic and contextual semantic information of source code, but also highlights the key features of each modality. We conduct experiments on two Java and one Python datasets, and the experimental results demonstrate that M2TS outperforms current state-of-the-art methods. We release our code at https://github.com/TranSMS/M2TS."
+  },
+  {
+   "openalex_id": "https://openalex.org/W1538216099",
+   "doi": "10.1007/978-3-540-45122-8_9",
+   "title": "The Test Automation Manifesto",
+   "year": 2003,
+   "type": "conference-paper",
+   "authors": "Gerard Meszaros; Shaun M. Smith; Jennitta Andrea",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W3210416950",
+   "doi": "10.5753/jserd.2021.1893",
+   "title": "On the test smells detection: an empirical study on the JNose Test accuracy",
+   "year": 2021,
+   "type": "article",
+   "authors": "Tássio Virgínio; Luana Martins; Railana Santana; Adriana Cruz; Larissa Rocha; Heitor Augustus Xavier Costa; Ivan Machado",
+   "venue": "Journal of Software Engineering Research and Development",
+   "abstract": "Several strategies have supported test quality measurement and analysis. For example, code coverage, a widely used one, enables verification of the test case to cover as many source code branches as possible. Another set of affordable strategies to evaluate the test code quality exists, such as test smells analysis. Test smells are poor design choices in test code implementation, and their occurrence might reduce the test suite quality. A practical and largescale test smells identification depends on automated tool support. Otherwise, test smells analysis could become a cost-ineffective strategy. In an earlier study, we proposed the JNose Test, automated tool support to detect test smells and analyze test suite quality from the test smells perspective. This study extends the previous one in two directions: i) we implemented the JNose-Core, an API encompassing the test smells detection rules. Through an extensible architecture, the tool is now capable of accomodating new detection rules or programming languages; and ii) we performed an empirical study to evaluate the JNose Test effectiveness and compare it against the state-of-the-art tool, the tsDetect. Results showed that the JNose-Core precision score ranges from 91% to 100%, and the recall score from 89% to 100%. It also presented a slight improvement in the test smells detection rules compared to the tsDetect for the test smells detection at the class level."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2294635146",
+   "doi": "10.1109/ms.2002.1003449",
+   "title": "Mock objects",
+   "year": 2002,
+   "type": "article",
+   "authors": "D. A. Thomas; A. Hunt",
+   "venue": "IEEE Software",
+   "abstract": "One thing that makes unit-testing code so hard is the way the real world keeps intruding. If all we had to do was code up tests for methods that sort arrays or generate Fibonacci series, life would be easy. In the real world we have to test code that uses databases, communications devices, user interfaces, and external applications. We might have to interface to devices that are not yet available or simulate network errors that are impossible to generate locally. This all conspires to stop our unit tests from being neat, self-contained (and orthogonal) chunks of code. Fortunately there is a testing pattern that can help. The authors consider the use of mock objects. With mock objects you can test code in splendid isolation, simulating all those messy real-world things that would otherwise make automated testing impossible. As with many other testing practices, the discipline of using mock objects can improve your code's structure."
+  },
+  {
+   "openalex_id": "https://openalex.org/W2969467935",
+   "doi": "10.1007/978-3-030-27455-9_13",
+   "title": "Dorylus: An Ant Colony Based Tool for Automated Test Case Generation",
+   "year": 2019,
+   "type": "conference-paper",
+   "authors": "Dan Bruce; Héctor D. Menéndez; David Clark",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W2623752963",
+   "doi": "10.1109/csiec.2017.7940170",
+   "title": "On the performance of EvoPSO: A PSO based algorithm for test data generation in EvoSuite",
+   "year": 2017,
+   "type": "conference-paper",
+   "authors": "Mohammad Mehdi Dejam Shahabi; S. Parsa Badiei; S. Ehsan Beheshtian; Reza Akbari; S. Mohammad Reza Moosavi",
+   "venue": "Conference on Swarm Intelligence and Evolutionary Computation (CSIEC)",
+   "abstract": "Nowadays software has a major role in our everyday life. Many critical tasks are done by software systems. The increasing complexity of software systems compels providing techniques and tools to design correct and well-functioning software in safety-critical systems. Up to 50% of the total software project costs are devoted to testing; hence, increased concern of automated software testing in recent years. The automation of software testing reduces costs and improves the effectiveness of tests that are generated in order to detect defects in the software under test. Various techniques are adopted for automated software testing including metaheuristic search algorithms. In this paper, we propose the EvoPSO algorithm using swarm intelligence paradigm. The algorithm is implemented in EvoSuite tool for the purpose of test data generation. The performance of EvoPSO has been investigated on SF110 dataset. The promising performance shows that EvoPSO is efficient and can give competitive results."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4236387090",
+   "doi": "10.21236/ada459656",
+   "title": "Application of Theorem Proving to Problem Solving",
+   "year": 1969,
+   "type": "report",
+   "authors": "Cordell Green",
+   "venue": "",
+   "abstract": "This paper shows how an extension of the resolution proof procedure can be used to construct problem solutions. The extended proof procedure can solve problems involving state transformations. The paper explores several alternate problem representations and provides a discussion of solutions to sample problems including the \"Monkey and Bananas \" puzzle and the 'Tower of Hanoi \" puzzle. The paper exhibits solutions to these problems obtained by QA3, a computer program bused on these theorem-proving methods. In addition, the paper shows how QA3 can write simple computer programs and can solve practical problems for a simple robot. Key Words: Theorem proving, resolution, problem solving, automatic programming, program writing, robots, state transformations, question answering. Automatic theorem proving by the resolution proof procedure § represents perhaps the most powerful known method for automatically determining the validity of a statement of first-order logic. In an earlier paper Green and Raphael\" illustrated how an extended resolution procedure can be used as a question answerer—e.g., if the statement (3x)P(x) can be shown to follow from a set of axioms by the resolution proof procedure, then the extended proof procedure will find or construct an x that satisfies P(x). This earlier paper (1) showed how one can axiomatize simple question-answering subjects, (2) described a question-answering program called QA2 based on this procedure, and (3) presented examples of simple question-answering dialogues with QA2. In a more recent paper \" the author (1) presents the answer construction method in detail and proves its correctness, (2) describes the latest version of the program, QA3, and (3) introduces state-transformation methods into the constructive proof formalism. In addition to the question-answering applications illustrated in these earlier papers, QA3 has been used as an SRI robot 4 problem solver and as an automatic"
+  },
+  {
+   "openalex_id": "https://openalex.org/W4307479317",
+   "doi": "10.48550/arxiv.2210.14868",
+   "title": "Multi-lingual Evaluation of Code Generation Models",
+   "year": 2022,
+   "type": "preprint",
+   "authors": "Ben Athiwaratkun; Sanjay Krishna Gouda; Zijian Wang; Xiaopeng Li; Yuchen Tian; Tan, Ming; Wasi Uddin Ahmad; Shiqi Wang; Qing Sun; Mingyue Shang; Sujan K. Gonugondla; Hantian Ding; Varun Kumar; Nathan Fulton; Farahani, Arash; Siddhartha Jain; Robert A. Giaquinto; Haifeng Qian; Murali Krishna Ramanathan; Ramesh M. Nallapati; Baishakhi Ray; Parminder Bhatia; Sudipta Sengupta; Dan Roth; Bing Xiang",
+   "venue": "arXiv (Cornell University)",
+   "abstract": "We present new benchmarks on evaluation code generation models: MBXP and Multilingual HumanEval, and MathQA-X. These datasets cover over 10 programming languages and are generated using a scalable conversion framework that transpiles prompts and test cases from the original Python datasets into the corresponding data in the target language. Using these benchmarks, we are able to assess the performance of code generation models in a multi-lingual fashion, and discovered generalization ability of language models on out-of-domain languages, advantages of multi-lingual models over mono-lingual, the ability of few-shot prompting to teach the model new languages, and zero-shot translation abilities even on mono-lingual settings. Furthermore, we use our code generation model to perform large-scale bootstrapping to obtain synthetic canonical solutions in several languages, which can be used for other code-related evaluations such as code insertion, robustness, or summarization tasks. Overall, our benchmarks represents a significant step towards a deeper understanding of language models' code generation abilities. We publicly release our code and datasets at https://github.com/amazon-research/mxeval."
+  }
+ ],
+ "forward": [
+  {
+   "openalex_id": "https://openalex.org/W4387711873",
+   "doi": "10.1145/3624032.3624035",
+   "title": "An initial investigation of ChatGPT unit test generation capability",
+   "year": 2023,
+   "type": "conference-paper",
+   "authors": "Vitor Guilherme; Auri Marcelo Rizzo Vincenzi",
+   "venue": "",
+   "abstract": "Context: Software testing ensures software quality, but developers often disregard it. The use of automated testing generation is pursued to reduce the consequences of overlooked test cases in a software project. Problem: In the context of Java programs, several tools can completely automate generating unit test sets. Additionally, studies are conducted to offer evidence regarding the quality of the generated test sets. However, it is worth noting that these tools rely on machine learning and other AI algorithms rather than incorporating the latest advancements in Large Language Models (LLMs). Solution: This work aims to evaluate the quality of Java unit tests generated by an OpenAI LLM algorithm, using metrics like code coverage and mutation test score. Method: For this study, 33 programs used by other researchers in the field of automated test generation were selected. This approach was employed to establish a baseline for comparison purposes. For each program, 33 unit test sets were generated automatically, without human interference, by changing Open AI API parameters. After executing each test set, metrics such as code line coverage, mutation score, and success rate of test execution were collected to evaluate the efficiency and effectiveness of each set. Summary of Results: Our findings revealed that the OpenAI LLM test set demonstrated similar performance across all evaluated aspects compared to traditional automated Java test generation tools used in the previous research. These results are particularly remarkable considering the simplicity of the experiment and the fact that the generated test code did not undergo human analysis."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4406798194",
+   "doi": "10.1145/3715003",
+   "title": "The Future of AI-Driven Software Engineering",
+   "year": 2025,
+   "type": "article",
+   "authors": "Valerio Terragni; Annie Vella; Partha S. Roop; Kelly Blincoe",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "A paradigm shift is underway in Software Engineering, with AI systems such as LLMs playing an increasingly important role in boosting software development productivity. This trend is anticipated to persist. In the next years, we expect a growing symbiotic partnership between human software developers and AI. The Software Engineering research community cannot afford to overlook this trend; we must address the key research challenges posed by the integration of AI into the software development process. In this article, we present our vision of the future of software development in an AI-driven world and explore the key challenges that our research community should address to realize this vision."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4403007658",
+   "doi": "10.1145/3697012",
+   "title": "On the Effectiveness of Large Language Models in Domain-Specific Code Generation",
+   "year": 2024,
+   "type": "article",
+   "authors": "Xiaodong Gu; Meng Chen; Yalan Lin; Yuhan Hu; Hongyu Zhang; Chengcheng Wan; Zhao Wei; Yong Xu; Juhong Wang",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Large language models (LLMs) such as ChatGPT have shown remarkable capabilities in code generation. Despite significant achievements, they rely on enormous training data to acquire a broad spectrum of open-domain knowledge. Besides, their evaluation revolves around open-domain benchmarks like HumanEval, which primarily consist of programming contests. Therefore, it is hard to fully characterize the intricacies and challenges associated with particular domains (e.g., Web, game, and math). In this article, we conduct an in-depth study of the LLMs in domain-specific code generation. Our results demonstrate that LLMs exhibit sub-optimal performance in generating domain-specific code, due to their limited proficiency in utilizing domain-specific libraries. We further observe that incorporating API knowledge as prompts can empower LLMs to generate more professional code. Based on these findings, we further investigate how to effectively incorporate API knowledge into the code generation process. We experiment with three strategies for incorporating domain knowledge, namely, external knowledge inquirer, chain-of-thought prompting, and chain-of-thought fine-tuning. We refer to these strategies as a new code generation approach called DomCoder . Experimental results show that all strategies of DomCoder improve the effectiveness of domain-specific code generation under certain settings."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4406324010",
+   "doi": "10.1145/3712005",
+   "title": "The Current Challenges of Software Engineering in the Era of Large Language Models",
+   "year": 2025,
+   "type": "article",
+   "authors": "Cuiyun Gao; Xing Hu; Shan Gao; Xin Xia; Zhi Gang Jin",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "With the advent of large language models (LLMs) in the AI area, the field of software engineering (SE) has also witnessed a paradigm shift. These models, by leveraging the power of deep learning and massive amounts of data, have demonstrated an unprecedented capacity to understand, generate, and operate programming languages. They can assist developers in completing a broad spectrum of software development activities, encompassing software design, automated programming, and maintenance, which potentially reduces huge human efforts. Integrating LLMs within the SE landscape (LLM4SE) has become a burgeoning trend, necessitating exploring this emergent landscape’s challenges and opportunities. The article aims at revisiting the software development lifecycle (SDLC) under LLMs, and highlighting challenges and opportunities of the new paradigm. The article first summarizes the overall process of LLM4SE, and then elaborates on the current challenges based on a through discussion. The discussion was held among more than 20 participants from academia and industry, specializing in fields such as SE and artificial intelligence. Specifically, we achieve 26 key challenges from seven aspects, including software requirement and design, coding assistance, testing code generation, code review, code maintenance, software vulnerability management, and data, training, and evaluation. We hope the achieved challenges would benefit future research in the LLM4SE field."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4403646794",
+   "doi": "10.1145/3691621.3694934",
+   "title": "SALLM: Security Assessment of Generated Code",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Mohammed Latif Siddiq; Joanna C. S. Santos; Sajith Devareddy; Anna Muller",
+   "venue": "IEEE/ACM International Conference on Automated Software Engineering Workshops (ASEW)",
+   "abstract": "With the growing popularity of Large Language Models (LLMs) in software engineers' daily practices, it is important to ensure that the code generated by these tools is not only functionally correct but also free of vulnerabilities. Although LLMs can help developers to be more productive, prior empirical studies have shown that LLMs can generate insecure code. There are two contributing factors to the insecure code generation. First, existing datasets used to evaluate LLMs do not adequately represent genuine software engineering tasks sensitive to security. Instead, they are often based on competitive programming challenges or classroom-type coding tasks. In real-world applications, the code produced is integrated into larger codebases, introducing potential security risks. Second, existing evaluation metrics primarily focus on the functional correctness of the generated code while ignoring security considerations. Therefore, in this paper, we described Sallm, a framework to benchmark LLMs' abilities to generate secure code systematically. This framework has three major components: a novel dataset of security-centric Python prompts, configurable assessment techniques to evaluate the generated code, and novel metrics to evaluate the models' performance from the perspective of secure code generation."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4414093251",
+   "doi": "10.3390/make7030097",
+   "title": "A Review of Large Language Models for Automated Test Case Generation",
+   "year": 2025,
+   "type": "article",
+   "authors": "Arda Celik; Qusay H. Mahmoud",
+   "venue": "Machine Learning and Knowledge Extraction",
+   "abstract": "Automated test case generation aims to improve software testing by reducing the manual effort required to create test cases. Recent advancements in large language models (LLMs), with their ability to understand natural language and generate code, have identified new opportunities to enhance this process. In this review, the focus is on the use of LLMs in test case generation to identify the effectiveness of the proposed methods compared with existing tools and potential directions for future research. A literature search was conducted using online resources, filtering the studies based on the defined inclusion and exclusion criteria. This paper presents the findings from the selected studies according to the three research questions and further categorizes the findings based on the common themes. These findings highlight the opportunities and challenges associated with the use of LLMs in this domain. Although improvements were observed in metrics such as test coverage, usability, and correctness, limitations such as inconsistent performance and compilation errors were highlighted. This provides a state-of-the-art review of LLM-based test case generation, emphasizing the potential of LLMs to improve automated testing while identifying areas for further advancements."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411552295",
+   "doi": "10.1109/icse55347.2025.00032",
+   "title": "Leveraging Large Language Models for Enhancing the Understandability of Generated Unit Tests",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Amirhossein Deljouyi; Roham Koohestani; Maliheh Izadi; Andy Zaidman",
+   "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+   "abstract": "Automated unit test generators, particularly searchbased software testing tools like EvoSuite, are capable of generating tests with high coverage. Although these generators alleviate the burden of writing unit tests, they often pose challenges for software engineers in terms of understanding the generated tests. To address this, we introduce UTGen, which combines searchbased software testing and large language models to enhance the understandability of automatically generated test cases. We achieve this enhancement through contextualizing test data, improving identifier naming, and adding descriptive comments. Through a controlled experiment with 32 participants from both academia and industry, we investigate how the understandability of unit tests affects a software engineer's ability to perform bug-fixing tasks. We selected bug-fixing to simulate a real-world scenario that emphasizes the importance of understandable test cases. We observe that participants working on assignments with UTGen test cases fix up to 33 % more bugs and use up to 20 % less time when compared to baseline test cases. From the post-test questionnaire, we gathered that participants found that enhanced test names, test data, and variable names improved their bugfixing process."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4403413353",
+   "doi": "10.1145/3674805.3690742",
+   "title": "Detecting Code Smells using ChatGPT: Initial Insights",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Luciana Lourdes Silva; Janio Rosa da Silva; João Eduardo Montandon; Marcus Andrade; Marco Túlio Valente",
+   "venue": "Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement",
+   "abstract": "This paper presents initial insights into the effectiveness of ChatGPT in detecting code smells in Java projects. We utilize a large dataset comprising four code smells—Blob, Data Class, Feature Envy, and Long Method—classified into three severity levels. To assess ChatGPT’s proficiency, we employ two different prompts: (i) a generic prompt and (ii) a prompt specifying the smells selected for our research. We evaluate ChatGPT’s abilities using metrics such as precision, recall, and F-measure. Our results reveal that the odds of ChatGPT providing a correct outcome with a specific prompt are 2.54 times higher compared to a generic one. Furthermore, ChatGPT is more effective at detecting smells with critical severity (F-measure = 0.52) than those with minor severity (F-measure = 0.43). Finally, we discuss the implications of our findings and suggest future research directions for leveraging large language models to detect code smells."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4389285870",
+   "doi": "10.1007/978-3-031-48796-5_13",
+   "title": "Enhancing Genetic Improvement Mutations Using Large Language Models",
+   "year": 2023,
+   "type": "conference-paper",
+   "authors": "Alexander E. I. Brownlee; James Callan; Karine Even-Mendoza; Alina Geiger; Carol Hanna; Justyna Petke; Federica Sarro; Dominik Sobania",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4409496087",
+   "doi": "10.1109/icstw64639.2025.10962454",
+   "title": "A System for Automated Unit Test Generation using Large Language Models and Assessment of Generated Test Suites",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Andrea Lops; Fedelucio Narducci; Azzurra Ragone; Michelantonio Trizio; Claudio Bartolini",
+   "venue": "IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)",
+   "abstract": "Unit tests represent the most basic level of testing within the software testing lifecycle and are crucial to ensuring software correctness. Designing and creating unit tests is a costly and labor-intensive process that is ripe for automation. Recently, Large Language Models (LLMs) have been applied to various aspects of software development, including unit test generation. Although several empirical studies evaluating LLMs' capabilities in test code generation exist, they primarily focus on simple scenarios, such as the straightforward generation of unit tests for individual methods. These evaluations often involve independent and small-scale test units, providing a limited view of LLMs' performance in real-world software development scenarios. Moreover, previous studies do not approach the problem at a suitable scale for real-life applications. Generated unit tests are often evaluated via manual integration into the original projects, a process that limits the number of tests executed and reduces overall efficiency. To address these gaps, we have developed an approach for generating and evaluating more real-life complexity test suites. Our approach focuses on class-level test code generation and automates the entire process from test generation to test assessment. In this work, we present AgoneTest: an automated system for generating test suites for Java projects and a comprehensive and principled methodology for evaluating the generated test suites. Starting from a state-of-the-art dataset (i.e., Methods2Test), we built a new dataset for comparing human-written tests with those generated by LLMs. Our key contributions include a scalable automated software system, a new dataset, and a detailed methodology for evaluating test quality."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411552855",
+   "doi": "10.1109/icse55347.2025.00243",
+   "title": "Test Intention Guided LLM-Based Unit Test Generation",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Zifan Nan; Zhaoqiang Guo; Kui Liu; Xin Xia",
+   "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+   "abstract": "The emergence of Large Language Models (LLMs) has accelerated the progress of intelligent software engineering technologies, which brings promising possibilities for unit test generation. However, existing approaches for unit tests directly generated from Large Language Models (LLMs) often prove impractical due to their low coverage and insufficient mocking capabilities. This paper proposes IntUT, a novel approach that utilizes explicit test intentions (e.g., test inputs, mock behaviors, and expected results) to effectively guide the LLM to generate high-quality test cases. Our experimental results on three industry Java projects and live study demonstrate that prompting LLM with test intention can generate high-quality test cases for developers. Specifically, it achieves the improvements on branch coverage by 94 % and line coverage by 49 %. Finally, we obtain developers' feedback on using IntUT to generate cases for three new Java projects, achieving over 80 % line coverage and 30 % efficiency improvement on writing unit test cases."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4403413378",
+   "doi": "10.1145/3674805.3690746",
+   "title": "Automatic Library Migration Using Large Language Models: First Results",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Aylton Almeida; Laerte Xavier; Marco Túlio Valente",
+   "venue": "Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement",
+   "abstract": "Despite being introduced only a few years ago, Large Language Models (LLMs) are already widely used by developers for code generation. However, their application in automating other Software Engineering activities remains largely unexplored. Thus, in this paper, we report the first results of a study in which we are exploring the use of ChatGPT to support API migration tasks, an important problem that demands manual effort and attention from developers. Specifically, in the paper, we share our initial results involving the use of ChatGPT to migrate a client application to use a newer version of SQLAlchemy, an ORM (Object Relational Mapping) library widely used in Python. We evaluate the use of three types of prompts (Zero-Shot, One-Shot, and Chain Of Thoughts) and show that the best results are achieved by the One-Shot prompt, followed by the Chain Of Thoughts. Particularly, with the One-Shot prompt we were able to successfully migrate all columns of our target application and upgrade its code to use new functionalities enabled by SQLAlchemy’s latest version, such as Python’s asyncio and typing modules, while preserving the original code behavior."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4409510011",
+   "doi": "10.1007/s10664-025-10658-6",
+   "title": "Do LLMs consider security? an empirical study on responses to programming questions",
+   "year": 2025,
+   "type": "article",
+   "authors": "Amirali Sajadi; Binh Le; Anh Nguyen; Kostadin Damevski; Preetha Chatterjee",
+   "venue": "Empirical Software Engineering",
+   "abstract": "Abstract The widespread adoption of conversational LLMs for software development has raised new security concerns regarding the safety of LLM-generated content. Our motivational study outlines ChatGPT’s potential in volunteering context-specific information to the developers, promoting safe coding practices. Motivated by this finding, we conduct a study to evaluate the degree of security awareness exhibited by three prominent LLMs: Claude 3, GPT-4, and Llama 3. We prompt these LLMs with Stack Overflow questions that contain vulnerable code to evaluate whether they merely provide answers to the questions or if they also warn users about the insecure code, thereby demonstrating a degree of security awareness. Further, we assess whether LLM responses provide information about the causes, exploits, and the potential fixes of the vulnerability, to help raise users’ awareness. Our findings show that all three models struggle to accurately detect and warn users about vulnerabilities, achieving a detection rate of only 12.6% to 40% across our datasets. We also observe that the LLMs tend to identify certain types of vulnerabilities related to sensitive information exposure and improper input neutralization much more frequently than other types, such as those involving external control of file names or paths. Furthermore, when LLMs do issue security warnings, they often provide more information on the causes, exploits, and fixes of vulnerabilities compared to Stack Overflow responses. Finally, we provide an in-depth discussion on the implications of our findings, and demonstrated a CLI-based prompting tool that can be used to produce more secure LLM responses."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4408838832",
+   "doi": "10.1007/s10664-025-10635-z",
+   "title": "Enriching automatic test case generation by extracting relevant test inputs from bug reports",
+   "year": 2025,
+   "type": "article",
+   "authors": "Wendkûuni C. Ouédraogo; Laura Plein; Kader Kaboré; Andrew Habib; Jacques Klein; David Lo; Tegawendé François Bissyandé",
+   "venue": "Empirical Software Engineering",
+   "abstract": "Abstract The quality of software is closely tied to the effectiveness of the tests it undergoes. Manual test writing, though crucial for bug detection, is time-consuming, which has driven significant research into automated test case generation. However, current methods often struggle to generate relevant inputs, limiting the effectiveness of the tests produced. To address this, we introduce BRMiner , a novel approach that leverages Large Language Models (LLMs) in combination with traditional techniques to extract relevant inputs from bug reports, thereby enhancing automated test generation tools. In this study, we evaluate BRMiner using the Defects4J benchmark and test generation tools such as EvoSuite and Randoop. Our results demonstrate that BRMiner achieves a Relevant Input Rate (RIR) of 60.03% and a Relevant Input Extraction Accuracy Rate (RIEAR) of 31.71%, significantly outperforming methods that rely on LLMs alone. The integration of BRMiner’s input enhances EvoSuite ability to generate more effective test, leading to increased code coverage, with gains observed in branch, instruction, method, and line coverage across multiple projects. Furthermore, BRMiner facilitated the detection of 58 unique bugs, including those that were missed by traditional baseline approaches. Overall, BRMiner ’s combination of LLM filtering with traditional input extraction techniques significantly improves the relevance and effectiveness of automated test generation, advancing the detection of bugs and enhancing code coverage, thereby contributing to higher-quality software development."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4404801455",
+   "doi": "10.1016/j.procs.2024.09.473",
+   "title": "LLM-based methods for the creation of unit tests in game development",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Ciprian Păduraru; Adelina-Nicoleta Staicu; Alin Ştefănescu",
+   "venue": "Procedia Computer Science",
+   "abstract": "Problems related to the quality of games, whether on the initial release or after updates, can lead to player dissatisfaction, media attention, and potential financial setbacks. These issues can stem from software bugs, performance bottlenecks, or security vulnerabilities. Despite these challenges, game developers often rely on manual playtesting, highlighting the need for more robust and automated processes in game development. This research explores the application of Large Language Models (LLMs) to automate the creation of unit tests in game development, focusing on strongly typed programming languages such as C++ and C#, which are widely used in the industry. The study focuses on fine-tuning Code Llama, an advanced code generation model, to address common scenarios in game development, including game engines and specific APIs or backends. Although the prototyping and evaluations primarily took place within the Unity game engine, the proposed methods can be adapted to other internal or publicly available solutions. The evaluation results demonstrate these methods’ effectiveness in improving existing unit test suites or automatically generating new tests based on natural language descriptions of class contexts and targeted methods."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4410538575",
+   "doi": "10.1109/icst62969.2025.10989033",
+   "title": "Test Wars: A Comparative Study of SBST, Symbolic Execution, and LLM-Based Approaches to Unit Test Generation",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Azat Abdullin; Pouria Derakhshanfar; Annibale Panichella",
+   "venue": "IEEE Conference on Software Testing, Verification and Validation (ICST)",
+   "abstract": "Generating tests automatically is a key and ongoing area of focus in software engineering research. The emergence of Large Language Models (LLMs) has opened up new op-portunities, given their ability to perform a wide spectrum of tasks. However, the effectiveness of LLM -based approaches compared to traditional techniques such as search-based software testing (SBST) and symbolic execution remains uncertain. In this paper, we perform an extensive study of automatic test generation approaches based on three tools: EvoSuite for SBST, Kex for symbolic execution, and TestSpark for LLM-based test generation. We evaluate tools' performance on the GitBug Java dataset and compare them using various execution-based and feature-based metrics. Our results show that while LLM-based test generation is promising, it falls behind traditional methods w.r.t. coverage. However, it significantly outperforms them in mutation scores, suggesting that LLMs provide a deeper semantic understanding of code. LLM-based approach performed worse than SBST and symbolic execution-based approaches w.r.t. fault detection capabilities. Additionally, our feature-based analysis shows that all tools are affected by the complexity and internal dependencies of the class under test (CUT), with LLM-based approaches being especially sensitive to the CUT size."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7128276797",
+   "doi": "10.1145/3745765",
+   "title": "Automated Unit Test Generation via Chain-of-Thought Prompt and Reinforcement Learning from Coverage Feedback",
+   "year": 2025,
+   "type": "article",
+   "authors": "Junwei Zhang; Xing Hu; Xin Xia; Shing-Chi Cheung; Shanping Li",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Recently, Large Language Models (LLMs) have shown promising results in code generation, and several automated test generation approaches based on LLMs have been proposed. Although these approaches achieve promising performance, they suffer from two limitations. First, they lack the intrinsic understanding of the semantic intricacies and logical constructs inherent to the focal method. Second, they ignore the diversity of the generated tests and generate tests with limited code coverage. To alleviate these two limitations, in this work, we propose a novel approach named TestCTRL that optimizes LLMs for unit test generation by the Chain-of-Thought (CoT) prompt and Reinforcement Learning (RL) strategy. Specifically, we first build a new CoT dataset, containing the focal methods, corresponding unit tests, and CoT prompts. The CoT prompt includes the intention and possible test input values. Then, the CoT dataset is used to fine-tune one LLM (i.e., CodeLlama 7B) that can be seen as the policy model in RL. Meanwhile, we fine-tune another LLM (i.e., CodeGPT) as the reward model by predicting the line coverage of the focal method and its test. Moreover, we employ the Proximal Policy Optimization (PPO) algorithm to optimize the policy model and generate unit tests. We use the Defects4J benchmark to evaluate our approach from three perspectives (i.e., naturalness, validity, and code coverage). To avoid data leakage threats, we filtered out data from the CoT dataset that have the same focal method and test case names as those in the Defects4J. The experimental results demonstrate that TestCTRL outperforms state-of-the-art baselines in line and branch coverages, respectively. Besides, TestCTRL improves bug detection performance. We also investigate the reason for the proposed approach’s superiority."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4405821763",
+   "doi": "10.1111/jcal.13100",
+   "title": "Automating Autograding: Large Language Models as Test Suite Generators for Introductory Programming",
+   "year": 2024,
+   "type": "article",
+   "authors": "Umar Alkafaween; Ibrahim Albluwi; Paul C. Denny",
+   "venue": "Journal of Computer Assisted Learning",
+   "abstract": "ABSTRACT Background Automatically graded programming assignments provide instant feedback to students and significantly reduce manual grading time for instructors. However, creating comprehensive suites of test cases for programming problems within automatic graders can be time‐consuming and complex. The effort needed to define test suites may deter some instructors from creating additional problems or lead to inadequate test coverage, potentially resulting in misleading feedback on student solutions. Such limitations may reduce student access to the well‐documented benefits of timely feedback when learning programming. Objectives We evaluate the effectiveness of using Large Language Models (LLMs), as part of a larger workflow, to automatically generate test suites for CS1‐level programming problems. Methods Each problem's statement and reference solution are provided to GPT‐4 to produce a test suite that can be used by an autograder. We evaluate our proposed approach using a sample of 26 problems, and more than 25,000 attempted solutions to those problems, submitted by students in an introductory programming course. We compare the performance of the LLM‐generated test suites against the instructor‐created test suites for each problem. Results and Conclusions Our findings reveal that LLM‐generated test suites can correctly identify most valid solutions, and for most problems are at least as comprehensive as the instructor test suites. Additionally, the LLM‐generated test suites exposed ambiguities in some problem statements, underscoring their potential to improve both autograding and instructional design."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4409163756",
+   "doi": "10.3390/electronics14071463",
+   "title": "Harnessing Large Language Models for Automated Software Testing: A Leap Towards Scalable Test Case Generation",
+   "year": 2025,
+   "type": "article",
+   "authors": "Shaheer Rehan; Baidaa Al‐Bander; Amro Al-Said Ahmad",
+   "venue": "Electronics",
+   "abstract": "Software testing is critical for ensuring software reliability, with test case generation often being resource-intensive and time-consuming. This study leverages the Llama-2 large language model (LLM) to automate unit test generation for Java focal methods, demonstrating the potential of AI-driven approaches to optimize software testing workflows. Our work leverages focal methods to prioritize critical components of the code to produce more context-sensitive and scalable test cases. The dataset, comprising 25,000 curated records, underwent tokenization and QLoRA quantization to facilitate training. The model was fine-tuned, achieving a training loss of 0.046. These results show the promise of AI-driven test case generation and underscore the feasibility of using fine-tuned LLMs for test case generation, highlighting opportunities for improvement through larger datasets, advanced hyperparameter optimization, and enhanced computational resources. We conducted a human-in-the-loop validation on a subset of unit tests generated by our fined-tuned LLM. This confirms that these tests effectively leverage focal methods, demonstrating the model’s capability to generate more contextually accurate unit tests. The work suggests the need to develop novel validation objective metrics specifically tailored for the automation of test cases generated by utilizing large language models. This work establishes a foundation for scalable and efficient software testing solutions driven by artificial intelligence. The data and code are publicly available on GitHub."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4408716906",
+   "doi": "10.1109/gcat62922.2024.10923987",
+   "title": "AI-Powered Multi-Agent Framework for Automated Unit Test Case Generation: Enhancing Software Quality through LLM’s",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Anusha Garlapati; M N V Satya Sai Muni Parmesh; Savitha; S Jaisri",
+   "venue": "IEEE Global Conference for Advancement in Technology (GCAT)",
+   "abstract": "Recent years have witnessed an enormous rise in the design, repair and the enhancement of software automation tests. The reliability of program’s unit testing has major impact on its overall performance. The anticipated influence of Artificial Intelligence advancements on test automation methodologies are significant. Many studies on automated testing implicitly assume that the test results are deterministic, means that similar tests faults remain same. The precision of software is largely ensured by unit testing. But writing unit tests manually is a time-consuming process, which leads us to drive into \"Automation Analysis\". Recent years comprised the application of Large Language Models (LLM’s) in numerous fields related to software development, especially the automated creation of unit testing.However, these frameworks require more instructions, or few shot learnings on sample tests that already exist. This research provides a comprehensive empirical assessment of the efficiency of LLM’s for automating unit testing production, with no need for further manual analysis. The method we employ is put into practice for test cases, an adaptable Agents and LLM-based testing framework that evaluates test cases generated, by reviewing and re-writing them in different phases. Evaluation of this test cases was done by using mistral-large LLM Model. The analysis results that developed acquired an overall coverage of 100% for code given. Finally, to enhance the typical evaluation, this research suggests and concludes that LLMs, can be successfully incorporated into present practices, through adaptative instructions and improvements."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4405601545",
+   "doi": "10.1109/scam63643.2024.00020",
+   "title": "Franc: A Lightweight Framework for High-Quality Code Generation",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Mohammed Latif Siddiq; Beatrice Casey; Joanna C. S. Santos",
+   "venue": "",
+   "abstract": "In recent years, the use of automated source code generation utilizing transformer-based generative models has grown in popularity. These models can generate code according to the developers' requirements. However, recent research showed that these automatically generated source codes can contain vulnerabilities and other quality issues. Despite researchers' and practitioners' attempts to enhance code generation models, retraining and fine-tuning large language models is not only time-consuming but also resource-intensive and costly. Thus, in this paper, we describe FRANC, a lightweight framework for recommending more secure and high-quality source code derived from transformer-based code generation models. FRANC includes a static filter to make the generated code compilable with heuristics and a quality-aware ranker to sort the code snippets based on a quality score. Moreover, the framework uses prompt engineering to fix persistent quality issues. We evaluated FRANC with five Python and Java code generation models and six prompt datasets, including a newly created one in this work (FRANC). The static filter improves 9% to 46% Java suggestions and 10% to 43% Python suggestions regarding compilability. The average improvement over the NDCG@10 score for the ranking system is 0.0763, and the repairing techniques repair the highest 80% of prompts. FRANC takes, on average, 1.98 seconds for Java; for Python, it takes 0.08 seconds."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4415746319",
+   "doi": "10.1109/icsme64153.2025.00025",
+   "title": "Metamorphic Testing of Large Language Models for Natural Language Processing",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "S. B. Cho; Stefano Ruberto; Valerio Terragni",
+   "venue": "IEEE International Conference on Software Maintenance and Evolution (ICSME)",
+   "abstract": "Using Large Language Models (LLMs) to perform Natural Language Processing (NLP) tasks has been becoming increasingly pervasive in recent times. The versatile nature of LLMs makes them applicable to a wide range of such tasks. While the performance of recent LLMs is generally outstanding, several studies have shown that LLMs can often produce incorrect results. Automatically identifying these faulty behaviors is extremely useful for improving the effectiveness of LLMs. One obstacle to this is the limited availability of labeled datasets, necessitating an oracle to determine the correctness of LLM behaviors. Metamorphic Testing (MT) is a popular testing approach that alleviates this oracle problem. At the core of MT are Metamorphic Relations (MRs), defining the relationship between the outputs of related inputs. MT can expose faulty behaviors without the need for explicit oracles (e.g., labeled datasets). This paper presents the most comprehensive study of MT for LLMs to date. We conducted a literature review and collected 191 MRs for NLP tasks. We implemented a representative subset (36 MRs) to conduct a series of experiments with three popular LLMs, running$\\sim 560 ~\\mathrm{K}$metamorphic tests. The results shed light on the capabilities and opportunities of MT for LLMs, as well as its limitations."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411552356",
+   "doi": "10.1109/icse55347.2025.00176",
+   "title": "exLong: Generating Exceptional Behavior Tests with Large Language Models",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Jiyang Zhang; Yu Liu; Pengyu Nie; Junyi Jessy Li; Milos Gligoric",
+   "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+   "abstract": "Many popular programming languages, including C#, Java, and Python, support exceptions. Exceptions are thrown during program execution if an unwanted event happens, e.g., a method is invoked with an illegal argument value. Software developers write exceptional behavior tests (EBTs) to check that their code detects unwanted events and throws appropriate exceptions. Prior research studies have shown the importance of EBTs, but those studies also highlighted that developers put most of their efforts on “happy paths”, e.g., paths without unwanted events. To help developers fill the gap, we present the first framework, dubbed ExLoNG, that automatically generates EBTs. ExLONG is a large language model instruction fine-tuned from CodeLlama and embeds reasoning about traces that lead to throw statements, conditional expressions that guard throw statements, and non-exceptional behavior tests that execute similar traces. We compare ExLONG with the state-of-the-art models for test generation (CAT-LM) and one of the strongest foundation models (GPT-4o), as well as with analysis-based tools for test generation (Randoop and EvoSuite). Our results show that ExLONG outperforms existing models and tools. Furthermore, we contributed several pull requests to open-source projects and 23 EBTs generated by ExLONG were already accepted."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4410536480",
+   "doi": "10.1109/icst62969.2025.10989020",
+   "title": "Improving the Readability of Automatically Generated Tests Using Large Language Models",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Matteo Biagiola; Gianluca Ghislotti; Paolo Tonella",
+   "venue": "IEEE Conference on Software Testing, Verification and Validation (ICST)",
+   "abstract": "Search-based test generators are effective at producing unit tests with high coverage. However, such automatically generated tests have no meaningful test and variable names, making them hard to understand and interpret by developers. On the other hand, large language models (LLMs) can generate highly readable test cases, but they are not able to match the effectiveness of search-based generators, in terms of achieved code coverage. In this paper, we propose to combine the effectiveness of search-based generators with the readability of LLM generated tests. Our approach focuses on improving test and variable names produced by search-based tools, while keeping their semantics (i.e., their coverage) unchanged. Our evaluation on nine industrial and open source LLMs show that our readability improvement transformations are overall semantically-preserving and stable across multiple repetitions. Moreover, a human study with ten professional developers, show that our LLM-improved tests are as readable as developer-written tests, regardless of the LLM employed."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4410537906",
+   "doi": "10.1109/icst62969.2025.10988978",
+   "title": "CubeTesterAI: Automated JUnit Test Generation Using the LLaMA Model",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Daniele Gorla; Shivam Kumar; Pietro Nicolaus Roselli Lorenzini; Alireza Alipourfaz",
+   "venue": "IEEE Conference on Software Testing, Verification and Validation (ICST)",
+   "abstract": "This paper presents an approach to automating JUnit test generation for Java applications using the Spring Boot framework, leveraging the LLaMA (Large Language Model Architecture) model to enhance the efficiency and accuracy of the testing process. The resulting tool, called CubeTesterAI, includes a user-friendly web interface and the integration of a CI/CD pipeline using GitLab and Docker. These components streamline the automated test generation process, allowing developers to generate JUnit tests directly from their code snippets with minimal manual intervention. The final implementation executes the LLaMA models through RunPod, an online GPU service, which also enhances the privacy of our tool. Using the advanced natural language processing capabilities of the LLaMA model, CubeTesterAI is able to generate test cases that provide high code coverage and accurate validation of software functionalities in Java-based Spring Boot applications. Furthermore, it efficiently manages resource-intensive operations and refines the generated tests to address common issues like missing imports and handling of private methods. By comparing CubeTesterAI with some state-of-the-art tools, we show that our proposal consistently demonstrates competitive and, in many cases, better performance in terms of code coverage in different real-life Java programs."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4412722434",
+   "doi": "10.1109/tevc.2025.3593272",
+   "title": "CoCoEvo: Co-Evolution of Programs and Test Cases to Enhance Code Generation",
+   "year": 2025,
+   "type": "article",
+   "authors": "Kefan Li; Yuan Yuan; Hongyue Yu; Tingyu Guo; Shijie Cao",
+   "venue": "IEEE Transactions on Evolutionary Computation",
+   "abstract": "Large Language Models (LLMs) have shown remarkable performance in automated code generation. However, existing approaches often rely heavily on pre-defined test cases, which become impractical in scenarios where such cases are unavailable. While prior works explore filtering techniques between programs and test cases, they overlook the refinement of test cases. To address this limitation, we introduce CoCoEvo, a novel LLM-based co-evolution framework that simultaneously evolves programs and test cases. CoCoEvo eliminates the dependency on pre-defined test cases by generating both programs and test cases directly from natural language problem descriptions and function headers. The framework employs specialized evolutionary operators, including LLM-based crossover and mutation operators for program evolution, along with a test case generation operator for test case evolution. Additionally, we propose optimization strategies such as a crossover rate scheduler to balance exploration and convergence, and a multi-objective optimization method for test case selection. Experimental results on multiple state-of-the-art LLMs demonstrate that CoCoEvo surpasses existing methods, achieving state-of-the-art performance in automated code generation and testing. These results underscore the potential of co-evolutionary techniques in advancing the field of automated programming."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4417439098",
+   "doi": "10.1109/tse.2025.3644183",
+   "title": "Benchmarking AI Models in Software Engineering: A Review, Search Tool, and Unified Approach for Elevating Benchmark Quality",
+   "year": 2025,
+   "type": "article",
+   "authors": "Roham Koohestani; Philippe de Bekker; Begüm Koç; Maliheh Izadi",
+   "venue": "IEEE Transactions on Software Engineering",
+   "abstract": "Benchmarks are essential for unified evaluation and reproducibility. The rapid rise of Artificial Intelligence for Software Engineering (AI4SE) has produced numerous benchmarks for tasks such as code generation and bug repair. However, this proliferation has led to major challenges: (1) fragmented knowledge across tasks, (2) difficulty in selecting contextually relevant benchmarks, (3) lack of standardization in benchmark creation, and (4) flaws that limit utility. Addressing these requires a dual approach: systematically mapping existing benchmarks for informed selection and defining unified guidelines for robust, adaptable benchmark development. We conduct a review of 247 studies, identifying 273 AI4SE benchmarks since 2014. We categorize them, analyze limitations, and expose gaps in current practices. Building on these insights, we introduce BenchScout, an extensible semantic search tool for locating suitable benchmarks. BenchScout employs automated clustering with contextual embeddings of benchmark-related studies, followed by dimensionality reduction. In a user study with 22 participants, BenchScout achieved usability, effectiveness, and intuitiveness scores of 4.5, 4.0, and 4.1 out of 5. To improve benchmarking standards, we propose BenchFrame, a unified approach to improve benchmark quality. Applying Bench-Frame to HumanEval yielded HumanEvalNext, which features corrected errors, improved language conversion, higher test coverage, and greater difficulty. Evaluating 10 state-of-the-art code models on HumanEval, HumanEvalPlus, and HumanEvalNext revealed average pass-at-1 drops of 31.22% and 19.94%, respectively, underscoring the need for continuous benchmark refinement. We further examine BenchFrame’s scalability through an agentic pipeline and confirm its generalizability on the MBPP dataset. Lastly, we publicly release the material of our review, user study, and the enhanced benchmark.1"
+  },
+  {
+   "openalex_id": "https://openalex.org/W4408290845",
+   "doi": "10.3390/software4010005",
+   "title": "A Systematic Approach for Assessing Large Language Models’ Test Case Generation Capability",
+   "year": 2025,
+   "type": "article",
+   "authors": "Hung–Fu Chang; Mohammad Shokrolah Shirazi",
+   "venue": "Software",
+   "abstract": "Software testing ensures the quality and reliability of software products, but manual test case creation is labor-intensive. With the rise of Large Language Models (LLMs), there is growing interest in unit test creation with LLMs. However, effective assessment of LLM-generated test cases is limited by the lack of standardized benchmarks that comprehensively cover diverse programming scenarios. To address the assessment of an LLM’s test case generation ability and lacking a dataset for evaluation, we propose the Generated Benchmark from Control-Flow Structure and Variable Usage Composition (GBCV) approach, which systematically generates programs used for evaluating LLMs’ test generation capabilities. By leveraging basic control-flow structures and variable usage, GBCV provides a flexible framework to create a spectrum of programs ranging from simple to complex. Because GPT-4o and GPT-3.5-Turbo are publicly accessible models, to present real-world regular users’ use cases, we use GBCV to assess LLM performance on them. Our findings indicate that GPT-4o performs better on composite program structures, while all models effectively detect boundary values in simple conditions but face challenges with arithmetic computations. This study highlights the strengths and limitations of LLMs in test generation, provides a benchmark framework, and suggests directions for future improvement."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4414276228",
+   "doi": "10.5753/sast.2025.13852",
+   "title": "Evaluating LLMs for Multimodal GUI Test Generation in Android Applications",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Nayse Fagundes; Leopoldo Teixeira",
+   "venue": "",
+   "abstract": "Graphical User Interface (GUI) testing is an important task in mobile application development but remains time-consuming when done manually. With the rise of Large Language Models (LLMs), there is growing interest in their potential to automate software development tasks, including GUI test generation. This study investigates the ability of LLMs to generate GUI test intentions and scripts for Android applications using multimodal inputs, such as screenshots and structured UI data. We present an approach that combines visual and textual input from eight open-source Android apps and evaluate the performance of four LLMs. The results show significant variation in the models’ ability to generate GUI tests: Claude 3 Sonnet produced the most detailed and complete test sequences, GPT-4o generated simpler test scripts with fewer test intentions and user interactions, focusing on more basic user flows, while Gemini 2.5 and Gemma 3 presented moderate and similar results. These findings indicate that while LLMs can aid GUI test automation, their effectiveness varies significantly across models."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7117144211",
+   "doi": "10.1145/3756681.3756987",
+   "title": "On Simulation-Guided LLM-based Code Generation for Safe Autonomous Driving Software",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Ali Nouri; J. Andersson; Kailash De Jesus Hornig; Zhennan Fei; Emil Knabe; Håkan Sivencrona; Beatriz Cabrero‐Daniel; Christian Berger",
+   "venue": "International Conference on Evaluation and Assessment in Software Engineering (EASE)",
+   "abstract": "Automated Driving System (ADS) is a safety-critical software system responsible for the interpretation of the vehicle’s environment and making decisions accordingly. The unbounded complexity of the driving context, including unforeseeable events, necessitate continuous improvement, often achieved through iterative DevOps processes. However, DevOps processes are themselves complex, making these improvements both time- and resource-intensive. Automation in code generation for ADS using Large Language Models (LLM) is one potential approach to address this challenge. Nevertheless, the development of ADS requires rigorous processes to verify, validate, assess, and qualify the code before it can be deployed in the vehicle and used. In this study, we developed and evaluated a prototype for automatic code generation and assessment using a designed pipeline of a LLM-based agent, simulation model, and rule-based feedback generator in an industrial setup. The LLM-generated code is evaluated automatically in a simulation model against multiple critical traffic scenarios, and an assessment report is provided as feedback to the LLM for modification or bug fixing. We report about the experimental results of the prototype employing Codellama:34b, DeepSeek (r1:32b and Coder:33b), CodeGemma:7b, Mistral:7b, and GPT4 for Adaptive Cruise Control (ACC) and Unsupervised Collision Avoidance by Evasive Manoeuvre (CAEM). We finally assessed the tool with 11 experts at two Original Equipment Manufacturers (OEMs) by conducting an interview study."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4413679450",
+   "doi": "10.1109/compsac65507.2025.00221",
+   "title": "Bad Smell Detection using Google Gemini",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Larisse Amorim; Ivandeclei Mendes da Costa; Leticia Alves; Eduardo Figueiredo",
+   "venue": "IEEE Annual Computers, Software, and Applications Conference (COMPSAC)",
+   "abstract": "The detection of code smells is a critical task in software engineering, as it helps identify design issues that can compromise code quality and maintainability. With the advancement of large-scale language models (LLMs), such as Google Gemini, there is an opportunity to automate this detection more efficiently. This paper investigates the effectiveness of Gemini in identifying code smells in Java projects. We used a dataset (MLCQ) containing four types of code smells (Blob, Data Class, Feature Envy, and Long Method), classified into three severity levels. We then applied two types of prompts: a generic and a detailed one. To evaluate Gemini, we proposed three research questions related to its effectiveness with the different types of prompts used. Our results show that Gemini is more likely to provide correct results when using a detailed prompt compared to a generic one. Additionally, Gemini identified some code smells not highlighted by ChatGPT, suggesting their different detection capabilities. However, the accuracy of these additional detections still needs to be validated. We conclude that Google Gemini is a promising tool for code smell detection, but further studies are needed to understand its accuracy and the influence of the type of prompt used. This work paves the way for future research on the application of LLMs in software quality improvement."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4414430094",
+   "doi": "10.1145/3803418",
+   "title": "Hallucination to Consensus: Multi-Agent LLMs for End-to-End JUnit Test Generation",
+   "year": 2026,
+   "type": "article",
+   "authors": "Qinghua Xu; Guancheng Wang; Lionel Briand; Kui Liu",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Unit testing plays a critical role in ensuring software correctness. However, writing unit tests manually is labor-intensive, especially for strongly typed languages like Java, motivating the need for automated approaches. Traditional methods primarily rely on search-based or randomized algorithms to generate tests that achieve high code coverage and produce regression oracles, which are assertions derived from the program's current behavior rather than its intended functionality. Recent advances in large language models (LLMs) have enabled oracle generation from natural language descriptions, aligning better with user requirements. However, existing LLM-based methods often require LLM fine-tuning or rely on external tools such as EvoSuite for test prefix generation, making them costly or cumbersome to apply in practice. In this work, we propose CANDOR, a novel end-to-end, prompt engineering-based LLM framework for automated unit test generation in Java. CANDOR orchestrates multiple specialized LLM agents to collaboratively generate complete JUnit tests, including both high-quality test prefixes and accurate oracles. To mitigate the notorious hallucinations in LLMs and improve oracle correctness, we introduce a novel strategy that engages multiple reasoning LLMs in a panel discussion and generates accurate oracles based on consensus. Additionally, to reduce the verbosity of reasoning LLMs’ outputs, we propose a novel dual-LLM pipeline to produce concise and structured oracle evaluations. Our experiments on the HumanEvalJava and more complex LeetCodeJava datasets show that CANDOR is comparable with EvoSuite in generating tests with high code coverage and clearly superior in terms of mutation score. Moreover, our prompt engineering-based approach CANDOR significantly outperforms the state-of-the-art, fine-tuning-based oracle generator TOGLL by at least 21.1 percentage points in oracle correctness on both correct and faulty source code. Further ablation studies confirm the critical contributions of key agents in improving test prefix quality and oracle accuracy."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7127597825",
+   "doi": "10.1145/3793675",
+   "title": "Less Is More: Failing Test Generation with Large Language Models",
+   "year": 2026,
+   "type": "article",
+   "authors": "Tsz-On Li; Xiaochuan Yan; Wenxi Zong; Yibo Wang; Haoye Tian; Congying Xu; Ying Wang; Shing-Chi Cheung; J. Kramer",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Failing test generation is challenging. It involves searching in a vast space for fault-triggering test inputs and the oracles asserting these faulty executions. Despite techniques proposed to generate tests using Large Language Models (LLMs) , they are ineffective in finding failing tests, particularly for programs that implement non-trivial coding tasks such as medium/advanced-level coding contest problems. To tackle this limitation, we are inspired by an earlier finding that constituent snippets within a program typically implement simpler coding tasks compared to the program as a whole. As a result, LLMs can be leveraged to generate failing tests that target a program’s constituent snippets, thereby revealing the program defects. Leveraging this insight, we propose Microscopic Test Generation (M it G en ) , a novel technique of failing test generation. Unlike previous approaches that generate tests to fulfill code coverage, MitGen focuses on generating tests that reveal faults in a given program’s constituent code snippets. We evaluate MitGen using Starcoder2-15B-instruct-v0.1 , Meta-Llama-3-8B-Instruct , and CodeQwen1.5-7B-Chat on two popular benchmarks ( EvoEval-Difficult and ClassEval ) and 100 real-world subjects. We compare MitGen with three baselines, including state-of-the-art approaches ( Differential Prompting and Pynguin ), in finding failing tests. The evaluation results show that MitGen ’s recall is 0.66, a 112.7% enhancement over the best baseline (0.31)."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7140887005",
+   "doi": "10.1145/3802827",
+   "title": "Enhancing Automated Unit Test Generation with Large Language Models: A Systematic Literature Review",
+   "year": 2026,
+   "type": "review",
+   "authors": "Junwei Zhang; Xing Hu; Cuiyun Gao; Xin Xia; Shanping Li",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Automated unit test generation is a fundamental yet challenging task in software engineering (SE), playing a critical role in ensuring software correctness, reliability, and maintainability. While traditional approaches such as search-based software testing and symbolic execution have achieved notable success, they often suffer from limited semantic understanding, high configuration costs, and scalability constraints. Recent advances in Large Language Models (LLMs) have fundamentally reshaped the landscape of automated unit testing by enabling models to reason over source code semantics and generate executable, context-aware test cases. Despite the rapid growth of this research area, a comprehensive and task-oriented synthesis of existing work remains lacking. This article presents a systematic literature review of LLM-based unit test generation. This review draws on research from leading SE and AI conferences and journals, including 69 papers published across 25 distinct venues, along with 47 high-quality preprint papers, bringing the total to 116. Our review aims to answer three key research questions: (1) which unit testing tasks have been addressed using LLMs, (2) how LLMs are adapted and integrated into the unit test generation pipeline, and (3) what datasets, benchmarks, and evaluation practices are employed in existing studies. To this end, we organize the literature from a task-centric perspective, covering test generation, test input generation, test oracle generation, and test evolution, and from a methodological perspective, categorizing LLM adaptation strategies into fine-tuning, prompt engineering, and agent-based approaches. Our analysis reveals that current research predominantly focuses on function- and class-level test generation, with comparatively limited attention given to test input generation, oracle construction, and long-term test evolution. Decoder-only LLMs, particularly GPT-family and LLaMA-based models, dominate the field, while encoder-only and encoder–decoder models remain underexplored. We further observe substantial disparities in dataset characteristics, programming language coverage, and evaluation metrics, which hinder fair comparison and reproducibility across studies. Based on empirical evidence extracted from the surveyed literature, we identify key challenges facing LLM-based unit test generation. Building on these findings, we outline several promising research directions, such as dataset optimization, structure-aware context modeling, agent coordination mechanisms, and benchmark enhancement. This review provides a consolidated and evidence-driven foundation for future research, aiming to advance the development of scalable, reliable, and practically applicable LLM-driven unit testing techniques."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7142196394",
+   "doi": "10.1007/s10664-026-10840-4",
+   "title": "Prompt engineering in LLMs for automated unit test generation: A large-scale study",
+   "year": 2026,
+   "type": "article",
+   "authors": "Wendkûuni C. Ouédraogo; Abdoul Kader Kaboré; Yinghua Li; Haoye Tian; Anil Koyuncu; Jacques Klein; David Lo; Tegawendé François Bissyandé",
+   "venue": "Empirical Software Engineering",
+   "abstract": "Unit testing is essential for software reliability, yet manual test creation is time-consuming and often neglected. Although search-based software testing improves efficiency, it produces tests with poor readability and maintainability. Although LLMs show promise for test generation, existing research lacks comprehensive evaluation across execution-driven assessment, reasoning-based prompting, and real-world testing scenarios. This study presents the first large-scale empirical evaluation of LLM-generated unit tests at the full class level , systematically analyzing four state-of-the-art models (GPT-3.5, GPT-4, Mistral 7B, and Mixtral 8x7B) against EvoSuite across 216,300 generated test cases targeting Defects4J, SF110, and CMD (a dataset mitigating LLM training data leakage). We evaluate five prompting techniques–Zero-Shot Learning (ZSL), Few-Shot Learning (FSL), Chain-of-Thought (CoT), Tree-of-Thought (ToT), and Guided Tree-of-Thought (GToT)–assessing syntactic correctness, compilability, hallucination-driven failures, readability, code coverage metrics, and test smells. Reasoning-based prompting particularly GToT significantly enhances test reliability, compilability, and structural adherence in general-purpose LLMs. However, hallucination-driven failures remain a persistent challenge, manifesting as non-existent symbol references, incorrect API calls, and fabricated dependencies, resulting in high compilation failure rates (up to 86%). Moreover, test smell analysis reveals that while LLM-generated tests are generally more readable than those produced by traditional tools, they still suffer from recurring design issues such as Magic Number Tests and Assertion Roulette, which hinder maintainability. Overall, our findings indicate that LLMs can serve as effective assistive tools for generating readable and maintainable test suites, but hybrid approaches that combine LLM-based generation with automated validation and search-based refinement are required to achieve reliable and production-ready test generation."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4406614566",
+   "doi": "10.3390/electronics14020401",
+   "title": "Model Checking Using Large Language Models—Evaluation and Future Directions",
+   "year": 2025,
+   "type": "article",
+   "authors": "Sotiris Batsakis; Ilias Tachmazidis; Matthew Mantle; Nikolaos Papadakis; Grigoris Antoniou",
+   "venue": "Electronics",
+   "abstract": "Large language models (LLMs) such as ChatGPT have risen in prominence recently, leading to the need to analyze their strengths and limitations for various tasks. The objective of this work was to evaluate the performance of large language models for model checking, which is used extensively in various critical tasks such as software and hardware verification. A set of problems were proposed as a benchmark in this work and three LLMs (GPT-4, Claude, and Gemini) were evaluated with respect to their ability to solve these problems. The evaluation was conducted by comparing the responses of the three LLMs with the gold standard provided by model checking tools. The results illustrate the limitations of LLMs in these tasks, identifying directions for future research. Specifically, the best overall performance (ratio of problems solved correctly) was 60%, indicating a high probability of reasoning errors by the LLMs, especially when dealing with more complex scenarios requiring many reasoning steps, and the LLMs typically performed better when generating scripts for solving the problems rather than solving them directly."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411203676",
+   "doi": "10.1109/deeptest66595.2025.00012",
+   "title": "On the Effectiveness of LLMs for Manual Test Verifications",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Myron David Lucena Campos Peixoto; Davy de Medeiros Baía; Nathalia Nascimento; Paulo Alencar; Baldoíno Fonseca; Márcio Ribeiro",
+   "venue": "",
+   "abstract": "Background: Manual testing is vital for detecting issues missed by automated tests, but specifying accurate verifications is challenging. Aims: This study aims to explore the use of Large Language Models (LLMs) to produce verifications for manual tests. Method: We conducted two independent and complementary exploratory studies. The first study involved using 2 closed-source and 6 open-source LLMs to generate verifications for manual test steps and evaluate their similarity to original verifications. The second study involved recruiting software testing professionals to assess their perception and agreement with the generated verifications compared to the original ones. Results: The open-source models Mistral-7B and Phi-3-mini-4k demonstrated effectiveness and consistency comparable to closed-source models like Gemini-1.5-flash and GPT-3.5-turbo in generating manual test verifications. However, the agreement level among professional testers was slightly above 40%, indicating both promise and room for improvement. While some LLM-generated verifications were considered better than the originals, there were also concerns about AI hallucinations, where verifications significantly deviated from expectations. Conclusion: We contributed by evaluating the effectiveness of 8 LLMs through similarity and human acceptance studies, identifying top-performing models like Mistral-7B and GPT-3.5-turbo. Although the models show potential, the relatively modest 40% agreement level highlights the need for further refinement. Enhancing the accuracy, relevance, and clarity of the generated verifications is crucial to ensure greater reliability in real-world testing scenarios."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4389519911",
+   "doi": "10.18653/v1/2023.findings-emnlp.496",
+   "title": "Exploring the Potential of Large Language Models in Generating Code-Tracing Questions for Introductory Programming Courses",
+   "year": 2023,
+   "type": "conference-paper",
+   "authors": "Aysa Xuemo Fan; Haoran Zhang; Luc Paquette; Rui Zhang",
+   "venue": "",
+   "abstract": "In this paper, we explore the application of large language models (LLMs) for generating code-tracing questions in introductory programming courses.We designed targeted prompts for GPT4, guiding it to generate code-tracing questions based on code snippets and descriptions.We established a set of human evaluation metrics to assess the quality of questions produced by the model compared to those created by human experts.Our analysis provides insights into the capabilities and potential of LLMs in generating diverse code-tracing questions.Additionally, we present a unique dataset of human and LLM-generated tracing questions, serving as a valuable resource for both the education and NLP research communities.This work contributes to the ongoing dialogue on the potential uses of LLMs in educational settings 1 ."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4405602219",
+   "doi": "10.1109/scam63643.2024.00028",
+   "title": "The Fault in our Stars: Quality Assessment of Code Generation Benchmarks",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Mohammed Latif Siddiq; Simantika Dristi; Joy Saha; Joanna C. S. Santos",
+   "venue": "",
+   "abstract": "Large Language Models (LLMs) are gaining popularity among software engineers. A crucial aspect of developing effective code generation LLMs is to evaluate these models using a robust benchmark. Evaluation benchmarks with quality issues can provide a false sense of performance. In this work, we conduct the first-of-its-kind study of the quality of prompts within benchmarks used to compare the performance of different code generation models. To conduct this study, we analyzed 3,566 prompts from 9 code generation benchmarks to identify quality issues in them. We also investigated whether fixing the identified quality issues in the benchmarks' prompts affects a model's performance. We also studied memorization issues of the evaluation dataset, which can put into question a benchmark's trustworthiness. We found that code generation evaluation benchmarks mainly focused on Python and coding exercises and had very limited contextual dependencies to challenge the model. These datasets and the developers' prompts suffer from quality issues like spelling and grammatical errors, unclear sentences to express developers' intent, and not using proper documentation style. Fixing all these issues in the benchmarks can lead to a better performance for Python code generation, but not a significant improvement was observed for Java code generation. We also found evidence that GPT-3.5-Turbo and CodeGen-2.5 models may have data contamination issues."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4405673260",
+   "doi": "10.1145/3701625.3701657",
+   "title": "AI in Service of Software Quality: How ChatGPT and Personas Are Transforming Exploratory Testing",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Ágatha de Almeida; Eliane Collins; Ana Carolina Oran",
+   "venue": "",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4410536892",
+   "doi": "10.1109/icst62969.2025.10988995",
+   "title": "An Analysis of LLM Fine-Tuning and Few-Shot Learning for Flaky Test Detection and Classification",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Riddhi More; Jeremy S. Bradbury",
+   "venue": "IEEE Conference on Software Testing, Verification and Validation (ICST)",
+   "abstract": "Flaky tests exhibit non-deterministic behavior during execution and they may pass or fail without any changes to the program under test. Detecting and classifying these flaky tests is crucial for maintaining the robustness of automated test suites and ensuring the overall reliability and confidence in the testing. However, flaky test detection and classification is challenging due to the variability in test behavior, which can depend on environmental conditions and subtle code interactions. Large Language Models (LLMs) offer promising approaches to address this challenge, with fine-tuning and few-shot learning (FSL) emerging as viable techniques. With enough data fine-tuning a pre-trained LLM can achieve high accuracy, making it suitable for organizations with more resources. Alternatively, we introduce FlakyXbert, an FSL approach that employs a Siamese network architecture to train efficiently with limited data. To understand the performance and cost differences between these two methods, we compare fine-tuning on larger datasets with FSL in scenarios restricted by smaller datasets. Our evaluation involves two existing flaky test datasets, FlakyCat and IDoFT. Our results suggest that while fine-tuning can achieve high accuracy, FSL provides a cost-effective approach with competitive accuracy, which is especially beneficial for organizations or projects with limited historical data available for training. These findings underscore the viability of both fine-tuning and FSL in flaky test detection and classification with each suited to different organizational needs and resource availability."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4405673248",
+   "doi": "10.1145/3701625.3701659",
+   "title": "Static and Dynamic Comparison of Mutation Testing Tools for Python",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Lucca Renato Guerino; Pedro Henrique Kuroishi; Ana C. R. Paiva; Auri Marcelo Rizzo Vincenzi",
+   "venue": "",
+   "abstract": "Context: Mutation testing is a rigorous approach for assessing the quality of test suites by injecting faults (i.e., mutants) into software under test.Tools, such as CosmicRay and Mutpy, are examples of Mutation Testing tools for Python software programs.Problem: With different Python mutation testing tools, comparative analysis is lacking to evaluate their effectiveness in different usage scenarios.Furthermore, the evolution of these tools makes continuous evaluation of their functionalities and characteristics necessary.Method: In this work, we evaluate (statically and dynamically) four Python mutation testing tools, namely CosmicRay, MutPy, MutMut, and Mutatest.In static evaluation, we introduce a comparison framework, adapted from one previously applied to Java tools, and collected information from tool documentation and developer surveys.For dynamic evaluation, we use tests built based on those produced by Pynguin, which are improved through the application of Large Language Models (LLMs) and manual analyses.Then, the adequate test suites were cross-tested among different tools to evaluate their effectiveness in killing mutants each other.Results: Our findings reveal that CosmicRay offers superior functionalities and customization options for mutant generation compared to its counterparts.Although CosmicRay's performance was slightly lower than MutPy in the dynamic tests, its recent updates and active community support highlight its potential for future enhancements.Cross-examination of the test suites further shows that mutation scores varied narrowly among tools, with a slight emphasis on MutPy as the most effective mutant fault model."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4413319805",
+   "doi": "10.1109/aitest66680.2025.00033",
+   "title": "Mutant-Driven Test Generation for Ethereum Smart Contracts via LLMs",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Morena Barboni; Filippo Lampa; Andrea Morichetta; Andrea Polini; Edward Zulkoski",
+   "venue": "IEEE International Conference on Artificial Intelligence Testing (AITest)",
+   "abstract": "Bugs in Solidity smart contracts caused millions of dollars in losses in the past year alone. Mutation testing can expose weaknesses in test suites that simpler coverage metrics often miss, but the effort required to generate test cases for live mutants remains a major barrier to adoption. To address this, we present Alchemist, a framework that generates test cases from Solidity mutants via LLMs. Alchemist incorporates the scientific method into its test generation process, enabling the systematic refinement of test cases through hypotheses. Evaluation on Solidity projects demonstrates that this method improves test quality over direct prompting while reducing developer effort."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4414995150",
+   "doi": "10.5753/sbes.2025.9618",
+   "title": "LLMs as Test Generators: A Comparative Benchmarking Study",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Eduardo Cristiano Hass da Silva; Roberta de Souza Coelho; Lyrene Fernandes da Silva",
+   "venue": "",
+   "abstract": "Automated tests are a key practice adopted by the software industry to verify software quality. However, they are costly to develop and maintain. Recently, the use of LLMs to generate automated tests has been explored as a viable alternative. Ongoing efforts focus on improving generation by providing richer context and post-processing the output to correct errors, ensuring accurate results. However, small-scale open LLMs, capable of running on modest hardware, have received limited attention. This work compares large-scale LLMs (e.g., GPT and Gemini) with small-scale open-source models in terms of the number of tests generated and their quality, measured by the mutation score, the cyclomatic complexity of generated code, and the number of test smells on them. We evaluated 12 small-scale models against 6 large-scale ones and used EvoSuite to establish a baseline for code quality and the number of methods tested. Our results show that some small-scale LLMs perform well in test generation tasks. xLan, Gemma2, and DeepSeekCoder gave the best overall results, producing as many tests as large-scale models, with fewer smells and a better mutation score."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4415718909",
+   "doi": "10.3390/app152111606",
+   "title": "Supporting Serious Game Development with Generative Artificial Intelligence: Mapping Solutions to Lifecycle Stages",
+   "year": 2025,
+   "type": "article",
+   "authors": "Jakub Swacha; Michał Gracel",
+   "venue": "Applied Sciences",
+   "abstract": "The emergence of effective Generative AI has sparked a revolution in video game development, enabling us to generate game assets and source code at a fraction of the cost and time needed compared to if human developers were involved. But the support available from GenAI goes far beyond the generation of game assets and code, especially in the case of serious games, which have to combine playability with non-entertainment purposes such as, but not only, education. In this paper, the potential forms of GenAI-based support for serious game development are explored and placed into the context of the respective phases of the serious game development lifecycle. As existing lifecycle models are either not specialized for the specifics of serious games or are otherwise too simple, a new serious game development lifecycle model has been proposed for this purpose."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7117156918",
+   "doi": "10.1145/3756681.3756964",
+   "title": "Quality Assessment of Python Tests Generated by Large Language Models",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Victor Anthony Alves; Carla Ilane Moreira Bezerra; Ivan Machado; Larissa Rocha; Tássio Virgínio; Públio Silva",
+   "venue": "International Conference on Evaluation and Assessment in Software Engineering (EASE)",
+   "abstract": "The manual generation of test scripts is a time-intensive, costly, and error-prone process, indicating the value of automated solutions. Large Language Models (LLMs) have shown great promise in this domain, leveraging their extensive knowledge to produce test code more efficiently. This study investigates the quality of Python test code generated by three LLMs: GPT-4o, Amazon Q, and LLama 3.3. We evaluate the structural reliability of test suites generated under two distinct prompt contexts: Text2Code (T2C) and Code2Code (C2C). Our analysis includes the identification of errors and test smells, with a focus on correlating these issues to inadequate design patterns. Our findings reveal that most test suites generated by the LLMs contained at least one error or test smell. Assertion errors were the most common, comprising 64% of all identified errors, while the test smell Lack of Cohesion of Test Cases was the most frequently detected (41%). Prompt context significantly influenced test quality; textual prompts with detailed instructions often yielded tests with fewer errors but a higher incidence of test smells. Among the evaluated LLMs, GPT-4o produced the fewest errors in both contexts (10% in C2C and 6% in T2C), whereas Amazon Q had the highest error rates (19% in C2C and 28% in T2C). For test smells, Amazon Q had fewer detections in the C2C context (9%), while LLama 3.3 performed best in the T2C context (10%). Additionally, we observed a strong relationship between specific errors, such as assertion or indentation issues, and test case cohesion smells. These findings demonstrate opportunities for improving the quality of test generation by LLMs and highlight the need for future research to explore optimized generation scenarios and better prompt engineering strategies."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7125995066",
+   "doi": "10.1109/ase63991.2025.00198",
+   "title": "LLMs for Automated Unit Test Generation and Assessment in Java: The AgoneTest Framework",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Andrea Lops; Fedelucio Narducci; Azzurra Ragone; Michelantonio Trizio; Claudio Bartolini",
+   "venue": "IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+   "abstract": "Unit testing is an essential but resource-intensive step in software development, ensuring individual code units function correctly. This paper introduces AgoneTest, an automated evaluation framework for Large Language Model-generated (LLM) unit tests in Java. AgoneTest does not aim to propose a novel test generation algorithm; rather, it supports researchers and developers in comparing different LLMs and prompting strategies through a standardized end-to-end evaluation pipeline under realistic conditions. We introduce the CLASSES2TEST dataset, which maps Java classes under test to their corresponding test classes, and a framework that integrates advanced evaluation metrics, such as mutation score and test smells, for a comprehensive assessment. Experimental results show that, for the subset of tests that compile, LLM-generated tests can match or exceed human-written tests in terms of coverage and defect detection. Our findings also demonstrate that enhanced prompting strategies contribute to test quality. AgoneTest clarifies the potential of LLMs in software testing and offers insights for future improvements in model design, prompt engineering, and testing practices."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7169051412",
+   "doi": "10.1109/icst69053.2026.00039",
+   "title": "Consistency Meets Verification: Enhancing Test Generation Quality in Large Language Models Without Ground-Truth Solutions",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Hamed Taherkhani; Alireza DaghighFarsoodeh; Mohammad Chowdhury; Hung Viet Pham; Hadi Hemmati",
+   "venue": "IEEE International Conference on Software Testing, Verification and Validation (ICST)",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4404473045",
+   "doi": "10.1007/978-3-031-75010-6_23",
+   "title": "Enhancing API Security Testing Against BOLA and Authentication Vulnerabilities Through an LLM-Enhanced Framework",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Emil Marian Pașca; Rudolf Erdei; Daniela Delinschi; Oliviu Matei",
+   "venue": "Lecture notes in networks and systems",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4405601490",
+   "doi": "10.1109/icsme58944.2024.00055",
+   "title": "On the Rationale and Use of Assertion Messages in Test Code: Insights from Software Practitioners",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Anthony Peruma; Taryn Takebayashi; Rocky Huang; Joseph Carmelo Averion; Volker Hodapp; Christian D. Newman; Mohamed Wiem Mkaouer",
+   "venue": "IEEE International Conference on Software Maintenance and Evolution (ICSME)",
+   "abstract": "Unit testing is an important practice that helps ensure the quality of a software system by validating its behavior through a series of test cases. Core to these test cases are assertion statements, which enable software practitioners to validate the correctness of the system's behavior. To aid with understanding and troubleshooting test case failures, practitioners can include a message (i.e., assertion message) within the assertion statement. While prior studies have examined the frequency and structure of assertion messages by mining software repositories, they do not determine their types or purposes or how practitioners perceive the need for or the usage of various types of assertion messaaes. In this paper, we survey 138 professional software practitioners to gather insights into their experience and views regarding assertion messages. Our findings reveal that a majority of survey respondents find assertion messages valuable for troubleshooting failures, improving test understandability, and serving as doc-umentation. However, not all respondents consistently include messages in their assertion methods. We also identified common considerations for constructing effective assertion messages, challenges in crafting them, maintenance techniques, and their integration into debugging processes. Our results contribute to the understanding of current practices and provide guidelines for authoring high-quality assertion messages, serving as a foundation for best practices and coding standards. Furthermore, the insights can guide the improvement of automated unit testing tools by incorporating checks for the presence and quality of assertion messages and providing real-time feedback to practitioners."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7117114040",
+   "doi": "10.1145/3756681.3756946",
+   "title": "Tracking the Moving Target: A Framework for Continuous Evaluation of LLM Test Generation in Industry",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Maider Azanza; Beatriz Pérez Lamancha; Eneko Pizarro",
+   "venue": "International Conference on Evaluation and Assessment in Software Engineering (EASE)",
+   "abstract": "Large Language Models (LLMs) have shown great potential in automating software testing tasks, including test generation. However, their rapid evolution poses a critical challenge for companies implementing DevSecOps - evaluations of their effectiveness quickly become outdated, making it difficult to assess their reliability for production use. While academic research has extensively studied LLM-based test generation, evaluations typically provide point-in-time analyses using academic benchmarks. Such evaluations do not address the practical needs of companies who must continuously assess tool reliability and integration with existing development practices. This work presents a measurement framework for the continuous evaluation of commercial LLM test generators in industrial environments. We demonstrate its effectiveness through a longitudinal study at LKS Next. The framework integrates with industry-standard tools like SonarQube and provides metrics that evaluate both technical adequacy (e.g., test coverage) and practical considerations (e.g., maintainability or expert assessment). Our methodology incorporates strategies for test case selection, prompt engineering, and measurement infrastructure, addressing challenges such as data leakage and reproducibility. Results highlight both the rapid evolution of LLM capabilities and critical factors for successful industrial adoption, offering practical guidance for companies seeking to integrate these technologies into their development pipelines."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4400184983",
+   "doi": "10.1007/978-3-031-64573-0_2",
+   "title": "Higher Fault Detection Through Novel Density Estimators in Unit Test Generation",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Annibale Panichella; Mitchell Olsthoorn",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4407169173",
+   "doi": "10.1109/tse.2025.3539458",
+   "title": "A Retrospective on Whole Test Suite Generation: On the Role of SBST in the Age of LLMs",
+   "year": 2025,
+   "type": "article",
+   "authors": "Gordon Fraser; Andrea Arcuri",
+   "venue": "IEEE Transactions on Software Engineering",
+   "abstract": "This paper presents a retrospective of the article“Whole Test Suite Generation”, published in the IEEE Transactions on Software Engineering, in 2012. We summarize its main contributions, and discuss how this work impacted the research field of Search-Based Software Testing (SBST) in the last 12 years. The novel techniques presented in the paper were implemented in the tool EvoSuite, which has been so far the state-of-the-art in unit test generation for Java programs using SBST. SBST has shown practical and impactful applications, creating the foundations to open the doors to tackle several other software testing problems besides unit testing, like for example system testing of Web APIs with EvoMaster. We conclude our retrospective with our reflections on what lies ahead, especially considering the important role that SBST still plays even in the age of Large Language Models (LLMs)."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411450306",
+   "doi": "10.1145/3729397",
+   "title": "An Empirical Study of Code Clones from Commercial AI Code Generators",
+   "year": 2025,
+   "type": "article",
+   "authors": "Weibin Wu; Haoxuan Hu; Zhaoji Fan; Yitong Qiao; Yizhan Huang; Yichen Li; Zibin Zheng; Michael Rung-Tsong Lyu",
+   "venue": "Proceedings of the ACM on software engineering.",
+   "abstract": "Deep learning (DL) has revolutionized various software engineering tasks. Particularly, the emergence of AI code generators has pushed the boundaries of automatic programming to synthesize entire programs based on user-defined specifications in natural language. However, it remains a mystery if these AI code generators rely on the copy-and-paste programming practice, resulting in code clone concerns. In this work, to comprehensively study the code cloning behavior of AI code generators, we conduct an empirical study on three state-of-the-art commercial AI code generators to investigate the existence of all types of clones, which remains underexplored. Our experimental results show that the total Type-1 and Type-2 clone rates of the state-of-the-art commercial AI code generators can reach up to 7.50%, indicating marked code clone issues. Furthermore, it is observed that AI code generators risk infringing copyrights and propagating buggy and vulnerable code resulting from cloning code and show a certain degree of stability in generating code clones."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4413371072",
+   "doi": "10.1007/978-3-032-01241-8_13",
+   "title": "Large Language Models in Code Co-generation for Safe Autonomous Vehicles",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Ali Nouri; Beatriz Cabrero‐Daniel; Zhennan Fei; Krishna Ronanki; Håkan Sivencrona; Christian Berger",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7154024916",
+   "doi": "10.1145/3772318.3791260",
+   "title": "Evolving Enactions of Expertise: Software Engineers’ Evaluation and Demonstration of Coding Expertise with AI Coding Assistants",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Yeonju Jang; Mose Sakashita; Koichiro Niinuma; Aakar Gupta",
+   "venue": "CHI Conference on Human Factors in Computing Systems",
+   "abstract": "AI coding assistants are changing how software engineers engage in coding work. This shift raises a key question: does the changing of coding work also alter how software engineers evaluate and demonstrate coding expertise? We explore this question through a simulated live coding interview involving two software engineers, one as evaluator and the other as candidate, with AI tools allowed. Participants continued to rely on familiar criteria but adjusted the evidence they sought, as AI assistants both introduced new forms of demonstrating expertise and obscured some established workflows. The importance of these evolving enactions varied with evaluators’ emphasis on implementation versus planning. Lacking a clear link to expertise, heightened productivity expectations created additional tensions around these evolving enactions. We conclude by discussing how extended enactions can be supported through AI-focused tools and training, and how tensions between diminished enactions and productivity call for collaborative attention."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411271299",
+   "doi": "10.1109/icse-companion66252.2025.00063",
+   "title": "Trustworthiness of Large Language Models for Code",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Dipin Khati",
+   "venue": "IEEE/ACM International Conference on Software Engineering: Companion Proceedings (ICSE-Companion)",
+   "abstract": "In recent years, Large Language Models for code (LLMc) have transformed the landscape of software engineering (SE), demonstrating significant efficacy in tasks such as code completion, summarization, review, tracing, translation, test case generation, clone detection, and bug fixing. Notably, GitHub Copilot and Google's CodeBot exemplify how LLMc contributes to substantial time and effort savings in software development. However, the widespread application of these models has raised critical concerns regarding their trustworthiness. The lack of well-defined trust metrics beyond mere accuracy poses significant risks, including potential security vulnerabilities and compromised data integrity. This dissertation proposes solving this pressing need by developing a comprehensive framework to evaluate LLMc's trustworthiness. We aim to establish contextualized definitions of trust, distrust, and trustworthiness specific to LLMc, identify key influencing factors, and create a standardized evaluation framework encompassing both model-based attributes and human-centric considerations. We will validate the framework's effectiveness through rigorous empirical studies and user evaluations and provide insights for targeted improvements in LLMc development. This dissertation seeks to enhance the reliability and transparency of LLMc, fostering their responsible integration into software engineering practices and paving the way for more trustworthy AI-assisted code generation."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4416556985",
+   "doi": "10.1007/978-3-032-11402-0_7",
+   "title": "Retry and Refine: A Multi-agent Framework for LLM Based Reliable Unit Test Generation",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Tanmay Ghosh; Noorhan Abbas",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7153362316",
+   "doi": "10.1145/3798251",
+   "title": "Beyond Coverage: Automatic Test Suite Augmentation for Enhanced Effectiveness using Large Language Models",
+   "year": 2026,
+   "type": "article",
+   "authors": "Zeyu Lu; Peng Zhang; Yuge Nie; Yibiao Yang; Yutian Tang; Chun Yong Chong; Yuming Zhou",
+   "venue": "Proceedings of the ACM on Programming Languages",
+   "abstract": "Large Language Models (LLMs) have gained significant traction in software engineering for automating tasks such as unit test generation. Most existing studies prioritize code coverage as the primary metric for enhancing test suite effectiveness. However, prior research has shown that although code coverage can reach approximately 80%, the mutation score, which generally exhibits a stronger correlation with defect detection effectiveness, attains only about 35%. This gap highlights the need to enhance test suite effectiveness guided by mutation score rather than code coverage. Recent studies, including MuTAP and Mu tGe n, explored the use of survived mutants to enhance test suite effectiveness. However, their evaluations were limited to simple standalone methods that rely on built-in functions and standard libraries. Non-standalone methods, which depend on other classes and involve complex user-defined types, are more intricate and commonly found in real-world projects. The limited contextual information and basic repair mechanisms in their prompt designs make it unclear whether their performance can generalize to non-standalone methods. Moreover, the two studies rely on existing language-specific, rule-based mutation techniques, which require specific configurations and incur additional costs when adapting to other programming languages. To bridge this gap, we propose a novel, fully automatic LLM-based approach to enhance test suite effec-tiveness, guided by survived mutants. The approach augments initial test suites by integrating mutation testing with test case generation. It takes focal method information as input and generates test cases targeting survived mutants identified from applying the initial test suites. Our approach incorporates multiple prompt techniques, rich contextual information, and an advanced repair mechanism to effectively generate test cases for non-standalone methods. The evaluation covers 1,035 focal methods, categorized as standalone or non-standalone. On average, the mutation score increases by 16.04% for standalone methods and 8.11% for non-standalone methods. We validate the practical impact of augmented test suites in LLM-based code generation. After test suite augmentation, pass@1 decreased by 0.3152 and 0.1772 on average for standalone and non-standalone methods, respectively, indicating the effectiveness of our approach in reducing false positives caused by insufficient test cases in code generation evaluation."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7167083712",
+   "doi": "10.1109/saner67736.2026.00013",
+   "title": "HieraTest: Hierarchical Dependency-Driven Framework with Multi-Strategy Repair for LLM-Based Unit Test Generation",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "None; Junwei Zhang; Xiaochun Zhu; Bo Zhou",
+   "venue": "IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER)",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4402310404",
+   "doi": "10.1007/978-3-031-71294-4_10",
+   "title": "Impact and Performance of Randomized Test-Generation Using Prolog",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Marcus Gelderie; Maximilian Luff; Maximilian Peltzer",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4398785939",
+   "doi": "10.1145/3639476",
+   "title": "Proceedings of the 2024 ACM/IEEE 44th International Conference on Software Engineering: New Ideas and Emerging Results",
+   "year": 2024,
+   "type": "paratext",
+   "authors": "",
+   "venue": "",
+   "abstract": "We propose Expert Monitoring, an approach that leverages domain expertise to enhance the detection and mitigation of concept drift in machine learning (ML) models.Our approach supports practitioners by consolidating domain expertise related to concept drift-inducing events, making this expertise accessible to on-call personnel, and enabling automatic adaptability with expert oversight."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4416164608",
+   "doi": "10.1145/3733821.3763027",
+   "title": "UAgent: Adversarial Co-evolution for Targeted Bug Revelation in Unit Testing",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Yulong Fu; Yuanshou Zhang",
+   "venue": "",
+   "abstract": "Unit testing remains crucial for software quality assurance, yet manually creating effective tests requires significant expertise. Only 17% of 82,447 GitHub projects contain test cases, revealing low adoption rates. While automated tools like Pynguin and EvoSuite reduce effort, their dependence on code coverage metrics is problematic due to weak correlation with defect detection."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7162627063",
+   "doi": "10.2139/ssrn.6843084",
+   "title": "BenjiTest: An Agentic Framework for Evaluating LLM-Based Unit Test Generation and Correction",
+   "year": 2026,
+   "type": "preprint",
+   "authors": "Andrea Lops; Azzurra Ragone; Massimiliano Di Penta; Michelantonio Trizio; Fedelucio Narducci",
+   "venue": "SSRN Electronic Journal",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W4403511622",
+   "doi": "10.5753/cbsoft_estendido.2024.4102",
+   "title": "An Empirical Study on the Detection of Test Smells in Test Codes Generated by GitHub Copilot",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Victor Anthony Alves; Carla Ilane Moreira Bezerra; Ivan Machado",
+   "venue": "",
+   "abstract": "Various techniques for automatically generating unit tests have been studied. The use of Large Language Models (LLMs) has recently emerged as a popular approach for automatic test generation from natural language descriptions. This study aims to measure the quality of the test codes produced by LLMs by detecting test smells in the test cases generate. To do this, we proposed an empirical study and a quality assessment methodology to be performed for each LLM that generates code. In our preliminary results, we applied these procedures with GitHub Copilot and obtained significant data on the quality of test codes. These findings indicate that although GitHub Copilot can generate valid unit tests, quality violations are still frequently found in these codes."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4404031093",
+   "doi": "10.1109/icccnt61001.2024.10725745",
+   "title": "Optimizing Automatic Test Case Generation Using Singular Value Decomposition Approach",
+   "year": 2024,
+   "type": "conference-paper",
+   "authors": "Manjubala Bisi; Aryan Srivastava; Abhishek Kumar Verma; Aditya Kumar",
+   "venue": "International Conference on Computing, Communication and Networking Technologies (ICCCNT)",
+   "abstract": "Test case generation is a complex problem when dealing with multiple objectives, which hinders search efficiency with algorithms like DynaMOSA in the EvoSuite framework. To address this issue, we propose SVD-DynaMOSA, utilizing Singular Value Decomposition for dimensionality reduction. This approach aims to optimize the test case generation process, leading to improved efficiency. Experimentation with 49 projects and 110 classes from the SF110 dataset, selected for their complexity and number of objectives, demonstrates SVD-DynaMOSA’s superiority over DynaMOSA. It achieves higher or comparable coverage in multiple metrics, enhancing test case generation performance significantly. SVD-DynaMOSA shows promise in producing comprehensive test suites in practical time frames, overcoming the limitations of current methods."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4411489800",
+   "doi": "10.5753/cibse.2025.35294",
+   "title": "Generación de Pruebas Unitarias con LLMs en Entornos Industriales: Desafíos, Evolución y Lecciones Prácticas",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Eneko Pizarro; Maider Azanza; Beatriz Pérez Lamancha",
+   "venue": "",
+   "abstract": "Los Modelos de Lenguaje de Gran Escala (LLMs) muestran potencial para generar pruebas unitarias automáticamente, pero su aplicación industrial genera desafíos. Presentamos un caso de estudio longitudinal sobre la implementacion y evaluación de LLMs para generación de pruebas en la empresa LKS Next, integrando herramientas estandar como SonarQube. Nuestro enfoque revela hallazgos sobre la evolucion temporal de estas tecnologías en entornos de producción y proporciona lecciones aprendidas. Los resultados ofrecen una guía industrial basada en evidencia para organizaciones que consideran adoptar estas soluciones, destacando consideraciones practicas de integración y mantenibilidad a menudo ausentes en estudios teoricos."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4413289250",
+   "doi": "10.1017/s1471068425100082",
+   "title": "Impact and Performance of Randomized Test Generation Using Prolog",
+   "year": 2025,
+   "type": "article",
+   "authors": "Marcus Gelderie; Maximilian Luff; Maximilian Peltzer",
+   "venue": "Theory and Practice of Logic Programming",
+   "abstract": "Abstract We study randomized generation of sequences of test inputs to a system using Prolog. Prolog is a natural fit to generate test sequences that have complex logical interdependent structure. To counter the problems posed by a large (or infinite) set of possible tests, randomization is a natural choice. We study the impact that randomization in conjunction with SLD resolution have on the test performance. To this end, this paper proposes two strategies to add randomization to a test-generating program. One strategy works on top of standard Prolog semantics, whereas the other alters the SLD selection function. We analyze the mean time to reach a test case and the mean number of generated test cases in the framework of Markov chains. Finally, we provide an additional empirical evaluation and comparison between both approaches."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4415746130",
+   "doi": "10.1109/icsme64153.2025.00082",
+   "title": "Rethinking Cognitive Complexity for Unit Tests: Toward a Readability-Aware Metric Grounded in Developer Perception",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Wendkûuni C. Ouédraogo; Yinghua Li; Xueqi Dang; Xin Zhou; Anil Koyuncu; Jacques Klein; David Lo; Tegawendé François Bissyandé",
+   "venue": "IEEE International Conference on Software Maintenance and Evolution (ICSME)",
+   "abstract": "Automatically generated unit tests-from searchbased tools like EvoSuite or LLMs-vary significantly in structure and readability. Yet most evaluations rely on metrics like Cyclomatic Complexity and Cognitive Complexity, designed for functional code rather than test code. Recent studies have shown that SonarSource's Cognitive Complexity metric assigns nearzero scores to LLM-generated tests, yet its behavior on EvoSuitegenerated tests and its applicability to test-specific code structures remain unexplored. We introduce CCTR, a Test-Aware Cognitive Complexity metric tailored for unit tests. CCTR integrates structural and semantic features like assertion density, annotation roles, and test composition patterns-dimensions ignored by traditional complexity models but critical for understanding test code. We evaluate$\\mathbf{1 5, 7 5 0}$test suites generated by EvoSuite, GPT4o, and Mistral Large-1024 across 350 classes from Defects4J and SF110. Results show CCTR effectively discriminates between structured and fragmented test suites, producing interpretable scores that better reflect developer-perceived effort. By bridging structural analysis and test readability, CCTR provides a foundation for more reliable evaluation and improvement of generated tests. We publicly release all data, prompts, and evaluation scripts to support replication."
+  },
+  {
+   "openalex_id": "https://openalex.org/W4416874128",
+   "doi": "10.1109/issrew67781.2025.00081",
+   "title": "An Evaluation Framework for Software Unit Tests Generated by Large Language Models",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Steven Thanhtan Nguyen; Smita Bharath; Hajar Homayouni",
+   "venue": "IEEE International Symposium on Software Reliability Engineering Workshops (ISSREW)",
+   "abstract": "Faulty software unit tests can lead to undetected bugs, undermining software quality, reliability, and security. While prior research has explored automated test generation, it often neglects the use of state-of-the-art LLMs, lacks differentiation between test and program faults, overlooks readability and maintainability metrics, and rarely leverages prompt engineering for optimization. To address these gaps, this paper introduces a comprehensive evaluation framework for assessing the quality of LLM-generated unit tests along three key dimensions: validity, effectiveness, and readability. The framework combines established metrics with a newly proposed metric for validity, encompassing Build & Successful Execution Rate and Unit Test Failure Evaluation (for validity), Line Coverage and Mutation Score (for effectiveness), and Flesch-Kincaid Grade Level, Gunning Fog Index, and Halstead Metrics (for readability). We apply this framework to unit tests generated by two leading LLMs-GPT40 and Llama 3-70B-8192-across 10 Java programs, also examining how prompt engineering affects test quality. Our findings provide a detailed picture of current LLMs' capabilities and limitations in unit test generation, offe ring actionable insights for researchers and practitioners aiming to integrate LLMs into software testing workflows. Source code is available at the following link - https://github.com/StevenTNguyen-Code/Quality-of-AI-Generated-Test-Cases"
+  },
+  {
+   "openalex_id": "https://openalex.org/W7131253234",
+   "doi": "10.1109/apsec66846.2025.00064",
+   "title": "Multi-Agent Assisted Automatic Test Generation for Java JSON Libraries",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Sinan Wang; Zhiyuan Zhong; Shaojin Wen; Y.H. Liu",
+   "venue": "Proceedings - Asia Pacific Software Engineering Conference/Proceedings",
+   "abstract": "JSON is a widely used data format for data exchange between application systems and programming frontends. In the Java ecosystem, Java JSON libraries serve as fundamental toolkits for processing JSON data, powering a wide range of real-world applications, such as web services, Android apps, or data management systems. However, without effective quality assurance methods, such as automatic test generation (ATG), developers risk introducing subtle data inconsistency bugs, compatibility issues, and even security vulnerabilities. These flaws can affect billions of end users and potentially cause severe financial losses. Recently, large language models (LLMs) have shown strong potential in enhancing ATG. However, existing LLM-based methods, such as TitanFuzz or YanHui, lack specialization in the JSON domain. For Java JSON libraries, effective bug-triggering test cases should capture the constraints between formatted data and application programs, posing challenges to existing methods, leaving critical aspects of quality assurance unaddressed. To fill this gap, we propose JsonATG, a multi-agent ATG system that generates diverse bug-triggering tests for Java JSON libraries. With historical bug-triggering unit tests as seeds, JSONATG introduces a code summarization agent and a test validation agent into the generation pipeline to produce new, valid test cases. It applies agent-generated program mutation rules tailored specifically for the structural and semantic characteristics of Java JSON libraries, such as data streaming operations, serialization formats, and data-binding patterns. The generated tests are further refined through post-processing to ensure both syntactic and semantic correctness. Our experiments show that JSONATG achieves higher coverage than two state-of-the-art LLM-based test generation methods on the widely used Java JSON library. Using JSONATG with a $\\mathbf{\\$} 2 5$ budget, we reported 59 bugs (including non-crashing functional bugs) in fastjson, of which 47 were confirmed and 28 have already been fixed."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7147045272",
+   "doi": "10.1109/icarc68737.2026.11453759",
+   "title": "LLM-Based Unit Test Cases Generation for React, Vue, and Angular Components",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Geenoth Wimalagunasekara; Shanmuganathan Vasanthapriyan",
+   "venue": "International Conference on Advanced Research in Computing (ICARC)",
+   "abstract": "The rapid adoption of React, Vue, and Angular for creating dynamic UIs for the interactive web makes manual unit testing increasingly time-consuming and error-prone due to framework specific paradigms such as hooks, reactivity, and dependency injection. Large Language Models (LLMs) offer a new solution for unit test automation, although relative efficacy comparisons among the top three JavaScript tools remain largely unexplored. This paper presents a systematic evaluation of five LLMs - GPT-4o, Claude Opus 4, Gemini 2.5 Pro, Grok 3, and Llama 3 in generating JEST-based unit tests for the twelve isolated TodoMVC UI components for each of the three popular JavaScript frameworks, cumulatively totaling thirtysix UI components. Identical testing prompts, along with three independent test runs per LLM (540 test suites in total), test suite pass/fail status, individual test pass percentage, code coverage percentages for statements, branches, functions, and line coverage, and execution time were measured. The results show that Gemini 2.5 Pro achieved the highest average test pass rate of 93.73 % and average test suite result (reliability), followed closely by Claude Opus 4 at 89.76 %, while React and Vue consistently yield higher pass rates and coverage than Angular. The UI components that require state updating, such as the 'RemainingCounter' UI, proved significantly harder across all models. The study provides a large-scale (540 independently generated test suites), reproducible comparison of LLM performance on modern JavaScript UI frameworks and offers actionable insights into model strengths, framework-specific challenges, and prompting strategies for practical adoption in web development."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7155091731",
+   "doi": "10.1109/aixse64906.2025.00017",
+   "title": "Generative AI for Software Engineering: Generative AI Effectiveness and Efficiency in Software Development Documentation",
+   "year": 2025,
+   "type": "conference-paper",
+   "authors": "Rohith Gadamsetty; Kadir Alpaslan Demir; Bozhen Liu",
+   "venue": "",
+   "abstract": "This research aims to evaluate the capabilities of Generative Artificial Intelligence (GenAI) in automatically generating software development artifacts, such as project vision, project plan, software requirements specification, software design description, and software test description. The study compares manual artifact generation vs. ChatGPT’s automated artifact generation. The research results indicate that ChatGPT can produce accurate, coherent artifacts with significantly reduced effort and time. While the efficiency achieved for software documentation generation utilizing ChatGPT is around 40%, the document quality achieved utilizing ChatGPT was a little lower than what is achieved with the manual approach. ChatGPT demonstrated usefulness across various development tasks, with some limitations, such as the need for human validation in some cases. The findings indicate that GenAI can enhance software documentation efficiency and productivity if integrated appropriately into development workflows. Further research is needed on ChatGPT’s real-world applicability and comparison to other AI models. This study provides valuable insights into ChatGPT’s potential as an automated software artifact generation tool."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7155107315",
+   "doi": "10.1007/978-3-032-24216-7_8",
+   "title": "Improving the Quality of GitHub Copilot Generated Unit Tests",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Max Schallermayer; Markus Schnappinger",
+   "venue": "Lecture notes in business information processing",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7162402966",
+   "doi": "10.1109/icnlp69856.2026.11527996",
+   "title": "A Multi-Stage Approach for LLM-Based Automated Repair of Test Cases",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Xiaoyin Wang; Zhaorong Ji; Yao Wang; Mengfan Liu",
+   "venue": "",
+   "abstract": "Currently, large language models often produce low-quality project-level unit test cases, manifesting as syntax errors, missing dependencies, semantic defects, and inadequate test coverage. To address these issues, this paper proposes a multi-stage feedback-based test case self-repair method. The approach first constructs an error classifier to identify the types of faults, then employs a stage router to determine the repair sequence, followed by a progressive four-stage repair processsyntax repair, dependency repair, semantic repair, and optimization repair. A knowledge retrieval module is also integrated to retrieve historical repair solutions. Experiments are conducted on nine large language models across three programming languages: Python, Java, and JavaScript. The results demonstrate that, compared with the primitive self-repair method, the proposed approach improves test case correctness by 14.32%, compilation rate by 16.88%, line coverage by 12.90%, and branch coverage by 12.46%. The method effectively enhances the quality of LLM-generated test cases and provides technical support for the practical application of LLMs in software testing."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7162646427",
+   "doi": "10.2139/ssrn.6843083",
+   "title": "BenjiTest: An Agentic Framework for Evaluating LLM-Based Unit Test Generation and Correction",
+   "year": 2026,
+   "type": "preprint",
+   "authors": "Andrea Lops; Azzurra Ragone; Massimiliano Di Penta; Michelantonio Trizio; Fedelucio Narducci",
+   "venue": "SSRN Electronic Journal",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7164686933",
+   "doi": "10.1007/s10664-026-10901-8",
+   "title": "CDBench: Benchmarking the mutation testing capabilities of LLMs with code defenders",
+   "year": 2026,
+   "type": "article",
+   "authors": "Artur Romazanov; Gordon Fraser; Steffen Herbold",
+   "venue": "Empirical Software Engineering",
+   "abstract": "Abstract Most traditional benchmarks for evaluating Large Language Models (LLMs) in software development suffer from a narrow focus, high risks of data contamination, and static difficulty levels that fail to keep pace with rapid model evolution. To address these limitations, we introduce CDBench, a novel zero-sum benchmark based on the Code Defenders mutation testing game. By pitting models against each other in a competitive environment—where “attackers” introduce code mutations and “defenders” create tests to detect them—CDBench establishes a dynamic difficulty curve that scales naturally without human intervention. Our experiments reveal that while LLMs can generate diverse mutations, they often struggle with code validity; nevertheless, the framework effectively distinguishes model capabilities, highlighting the superior test generation of models like Gemini 2.5 Pro while exposing the instruction-following limitations of reasoning models. These findings demonstrate that zero-sum games offer a viable, contamination-resistant solution to the stagnation of current evaluation methodologies."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7167456909",
+   "doi": "10.21203/rs.3.rs-9238547/v1",
+   "title": "When Generative AI Writes Test Cases: Scenario-Driven Evaluation of Generated Tests",
+   "year": 2026,
+   "type": "preprint",
+   "authors": "Barış Ardıç; Idil Isil Yildirim; Carolin Brandt; Andy Zaidman",
+   "venue": "Research Square",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7168032929",
+   "doi": "10.1145/3786583.3786857",
+   "title": "Hamster: A Large-Scale Study and Characterization of Developer-Written Tests",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Rangeet Pan; Tyler Stennett; Raju Pavuluri; Nate Levin; Alessandro Orso; Saurabh Sinha",
+   "venue": "IEEE/ACM International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)",
+   "abstract": "Automated test generation (ATG), which aims to reduce the cost of manual test suite development, has been investigated for decades and has produced countless techniques based on a variety of approaches: symbolic analysis, search-based, random and adaptive-random, learning-based, and, most recently, large-language-model-based approaches. However, despite this large body of research, there is still a gap in our understanding of the characteristics of developer-written tests and, consequently, our assessment of how well ATG techniques and tools can generate realistic and representative tests. To bridge this gap, we conducted an extensive empirical study of developer-written tests for Java applications, covering 1.7 million test cases from open-source repositories. Our study is the first of its kind to evaluate aspects of developer-written tests that are mostly neglected in the existing literature—including test scope, test fixtures and assertions, types of inputs, and use of mocking—and characterize tests accordingly. Based on this characterization, we then compare existing tests with those generated by two state-of-the-art ATG tools. Our results highlight that the vast majority of developer-written tests exhibit characteristics that are beyond the capabilities of current ATG tools. Finally, based on our findings, we identify promising research directions that can help develop more effective tool support for developer testing practices. We believe this work can set the stage for additional research and bring ATG tools closer to generating the types of tests developers write."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7168428804",
+   "doi": "10.1109/compsac69091.2026.00059",
+   "title": "Beyond Test Presence: Assessing the Quality and Robustness of Agent-Generated Tests in Open-Source Projects",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Preet Jhanglani; Zeel Kaushal Desai; Vidhi Kansara; Eman Abdullah AlOmar",
+   "venue": "IEEE Annual Computers, Software, and Applications Conference (COMPSAC)",
+   "abstract": "The integration of AI-powered coding agents into Continuous Integration/Continuous Delivery (CI/CD) pipelines has fundamentally altered how software verification is conducted. While these agents successfully automate the test generation, current evaluation benchmarks (e.g., SWE-bench) largely focus on pass-rates rather than the intrinsic quality of the generated tests. This raises the possibility of \"stealth technical debt\", in which test suites pass execution but do not offer comprehensive coverage or semantic value. We address this methodological gap through a large-scale, empirical comparison of 204,673 test artifacts which comprises of 24,941 human-authored files and 179,732 agent-generated files; sourced from the AIDev dataset. Using the Abstract Syntax Tree (AST) parsing with Python's naive ast module, we implemented a \"white-box\" static analysis framework to evaluate three quality dimensions: Assertion Strength (RQ1), Edge-Case Coverage (RQ2), and Flakiness Potential (RQ3). Our results present a nuanced inversion of traditional assumptions. AI agents performed better than humans in Edge-Case Coverage, with almost twice the variety of boundary checks (Variety Score: 0.62 vs 0.32) and a higher frequency of null-safety testing (13.40% vs. 8.3%), even though human developers had a slight advantage in Assertion Strength (88.1% strong assertions vs. 85.37% for agents). But this thoroughness comes at a price: due mostly to their reliance on file I/O and non-deterministic logic, agent-generated tests exhibited a higher risk of flakiness (Candidate Rate: 0.41 vs. 0.30). These findings suggest that while AI agents excel at rigorous boundary testing, they lack the \"environmental awareness\" needed to write stable, hermetic tests."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7169600881",
+   "doi": "10.1007/978-981-92-3394-6_19",
+   "title": "A Test Script Generation Method Based on Large Language Models with Model Sensitivity Analysis in Semi-physical Simulation",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Qinhu Zhang; Lianke Zhou; Bo Sun; Nianbin Wang",
+   "venue": "Lecture notes in computer science",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7171472805",
+   "doi": "10.1145/3744916.3773122",
+   "title": "HarnessLLM: Rust Verification Harness Generation with Large Language Models",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Minghua Wang; Yuwei Liu; Huang Lj",
+   "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+   "abstract": "Rust’s ownership and type system offer strong memory safety guarantees, but unsafe code and runtime panics still present significant risks. Formal verification is essential to ensure memory safety, but developing verification harnesses remains a challenging and manual task. Although large language models (LLMs) have shown strong performance in various code analysis tasks, directly applying them to harness generation often results in inaccurate API invocations, inefficient nondeterministic data generation, and fabricated fixes."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7171698843",
+   "doi": "10.1145/3794763.3794828",
+   "title": "Automated Test Suite Enhancement Using Large Language Models with Few-shot Prompting",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Alex Chudic; Gül Çalıklı",
+   "venue": "IEEE/ACM International Conference on Program Comprehension (ICPC)",
+   "abstract": "Unit testing is essential for verifying the functional correctness of code modules (e.g., classes, methods), but manually writing unit tests is often labor-intensive and time-consuming. Unit tests generated by tools that employ traditional approaches, such as search-based software testing (SBST), lack readability, naturalness, and practical usability. LLMs have recently provided promising results and become integral to developers’ daily practices. Consequently, software repositories now include a mix of human-written tests, LLM-generated tests, and those from tools employing traditional approaches such as SBST. While LLMs’ zero-shot capabilities have been widely studied, their few-shot learning potential for unit test generation remains underexplored. Few-shot prompting enables LLMs to learn from examples in the prompt and automatically retrieving such examples could enhance test suites. This paper empirically investigates how few-shot prompting with different test artifact sources, comprising human, SBST, or LLM, affects the quality of LLM-generated unit tests as program comprehension artifacts and their contribution to improving existing test suites by evaluating not only correctness and coverage but also readability, cognitive complexity, and maintainability in hybrid human–AI codebases. We conducted experiments on HumanEval and ClassEval datasets using GPT-4.o, which is integrated into GitHub Copilot and widely used among developers. We also assessed retrieval-based methods for selecting relevant examples. Our results show that LLMs can generate high-quality tests via few-shot prompting, with human-written examples producing the best coverage and correctness. Additionally, selecting examples based on the combined similarity of problem description and code consistently yields the most effective few-shot prompts. Data and Materials: https://doi.org/10.5281/zenodo.15561007"
+  },
+  {
+   "openalex_id": "https://openalex.org/W7203670101",
+   "doi": "10.3390/electronics15163694",
+   "title": "A Formal Trustworthiness Construct for Large Language Model-Based Test Generation: A Multidimensional Index Empirically Evaluated Through a Multi-Agent Study",
+   "year": 2026,
+   "type": "article",
+   "authors": "Asta Slotkienė; Lukas Makaris",
+   "venue": "Electronics",
+   "abstract": "Software code testing remains a critically important but labour-intensive process in software quality assurance. Existing research evaluates large language model (LLM)-based unit test generation using various quality metrics, such as correctness, coverage, mutation score, and test code smells. However, these single metrics do not reflect the trustworthiness of the unit test generation process. Therefore, this research formalises the trustworthiness of LLM-based unit test generation as a multidimensional index comprising reliability, hallucination resistance, maintainability, functional completeness, and human-reference alignment. In this research, we investigate the effect of prompt engineering strategies on the trustworthiness of LLM-generated unit tests and compare them with human-written tests for the same focal methods. Each dimension is fed by a distinct artefact-level measurement and grounded in dependability theory and ISO/IEC 25010:2023. A centralised multi-agent system generates, builds, repairs, and measures the tests, so that all inputs are collected automatically. The index is evaluated on real-world C# focal methods across 18 model × prompt configurations and a paired human-written baseline. The human baseline achieves the highest T-UTG value (0.904), and the best configuration, Combined × Gemini, achieves 0.788. Entropy weighting identifies maintainability and hallucination resistance as the most discriminating dimensions, and a rank-acceptability analysis over the whole weight simplex confirms that this ordering does not depend on the chosen weighting scheme."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7203905623",
+   "doi": "10.17587/it.32.421-427",
+   "title": "Source code generation using large language models: a systematic review of the vibe coding methodology",
+   "year": 2026,
+   "type": "review",
+   "authors": "A. T. Dzhonov; S. M. Avdoshin",
+   "venue": "INFORMACIONNYE TEHNOLOGII",
+   "abstract": "This systematic review presents an analysis of the \"Vibe Coding\" methodology — a contemporary approach to the iterative software development process using Large Language Models (LLMs). Code generation tools are transforming software development by enabling programmers to formulate tasks and describe the desired behavior of software in natural language, while LLMs generate source code corresponding to these requests. The review systematizes current methodologies for the use of LLMs, highlights application examples, evaluates the effectiveness of generated code, discusses emerging challenges, and outlines future development trends of the technology. The aim of this work is to provide a comprehensive understanding of the capabilities and limitations of Vibe Coding as a transformational methodology in software engineering."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7203921587",
+   "doi": "10.18260/1-2--60347",
+   "title": "One Workflow to Grade Them All: LLM-Enabled Auto-grading for Comprehensive, Personalized Feedback",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Mohit Chandarana; Sindhu Ramachandra",
+   "venue": "ASEE Annual Conference & Exposition",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7204261551",
+   "doi": "10.1109/aitest70988.2026.00021",
+   "title": "Improving LLM-Based Unit Test Generation Through Root-Cause-Driven Prompt Design",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Mizuki Yamada; Masahiko Kato; Juichi Takahashi",
+   "venue": "IEEE International Conference on Artificial Intelligence Testing (AITest)",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7212015834",
+   "doi": "10.1145/3774748.3787638",
+   "title": "Reinforcement Learning from Testing Targets for Effective SLM Test Generation",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Kevin Céspedes-Arancibia",
+   "venue": "IEEE/ACM International Conference on Software Engineering (ICSE)",
+   "abstract": "Unit tests are essential for software reliability, yet their manual construction is time-consuming, motivating automated test generation. To support this task, Small Language Models (SLMs) have been examined as a more efficient and privacy-preserving alternative to larger models, though they often fall short in coverage and fault detection. Recent reinforcement-learning approaches address this limitation, but their effectiveness remains constrained by the use of suite-level reward signals that aggregate the contributions of all generated tests. This coarse feedback limits the model’s ability to learn targeted testing behaviors, such as exercising specific branches or killing individual mutants. To address these issues, we introduce Reinforcement Learning from Testing Targets (RLTT), a target-driven formulation in which SLMs are optimized using reward signals derived from individual testing goals, inspired by search-based software testing. We will study how different target-level reward designs and reinforcement learning algorithms shape the acquisition of goal-directed testing behaviors through an empirical evaluation on real-world applications. The expected contributions include a principled framework for optimizing models for target-driven test generation, guidelines for designing reward signals that capture partial or complete goal achievement, and specialized SLMs capable of generating effective tests for specific targets."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7212117486",
+   "doi": "10.2139/ssrn.7442692",
+   "title": "BenjiTest: An Agentic Framework for Evaluating LLM-Based Unit Test Generation and Correction",
+   "year": 2026,
+   "type": "preprint",
+   "authors": "Andrea Lops; Azzurra Ragone; Massimiliano Di Penta; Michelantonio Trizio; Fedelucio Narducci",
+   "venue": "SSRN Electronic Journal",
+   "abstract": ""
+  },
+  {
+   "openalex_id": "https://openalex.org/W7213264543",
+   "doi": "10.1145/3833541.3833583",
+   "title": "Test Case Generation Using Large Language Models: Review, Classification and Challenges",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Caixia Li; Fang Yang; Xiufeng Fu; Zhewei Xu; Jianyu Wei; Lirong Zhao; Wei Li; Dacheng Feng",
+   "venue": "International Conference on Digital Society and Artificial Intelligence (DSAI)",
+   "abstract": "Software testing is entering a critical stage of transforming into a large language model-driven paradigm, but the existing related reviews have not yet completed a fine-grained systematic analysis for the sub-problem of test case generation based on large language model. In this paper, a systematic literature review method is used to retrieve the related literature of IEEE, ACM, arXiv and HowNet from 2022 to 2025. After two rounds of screening, 86 high-quality papers are included for research, and the literature sorting and statistical results are stored in an open-source warehouse for verification by researchers (https://github.com/lianaaaaaacx/Paper-Organization). The research summarizes four technical paths: Context Construction, Model Fine-Tuning, Hybrid Enhancement and Agent, among which the hybrid enhancement path accounts for the most; It is found that the current research focuses on unit and system testing, and there is a tendency of \"emphasizing coverage and overlooking quality\" in evaluation practice; The dataset shows the characteristics of benchmark fragmentation, and the research reproducibility is insufficient. In this paper, the four-dimensional systematic analysis in this field and the multi-dimensional quantitative comparison of four technical paths are completed, and the distribution patterns of technical paths and evaluation indicators are revealed. The research shows that the large language model has the initial ability to generate test cases, but it still faces the core challenges of an underdeveloped evaluation system, a gap in engineering implementation and a lagging research ecosystem."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7213529336",
+   "doi": "10.1145/3846194",
+   "title": "Bug Whisperer: Unleashing LLMs to Craft Context-Aware Tests Guided by Path Constraints and Bug Clues",
+   "year": 2026,
+   "type": "article",
+   "authors": "Xin Xia; Junwei Zhang; Xing Hu; Shanping Li",
+   "venue": "ACM Transactions on Software Engineering and Methodology",
+   "abstract": "Automated unit test generation using Large Language Models (LLMs) has garnered significant attention due to its potential to streamline software testing. Despite its promise, existing approaches often fall short in effectively detecting bugs. There are two key limitations in the bug detection capabilities of tests generated by LLMs: (1) It is difficult for them to identify and focus on bug-related information within large and complex codebases, particularly when bugs are embedded in intricate program dependencies and nested conditions. (2) Existing LLM-based methods are less effective in generating correct test cases when the focal method is provided without more context. To address these challenges, we propose BugWhisper, a novel approach comprising three core modules: bug detection & localization module, path constraint construction module, and test generation module. In the bug detection & localization module, we leverage custom-designed prompts to extract and highlight buggy information from LLMs. The path constraint construction module introduces a greedy-based path extraction algorithm to prioritize bug-triggering paths that cover the maximum number of buggy statements. Constraints from these paths are then used to generate path condition constraint prompts. Finally, the test generation module constructs context-aware prompts by integrating path constraints with multiple types of context information, including import context, class type context, focal class method context, and buggy statement information. These enriched prompts guide LLMs to generate more effective and precise test cases. Our evaluation on the Defects4J benchmark demonstrates that BugWhisper enhances the bug detection capabilities of LLMs. Specifically, compared with existing state-of-the-art baselines, it achieves a 78.02% improvement in compilation passing rate, and a 133.33% boost in the bug successful detection rate. Besides, BugWhisper improves line and branch coverage by 8.36% and 15.89%, respectively. Ablation studies further validate the contribution of each prompt component, highlighting BugWhisper's potential as a systematic and efficient solution for bug detection in complex software systems."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7220417568",
+   "doi": "10.36930/40360404",
+   "title": "Оцінювання впливу складності розгалужень C#-коду на тривалість підготовки тестів вручну та засобами штучного інтелекту",
+   "year": 2026,
+   "type": "article",
+   "authors": "Maksym Seniv; В. В. Іншин",
+   "venue": "Науковий вісник НЛТУ України",
+   "abstract": "Виявлено практичну потребу в кількісному оцінюванні того, як складність розгалужень програмного коду впливає на трудомісткість підготовки тестів у C#-проєктах. Встановлено, що для такого оцінювання недостатньо враховувати тільки розмір програмного файлу або факт наявності складних тестів, оскільки реальні витрати часу та ресурсів на тестування C#-коду залежать від кількості альтернативних шляхів його виконання, глибини вкладеності умовних конструкцій, кількості методів тестування, обсягу тестового коду та кількості його перевірок. З'ясовано, що складність розгалужень C#-коду безпосередньо пов'язана з кількістю сценаріїв його виконання, які потрібно продумати під час модульного тестування коду: кожна додаткова умова, цикл або вкладений блок збільшує кількість ситуацій, для яких потрібно підібрати вхідні дані, визначити очікуваний результат і сформулювати перевірку. Оцінено тривалість підготовки тестів за двома підходами: ручним написанням і створенням тестів із використанням інструментів штучного інтелекту (ШІ). Охарактеризовано модель підготовки тестів вручну, згідно з яким тривалість їх розроблення залежить від кількості методів тестування, рядків тестового коду та вартості підготовки одного тесту. Охарактеризовано модель використання засобів ШІ, що додатково враховує тривалість формулювання запиту, уточнення контексту, генерування тестового коду, рев'ю, пошук граничних випадків і виправлення некоректних його перевірок. Встановлено, що перехід від низького до дуже високого рівня розгалуженості програмного коду супроводжується збільшенням орієнтовної тривалості ручної підготовки тестів приблизно від 20 до 159 хв, тобто майже у вісім разів. Виявлено, що застосування засобів ШІ скорочує тривалість підготовки тестів у всіх групах складності програмного коду, однак цей ефект зменшується зі зростанням складності коду: для простого коду економія часу становить близько 60 %, а для дуже складного – близько 35 %. З'ясовано, що причина такого зменшення часу полягає в перенесенні частини роботи з підготовки тестів на перевірку логіки C#-коду, коректності його тестових перевірок, відповідності бізнес-правилам і повноти сценаріїв його виконання. Практична цінність проведеного дослідження полягає в тому, що показники складності розгалужень C#-коду можна використовувати для планування процесу його тестування, оцінювання QA-завдань, пріоритезації рефакторингу програмного коду та визначення його ділянок, де ШІ є корисним допоміжним інструментом, але не може замінити експертне оцінювання розробника."
+  },
+  {
+   "openalex_id": "https://openalex.org/W7220969695",
+   "doi": "10.1145/3832783.3837484",
+   "title": "CTForge: Automatically Generating Test Suites for Software Configuration",
+   "year": 2026,
+   "type": "conference-paper",
+   "authors": "Yuanliang Zhang; Zhizheng Zheng; Shanshan Li; Zhouyang Jia; Chaopeng Luo; Liqian Chen; Zhenbang Chen; Ji Wang; Xiangke Liao",
+   "venue": "IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+   "abstract": "Software configuration plays a critical role in modern software systems, yet it also frequently leads to severe failures. Existing approaches, whether static analysis or LLM-based validation, struggle to capture implicit semantic constraints and validate configuration-code interactions. Leveraging existing unit tests is also insufficient due to their lack of configuration-specific focus. Thus, we present CTForge, an LLM-powered framework that automatically generates configuration-specific test suites. Its core innovation is a three-stage configuration-aware optimization pipeline that moves beyond vanilla test generation, specifically using parameter semantics to improve LLM outputs. This optimization pipeline iteratively aligns tests through: (1)enhance configuration-related code coverage to ensure relevance, (2) assertion validation across valid parameter values to eliminate false assertions, and (3) configuration-sensitivity verification to select tests that semantically exercise the intended configuration behavior. Evaluated on five large-scale systems, CTForge detects 63 out of 79 real-world configuration issues and achieves an F1-score of 0.88 in misconfiguration detection. CTForge also uncovers six previously unknown defects. Our work demonstrates that structured configuration-aware refinement is essential for LLM to produce effective test suites."
+  }
+ ]
+}
