@@ -16,6 +16,8 @@ Số liệu lấy từ `prisma-counts.json`, `prisma-counts-final.json` và `scr
 
 Phân bổ bản ghi duy nhất: S0 612, S1 thêm 135 (61 trùng S0), S2 và S3 trùng hoàn toàn với S0/S1.
 
+**Đối soát với `search-log.md`:** 612 + 196 + 28 + 4 = 840 dòng kết quả theo lượt tìm; 61 bản ghi S1, 28 bản ghi S2 và 4 bản ghi S3 đã có ở lượt trước, nên 61 + 28 + 4 = 93 trùng và 840 - 93 = **747 ACM duy nhất**. Các cột `candidate`/`included` trong `search_log.csv` đếm theo **từng lượt truy vấn**, một bài có thể xuất hiện nhiều lượt; không cộng dọc các cột đó để tính PRISMA. Bảng `access`/`PDF đã có` là trạng thái tải toàn văn, không phải số bản ghi ở bước Identification.
+
 ## 2. Screening vòng 1 (tiêu đề và abstract), bản ghi ACM
 
 | Kết quả | Số |
@@ -60,7 +62,7 @@ OpenAlex chỉ ghi 25 tham chiếu cho seed (22 tài liệu truy xuất được
 
 ## 5. Sáu bài trọng tâm cho bảng trích xuất
 
-Từ 53 bài ACM đạt tiêu chí vòng 2, chọn 6 bài gần RQ nhất và kiểm tra trực tiếp PDF (đều từ 4 trang trở lên, có kết quả định lượng trong Table/Figure). Đây là phạm vi trích xuất hiện tại của An, không phải hạn ngạch sàng lọc: 47 bài còn lại vẫn đủ điều kiện vòng 2. Không có bài nào trong sáu bài thử đồng thời ChatGPT và Gemini trên HumanEval-Java với cùng thiết kế một lượt sửa; không suy diễn rằng chưa có bài như vậy ngoài tập tìm kiếm này.
+Từ 53 bài ACM đạt tiêu chí vòng 2, dữ liệu cá nhân hiện đánh dấu 6 bài gần RQ để trích xuất trực tiếp từ PDF (đều từ 4 trang trở lên, có kết quả định lượng trong Table/Figure). Đây là phạm vi bảng trích xuất hiện tại, **chưa phải danh sách cuối được nhóm/cô xác nhận**: 47 bài còn lại vẫn đủ điều kiện vòng 2. Đặc biệt, ACM_0041 đã có HumanEval-Java/JUnit, manual tests và đánh giá compile/correctness; xem `rq-check.md` để đối chiếu phần chồng lấn và phần chưa được bài này trả lời trong **RQ nhóm giữ nguyên**.
 
 | Bài | Lý do chọn |
 |---|---|

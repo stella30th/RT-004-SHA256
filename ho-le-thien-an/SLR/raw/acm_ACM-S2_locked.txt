@@ -1,7 +1,0 @@
-11. Rug: Turbo LLM for Rust Unit Test Generation
-   DOI: 10.1109/ICSE55347.2025.00097
-   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00097
-
-28. Nuances Are the Key: Unlocking ChatGPT to Find Failure-Inducing Tests with Differential Prompting
-   DOI: 10.1109/ASE56229.2023.00089
-   https://dl.acm.org/doi/10.1109/ASE56229.2023.00089

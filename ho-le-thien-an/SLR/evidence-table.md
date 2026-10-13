@@ -1,6 +1,6 @@
-# Evidence table: 6 bài ACM được chọn cho RBL-1
+# Evidence table: 6 bài ACM hiện có trong bảng trích xuất RBL-1
 
-Sáu bài có PDF toàn văn (>=4 trang), đã kiểm số ở Table/Figure. `N/A` nghĩa là PDF không nêu nguồn mã tương ứng. Không bài nào kiểm tra đồng thời ChatGPT và Gemini trên HumanEval-Java với một vòng sửa và baseline sinh viên.
+Sáu bài có PDF toàn văn (>=4 trang), đã kiểm số ở Table/Figure. `N/A` nghĩa là PDF không nêu nguồn mã tương ứng. **ACM_0041 là ứng viên phản chứng mạnh đối với RQ hiện tại**: đã có HumanEval-Java/JUnit, test thủ công, số liệu biên dịch và test correctness. Việc chưa có đúng cùng cặp ChatGPT–Gemini **không xóa** phần chồng lấn này. Danh sách sáu bài đang được dữ liệu cá nhân đánh dấu `round3=Selected`, nhưng cần đối chiếu với danh sách nhóm chốt trước khi trình bày là tập cuối cùng.
 
 | Paper (DOI) | Tool/LLM | Dataset | Metric | Kết quả từ Table/Figure | Code | Hạn chế |
 |---|---|---|---|---|---|---|
@@ -20,5 +20,7 @@ Sáu bài có PDF toàn văn (>=4 trang), đã kiểm số ở Table/Figure. `N/
 | Prompt có cấu trúc | ACM_0001, ACM_0025 | 2SZSP Java và few-shot Python khác prompt nhóm |
 | Một vòng sửa theo compiler | ACM_0009, ACM_0024, ACM_0004 | Các bài dùng nhiều vòng hoặc sửa theo luật/static analysis |
 | Human baseline | ACM_0041 (manual tests), ACM_0025 (human examples) | Không tương đương baseline sinh viên viết trước AI |
+
+**Đánh giá phản chứng:** ACM_0041 trùng P/C/O ở mức cốt lõi; vì vậy không lập luận tính mới chỉ vì tác giả chưa dùng Gemini. Tuy nhiên bài chưa trả lời trực tiếp câu hỏi **nhóm bài toán nào có tỉ lệ compile-and-execute thấp hơn baseline người** trong cùng quy trình của RQ hiện tại. Nhóm giữ nguyên RQ; phần chồng lấn, khoảng trống và giới hạn bằng chứng được phân tích trong `rq-check.md`.
 
 Chi tiết setting, metric và mức gần P/I/C/O có trong `evidence_table.csv`. Danh sách 47 bài qua vòng 2 nhưng chưa chọn cho bảng trọng tâm nằm ở `03_reserve_eligible.csv`.

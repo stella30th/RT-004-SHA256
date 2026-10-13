@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-"""acm_enrich.py: bổ sung năm xuất bản và abstract đầy đủ theo DOI từ OpenAlex (API công khai).
-
-File raw của ACM không có năm và chỉ có abstract rút gọn. Kết quả ghi vào enrichment/openalex_by_doi.json,
-không sửa file trong raw/. Chạy lại được: DOI đã có trong cache sẽ không hỏi lại.
-
-    python tools/acm_enrich.py
-"""
 import argparse
 import json
 import sys
