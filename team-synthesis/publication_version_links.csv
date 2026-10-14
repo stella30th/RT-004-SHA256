@@ -1,2 +1,3 @@
 ﻿version_group,record_a,record_b,relationship,action
 VER_001,No More Manual Tests? Evaluating and Improving ChatGPT for Unit Test Generation,Evaluating and Improving ChatGPT for Unit Test Generation,Likely preprint -> published study,Do not double-count at study-level evidence synthesis; keep publication-level records traceable.
+VER_002,ASTER: Natural and Multi-language Unit Test Generation with LLMs (arXiv),ASTER: Natural and Multi-Language Unit Test Generation with LLMs (IEEE/ACM ICSE-SEIP 2025),Preprint -> IEEE/ACM conference publication,Use IEEE DOI as canonical published report; retain arXiv linkage for provenance.
