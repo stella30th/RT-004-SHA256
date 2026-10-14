@@ -1,18 +1,20 @@
-# IEEE Xplore — Hào
+# IEEE Xplore — Huỳnh Gia Hào
 
-Status: **IN PROGRESS**
+Status: **Week 6 core evidence complete**
 
-Completed:
-- IEEE-A01 exported and checked (`raw/IEEE-A01.csv`, 85 exported records)
+Contents:
+- `raw/IEEE-A01.csv` — already exists in the repository
+- `FINAL_IEEE_CANDIDATES.csv`
+- `evidence-table-ieee.csv`
+- `source-level-prisma-counts.csv`
+- `source-level-prisma.md`
+- `source-level-prisma.xlsx`
+- `source-summary.md`
+- `SOURCE_COMPLETE.md`
 
-Pending:
-- IEEE-A02 — Java/JUnit-focused query
-- IEEE-A03 — compilation/compile-failure query
-- IEEE-A04 — repair/test-repair query
-- normalization
-- within-source deduplication
-- screening
-- IEEE source-level candidate set
-- IEEE source-level PRISMA
+Week-6 evidence selection:
+- 85 records from IEEE-A01
+- 2 supplementary targeted IEEE journal records
+- 5 full papers selected and assessed
 
-Do not mark the IEEE source as complete until all pending items above are finished.
+Note: ASTER is an IEEE/ACM conference paper; the other four selected papers are journal articles.
