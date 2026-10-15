@@ -1,0 +1,9 @@
+﻿stage,count,basis,interpretation
+Records identified from IEEE-A01 export,85,Exported IEEE-A01.csv,Systematic IEEE search export
+Supplementary targeted IEEE records identified,2,Two additional journal records selected by targeted IEEE journal search,"Supplementary identification, outside A01 export"
+Total records entering Week-6 IEEE screening pool,87,85 + 2,Source-level working pool
+Duplicate records removed between A01 and supplementary records,0,The two supplementary titles are absent from IEEE-A01.csv,No overlap in this 87-record working pool
+Records screened / considered at source level,87,IEEE-A01 plus supplementary records,Title/abstract relevance check for Week-6 evidence selection
+Records not selected for Week-6 core full-text evidence,82,87 - 5,Not a final SLR exclusion; may remain relevant for broader review
+Full-text reports retrieved and assessed,5,Five PDFs supplied and read,Core IEEE evidence set
+Week-6 IEEE core papers included,5,All five full texts retained,"Week-6 source evidence set, not final whole-SLR included count"

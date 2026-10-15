@@ -1,19 +1,13 @@
-# Week 6 Team Synthesis Files
+# Week 6 Team Synthesis
 
-Generated from the four members' current repository outputs.
-
-Files:
-- `search_log_merged.csv`
-- `candidate_papers_merged.csv`
-- `cross_source_duplicate_log.csv`
-- `publication_version_links.csv`
-- `evidence_table_merged.csv`
-- `prisma_week6.md`
-- `week6_final_report.md`
-- `week6_team_synthesis.xlsx`
+Updated after completion of Hào's five-paper IEEE full-text evidence block.
 
 Current auditable merge:
-**48 candidate records → 36 unique publication records**
-after removing **12 exact duplicate records**.
+**53 candidate records -> 39 unique publication records**
+after **14 exact duplicate records** are removed.
 
-Important: Hào's IEEE search remains incomplete, so this is the Week 6 team synthesis **v1 / working final**, not the final SLR PRISMA.
+Evidence table:
+**17 high-relevance studies**
+
+This is the completed Week-6 synthesis package and a working PRISMA for handoff to Week 7.
+A final whole-SLR PRISMA still requires team-level eligibility/exclusion decisions across the unique publication pool.
