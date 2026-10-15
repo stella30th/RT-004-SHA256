@@ -1,2 +1,2 @@
 problem_id,task_category,prompt,target_signature,source_version,status
-HE001,,,,,TODO
+HE001,Basic Arithmetic,Return the sum of two integers a and b.,public static int add(int a, int b),v1.0,ACTIVE

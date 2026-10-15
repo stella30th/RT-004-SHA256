@@ -20,6 +20,7 @@ def run_command(command: list[str], cwd: str | Path, timeout: int) -> CommandRes
             text=True,
             timeout=timeout,
             check=False,
+            shell=True,
         )
         return CommandResult(
             success=completed.returncode == 0,

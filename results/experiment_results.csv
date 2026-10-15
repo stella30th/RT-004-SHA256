@@ -1,1 +1,2 @@
 problem_id,task_category,condition,model,prompt_version,attempt,compile_success,execution_success,combined_success,repair_needed,repair_success,failure_stage,compiler_error,notes
+HE001,Basic Arithmetic,gemini,models/gemini-3.8-flash,v1,1,1,1,1,0,,none,,Automated execution completed via gemini

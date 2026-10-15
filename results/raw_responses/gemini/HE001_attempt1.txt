@@ -1,0 +1,35 @@
+```java
+package HE001;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class SolutionTest {
+
+    @Test
+    void testPositiveNumbers() {
+        assertEquals(3, Solution.add(1, 2));
+        assertEquals(579, Solution.add(123, 456));
+    }
+
+    @Test
+    void testZero() {
+        assertEquals(0, Solution.add(0, 0));
+        assertEquals(5, Solution.add(0, 5));
+        assertEquals(5, Solution.add(5, 0));
+    }
+
+    @Test
+    void testNegativeNumbers() {
+        assertEquals(-3, Solution.add(-1, -2));
+        assertEquals(-5, Solution.add(0, -5));
+        assertEquals(-5, Solution.add(-5, 0));
+    }
+
+    @Test
+    void testMixedSigns() {
+        assertEquals(1, Solution.add(-1, 2));
+        assertEquals(-1, Solution.add(1, -2));
+    }
+}
+```
