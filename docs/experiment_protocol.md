@@ -11,7 +11,7 @@ One HumanEval problem.
 ## Frozen Inputs
 - Dataset/version
 - 30 selected problem IDs
-- Java/JUnit environment
+- Java 17, JUnit Jupiter 5.10.2 and Maven Surefire 3.2.5 environment
 - Prompt version
 - Model identifiers
 - Temperature and generation parameters
