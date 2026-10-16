@@ -1,0 +1,39 @@
+You are generating a JUnit 4 test class for the Java task below.
+
+Requirements:
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- The first line must be: package humaneval.generated;
+- The public test class name must be exactly: GeneratedTest_HE000
+- Test the provided correct Java implementation.
+- Call the target class using its fully qualified name: humaneval.correct.HAS_CLOSE_ELEMENTS
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Use only Java 8 compatible syntax and APIs.
+
+TASK_ID: HE000
+TARGET_CLASS: HAS_CLOSE_ELEMENTS
+
+TASK_SPECIFICATION:
+Check if in given list of numbers, are any two numbers closer to each other than
+   given threshold.
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+import java.util.List;
+
+public class HAS_CLOSE_ELEMENTS {
+    public static boolean has_close_elements(List<Double> numbers, double threshold){
+        for (int i = 0; i < numbers.size(); i += 1){
+            for (int j = i + 1; j < numbers.size(); j += 1){
+                double distance = Math.abs(numbers.get(i) - numbers.get(j));
+                if (distance < threshold)
+                    return true;
+            }
+        }
+        return false;
+    }
+}
+

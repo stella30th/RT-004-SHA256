@@ -1,0 +1,43 @@
+Repair the JUnit 4 test below so that it compiles against the provided target class.
+
+Rules:
+- This is the only repair round.
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Keep: package humaneval.generated;
+- Keep the public test class name exactly: GeneratedTest_HE004
+- Use JUnit 4.13.2 only.
+- Use Java 8 compatible syntax and APIs.
+- Fix only issues necessary for compilation.
+- Do not modify production code.
+- Do not add unsupported dependencies.
+- Preserve the intended test behavior where possible.
+
+TASK_ID: HE004
+TARGET_CLASS: MEAN_ABSOLUTE_DEVIATION
+
+COMPILER_OUTPUT:
+{PASTE_COMPILER_OUTPUT_HERE}
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+import java.util.List;
+
+public class MEAN_ABSOLUTE_DEVIATION {
+    public static double mean_absolute_deviation(List<Double> numbers) {
+        double sum = 0.;
+        for (Double number : numbers){
+            sum += number;
+        }
+        double mean = sum / numbers.size();
+        double deviation_sum = 0.;
+        for (Double number : numbers){
+            deviation_sum += Math.abs(number - mean);
+        }
+        return deviation_sum / numbers.size();
+    }
+}
+
+
+CURRENT_TEST:
+{PASTE_GENERATED_TEST_HERE}

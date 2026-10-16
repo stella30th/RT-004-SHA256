@@ -1,0 +1,6 @@
+﻿task_id,humaneval_id,target_class,pilot_category,generated_test_class
+HE000,HumanEval/0,HAS_CLOSE_ELEMENTS,collection_pairwise,GeneratedTest_HE000
+HE001,HumanEval/1,SEPARATE_PAREN_GROUPS,string_parsing,GeneratedTest_HE001
+HE002,HumanEval/2,TRUNCATE_NUMBER,numeric,GeneratedTest_HE002
+HE003,HumanEval/3,BELOW_ZERO,state_sequence,GeneratedTest_HE003
+HE004,HumanEval/4,MEAN_ABSOLUTE_DEVIATION,numeric_statistics,GeneratedTest_HE004

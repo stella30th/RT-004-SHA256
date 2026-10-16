@@ -1,0 +1,41 @@
+Repair the JUnit 4 test below so that it compiles against the provided target class.
+
+Rules:
+- This is the only repair round.
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Keep: package humaneval.generated;
+- Keep the public test class name exactly: GeneratedTest_HE003
+- Use JUnit 4.13.2 only.
+- Use Java 8 compatible syntax and APIs.
+- Fix only issues necessary for compilation.
+- Do not modify production code.
+- Do not add unsupported dependencies.
+- Preserve the intended test behavior where possible.
+
+TASK_ID: HE003
+TARGET_CLASS: BELOW_ZERO
+
+COMPILER_OUTPUT:
+{PASTE_COMPILER_OUTPUT_HERE}
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+import java.util.List;
+
+public class BELOW_ZERO {
+    public static boolean below_zero(List<Integer> operations) {
+        int balance = 0;
+        for (Integer op : operations){
+            balance += op;
+            if (balance < 0){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+CURRENT_TEST:
+{PASTE_GENERATED_TEST_HERE}

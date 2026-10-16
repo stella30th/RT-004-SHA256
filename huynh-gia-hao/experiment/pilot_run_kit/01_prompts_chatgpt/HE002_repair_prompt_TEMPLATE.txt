@@ -1,0 +1,32 @@
+Repair the JUnit 4 test below so that it compiles against the provided target class.
+
+Rules:
+- This is the only repair round.
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Keep: package humaneval.generated;
+- Keep the public test class name exactly: GeneratedTest_HE002
+- Use JUnit 4.13.2 only.
+- Use Java 8 compatible syntax and APIs.
+- Fix only issues necessary for compilation.
+- Do not modify production code.
+- Do not add unsupported dependencies.
+- Preserve the intended test behavior where possible.
+
+TASK_ID: HE002
+TARGET_CLASS: TRUNCATE_NUMBER
+
+COMPILER_OUTPUT:
+{PASTE_COMPILER_OUTPUT_HERE}
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+public class TRUNCATE_NUMBER {
+    public static double truncate_number(double number) {
+        return number % 1.0;
+    }
+}
+
+
+CURRENT_TEST:
+{PASTE_GENERATED_TEST_HERE}
