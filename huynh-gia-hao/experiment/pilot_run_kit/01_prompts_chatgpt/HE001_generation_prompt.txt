@@ -1,0 +1,53 @@
+You are generating a JUnit 4 test class for the Java task below.
+
+Requirements:
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- The first line must be: package humaneval.generated;
+- The public test class name must be exactly: GeneratedTest_HE001
+- Test the provided correct Java implementation.
+- Call the target class using its fully qualified name: humaneval.correct.SEPARATE_PAREN_GROUPS
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Use only Java 8 compatible syntax and APIs.
+
+TASK_ID: HE001
+TARGET_CLASS: SEPARATE_PAREN_GROUPS
+
+TASK_SPECIFICATION:
+Input to this function is a string containing multiple groups of nested parentheses. Your goal is to
+   separate those group into separate strings and return the list of those.
+   Separate groups are balanced (each open brace is properly closed) and not nested within each other
+   Ignore any spaces in the input string.
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SEPARATE_PAREN_GROUPS {
+    public static List<String> separate_paren_groups(String paren_string) {
+        List<String> result = new ArrayList<String>();
+        String current_string = "";
+        int current_depth = 0;
+
+        for (char c : paren_string.toCharArray()) {
+            if (c == '('){
+                current_depth += 1;
+                current_string += String.valueOf(c);
+            } else if (c == ')'){
+                current_depth -= 1;
+                current_string += String.valueOf(c);
+
+                if (current_depth == 0){
+                    result.add(current_string);
+                    current_string = "";
+                }
+            }
+        }
+        return result;
+    }
+}
+
