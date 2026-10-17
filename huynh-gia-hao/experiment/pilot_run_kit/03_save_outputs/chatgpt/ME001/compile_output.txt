@@ -18,7 +18,7 @@
 [INFO] 
 [INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ humaneval-java ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 164 source files to C:\Users\ACER\OneDrive\Desktop\swt\human-eval-java-main\target\test-classes
+[INFO] Compiling 223 source files to C:\Users\ACER\OneDrive\Desktop\swt\human-eval-java-main\target\test-classes
 [INFO] 
 [INFO] --- surefire:2.22.1:test (default-test) @ humaneval-java ---
 [INFO] 
@@ -26,26 +26,26 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running humaneval.generated.GeneratedTest_ME001
-[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.041 s <<< FAILURE! - in humaneval.generated.GeneratedTest_ME001
-[ERROR] testMixedPositiveAndNegativeNumbers(humaneval.generated.GeneratedTest_ME001)  Timeelapsed: 0.016 s  <<< FAILURE!
-org.junit.internal.ArrayComparisonFailure: arrays first differed at element [1]; expected:<-24> but was:<96>
-        at humaneval.generated.GeneratedTest_ME001.testMixedPositiveAndNegativeNumbers(GeneratedTest_ME001.java:60)
-Caused by: java.lang.AssertionError: expected:<-24> but was:<96>
-        at humaneval.generated.GeneratedTest_ME001.testMixedPositiveAndNegativeNumbers(GeneratedTest_ME001.java:60)
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! - in humaneval.generated.GeneratedTest_ME001
+[ERROR] negatives(humaneval.generated.GeneratedTest_ME001)  Time elapsed: 0.021 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [1]; expected:<6> but was:<2>
+	at humaneval.generated.GeneratedTest_ME001.negatives(GeneratedTest_ME001.java:11)
+Caused by: java.lang.AssertionError: expected:<6> but was:<2>
+	at humaneval.generated.GeneratedTest_ME001.negatives(GeneratedTest_ME001.java:11)
 
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   GeneratedTest_ME001.testMixedPositiveAndNegativeNumbers:60 arrays first differedat element [1]; expected:<-24> but was:<96>
+[ERROR]   GeneratedTest_ME001.negatives:11 arrays first differed at element [1]; expected:<6> but was:<2>
 [INFO] 
-[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.127 s
-[INFO] Finished at: 2026-10-16T11:45:39+07:00
+[INFO] Total time:  8.042 s
+[INFO] Finished at: 2026-10-16T14:03:28+07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project humaneval-java: There are test failures.
 [ERROR] 
