@@ -22,6 +22,6 @@
   "repair_rounds": 1,
   "compile_timeout_seconds": 30,
   "run_timeout_seconds": 30,
-  "java_version": "FILL_JAVA_VERSION",
-  "junit_version": "FILL_JUNIT_VERSION"
+  "java_version": "17",
+  "junit_version": "5.10.2"
 }

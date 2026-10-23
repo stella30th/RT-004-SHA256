@@ -1,0 +1,69 @@
+You are generating a JUnit 4 test class for the Java task below.
+
+Requirements:
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- The first line must be: package humaneval.generated;
+- The public test class name must be exactly: GeneratedTest_ME006
+- Test the provided correct Java implementation.
+- Call the target class using its fully qualified name: humaneval.correct.MAKE_PALINDROME
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Use only Java 8 compatible syntax and APIs.
+
+TASK_ID: ME006
+HUMANEVAL_TASK: HumanEval/10
+TARGET_CLASS: MAKE_PALINDROME
+CATEGORY: STRING_PROCESSING
+
+TASK_SPECIFICATION:
+Test if given string is a palindrome
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+public class MAKE_PALINDROME {
+    public static boolean is_palindrome(String str){
+        for (int i = 0; i < str.length(); i += 1){
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i))
+                return false;
+        }
+        return true;
+    }
+
+    public static String make_palindrome(String str){
+        if (str.length() == 0)
+            return "";
+
+        int beginning_of_suffix = 0;
+        while (! is_palindrome(str.substring(beginning_of_suffix))){
+            beginning_of_suffix += 1;
+        }
+        
+        String result = str;
+        for (int i = beginning_of_suffix - 1; i >= 0; i -= 1){
+            result += String.valueOf(str.charAt(i));
+        }
+        return result;
+    }
+}
+
+==================================================
+ADDITIONAL ORACLE-AWARE VERIFICATION INSTRUCTIONS
+==================================================
+
+Before writing each JUnit assertion, verify the expected value carefully.
+
+1. Derive the expected output directly from the TASK_SPECIFICATION.
+2. Independently recompute or simulate the expected result step by step.
+3. Cross-check the expected result against the provided TARGET_SOURCE logic.
+4. For arithmetic or aggregation tasks, explicitly verify intermediate calculations, including identity values, signs, zero, and duplicates.
+5. For string transformation tasks, simulate the transformation character by character before asserting the final string.
+6. For counting or set-like tasks, explicitly enumerate the elements being counted and check case-sensitivity, duplicates, and inclusion rules.
+7. For parsing tasks, interpret the input token by token according to the documented grammar before constructing the expected output.
+8. For ordering-sensitive outputs, verify the required output order rather than assuming it.
+9. For empty, singleton, boundary, and duplicate cases, confirm that the expected oracle follows both the specification and the implementation.
+10. Do not write an assertion until the expected value has been checked against both the specification and the target implementation.
+
+These instructions are general verification rules. Do not infer or reuse expected answers from other tasks.
