@@ -1,0 +1,107 @@
+TỔNG HỢP SO SÁNH P0 VÀ P1 OAPR
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI
+Đọc 6 thư mục được yêu cầu: ChatGPT ME001, ME007; Gemini ME001, ME006,
+ME009, ME017. Phân tích 12 file Java, 12 log và 6 prompt P1 được lưu;
+đối chiếu proposal và reference ME017. Không chạy lại Maven hay sinh test mới.
+Tất cả đường dẫn nguồn trong 6 báo cáo được tính từ gốc repository.
+Tiêu chí lấy từ docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. ĐỊNH NGHĨA
+Một pair = một model + một task; không phải một assertion hay một @Test.
+compile_success: code test biên dịch thành công; nếu JUnit đã chạy đúng lớp,
+đó là bằng chứng lớp test đã biên dịch, dù log ghi Nothing to compile.
+execution_success: JUnit chạy bộ test, không failures/errors.
+combined_success = compile_success AND execution_success.
+PASS: biên dịch và thực thi thành công.
+MODEL_COMPILE: code model sinh gây lỗi compile.
+EXECUTION: biên dịch được nhưng test thất bại khi chạy.
+INFRA: lỗi môi trường/build/thao tác; không tính là model failure.
+Chưa đánh giá/thiếu bằng chứng không đồng nghĩa false hay model failure.
+Tests run là số phương thức test JUnit; không phải số assertion.
+
+3. BẢNG TỔNG HỢP
+Pair           | P0                   | Lần sau được lưu              | Xử lý
+ChatGPT ME001  | EXECUTION, oracle    | P1 ME001 pass, 12 test        | Recovery 1
+ChatGPT ME007  | INFRA, chưa chạy test| ME007 pass, 13 test           | Giữ báo cáo; không tính recovery
+Gemini ME001   | EXECUTION, oracle    | P1 ME001 pass, 5 test         | Recovery 1
+Gemini ME006   | EXECUTION, oracle    | P1 ME006 pass, 4 test         | Recovery 1
+Gemini ME009   | EXECUTION, oracle    | P1 ME009 pass, 7 test         | Recovery 1
+Gemini ME017   | EXECUTION, parsing   | Prompt/code/log là ME012      | Chưa có P1 đúng task
+
+Các failure pattern P0:
+- ChatGPT ME001: arithmetic oracle error, tích expected 6 thay vì 2.
+- Gemini ME001: arithmetic oracle error, tổng expected 0 thay vì 3.
+- Gemini ME006: transformation semantics error, expected chuỗi sai thuật toán.
+- Gemini ME009: counting oracle error, expected 3 thay vì 5.
+- Gemini ME017: parsing semantics error, dùng "." thay vì ".|".
+- ChatGPT ME007: lỗi ghi .class ở production build, không phải lỗi oracle.
+
+ME007 được giữ như một trường hợp test do AI sinh và có kết quả lần sau pass.
+Diễn giải là INFRA / chưa đánh giá -> PASS ở lần chạy sau, không phải
+model failure -> OAPR recovery. Prompt thực tế của lần sau chưa xác nhận.
+
+4. CÁCH TÍNH CHỈ SỐ TỪ DỮ LIỆU HIỆN CÓ
+Số thư mục yêu cầu: 6.
+Số model failure hợp lệ P0: 5 (ChatGPT ME001 và 4 task Gemini).
+Số ca INFRA: 1 (ChatGPT ME007), loại khỏi model failure.
+Số model failure P0 có code/log P1 đúng task hiện có: 4.
+Recovery Count trong nhóm 4 cặp đó: 4.
+Recovery Rate quan sát trên nhóm có dữ liệu P1 hợp lệ = 4/4 = 100%.
+Phải trình bày kèm mẫu số 4 và ME017 đang thiếu dữ liệu đúng task.
+Không báo cáo 6/6, không tính ME007 là recovery, không dùng pass ME012 cho ME017.
+4/5 = 80% chỉ là tỷ lệ 5 model failure đã có bằng chứng recovery trong hồ sơ;
+KHÔNG phải Recovery Rate theo mẫu số rerun P1 hợp lệ của proposal.
+Kết quả P1 đúng ME017 có thể thay đổi Recovery Count và Recovery Rate sau này.
+Regression Count: chưa đánh giá.
+Regression Rate: chưa đánh giá; không có nhóm baseline-pass rerun P1 trong phạm vi.
+Net Improvement: chưa đánh giá đầy đủ vì chưa có số liệu regression.
+Không mặc định Regression Count = 0 chỉ vì không kiểm tra.
+
+5. PHỤC HỒI BỘ TEST KHÁC VỚI KIỂM TRA LẠI INPUT GÂY LỖI
+Theo proposal, pair P0 fail -> P1 combined_success được tính là recovery.
+Tuy nhiên, trong 4 cặp có P1 hợp lệ, input gây lỗi cũ đều không được giữ lại:
+- ChatGPT ME001: [-1,-2,1].
+- Gemini ME001: [0,1,2].
+- Gemini ME006: "catafa".
+- Gemini ME009: "abcdeA".
+Vì vậy, có bằng chứng bộ test P1 mới chạy pass, nhưng chưa có bằng chứng
+P1 kiểm tra lại chính những input này. Không mô tả là sửa trực tiếp assertion cũ.
+Không suy ra coverage, mutation score hay chất lượng phát hiện bug tăng.
+
+6. CÁC VẤN ĐỀ DỮ LIỆU
+ChatGPT ME007:
+- Baseline dừng ở compile production code do lỗi ghi TRIPLES_SUM_TO_ZERO.class.
+- Log lần sau tên P0_rerun nhưng prompt hiện có là P1 OAPR.
+- Log chạy 13 test khớp _fix, không khớp 5 test trong code ban đầu.
+- AI sinh bộ test mới từ 5 lên 13 test không phải là lỗi; vẫn ghi nhận
+  bộ test lần sau pass. Điểm cần xác minh là prompt thực tế và baseline gốc.
+- Cần làm sạch baseline bằng code P0 nguyên bản và xác minh prompt lượt sau.
+Gemini ME017:
+- Prompt trong thư mục ME017 ghi TASK_ID ME012, FILTER_BY_SUBSTRING.
+- File _fix khai báo GeneratedTest_ME012, log cũng chạy ME012.
+- Cần bộ P1 đúng ME017; đổi tên file không giải quyết được nhầm task.
+Gemini ME006:
+- Specification trong prompt chỉ nói kiểm tra palindrome, trong khi source
+  có cả is_palindrome và make_palindrome; P1 gọi cả hai hàm.
+
+7. GIỚI HẠN VÀ QUY ƯỚC
+Maven log không chứng minh tên model, fresh chat, prompt thực tế hay hash code.
+Việc ghép code-log dựa vào thư mục, lớp target và số phương thức test.
+Các model được gọi theo proposal: ChatGPT 5.6 Sol, Gemini 3.8 Flash.
+P0 được nhận diện từ bản Java ban đầu và compile_output; P1 dựa trên bộ
+prompt OAPR và file/log mới, ngoại trừ hai vấn đề đã ghi rõ.
+Không khẳng định đã kiểm chứng P1 chỉ thêm block OAPR so với prompt P0 gốc
+vì các thư mục prompt ME được đọc chỉ chứa bản P1.
+Tên _fix là tên bản lưu. Khi chạy Java, phải đặt tên file khớp public class.
+Số assertion đếm từ code tĩnh; không phải số assertion thực tế đã chạy khi fail.
+Không chỉnh sửa proposal, prompt, Java hay log nguồn trong lần tổng hợp này.
+
+8. DANH SÁCH BÁO CÁO
+ME001_chatgpt.txt
+ME007_chatgpt.txt
+ME001_gemini.txt
+ME006_gemini.txt
+ME009_gemini.txt
+ME017_gemini.txt

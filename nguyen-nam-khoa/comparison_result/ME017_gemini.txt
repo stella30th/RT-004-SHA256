@@ -1,0 +1,73 @@
+SO SÁNH GEMINI — ME017
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI VÀ NGUỒN
+Model theo hồ sơ thí nghiệm: Gemini 3.8 Flash.
+Task cần đánh giá: ME017 — PARSE_MUSIC.parse_music.
+Thư mục nguồn, tính từ gốc repository:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/gemini/ME017/
+P0 code/log: GeneratedTest_ME017.java / compile_output.txt
+Code/log được lưu là lần sau: GeneratedTest_ME017_fix.java / gemini_ME017_P1.txt
+Prompt được lưu:
+huynh-gia-hao/experiment/pilot_run_kit/02_prompts_gemini/ME017/generation_prompt_P1_OAPR.txt
+Nguồn kiểm tra ký hiệu nhạc:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/Reference/ME017/ReferenceTest_ME017.java
+Tiêu chí: docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. KẾT QUẢ THEO TIÊU CHÍ PROPOSAL
+Tiêu chí                  | P0 ME017                   | P1 ME017
+compile_success           | true                       | Chưa có bằng chứng hợp lệ
+execution_success         | false                      | Chưa có bằng chứng hợp lệ
+combined_success          | false                      | Chưa đánh giá được
+failure_category          | EXECUTION                  | Không gán: dữ liệu nhầm task
+failure_reason            | SEMANTIC_ORACLE_ERROR      | Prompt/code/log thuộc ME012
+Chi tiết nguyên nhân P0   | Parsing semantics error    | Không áp dụng
+Số @Test / assertion P0   | 1 / 1                      | Chưa có code P1 đúng ME017
+Tests run P0              | 1                          | Chưa có log P1 đúng ME017
+Failures / Errors / Skip  | 1 / 0 / 0                  | Chưa đánh giá
+Maven P0                  | BUILD FAILURE              | Chưa có kết quả đúng task
+Thời điểm P0 (+07:00)     | 17/10/2026 23:40:34         | Không áp dụng
+
+3. BẰNG CHỨNG LỖI P0
+GeneratedTest_ME017.java:10–11:
+Input: "o o| . o| . . o".
+Expected do model viết: [4,2,1,2,1,1,4].
+Actual trong log: [4,2,null,2,null,null,4].
+compile_output.txt:27–31 xác nhận đúng lớp ME017 và assertion này.
+ReferenceTest_ME017.java dùng các token: "o" -> 4, "o|" -> 2, ".|" -> 1.
+P0 dùng "." thay cho ".|", dẫn tới null ở ba vị trí theo log.
+Đây là lỗi hiểu/tạo token input và oracle không tương ứng; không chỉ là
+thay một giá trị số trong expected. Không đề xuất sửa bằng cách mong null
+để coi đó là test hợp lệ cho grammar được yêu cầu.
+
+4. DỮ LIỆU LẦN SAU THỰC TẾ THUỘC ME012
+Prompt trong thư mục ME017:
+- dòng 7 yêu cầu public class GeneratedTest_ME012;
+- dòng 15 ghi TASK_ID: ME012;
+- dòng 17 ghi TARGET_CLASS: FILTER_BY_SUBSTRING;
+- specification/source đều là lọc danh sách theo substring, không parse music.
+GeneratedTest_ME017_fix.java:10 khai báo public class GeneratedTest_ME012;
+các test gọi humaneval.correct.FILTER_BY_SUBSTRING.filter_by_substring.
+Code này có 5 phương thức @Test và 9 assertion.
+gemini_ME017_P1.txt:27 ghi Running humaneval.generated.GeneratedTest_ME012.
+Log ghi 5 test, 0 failures, 0 errors, 0 skipped, BUILD SUCCESS,
+hoàn tất 23/10/2026 12:46:14 (+07:00).
+Số liệu pass này thuộc ME012; KHÔNG được chuyển sang kết quả P1 của ME017.
+Sai lệch xuất hiện ở cả prompt, code và log; không thể khắc phục chỉ bằng
+đổi tên file hoặc đổi public class mà vẫn dùng target FILTER_BY_SUBSTRING.
+
+5. KẾT LUẬN VÀ CÁCH TÍNH
+ME017 có model failure hợp lệ ở baseline P0.
+Chưa có lượt P1 đúng ME017 trong bộ file đang xét.
+Được tính vào danh sách model failure P0: CÓ (1).
+Được tính vào Recovery Count: KHÔNG, chưa xác định recovery.
+Được tính vào mẫu số các lượt P1 đúng task, hợp lệ hiện có: KHÔNG.
+Không coi là P1 thất bại của model; đây là dữ liệu thí nghiệm bị nhầm task.
+Input gây lỗi cũ đã được kiểm tra lại bằng P1 ME017: chưa có bằng chứng.
+Regression: không đánh giá từ cặp này.
+
+6. DỮ LIỆU CẦN BỔ SUNG VÀ GIỚI HẠN
+Cần prompt P1 đúng ME017, Java output đúng PARSE_MUSIC và log chạy đúng
+GeneratedTest_ME017 theo protocol proposal trước khi kết luận recovery.
+Không thay/sửa dữ liệu nguồn hay thực hiện lượt sinh test mới trong phân tích này.
+Không chạy lại Maven; kết luận dựa trên code, reference và log đã lưu.

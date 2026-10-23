@@ -1,0 +1,67 @@
+SO SÁNH GEMINI — ME006
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI VÀ NGUỒN
+Model theo hồ sơ thí nghiệm: Gemini 3.8 Flash.
+Task: ME006 / HumanEval/10 — MAKE_PALINDROME.
+Source có is_palindrome và make_palindrome. make_palindrome tìm hậu tố
+palindrome dài nhất rồi nối phần đầu đảo ngược để tạo palindrome ngắn nhất.
+Thư mục nguồn, tính từ gốc repository:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/gemini/ME006/
+P0 code/log: GeneratedTest_ME006.java / compile_output.txt
+P1 code/log: GeneratedTest_ME006_fix.java / gemini_ME006_P1.txt
+Prompt P1:
+huynh-gia-hao/experiment/pilot_run_kit/02_prompts_gemini/ME006/generation_prompt_P1_OAPR.txt
+Tiêu chí: docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. KẾT QUẢ THEO TIÊU CHÍ PROPOSAL
+Tiêu chí                  | P0                            | P1
+compile_success           | true                          | true
+execution_success         | false                         | true
+combined_success          | false                         | true
+failure_category          | EXECUTION                     | PASS
+failure_reason            | SEMANTIC_ORACLE_ERROR         | Không ghi nhận lỗi trong log
+Chi tiết nguyên nhân      | Transformation semantics error| Không áp dụng
+Số phương thức @Test      | 1                             | 4
+Số assertion trong code   | 3                             | 11
+Tests run trong log       | 1                             | 4
+Failures / Errors / Skip  | 1 / 0 / 0                     | 0 / 0 / 0
+Maven                     | BUILD FAILURE                 | BUILD SUCCESS
+Thời điểm log (+07:00)    | 17/10/2026 23:40:02            | 23/10/2026 12:46:05
+
+3. BẰNG CHỨNG LỖI P0
+GeneratedTest_ME006.java:11, input "catafa".
+Expected do model viết: "catafacatac".
+Actual trong log: "catafatac".
+compile_output.txt:30 biểu diễn sai khác bằng:
+expected:<catafa[ca]tac> but was:<catafa[]tac>
+Theo TARGET_SOURCE trong prompt: hậu tố palindrome dài nhất là "afa";
+phần đầu còn lại "cat" đảo thành "tac"; nối vào "catafa" được "catafatac".
+Expected P0 không phải kết quả của thuật toán tạo palindrome ngắn nhất.
+gemini_ME006_P1.txt:27–35 ghi chạy ME006, 4 test, không lỗi, BUILD SUCCESS.
+
+4. THAY ĐỔI CODE VÀ PHẠM VI KIỂM CHỨNG
+P0 chỉ gọi make_palindrome với "", "cat", "catafa".
+P1 có 5 assertion cho make_palindrome: "", "racecar", "a", "cat", "cata";
+và 6 assertion cho is_palindrome: "", "a", "aba", "abba", "abc", "ab".
+Input gây lỗi cũ "catafa" không xuất hiện trong P1.
+P1 mở rộng sang hàm is_palindrome; 4 phương thức test không tương đương
+4 input make_palindrome và cũng không chứng minh code coverage tăng.
+Phần TASK_SPECIFICATION của prompt hiện chỉ ghi:
+"Test if given string is a palindrome".
+Mô tả này chưa nêu đầy đủ make_palindrome; việc giải thích hành vi nối chuỗi
+ở đây dựa vào TARGET_SOURCE được cung cấp trong chính prompt.
+
+5. TÍNH HỢP LỆ VÀ KẾT LUẬN
+Prompt, target, public class và lớp trong log đều khớp ME006.
+Số @Test khớp Tests run.
+Theo combined_success của proposal: có phục hồi ở mức bộ test.
+Được tính vào Recovery Count: CÓ (1).
+Được tính vào mẫu số Recovery Rate của các lượt P1 hợp lệ: CÓ (1).
+Input gây lỗi cũ đã được kiểm tra lại trong P1: KHÔNG.
+Regression: không đánh giá từ cặp baseline-fail này.
+
+6. GIỚI HẠN BẰNG CHỨNG
+Không chạy lại Maven; dùng code, source trong prompt và log đã lưu.
+Maven không xác nhận model, fresh chat, prompt thực tế hay hash code.
+File _fix là bản lưu; public class vẫn tên GeneratedTest_ME006.
