@@ -1,0 +1,6 @@
+﻿model,task_id,baseline_failure_type,failure_reason,note
+ChatGPT,ME001,EXECUTION,ARITHMETIC_ORACLE_ERROR,Wrong expected result in an arithmetic aggregation test
+Gemini,ME001,EXECUTION,ARITHMETIC_ORACLE_ERROR,Wrong expected result in an arithmetic aggregation test
+Gemini,ME006,EXECUTION,TRANSFORMATION_SEMANTICS_ERROR,Incorrect expected palindrome transformation
+Gemini,ME009,EXECUTION,COUNTING_ORACLE_ERROR,Incorrect expected distinct-character count
+Gemini,ME017,EXECUTION,PARSING_SEMANTICS_ERROR,Incorrect interpretation of music-notation tokens
