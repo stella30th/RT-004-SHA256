@@ -1,0 +1,65 @@
+SO SÁNH CHATGPT — ME001
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI VÀ NGUỒN
+Model theo hồ sơ thí nghiệm: ChatGPT 5.6 Sol.
+Task: ME001 / HumanEval/8 — SUM_PRODUCT.sum_product.
+Yêu cầu: trả về Integer[] gồm [tổng, tích]; danh sách rỗng trả [0,1].
+Thư mục nguồn, tính từ gốc repository:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/chatgpt/ME001/
+P0 code: GeneratedTest_ME001.java
+P0 log: compile_output.txt
+P1 code lưu trữ: GeneratedTest_ME001_fix.java
+P1 log: chatgpt_ME001_P1.txt
+Prompt P1:
+huynh-gia-hao/experiment/pilot_run_kit/01_prompts_chatgpt/ME001/generation_prompt_P1_OAPR.txt
+Tiêu chí: docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. KẾT QUẢ THEO TIÊU CHÍ PROPOSAL
+Tiêu chí                  | P0                         | P1
+compile_success           | true                       | true
+execution_success         | false                      | true
+combined_success          | false                      | true
+failure_category          | EXECUTION                  | PASS
+failure_reason            | SEMANTIC_ORACLE_ERROR      | Không ghi nhận lỗi trong log
+Chi tiết nguyên nhân      | Arithmetic oracle error    | Không áp dụng
+Số phương thức @Test      | 5                          | 12
+Số assertion trong code   | 5                          | 12
+Tests run trong log       | 5                          | 12
+Failures / Errors / Skip  | 1 / 0 / 0                  | 0 / 0 / 0
+Maven                     | BUILD FAILURE              | BUILD SUCCESS
+Thời điểm log (+07:00)    | 16/10/2026 14:03:28         | 23/10/2026 12:41:27
+
+3. BẰNG CHỨNG LỖI P0
+GeneratedTest_ME001.java:11, phương thức negatives.
+Input: [-1,-2,1].
+Expected do model viết: [-2,6].
+Actual: [-2,2]; log xác nhận phần tử [1] expected 6 nhưng actual 2.
+Tính lại: tổng = -1 - 2 + 1 = -2; tích = (-1) × (-2) × 1 = 2.
+Lỗi ở giá trị tích do test tự đặt, không phải lỗi compile.
+compile_output.txt:28–34 ghi chạy đúng lớp và lỗi assertion.
+chatgpt_ME001_P1.txt:29–37 ghi chạy 12 test, không lỗi, BUILD SUCCESS.
+
+4. THAY ĐỔI CODE VÀ PHẠM VI KIỂM CHỨNG
+P1 tạo bộ 12 test: rỗng, một số dương/âm/0, nhiều số dương,
+hỗn hợp dấu, hai số âm, ba số âm, chứa 0, lặp, tổng 0, toàn số 1.
+Input gây lỗi cũ [-1,-2,1] không xuất hiện lại trong P1.
+P1 có kiểm tra phép tích với các tổ hợp dấu khác, ví dụ [-2,-3] -> [-5,6].
+Không mô tả đây là sửa trực tiếp assertion cũ vì P1 sinh bộ test mới.
+Tăng số test không đồng nghĩa tăng coverage; proposal không đánh giá coverage.
+
+5. TÍNH HỢP LỆ VÀ KẾT LUẬN
+Prompt, public class, target và lớp trong log khớp ME001.
+Số @Test trong code P0/P1 khớp Tests run tương ứng.
+Theo tiêu chí combined_success của proposal: có phục hồi ở mức bộ test.
+Được tính vào Recovery Count: CÓ (1).
+Được tính vào mẫu số Recovery Rate của các lượt P1 hợp lệ: CÓ (1).
+Input gây lỗi cũ đã được kiểm tra lại trong P1: KHÔNG.
+Regression: không đánh giá từ cặp baseline-fail này.
+
+6. GIỚI HẠN BẰNG CHỨNG
+Kết luận dựa trên code, prompt và log đã lưu; không chạy lại Maven.
+Tên model, fresh chat và việc dùng đúng prompt không được Maven xác nhận.
+Log không lưu hash code; ghép code-log dựa vào vị trí file, tên lớp và số test.
+File _fix là bản lưu; public class vẫn là GeneratedTest_ME001, nên khi chạy
+phải đặt code dưới tên GeneratedTest_ME001.java phù hợp quy tắc Java.

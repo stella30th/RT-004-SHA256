@@ -1,0 +1,61 @@
+SO SÁNH GEMINI — ME009
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI VÀ NGUỒN
+Model theo hồ sơ thí nghiệm: Gemini 3.8 Flash.
+Task: ME009 / HumanEval/16 — COUNT_DISTINCT_CHARACTERS.count_distinct_characters.
+Yêu cầu: đếm ký tự khác nhau không phân biệt chữ hoa/thường;
+source chuyển từng ký tự về chữ thường rồi thêm vào HashSet.
+Thư mục nguồn, tính từ gốc repository:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/gemini/ME009/
+P0 code/log: GeneratedTest_ME009.java / compile_output.txt
+P1 code/log: GeneratedTest_ME009_fix.java / gemini_ME009_P1.txt
+Prompt P1:
+huynh-gia-hao/experiment/pilot_run_kit/02_prompts_gemini/ME009/generation_prompt_P1_OAPR.txt
+Tiêu chí: docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. KẾT QUẢ THEO TIÊU CHÍ PROPOSAL
+Tiêu chí                  | P0                         | P1
+compile_success           | true                       | true
+execution_success         | false                      | true
+combined_success          | false                      | true
+failure_category          | EXECUTION                  | PASS
+failure_reason            | SEMANTIC_ORACLE_ERROR      | Không ghi nhận lỗi trong log
+Chi tiết nguyên nhân      | Counting oracle error      | Không áp dụng
+Số phương thức @Test      | 1                          | 7
+Số assertion trong code   | 2                          | 7
+Tests run trong log       | 1                          | 7
+Failures / Errors / Skip  | 1 / 0 / 0                  | 0 / 0 / 0
+Maven                     | BUILD FAILURE              | BUILD SUCCESS
+Thời điểm log (+07:00)    | 17/10/2026 23:40:11         | 23/10/2026 12:46:09
+
+3. BẰNG CHỨNG LỖI P0
+GeneratedTest_ME009.java:9–10, input "abcdeA".
+Expected do model viết: 3; actual trong log: 5.
+Sau khi chuyển về chữ thường: "abcdea"; tập ký tự {a,b,c,d,e} có 5 phần tử.
+compile_output.txt:27–31 ghi đúng lớp và assertion expected 3 nhưng actual 5.
+Assertion tiếp theo cho "Jerry" mong 4; không được thực thi trong phương thức
+P0 sau khi assertion đầu ném lỗi, nên không suy diễn rằng cả hai đã được chạy.
+gemini_ME009_P1.txt:27–35 ghi ME009 chạy 7 test, không lỗi, BUILD SUCCESS.
+
+4. THAY ĐỔI CODE VÀ PHẠM VI KIỂM CHỨNG
+P1 có các input/expected:
+"" -> 0; "a" -> 1; "A" -> 1; "aA" -> 1; "xyzXYZ" -> 3;
+"Jerry" -> 4; "Hello World!" -> 9.
+"Hello World!" gồm {h,e,l,o,khoảng trắng,w,r,d,!}, có 9 ký tự khác nhau.
+Input gây lỗi cũ "abcdeA" không xuất hiện lại trong P1.
+P1 vẫn kiểm tra nguyên tắc không phân biệt hoa/thường và có giữ "Jerry".
+
+5. TÍNH HỢP LỆ VÀ KẾT LUẬN
+Prompt, target, public class và lớp chạy trong log khớp ME009.
+Số @Test khớp Tests run ở hai lần.
+Theo combined_success của proposal: có phục hồi ở mức bộ test.
+Được tính vào Recovery Count: CÓ (1).
+Được tính vào mẫu số Recovery Rate của các lượt P1 hợp lệ: CÓ (1).
+Input gây lỗi cũ đã được kiểm tra lại trong P1: KHÔNG.
+Regression: không đánh giá từ cặp baseline-fail này.
+
+6. GIỚI HẠN BẰNG CHỨNG
+Không chạy lại Maven; kết luận dựa trên file đã lưu.
+Log không xác nhận model, fresh chat, prompt thực tế hoặc hash code.
+File _fix là bản lưu; khi chạy phải dùng tên GeneratedTest_ME009.java.

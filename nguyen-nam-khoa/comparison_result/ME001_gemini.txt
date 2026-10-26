@@ -1,0 +1,59 @@
+SO SÁNH GEMINI — ME001
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI VÀ NGUỒN
+Model theo hồ sơ thí nghiệm: Gemini 3.8 Flash.
+Task: ME001 / HumanEval/8 — SUM_PRODUCT.sum_product.
+Yêu cầu: trả Integer[] [tổng, tích]; input rỗng trả [0,1].
+Thư mục nguồn, tính từ gốc repository:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/gemini/ME001/
+P0 code/log: GeneratedTest_ME001.java / compile_output.txt
+P1 code/log: GeneratedTest_ME001_fix.java / gemini_ME001_P1.txt
+Prompt P1:
+huynh-gia-hao/experiment/pilot_run_kit/02_prompts_gemini/ME001/generation_prompt_P1_OAPR.txt
+Tiêu chí: docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. KẾT QUẢ THEO TIÊU CHÍ PROPOSAL
+Tiêu chí                  | P0                         | P1
+compile_success           | true                       | true
+execution_success         | false                      | true
+combined_success          | false                      | true
+failure_category          | EXECUTION                  | PASS
+failure_reason            | SEMANTIC_ORACLE_ERROR      | Không ghi nhận lỗi trong log
+Chi tiết nguyên nhân      | Arithmetic oracle error    | Không áp dụng
+Số phương thức @Test      | 1                          | 5
+Số assertion trong code   | 3                          | 5
+Tests run trong log       | 1                          | 5
+Failures / Errors / Skip  | 1 / 0 / 0                  | 0 / 0 / 0
+Maven                     | BUILD FAILURE              | BUILD SUCCESS
+Thời điểm log (+07:00)    | 17/10/2026 23:39:47         | 23/10/2026 12:46:00
+
+3. BẰNG CHỨNG LỖI P0
+GeneratedTest_ME001.java:15–16, assertion thứ ba trong testSumProduct.
+Input [0,1,2]; expected do model viết [0,0]; actual [3,0].
+Tính lại: tổng 0 + 1 + 2 = 3; tích 0 × 1 × 2 = 0.
+Số 0 làm tích bằng 0, không làm tổng bằng 0.
+compile_output.txt:27–33 xác nhận lỗi ở phần tử [0], expected 0, actual 3.
+gemini_ME001_P1.txt:27–35 ghi đúng lớp ME001, 5 test pass.
+
+4. THAY ĐỔI CODE VÀ PHẠM VI KIỂM CHỨNG
+P0 gộp 3 assertion vào 1 phương thức: rỗng, nhiều số dương, chứa 0.
+P1 tách thành 5 test: rỗng, singleton, số dương, chứa 0, số âm.
+Input chứa 0 của P1 là [1,2,0,4] -> [7,0].
+Input gây lỗi cũ [0,1,2] không được giữ lại trong P1.
+P1 có oracle đúng cho một input chứa 0 khác; không phải sửa trực tiếp assertion cũ.
+
+5. TÍNH HỢP LỆ VÀ KẾT LUẬN
+Prompt, target, public class và lớp chạy trong log đều khớp ME001.
+Số @Test khớp Tests run ở hai lần.
+Theo combined_success của proposal: có phục hồi ở mức bộ test.
+Được tính vào Recovery Count: CÓ (1).
+Được tính vào mẫu số Recovery Rate của các lượt P1 hợp lệ: CÓ (1).
+Input gây lỗi cũ đã được kiểm tra lại trong P1: KHÔNG.
+Regression: không đánh giá từ cặp baseline-fail này.
+
+6. GIỚI HẠN BẰNG CHỨNG
+Chỉ phân tích file đã lưu, không chạy lại Maven.
+Log không xác nhận model, fresh chat, prompt thực tế hoặc hash code.
+Ghép code-log dựa trên vị trí file, tên lớp và số test; tên _fix là bản lưu,
+khi chạy phải dùng tên GeneratedTest_ME001.java khớp public class.

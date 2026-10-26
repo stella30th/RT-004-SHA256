@@ -1,0 +1,75 @@
+SO SÁNH CHATGPT — ME007
+Ngày phân tích: 23/10/2026
+
+1. PHẠM VI VÀ NGUỒN
+Model theo hồ sơ thí nghiệm: ChatGPT 5.6 Sol.
+Task: ME007 / HumanEval/11 — STRING_XOR.string_xor.
+Yêu cầu: XOR từng vị trí của hai chuỗi nhị phân; ký tự giống nhau -> 0,
+khác nhau -> 1, trả về chuỗi kết quả.
+Thư mục nguồn, tính từ gốc repository:
+huynh-gia-hao/experiment/pilot_run_kit/03_save_outputs/chatgpt/ME007/
+Code ban đầu: GeneratedTest_ME007.java
+Log ban đầu: compile_output.txt
+Code lần sau: GeneratedTest_ME007_fix.java
+Log lần sau: chatgpt_ME007_P0_rerun.txt
+Prompt hiện có:
+huynh-gia-hao/experiment/pilot_run_kit/01_prompts_chatgpt/ME007/generation_prompt_P1_OAPR.txt
+Tiêu chí: docs/OAPR_Proposal_SWT.docx, mục 3, 5.2–5.5.
+
+2. KẾT QUẢ VÀ TRẠNG THÁI LẦN CHẠY
+Tiêu chí                  | Lần đầu P0                 | Lần sau, nhãn chưa rõ
+compile_success của test  | Chưa đánh giá được         | true
+execution_success         | Chưa chạy JUnit            | true
+combined_success          | Chưa đánh giá do INFRA     | true ở lần chạy được lưu
+failure_category          | INFRA                      | PASS cho lượt được lưu
+failure_reason            | Không ghi được file .class | Không ghi nhận lỗi trong log
+Số phương thức @Test      | 5                          | 13
+Số assertion trong code   | 5                          | 14
+Tests run trong log       | Không có                   | 13
+Failures / Errors / Skip  | Không có số liệu JUnit     | 0 / 0 / 0
+Maven                     | BUILD FAILURE              | BUILD SUCCESS
+Thời điểm log (+07:00)    | 16/10/2026 14:04:01         | 23/10/2026 12:41:33
+
+3. BẰNG CHỨNG VỀ INFRA
+compile_output.txt:16–18 ghi COMPILATION ERROR ở bước compile production code:
+error while writing humaneval.buggy.TRIPLES_SUM_TO_ZERO
+... target/classes/humaneval/buggy/TRIPLES_SUM_TO_ZERO.class
+(The system cannot find the path specified)
+Lỗi không nằm trong GeneratedTest_ME007 và chưa chạy đến JUnit.
+Không được suy ra model tạo assertion sai hoặc tạo code test không compile.
+Theo proposal, INFRA phải xử lý môi trường rồi rerun cùng prompt tương ứng;
+không tính vào model failure.
+
+4. ĐỐI CHIẾU CODE VÀ NHÃN LẦN SAU
+Code ban đầu có 5 test: mixedBits, identical, opposites, singleBits, alternating.
+Ví dụ: XOR("010","110") -> "100"; không có assertion fail trong log vì chưa chạy.
+Code _fix có 13 test: rỗng, bốn cặp bit, hai chuỗi giống/đối nhau, hỗn hợp,
+giữ số 0 đầu, XOR với toàn 0/toàn 1, giao hoán, chuỗi dài hơn.
+chatgpt_ME007_P0_rerun.txt:27–35 ghi chạy ME007, 13 test, BUILD SUCCESS.
+Số test khớp file _fix, không khớp 5 test trong code ban đầu.
+Việc AI sinh bộ test mới có 13 test thay cho 5 test không phải là lỗi.
+Hai bộ test được giữ trong báo cáo để mô tả đầy đủ các lần sinh và chạy.
+Tên log ghi P0_rerun nhưng prompt trong thư mục là P1 OAPR.
+Không đủ bằng chứng để xác định lượt sau thực sự dùng P0 hay P1.
+Không gán lượt sau thành kết quả P1 chỉ từ hậu tố _fix.
+
+5. KẾT LUẬN VÀ CÁCH TÍNH
+ME007 được GIỮ trong báo cáo như một trường hợp test do AI sinh.
+Lần đầu: build gặp INFRA trước khi chạy test; chưa đánh giá được chất lượng
+thực thi của bộ test P0, không có bằng chứng model failure.
+Lần sau: bộ test ME007 gồm 13 phương thức chạy pass theo log đã lưu.
+Kết quả pass này được ghi nhận; prompt dùng ở lượt sinh chưa được xác nhận.
+Diễn giải chuyển trạng thái: INFRA / chưa đánh giá -> PASS ở lần chạy sau.
+Không diễn giải thành: test AI sai -> OAPR sửa đúng.
+Được tính vào Recovery Count do OAPR: KHÔNG.
+Được tính vào mẫu số các model failure P0 rerun P1: KHÔNG.
+Việc không tính recovery không có nghĩa loại ME007 khỏi báo cáo thí nghiệm.
+Regression: chưa đánh giá được; không có baseline hợp lệ cho bộ test ban đầu.
+Không kết luận OAPR đã sửa lỗi ChatGPT ME007.
+
+6. DỮ LIỆU CẦN BỔ SUNG VÀ GIỚI HẠN
+Cần lịch sử/bản lưu lượt sinh để xác nhận prompt của code _fix.
+Cần rerun code P0 nguyên bản sau khi xử lý môi trường để làm sạch baseline.
+Không tự đổi tên log hay sửa dữ liệu nguồn trong lần phân tích này.
+Kết luận dựa trên file đã lưu; không chạy lại Maven.
+Public class của hai file đều là GeneratedTest_ME007; _fix là tên bản lưu.
