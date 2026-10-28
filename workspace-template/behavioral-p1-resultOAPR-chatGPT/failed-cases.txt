@@ -1,0 +1,15 @@
+
+target\surefire-reports\org.example.GeneratedTest_CE033.txt:4:Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.050 s -- in org.example.GeneratedTest_CE033
+target\surefire-reports\org.example.GeneratedTest_CE041.txt:4:Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in org.example.GeneratedTest_CE041
+target\surefire-reports\org.example.GeneratedTest_CE043.txt:4:Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE043
+target\surefire-reports\org.example.GeneratedTest_CE050.txt:4:Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in org.example.GeneratedTest_CE050
+target\surefire-reports\org.example.GeneratedTest_CE053.txt:4:Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in org.example.GeneratedTest_CE053
+target\surefire-reports\org.example.GeneratedTest_CE060.txt:4:Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE060
+target\surefire-reports\org.example.GeneratedTest_CE065.txt:4:Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in org.example.GeneratedTest_CE065
+target\surefire-reports\org.example.GeneratedTest_CE066.txt:4:Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! -- in org.example.GeneratedTest_CE066
+target\surefire-reports\org.example.GeneratedTest_CE066.txt:5:org.example.GeneratedTest_CE066.blockedPushKeepsPosition -- Time elapsed: 0 s <<< FAILURE!
+target\surefire-reports\org.example.GeneratedTest_CE066.txt:6:java.lang.AssertionError
+target\surefire-reports\org.example.GeneratedTest_CE077.txt:4:Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE077
+target\surefire-reports\org.example.GeneratedTest_CE085.txt:4:Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE085
+target\surefire-reports\org.example.GeneratedTest_CE090.txt:4:Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in org.example.GeneratedTest_CE090
+

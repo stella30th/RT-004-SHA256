@@ -1,0 +1,73 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< research:classeval-workspace >--------------------
+[INFO] Building classeval-workspace 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ classeval-workspace ---
+[INFO] Deleting C:\Users\ACER\OneDrive\Desktop\swt\RT-SWT302-004-SHA256\workspace-template\target
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ classeval-workspace ---
+[INFO] skip non existing resourceDirectory C:\Users\ACER\OneDrive\Desktop\swt\RT-SWT302-004-SHA256\workspace-template\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ classeval-workspace ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 94 source files with javac [debug target 17] to target\classes
+[WARNING] system modules path not set in conjunction with -source 17
+[INFO] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/main/java/org/example/AccessGatewayFilter.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/main/java/org/example/AccessGatewayFilter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ classeval-workspace ---
+[INFO] skip non existing resourceDirectory C:\Users\ACER\OneDrive\Desktop\swt\RT-SWT302-004-SHA256\workspace-template\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ classeval-workspace ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 105 source files with javac [debug target 17] to target\test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] system modules path not set in conjunction with -source 17
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE033.java:[6,8] duplicate class: org.example.GeneratedTest_CE033
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE041.java:[6,8] duplicate class: org.example.GeneratedTest_CE041
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE043.java:[6,8] duplicate class: org.example.GeneratedTest_CE043
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE050.java:[6,8] duplicate class: org.example.GeneratedTest_CE050
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE053.java:[6,8] duplicate class: org.example.GeneratedTest_CE053
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE060.java:[6,8] duplicate class: org.example.GeneratedTest_CE060
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE065.java:[6,8] duplicate class: org.example.GeneratedTest_CE065
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE066.java:[6,8] duplicate class: org.example.GeneratedTest_CE066
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE077.java:[6,8] duplicate class: org.example.GeneratedTest_CE077
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE085.java:[6,8] duplicate class: org.example.GeneratedTest_CE085
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE090.java:[6,8] duplicate class: org.example.GeneratedTest_CE090
+[INFO] 11 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.770 s
+[INFO] Finished at: 2026-10-28T17:16:21+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project classeval-workspace: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE033.java:[6,8] duplicate class: org.example.GeneratedTest_CE033
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE041.java:[6,8] duplicate class: org.example.GeneratedTest_CE041
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE043.java:[6,8] duplicate class: org.example.GeneratedTest_CE043
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE050.java:[6,8] duplicate class: org.example.GeneratedTest_CE050
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE053.java:[6,8] duplicate class: org.example.GeneratedTest_CE053
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE060.java:[6,8] duplicate class: org.example.GeneratedTest_CE060
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE065.java:[6,8] duplicate class: org.example.GeneratedTest_CE065
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE066.java:[6,8] duplicate class: org.example.GeneratedTest_CE066
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE077.java:[6,8] duplicate class: org.example.GeneratedTest_CE077
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE085.java:[6,8] duplicate class: org.example.GeneratedTest_CE085
+[ERROR] /C:/Users/ACER/OneDrive/Desktop/swt/RT-SWT302-004-SHA256/workspace-template/src/test/java/org/example/chatGPT/p1/GeneratedTest_CE090.java:[6,8] duplicate class: org.example.GeneratedTest_CE090
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
