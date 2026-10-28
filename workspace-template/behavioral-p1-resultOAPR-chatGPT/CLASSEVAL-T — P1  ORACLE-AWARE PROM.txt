@@ -1,0 +1,502 @@
+CLASSEVAL-T — P1 / ORACLE-AWARE PROMPT REFINEMENT (OAPR)
+========================================================
+
+EXPERIMENT PURPOSE
+------------------
+You are regenerating JUnit tests ONLY for the 11 model-task pairs that failed under the Behavioral P0 baseline.
+
+The purpose of P1 is to apply Oracle-Aware Prompt Refinement (OAPR) and measure whether the previously failed tests recover.
+
+P1 TASK SET
+-----------
+CE033
+CE041
+CE043
+CE050
+CE053
+CE060
+CE065
+CE066
+CE077
+CE085
+CE090
+
+Do NOT generate CE029 or CE087.
+Those failures were caused by a missing SQLite JDBC dependency and disappeared after the environment was corrected. They are not model failures and are excluded from OAPR recovery measurement.
+
+ENVIRONMENT
+-----------
+- Model: ChatGPT 5.6 Sol
+- Java: 17
+- JUnit: 4.13.2
+- Package: org.example
+- Production source must NOT be modified.
+- Use the same corrected Maven environment as the P0 experiment.
+- Do not use JUnit 5.
+- Do not invent APIs, constructors, fields, packages, dependencies, or behaviors.
+
+RECOVERY METRIC
+---------------
+P0 failed task pairs = 11.
+
+Recovery Count =
+number of these 11 P1 tests that compile and execute successfully.
+
+Recovery Rate =
+Recovery Count / 11
+
+A task counts as recovered only when:
+
+compile_success = 1
+AND
+execution_success = 1
+
+
+========================================================
+ORACLE-AWARE PROMPT REFINEMENT PROCEDURE
+========================================================
+
+For EACH task, perform the following reasoning internally BEFORE generating the JUnit test.
+
+Do NOT print your reasoning.
+Output only the final Java test class.
+
+
+1. SOURCE-FIRST SEMANTIC TRACE
+------------------------------
+Read TARGET_SOURCE carefully, line by line.
+
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+
+Do NOT replace the implementation's behavior with:
+
+- conventional behavior;
+- textbook definitions;
+- library-standard behavior;
+- domain assumptions;
+- typical API semantics;
+- what the method name appears to imply.
+
+If the implementation behaves differently from conventional expectations, test the implementation's actual behavior.
+
+
+2. EXACT API EXTRACTION
+-----------------------
+Before creating tests, identify exactly:
+
+- constructor signatures;
+- public method signatures;
+- argument types;
+- return types;
+- accessible state;
+- accepted input formats;
+- special symbols/constants;
+- null behavior;
+- boolean sentinel behavior;
+- empty-value behavior;
+- possible exceptions.
+
+Never call an API that is not present in TARGET_SOURCE.
+
+
+3. PRECONDITION ANALYSIS
+------------------------
+Determine whether each method requires setup before invocation.
+
+Check whether behavior depends on:
+
+- constructor initialization;
+- earlier method calls;
+- internal lists/maps;
+- inserted values;
+- accumulated counters;
+- player symbols;
+- validation vocabularies;
+- object state;
+- stored records;
+- collection membership.
+
+Do not assume that a method is stateless.
+
+
+4. STATE-TRANSITION TRACE
+-------------------------
+For stateful classes, explicitly trace internally:
+
+Initial State
+    ↓
+Operation 1
+    ↓
+State after Operation 1
+    ↓
+Operation 2
+    ↓
+State after Operation 2
+    ↓
+Expected observable result
+
+Pay special attention to:
+
+- cumulative values;
+- additive updates;
+- decrement operations;
+- counters retained across calls;
+- toggles;
+- removals;
+- mutations;
+- order creation;
+- stored objects;
+- repeated method calls.
+
+Do not assume that an "update" operation performs assignment.
+Trace exactly what TARGET_SOURCE does.
+
+
+5. ORACLE DERIVATION
+--------------------
+For every assertion, independently derive the expected result from TARGET_SOURCE.
+
+For numeric results:
+- trace the arithmetic exactly;
+- recompute the expected value;
+- account for previous state changes.
+
+For strings:
+- preserve exact casing;
+- preserve character order;
+- follow substring/index logic;
+- follow transformation loops exactly.
+
+For collections:
+- determine exact contents;
+- determine ordering if relevant;
+- account for filtering and prior state.
+
+For booleans/null:
+- identify the exact branch reached;
+- use the exact value returned by that branch.
+
+For exceptions:
+- inspect whether the source validates the input before indexing/accessing;
+- if no guard exists and the operation naturally throws, test the exception rather than assuming false/null.
+
+
+6. ORACLE CROSS-CHECK
+---------------------
+Before finalizing EACH assertion, verify all of the following:
+
+A. Does the invoked API actually exist?
+
+B. Does the test setup satisfy the source's preconditions?
+
+C. Which exact control-flow branch will execute?
+
+D. Does the expected value follow from that branch?
+
+E. Did an earlier call change internal state?
+
+F. Am I assuming conventional semantics that are NOT implemented?
+
+G. Am I assuming capitalization, ordering, parsing, or encoding behavior that differs from the source?
+
+H. Am I expecting false/null when the implementation actually throws?
+
+If any answer reveals a conflict, correct the test oracle before output.
+
+
+7. BOUNDARY AND EXCEPTION ANALYSIS
+----------------------------------
+For invalid/boundary input, explicitly distinguish among:
+
+- returns false;
+- returns null;
+- returns empty value;
+- ignores input;
+- clamps input;
+- performs operation anyway;
+- throws runtime exception.
+
+Never automatically assume invalid input returns false.
+
+
+8. DOMAIN-VALUE ANALYSIS
+------------------------
+When TARGET_SOURCE accepts special values or symbols, derive them exactly from the source.
+
+Examples include:
+
+- accepted validation strings;
+- player characters;
+- status values;
+- delimiters;
+- character casing;
+- board markers;
+- sentinel values.
+
+Do not substitute common alternatives.
+
+
+9. FINAL CONSISTENCY PASS
+-------------------------
+After drafting the complete test class:
+
+- reread TARGET_SOURCE;
+- re-evaluate every assertion;
+- retrace every state-changing call;
+- verify every expected result once more;
+- check boundary behavior;
+- check casing/order;
+- check null/boolean behavior;
+- check exceptions;
+- check constructor and method signatures.
+
+Correct any inconsistent oracle before generating the final output.
+
+
+========================================================
+TEST QUALITY REQUIREMENTS
+========================================================
+
+For every task:
+
+- Generate meaningful behavioral JUnit tests.
+- Use JUnit 4.13.2 only.
+- Use Java 17 compatible syntax.
+- First Java line must be:
+
+package org.example;
+
+- Public test class name must exactly match TEST_CLASS.
+
+- Test TARGET_SOURCE as-is.
+- Do not modify production code.
+- Keep tests deterministic.
+- Prefer concrete behavioral assertions.
+
+Do NOT use reflection-only tests such as:
+
+Class.forName(...)
+getDeclaredMethod(...)
+getDeclaredConstructor(...)
+getDeclaredField(...)
+
+merely to prove an API exists.
+
+Do NOT generate tests whose only meaningful assertion is:
+
+assertNotNull(instance)
+
+Do NOT merely check that a method executes.
+
+Do NOT copy the actual runtime value into the expected value.
+
+Do NOT access ClassEval-T reference tests.
+
+The oracle must be obtained by analyzing TARGET_SOURCE.
+
+
+========================================================
+BEHAVIORAL COVERAGE
+========================================================
+
+Generate multiple meaningful behavioral tests when the API permits.
+
+Prefer coverage of:
+
+1. normal behavior;
+2. state transition;
+3. boundary/special behavior;
+4. another semantically distinct behavior.
+
+Do not create duplicate or meaningless tests solely to increase test count.
+
+
+========================================================
+TASK-SPECIFIC OAPR FOCUS
+========================================================
+
+Use these only as reasoning-focus hints.
+
+They identify the KIND of reasoning that failed in P0.
+They do NOT give you the correct expected value.
+
+You must still derive every oracle independently from TARGET_SOURCE.
+
+
+CE033 — DecryptionUtils
+Focus:
+Transformation semantics and output ordering.
+
+Trace the exact rail-fence implementation.
+Do not assume standard textbook Rail Fence Cipher behavior.
+
+
+CE041 — GomokuGame
+Focus:
+Boundary and exception semantics.
+
+Determine from TARGET_SOURCE whether invalid coordinates are validated, return false, or cause an exception.
+
+
+CE043 — HRManagementSystem
+Focus:
+Return-value semantics after state changes.
+
+Determine the exact value returned when an employee does not exist.
+
+
+CE050 — LongestWord
+Focus:
+State and precondition semantics.
+
+Determine how the internal word collection affects findLongestWord().
+Do not assume it searches arbitrary input words independently of stored state.
+
+
+CE053 — MetricsCalculator
+Focus:
+Stateful oracle construction.
+
+Determine whether calculations reuse or accumulate internal counters across repeated calls.
+
+
+CE060 — NumberConverter
+Focus:
+Transformation and character-case semantics.
+
+Preserve the exact casing produced by TARGET_SOURCE.
+
+
+CE065 — PersonRequest
+Focus:
+Validation/domain semantics.
+
+Determine exactly which sex/domain values TARGET_SOURCE accepts.
+Do not substitute common values that are not explicitly accepted.
+
+
+CE066 — PushBoxGame
+Focus:
+Input encoding and domain symbols.
+
+Determine the exact character used by TARGET_SOURCE to represent the player and other board entities.
+
+
+CE077 — StockPortfolioTracker
+Focus:
+Business-logic oracle.
+
+Determine exactly what calculatePortfolioValue() includes.
+Do not assume conventional financial meaning.
+
+
+CE085 — URLHandler
+Focus:
+Parsing semantics.
+
+Follow TARGET_SOURCE substring/index logic exactly.
+Do not replace it with standards-compliant URL parsing assumptions.
+
+
+CE090 — Warehouse
+Focus:
+State-transition semantics.
+
+Determine whether updateProductQuantity() sets, adds, subtracts, or otherwise modifies quantity.
+
+
+========================================================
+OUTPUT PROTOCOL
+========================================================
+
+Generate the 11 revised test classes in this exact order:
+
+CE033
+CE041
+CE043
+CE050
+CE053
+CE060
+CE065
+CE066
+CE077
+CE085
+CE090
+
+For each task output exactly:
+
+=== BEGIN <TASK_ID> <TEST_CLASS>.java ===
+<Java source code>
+=== END <TASK_ID> ===
+
+Do not use Markdown code fences.
+
+Do not add explanations between test classes.
+
+Do not output your internal oracle-analysis reasoning.
+
+If you cannot complete all 11 tasks because of response length:
+
+1. completely finish the current task;
+2. output:
+
+NEXT_TASK: <next task id>
+
+3. stop.
+
+When I reply CONTINUE, continue from that exact task.
+Do not regenerate previously completed tasks.
+
+
+========================================================
+IMPORTANT EXPERIMENTAL RULE
+========================================================
+
+This is P1/OAPR.
+
+The objective is NOT to weaken the tests until they pass.
+
+The objective is to correct erroneous test oracles by performing stronger semantic analysis of TARGET_SOURCE.
+
+Keep meaningful behavioral assertions.
+
+Do not intentionally make tests trivial.
+
+Do not alter production source.
+
+Do not use runtime results as an answer key.
+
+Derive the expected behavior from TARGET_SOURCE itself.
+
+
+========================================================
+TASK INPUTS
+========================================================
+
+Below this line, process ONLY these 11 TASK_ID blocks from the original P0 dataset:
+
+CE033
+CE041
+CE043
+CE050
+CE053
+CE060
+CE065
+CE066
+CE077
+CE085
+CE090
+
+For each block, preserve unchanged:
+
+TASK_ID
+DATASET
+TARGET_CLASS
+TEST_CLASS
+CATEGORY
+BUSINESS_PROBLEM
+PUBLIC_API_HINT
+TASK_SPECIFICATION
+TARGET_SOURCE
+
+Apply the OAPR procedure above to each TARGET_SOURCE and generate the revised tests.

@@ -1,0 +1,566 @@
+[
+  {
+    "id": "CE001",
+    "class": "AccessGatewayFilter",
+    "tests": 2,
+    "file": "GeneratedTest_CE001.java"
+  },
+  {
+    "id": "CE002",
+    "class": "AreaCalculator",
+    "tests": 3,
+    "file": "GeneratedTest_CE002.java"
+  },
+  {
+    "id": "CE003",
+    "class": "ArgumentParser",
+    "tests": 2,
+    "file": "GeneratedTest_CE003.java"
+  },
+  {
+    "id": "CE004",
+    "class": "ArrangementCalculator",
+    "tests": 2,
+    "file": "GeneratedTest_CE004.java"
+  },
+  {
+    "id": "CE005",
+    "class": "AssessmentSystem",
+    "tests": 2,
+    "file": "GeneratedTest_CE005.java"
+  },
+  {
+    "id": "CE006",
+    "class": "AutomaticGuitarSimulator",
+    "tests": 2,
+    "file": "GeneratedTest_CE006.java"
+  },
+  {
+    "id": "CE007",
+    "class": "AvgPartition",
+    "tests": 2,
+    "file": "GeneratedTest_CE007.java"
+  },
+  {
+    "id": "CE008",
+    "class": "BalancedBrackets",
+    "tests": 2,
+    "file": "GeneratedTest_CE008.java"
+  },
+  {
+    "id": "CE009",
+    "class": "BankAccount",
+    "tests": 3,
+    "file": "GeneratedTest_CE009.java"
+  },
+  {
+    "id": "CE010",
+    "class": "BigNumCalculator",
+    "tests": 3,
+    "file": "GeneratedTest_CE010.java"
+  },
+  {
+    "id": "CE011",
+    "class": "BinaryDataProcessor",
+    "tests": 2,
+    "file": "GeneratedTest_CE011.java"
+  },
+  {
+    "id": "CE012",
+    "class": "BitStatusUtil",
+    "tests": 2,
+    "file": "GeneratedTest_CE012.java"
+  },
+  {
+    "id": "CE013",
+    "class": "BlackjackGame",
+    "tests": 2,
+    "file": "GeneratedTest_CE013.java"
+  },
+  {
+    "id": "CE014",
+    "class": "BookManagement",
+    "tests": 2,
+    "file": "GeneratedTest_CE014.java"
+  },
+  {
+    "id": "CE015",
+    "class": "BookManagementDB",
+    "tests": 1,
+    "file": "GeneratedTest_CE015.java"
+  },
+  {
+    "id": "CE016",
+    "class": "BoyerMooreSearch",
+    "tests": 2,
+    "file": "GeneratedTest_CE016.java"
+  },
+  {
+    "id": "CE017",
+    "class": "Calculator",
+    "tests": 2,
+    "file": "GeneratedTest_CE017.java"
+  },
+  {
+    "id": "CE018",
+    "class": "CalendarUtil",
+    "tests": 1,
+    "file": "GeneratedTest_CE018.java"
+  },
+  {
+    "id": "CE019",
+    "class": "CamelCaseMap",
+    "tests": 2,
+    "file": "GeneratedTest_CE019.java"
+  },
+  {
+    "id": "CE020",
+    "class": "ChandrasekharSieve",
+    "tests": 2,
+    "file": "GeneratedTest_CE020.java"
+  },
+  {
+    "id": "CE021",
+    "class": "Chat",
+    "tests": 2,
+    "file": "GeneratedTest_CE021.java"
+  },
+  {
+    "id": "CE022",
+    "class": "ClassRegistrationSystem",
+    "tests": 2,
+    "file": "GeneratedTest_CE022.java"
+  },
+  {
+    "id": "CE023",
+    "class": "Classroom",
+    "tests": 1,
+    "file": "GeneratedTest_CE023.java"
+  },
+  {
+    "id": "CE024",
+    "class": "CombinationCalculator",
+    "tests": 2,
+    "file": "GeneratedTest_CE024.java"
+  },
+  {
+    "id": "CE025",
+    "class": "ComplexCalculator",
+    "tests": 2,
+    "file": "GeneratedTest_CE025.java"
+  },
+  {
+    "id": "CE026",
+    "class": "CookiesUtil",
+    "tests": 1,
+    "file": "GeneratedTest_CE026.java"
+  },
+  {
+    "id": "CE027",
+    "class": "CSVProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE027.java"
+  },
+  {
+    "id": "CE028",
+    "class": "CurrencyConverter",
+    "tests": 2,
+    "file": "GeneratedTest_CE028.java"
+  },
+  {
+    "id": "CE029",
+    "class": "DatabaseProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE029.java"
+  },
+  {
+    "id": "CE030",
+    "class": "DataStatistics",
+    "tests": 2,
+    "file": "GeneratedTest_CE030.java"
+  },
+  {
+    "id": "CE031",
+    "class": "DataStatistics2",
+    "tests": 2,
+    "file": "GeneratedTest_CE031.java"
+  },
+  {
+    "id": "CE032",
+    "class": "DataStatistics4",
+    "tests": 2,
+    "file": "GeneratedTest_CE032.java"
+  },
+  {
+    "id": "CE033",
+    "class": "DecryptionUtils",
+    "tests": 2,
+    "file": "GeneratedTest_CE033.java"
+  },
+  {
+    "id": "CE034",
+    "class": "DiscountStrategy",
+    "tests": 2,
+    "file": "GeneratedTest_CE034.java"
+  },
+  {
+    "id": "CE035",
+    "class": "EightPuzzle",
+    "tests": 2,
+    "file": "GeneratedTest_CE035.java"
+  },
+  {
+    "id": "CE036",
+    "class": "EmailClient",
+    "tests": 2,
+    "file": "GeneratedTest_CE036.java"
+  },
+  {
+    "id": "CE037",
+    "class": "EncryptionUtils",
+    "tests": 2,
+    "file": "GeneratedTest_CE037.java"
+  },
+  {
+    "id": "CE038",
+    "class": "ExcelProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE038.java"
+  },
+  {
+    "id": "CE039",
+    "class": "ExpressionCalculator",
+    "tests": 2,
+    "file": "GeneratedTest_CE039.java"
+  },
+  {
+    "id": "CE040",
+    "class": "FitnessTracker",
+    "tests": 2,
+    "file": "GeneratedTest_CE040.java"
+  },
+  {
+    "id": "CE041",
+    "class": "GomokuGame",
+    "tests": 2,
+    "file": "GeneratedTest_CE041.java"
+  },
+  {
+    "id": "CE042",
+    "class": "Hotel",
+    "tests": 1,
+    "file": "GeneratedTest_CE042.java"
+  },
+  {
+    "id": "CE043",
+    "class": "HRManagementSystem",
+    "tests": 2,
+    "file": "GeneratedTest_CE043.java"
+  },
+  {
+    "id": "CE044",
+    "class": "Interpolation",
+    "tests": 1,
+    "file": "GeneratedTest_CE044.java"
+  },
+  {
+    "id": "CE045",
+    "class": "IPAddress",
+    "tests": 2,
+    "file": "GeneratedTest_CE045.java"
+  },
+  {
+    "id": "CE046",
+    "class": "IpUtil",
+    "tests": 2,
+    "file": "GeneratedTest_CE046.java"
+  },
+  {
+    "id": "CE047",
+    "class": "JobMarketplace",
+    "tests": 2,
+    "file": "GeneratedTest_CE047.java"
+  },
+  {
+    "id": "CE048",
+    "class": "JSONProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE048.java"
+  },
+  {
+    "id": "CE049",
+    "class": "KappaCalculator",
+    "tests": 1,
+    "file": "GeneratedTest_CE049.java"
+  },
+  {
+    "id": "CE050",
+    "class": "LongestWord",
+    "tests": 2,
+    "file": "GeneratedTest_CE050.java"
+  },
+  {
+    "id": "CE051",
+    "class": "MahjongConnect",
+    "tests": 1,
+    "file": "GeneratedTest_CE051.java"
+  },
+  {
+    "id": "CE052",
+    "class": "Manacher",
+    "tests": 1,
+    "file": "GeneratedTest_CE052.java"
+  },
+  {
+    "id": "CE053",
+    "class": "MetricsCalculator",
+    "tests": 1,
+    "file": "GeneratedTest_CE053.java"
+  },
+  {
+    "id": "CE054",
+    "class": "MetricsCalculator2",
+    "tests": 1,
+    "file": "GeneratedTest_CE054.java"
+  },
+  {
+    "id": "CE055",
+    "class": "MovieBookingSystem",
+    "tests": 1,
+    "file": "GeneratedTest_CE055.java"
+  },
+  {
+    "id": "CE056",
+    "class": "MovieTicketDB",
+    "tests": 1,
+    "file": "GeneratedTest_CE056.java"
+  },
+  {
+    "id": "CE057",
+    "class": "MusicPlayer",
+    "tests": 2,
+    "file": "GeneratedTest_CE057.java"
+  },
+  {
+    "id": "CE058",
+    "class": "NLPDataProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE058.java"
+  },
+  {
+    "id": "CE059",
+    "class": "NLPDataProcessor2",
+    "tests": 1,
+    "file": "GeneratedTest_CE059.java"
+  },
+  {
+    "id": "CE060",
+    "class": "NumberConverter",
+    "tests": 2,
+    "file": "GeneratedTest_CE060.java"
+  },
+  {
+    "id": "CE061",
+    "class": "NumberWordFormatter",
+    "tests": 1,
+    "file": "GeneratedTest_CE061.java"
+  },
+  {
+    "id": "CE062",
+    "class": "NumericEntityUnescaper",
+    "tests": 1,
+    "file": "GeneratedTest_CE062.java"
+  },
+  {
+    "id": "CE063",
+    "class": "Order",
+    "tests": 1,
+    "file": "GeneratedTest_CE063.java"
+  },
+  {
+    "id": "CE064",
+    "class": "PageUtil",
+    "tests": 1,
+    "file": "GeneratedTest_CE064.java"
+  },
+  {
+    "id": "CE065",
+    "class": "PersonRequest",
+    "tests": 1,
+    "file": "GeneratedTest_CE065.java"
+  },
+  {
+    "id": "CE066",
+    "class": "PushBoxGame",
+    "tests": 1,
+    "file": "GeneratedTest_CE066.java"
+  },
+  {
+    "id": "CE067",
+    "class": "RegexUtils",
+    "tests": 2,
+    "file": "GeneratedTest_CE067.java"
+  },
+  {
+    "id": "CE068",
+    "class": "RPGCharacter",
+    "tests": 1,
+    "file": "GeneratedTest_CE068.java"
+  },
+  {
+    "id": "CE069",
+    "class": "Server",
+    "tests": 1,
+    "file": "GeneratedTest_CE069.java"
+  },
+  {
+    "id": "CE070",
+    "class": "ShoppingCart",
+    "tests": 1,
+    "file": "GeneratedTest_CE070.java"
+  },
+  {
+    "id": "CE071",
+    "class": "SignInSystem",
+    "tests": 1,
+    "file": "GeneratedTest_CE071.java"
+  },
+  {
+    "id": "CE072",
+    "class": "Snake",
+    "tests": 2,
+    "file": "GeneratedTest_CE072.java"
+  },
+  {
+    "id": "CE073",
+    "class": "SplitSentence",
+    "tests": 1,
+    "file": "GeneratedTest_CE073.java"
+  },
+  {
+    "id": "CE074",
+    "class": "SQLGenerator",
+    "tests": 1,
+    "file": "GeneratedTest_CE074.java"
+  },
+  {
+    "id": "CE075",
+    "class": "SQLQueryBuilder",
+    "tests": 1,
+    "file": "GeneratedTest_CE075.java"
+  },
+  {
+    "id": "CE076",
+    "class": "Statistics3",
+    "tests": 1,
+    "file": "GeneratedTest_CE076.java"
+  },
+  {
+    "id": "CE077",
+    "class": "StockPortfolioTracker",
+    "tests": 1,
+    "file": "GeneratedTest_CE077.java"
+  },
+  {
+    "id": "CE078",
+    "class": "StudentDatabaseProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE078.java"
+  },
+  {
+    "id": "CE079",
+    "class": "TextFileProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE079.java"
+  },
+  {
+    "id": "CE080",
+    "class": "Thermostat",
+    "tests": 1,
+    "file": "GeneratedTest_CE080.java"
+  },
+  {
+    "id": "CE081",
+    "class": "TicTacToe",
+    "tests": 1,
+    "file": "GeneratedTest_CE081.java"
+  },
+  {
+    "id": "CE082",
+    "class": "TimeUtils",
+    "tests": 1,
+    "file": "GeneratedTest_CE082.java"
+  },
+  {
+    "id": "CE083",
+    "class": "TriCalculator",
+    "tests": 1,
+    "file": "GeneratedTest_CE083.java"
+  },
+  {
+    "id": "CE084",
+    "class": "TwentyFourPointGame",
+    "tests": 1,
+    "file": "GeneratedTest_CE084.java"
+  },
+  {
+    "id": "CE085",
+    "class": "URLHandler",
+    "tests": 1,
+    "file": "GeneratedTest_CE085.java"
+  },
+  {
+    "id": "CE086",
+    "class": "UrlPath",
+    "tests": 1,
+    "file": "GeneratedTest_CE086.java"
+  },
+  {
+    "id": "CE087",
+    "class": "UserLoginDB",
+    "tests": 1,
+    "file": "GeneratedTest_CE087.java"
+  },
+  {
+    "id": "CE088",
+    "class": "VectorUtil",
+    "tests": 1,
+    "file": "GeneratedTest_CE088.java"
+  },
+  {
+    "id": "CE089",
+    "class": "VendingMachine",
+    "tests": 1,
+    "file": "GeneratedTest_CE089.java"
+  },
+  {
+    "id": "CE090",
+    "class": "Warehouse",
+    "tests": 1,
+    "file": "GeneratedTest_CE090.java"
+  },
+  {
+    "id": "CE091",
+    "class": "WeatherSystem",
+    "tests": 1,
+    "file": "GeneratedTest_CE091.java"
+  },
+  {
+    "id": "CE092",
+    "class": "Words2Numbers",
+    "tests": 1,
+    "file": "GeneratedTest_CE092.java"
+  },
+  {
+    "id": "CE093",
+    "class": "XMLProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE093.java"
+  },
+  {
+    "id": "CE094",
+    "class": "ZipFileProcessor",
+    "tests": 1,
+    "file": "GeneratedTest_CE094.java"
+  }
+]
