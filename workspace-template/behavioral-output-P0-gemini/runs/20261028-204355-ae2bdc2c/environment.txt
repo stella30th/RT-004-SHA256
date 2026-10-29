@@ -1,0 +1,8 @@
+Run: 20261028-204355-ae2bdc2c
+Java home: C:\Program Files\Eclipse Adoptium\jdk-17.0.15.6-hotspot
+openjdk 17.0.15 2025-04-15
+OpenJDK Runtime Environment Temurin-17.0.15+6 (build 17.0.15+6)
+OpenJDK 64-Bit Server VM Temurin-17.0.15+6 (build 17.0.15+6, mixed mode, sharing)
+Maven: C:\Users\ADMIN\.apache-maven-3.9.16\bin\mvn.cmd
+Repository: C:\Users\ADMIN\.m2\repository
+Per-task test timeout: 120 seconds
