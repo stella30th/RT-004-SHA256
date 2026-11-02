@@ -1,4 +1,0 @@
-PASS: 86
-COMPILE_ERROR: 2
-TEST_FAILURE: 6
-Original test sources and pom.xml: unchanged.
