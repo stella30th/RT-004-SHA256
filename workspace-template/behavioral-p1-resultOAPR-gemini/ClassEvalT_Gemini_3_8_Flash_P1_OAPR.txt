@@ -3,12 +3,13 @@ CLASSEVAL-T — P1 / ORACLE-AWARE PROMPT REFINEMENT (OAPR) — GEMINI 3.8 FLASH
 
 EXPERIMENT PURPOSE
 ------------------
-You are regenerating JUnit tests for the 7 eligible task pairs that did not PASS in the Gemini Behavioral P0 run.
+You are regenerating JUnit tests for all 8 task pairs that did not PASS in the Gemini Behavioral P0 run.
 
-The purpose of P1 is to apply the same Oracle-Aware Prompt Refinement (OAPR) procedure as ChatGPT P1 to the 7 eligible Gemini P0 failures and measure whether they recover.
+The purpose of P1 is to apply the same Oracle-Aware Prompt Refinement (OAPR) procedure as ChatGPT P1 to all 8 Gemini P0 failures and measure whether they recover.
 
 P1 TASK SET
 -----------
+CE023
 CE033
 CE037
 CE039
@@ -17,7 +18,7 @@ CE073
 CE079
 CE094
 
-All 7 selected task blocks reproduce their original P0 inputs unchanged.
+CE023 is included as a P0 compilation failure. Its original P0 TARGET_SOURCE refers to ClassroomManagementTest.Course, whereas the production project defines Classroom.Course. For CE023 only, use the corrected project source provided below as TARGET_SOURCE and generate a test that compiles against that source. Do not modify production source. The other 7 task blocks reproduce their original P0 inputs unchanged.
 
 ENVIRONMENT
 -----------
@@ -32,13 +33,13 @@ ENVIRONMENT
 
 RECOVERY METRIC
 ---------------
-Eligible Gemini P0 non-PASS task pairs for this P1 experiment = 7.
+Gemini P0 non-PASS task pairs = 8.
 
 Recovery Count =
-number of these 7 P1 tests that compile and execute successfully.
+number of these 8 P1 tests that compile and execute successfully.
 
 Recovery Rate =
-Recovery Count / 7
+Recovery Count / 8
 
 A task counts as recovered only when:
 
@@ -318,6 +319,16 @@ They do NOT give you the correct expected value.
 You must still derive every oracle independently from TARGET_SOURCE.
 
 
+CE023 — Classroom
+Focus:
+Compilation, exact API, and course-state semantics.
+
+The original P0 input named ClassroomManagementTest.Course; that type does not exist in the execution project.
+The corrected TARGET_SOURCE below is the project Classroom.java and defines Classroom.Course.
+Use the actual nested Course constructor and exact method signatures from that source.
+Test meaningful addCourse(), removeCourse(), isFreeAt(), and checkCourseConflict() behavior where supported.
+Derive each expected result from the corrected TARGET_SOURCE rather than the earlier mismatched input.
+
 CE033 — DecryptionUtils
 Focus:
 Boundary and exception semantics in railFenceDecipher().
@@ -384,8 +395,9 @@ Verify the exact fixture contents and path setup before asserting file existence
 OUTPUT PROTOCOL
 ========================================================
 
-Generate the 7 revised test classes in this exact order:
+Generate the 8 revised test classes in this exact order:
 
+CE023
 CE033
 CE037
 CE039
@@ -406,7 +418,7 @@ Do not add explanations between test classes.
 
 Do not output your internal oracle-analysis reasoning.
 
-If you cannot complete all 7 tasks because of response length:
+If you cannot complete all 8 tasks because of response length:
 
 1. completely finish the current task;
 2. output:
@@ -444,8 +456,9 @@ Derive the expected behavior from TARGET_SOURCE itself.
 TASK INPUTS
 ========================================================
 
-Below this line, process ONLY these 7 TASK_ID blocks, unchanged from the original P0 dataset:
+Below this line, process ONLY these 8 TASK_ID blocks. CE023 uses corrected project source; the other 7 come unchanged from the original P0 dataset:
 
+CE023
 CE033
 CE037
 CE039
@@ -469,8 +482,118 @@ TARGET_SOURCE
 Apply the OAPR procedure above to each TARGET_SOURCE and generate the revised tests.
 
 ========================================================
-GEMINI TASK BLOCKS (7 ORIGINAL P0 INPUTS UNCHANGED)
+GEMINI TASK BLOCKS (CE023 CORRECTED; OTHER 7 UNCHANGED)
 ========================================================
+
+TASK_ID: CE023
+DATASET: ClassEval-T
+TARGET_CLASS: Classroom
+TEST_CLASS: GeneratedTest_CE023
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý lớp học, học sinh/giáo viên hoặc trạng thái lớp theo API của source
+
+PUBLIC_API_HINT:
+- void addCourse(Classroom.Course course)
+- void removeCourse(Classroom.Course course)
+- boolean isFreeAt(String checkTime)
+- boolean checkCourseConflict(Classroom.Course newCourse)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Classroom {
+
+    private int id;
+    List<Course> courses;
+
+    public Classroom(int id) {
+        this.id = id;
+        this.courses = new ArrayList<>();
+    }
+
+    public static class Course {
+        String name;
+        LocalTime startTime;
+        LocalTime endTime;
+
+        public Course(String name, String startTime, String endTime) {
+            this.name = name;
+            this.startTime = LocalTime.parse(startTime);
+            this.endTime = LocalTime.parse(endTime);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+
+            Course course = (Course) obj;
+
+            return name.equals(course.name)
+                    && startTime.equals(course.startTime)
+                    && endTime.equals(course.endTime);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, startTime, endTime);
+        }
+    }
+
+    public void addCourse(Course course) {
+        if (!courses.contains(course)) {
+            courses.add(course);
+        }
+    }
+
+    public void removeCourse(Course course) {
+        courses.remove(course);
+    }
+
+    public boolean isFreeAt(String checkTime) {
+        LocalTime time = LocalTime.parse(checkTime);
+
+        for (Course course : courses) {
+            if (!time.isBefore(course.startTime)
+                    && !time.isAfter(course.endTime)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean checkCourseConflict(Course newCourse) {
+        LocalTime newStartTime = newCourse.startTime;
+        LocalTime newEndTime = newCourse.endTime;
+
+        for (Course course : courses) {
+            if (!(newEndTime.isBefore(course.startTime)
+                    || newStartTime.isAfter(course.endTime))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
 
 TASK_ID: CE033
 DATASET: ClassEval-T
