@@ -1,0 +1,85 @@
+\section{Dataset and Experimental Setup}
+\label{sec:dataset_setup}
+
+\subsection{Benchmark Dataset: ClassEval-T (Java Edition)}
+\label{subsec:dataset}
+To evaluate LLM-based JUnit test generation on realistic object-oriented software, we adopt the Java edition of the \textbf{ClassEval-T} benchmark~\cite{xue2025classevalt}, which extends the foundational ClassEval benchmark~\cite{du2024classeval}. Whereas ClassEval originally comprised 100 manually constructed Python classes ($\sim$500 person-hours), the authors of ClassEval-T dedicated 360 person-hours of manual engineering to translate the benchmark line-by-line into idiomatic Java and C++ while preserving exact functional equivalence. Six tasks relying on Python-specific libraries without direct Java or C++ counterparts were excluded by the benchmark authors, yielding \textbf{94 class-level Java tasks} (\texttt{CE001}--\texttt{CE094}).
+
+\begin{table}[t]
+\centering
+\caption{Comparison Between Function-Level Benchmarks (HumanEval-Java) and ClassEval-T (Java Edition)}
+\label{tab:benchmark_comparison}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{p{1.95cm}p{2.75cm}p{3.05cm}}
+\hline
+\textbf{Dimension} & \textbf{HumanEval-Java~\cite{chen2021evaluating, siddiq2024using}} & \textbf{ClassEval-T (Java)~\cite{du2024classeval, xue2025classevalt}} \\
+\hline
+Granularity & Standalone function/method & Complete OOP class \\
+Average Scale & $\sim$11.5 LOC / task & 66.7 LOC / class \\
+Task Nature & Algorithmic puzzles & Applied software \& business logic \\
+Internal Coupling & $\sim$0\% (stateless \texttt{static}) & 76.2\% field/method dependencies \\
+Ref.\ Coverage & 83.2\% branch coverage & 99.7\% stmt.\ / 98.2\% branch cov. \\
+Ref.\ Test Density & $\sim$7--10 assertions / task & 33.8 test cases / class (avg.) \\
+Oracle Challenge & Single-call input/output & Multi-step state \& domain trace \\
+\hline
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:benchmark_comparison} contrasts ClassEval-T against traditional function-level benchmarks such as HumanEval-Java. Selecting ClassEval-T offers three methodological advantages for our study:
+\begin{enumerate}
+    \item \textbf{Object-Oriented State and Coupling:} Across the 94 Java classes, 76.2\% of methods read or mutate shared instance fields (e.g., \texttt{this.\allowbreak balance}, \texttt{this.\allowbreak inventory}, \texttt{this.\allowbreak postfixStack}) or invoke other methods within the same class. This structure directly exposes \emph{state-transition} and \emph{precondition} oracle errors that cannot be observed in stateless \texttt{static} functions.
+    \item \textbf{Mitigation of Data Contamination:} Both ClassEval~\cite{du2024classeval} and its Java translation in ClassEval-T~\cite{xue2025classevalt} were written manually from scratch rather than scraped from public repositories or competitive programming platforms, with 0\% exact-match overlap against pre-existing public Java corpora.
+    \item \textbf{Domain Diversity:} To analyze failure patterns across realistic software contexts, we mapped all 94 Java classes into \textbf{seven application domains}, as summarized in Table~\ref{tab:domain_distribution}.
+\end{enumerate}
+
+\begin{table}[t]
+\centering
+\caption{Distribution of the 94 ClassEval-T Java Tasks Across Seven Application Domains}
+\label{tab:domain_distribution}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{clrr>{\raggedright\arraybackslash}p{2.85cm}}
+\hline
+\textbf{\#} & \textbf{Application Domain} & \textbf{Tasks} & \textbf{Share} & \textbf{Representative SUTs} \\
+\hline
+1 & Management Systems & 23 & 24.5\% & \texttt{Warehouse}, \texttt{HRManagement\allowbreak System} \\
+2 & Data Formatting \& Util. & 20 & 21.3\% & \texttt{Number\allowbreak Converter}, \texttt{URLHandler} \\
+3 & Financial \& Math Comp. & 19 & 20.2\% & \texttt{Metrics\allowbreak Calculator}, \texttt{Area\allowbreak Calculator} \\
+4 & Security, Auth \& Parsing & 11 & 11.7\% & \texttt{Decryption\allowbreak Utils}, \texttt{Expression\allowbreak Calculator} \\
+5 & Game \& State Machines & 10 & 10.6\% & \texttt{GomokuGame}, \texttt{PushBoxGame} \\
+6 & File \& Doc.\ Processing & 6 & 6.4\% & \texttt{TextFile\allowbreak Processor}, \texttt{ZipFile\allowbreak Processor} \\
+7 & NLP \& Text Processing & 5 & 5.3\% & \texttt{LongestWord}, \texttt{SplitSentence} \\
+\hline
+ & \textbf{Total} & \textbf{94} & \textbf{100.0\%} & \texttt{CE001}--\texttt{CE094} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Systems Under Test (SUT) and Execution Environment}
+\label{subsec:environment}
+All 94 target solution classes (SUTs) are placed under a unified Java package (\texttt{org.\allowbreak example}) inside a standardized Apache Maven workspace (\texttt{workspace-\allowbreak template/}) and remain strictly unmodified throughout all experiments. Although the original ClassEval-T release includes reference tests written in JUnit~5, we standardized our experimental test harness on \textbf{JUnit~4.13.2} to ensure uniform assertion semantics and eliminate framework-version mixing across models and prompt rounds.
+
+Specifically, the build and execution environment is configured as follows:
+\begin{itemize}
+    \item \textbf{Java Development Kit (JDK):} Java~17 configured with \texttt{maven.\allowbreak compiler.\allowbreak source = 17}, \texttt{target = 17}, and UTF-8 source encoding.
+    \item \textbf{Build and Test Runner:} Apache Maven using \texttt{maven-\allowbreak compiler-\allowbreak plugin} (v3.13.0) and \texttt{maven-\allowbreak surefire-\allowbreak plugin} (v3.2.5) to execute \texttt{GeneratedTest\_\allowbreak CE*.java}.
+    \item \textbf{Profile Isolation:} Using \texttt{build-\allowbreak helper-\allowbreak maven-\allowbreak plugin} (v3.6.0), we define four isolated Maven profiles (\texttt{chatgpt-p0}, \texttt{chatgpt-p1}, \texttt{gemini-p0}, and \texttt{gemini-p1}) that dynamically mount the corresponding test directories (\texttt{src/\allowbreak tests-\allowbreak <model>-\allowbreak <round>}) during the \texttt{generate-\allowbreak test-\allowbreak sources} phase.
+    \item \textbf{External Library Dependencies:} Out of the 94 SUT classes, 89 rely solely on the standard Java~17 class library. For the remaining five domain-specific classes involving relational databases, spreadsheets, JSON/XML documents, or linear algebra, the Maven \texttt{pom.xml} provisions six exact dependencies alongside \texttt{junit} (v4.13.2): \texttt{sqlite-\allowbreak jdbc} (v3.46.1.0), \texttt{commons-\allowbreak math3} (v3.6.1), \texttt{json-\allowbreak simple} (v1.1.1), \texttt{poi-\allowbreak ooxml} (v5.2.5), \texttt{gson} (v2.10.1), and \texttt{jackson-\allowbreak databind} (v2.17.2).
+\end{itemize}
+
+\subsection{Evaluated Models and Infrastructure Hygiene Protocol}
+\label{subsec:models_hygiene}
+We evaluate two frontier Large Language Models under identical input specifications and output protocols:
+\begin{enumerate}
+    \item \textbf{ChatGPT} (OpenAI ChatGPT~6 Sol configuration); and
+    \item \textbf{Gemini} (Google Gemini~3.8 Flash configuration).
+\end{enumerate}
+For each task \texttt{CE001}--\texttt{CE094}, both models receive the exact same task specification block containing \texttt{TASK\_ID}, \texttt{TARGET\_\allowbreak CLASS}, \texttt{TEST\_\allowbreak CLASS} (\texttt{GeneratedTest\_\allowbreak CE<ID>}), \texttt{CATEGORY}, \texttt{BUSINESS\_\allowbreak PROBLEM}, \texttt{PUBLIC\_\allowbreak API\_\allowbreak HINT}, and the full Java \texttt{TARGET\_\allowbreak SOURCE}. Reference test suites are strictly withheld from all prompts. To prevent trivial test generation, our protocol explicitly prohibits reflection-only existence checks (e.g., \texttt{Class.\allowbreak forName}, \texttt{getDeclared\allowbreak Method}) and single \texttt{assertNotNull} smoke tests, requiring deterministic behavioral assertions across normal, boundary, invalid-input, and state-transition scenarios.
+
+To ensure that our failure analysis measures genuine model capabilities rather than harness or input artifacts, we enforce a strict \textbf{Infrastructure Quarantine Protocol} prior to computing $P_0$ failure counts and $P_1$ recovery rates:
+\begin{itemize}
+    \item \textbf{Environment Dependency Resolution (\texttt{CE029} and \texttt{CE087} -- ChatGPT):} During initial $P_0$ execution, ChatGPT's generated tests for \texttt{CE029} (\texttt{Database\allowbreak Processor}) and \texttt{CE087} (\texttt{UserLoginDB}) threw \texttt{NullPointer\allowbreak Exception} solely because the SQLite JDBC driver was not yet registered on the Maven classpath. Once \texttt{sqlite-\allowbreak jdbc} (v3.46.1.0) was added to \texttt{pom.xml}, both unmodified $P_0$ test suites compiled and passed completely. In accordance with our protocol, \texttt{CE029} and \texttt{CE087} are recorded as valid $P_0$ PASS outcomes and excluded from the $P_1$ recovery denominator, yielding $N_{\text{ChatGPT}} = 94$ valid task pairs (83 $P_0$ PASS, 11 valid $P_0$ FAIL).
+    \item \textbf{Input Specification Mismatch Quarantine (\texttt{CE023} -- Gemini):} In task \texttt{CE023} (\texttt{Classroom}), the initial $P_0$ prompt block inadvertently referenced a mismatched inner class qualifier (\texttt{Classroom\allowbreak Management\allowbreak Test.\allowbreak Course}), whereas the production SUT in the Maven workspace defines \texttt{Classroom.\allowbreak Course}. Because the resulting $P_0$ compilation error was induced by an input specification discrepancy rather than model hallucination, \texttt{CE023} is quarantined and excluded from Gemini's valid statistical denominator, yielding $N_{\text{Gemini}} = 93$ valid task pairs (86 $P_0$ PASS, 7 valid $P_0$ FAIL).\footnote{Although \texttt{CE023} was also regenerated and verified to pass under $P_1$ after supplying the corrected \texttt{Classroom.java} source, we exclude it from the primary $15/18$ recovery statistic to maintain strict input invariance between $P_0$ and $P_1$.}
+\end{itemize}
+Consequently, the final experimental population comprises \textbf{187 valid model--task pairs} (94 for ChatGPT and 93 for Gemini), containing \textbf{18 valid $P_0$ failures} (11 for ChatGPT and 7 for Gemini) that form the target cohort for our OAPR ($P_1$) recovery evaluation.
