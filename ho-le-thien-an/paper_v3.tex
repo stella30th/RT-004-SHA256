@@ -1,0 +1,405 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{balance}
+
+\begin{document}
+
+\title{From Failure Analysis to Oracle-Aware Prompt Refinement:\\
+Focused Recovery of Failing LLM-Generated JUnit Tests on ClassEval-T}
+
+\author{\IEEEauthorblockN{Huynh Gia Hao, Ho Le Thien An, Nguyen Hoang Khoi, and Nguyen Nam Khoa}
+\IEEEauthorblockA{Department of Software Engineering, FPT University\\
+Ho Chi Minh City, Vietnam}}
+
+\maketitle
+
+% ============================================================
+% Abstract / synthesis: An's assigned content, normalized to the
+% valid-pair denominator established by the experimental protocol.
+% ============================================================
+\begin{abstract}
+Large language models can generate executable JUnit suites, but source-level semantic assumptions may cause incorrect assertions, exceptions, or invalid test setups. We report a single-run, exploratory study of a failure-informed Oracle-Aware Prompt Refinement (OAPR) workflow for class-level Java tests. Two reported model configurations generated baseline (P0) tests for 94 ClassEval-T classes each. Under the team's retrospective classification, the adjusted baseline contained 170 passing suites among 188 model--task pairs; the CE023 adjustment still lacks a verified rerun of the original P0 suite. We inspected 18 remaining failures and regenerated these suites with P1, which combined a general source-tracing checklist and case-specific focus statements. Fifteen of the 18 regenerated suites compiled and passed all JUnit methods (83.33\%; exact 95\% binomial confidence interval, 58.58--96.42\%). The observed recoveries were 10/11 for ChatGPT and 5/7 for Gemini. The resulting carry-forward workflow passed 185/188 suites (98.40\%), compared with 170/188 (90.43\%) in the adjusted baseline. Apart from the corrected-input CE023 generation, P1 was not applied to baseline-passing suites; no equal-budget resampling control, repeated generations, or mutation testing was performed. Consequently, these results describe recovery of observed failing artifacts, not the isolated causal effect of the OAPR checklist, independent oracle correctness, or general defect-detection improvement.
+\end{abstract}
+
+\begin{IEEEkeywords}
+large language models, unit test generation, test oracle, prompt refinement, JUnit, ClassEval-T, software testing
+\end{IEEEkeywords}
+
+% ============================================================
+% Sections I--III: Khoi's assigned content, integrated from the
+% project draft and normalized to the final experimental protocol.
+% ============================================================
+\section{Introduction}
+Automated unit test generation using large language models (LLMs) has emerged as a practical complement to traditional Search-Based Software Testing (SBST) tools such as EvoSuite \cite{fraser2011evosuite}. LLMs can directly emit readable JUnit code from source and task context, reducing the amount of boilerplate required to construct test suites \cite{schafer2024empirical,siddiq2024junit,alshahwan2024meta}. However, syntactic validity is only one requirement of a useful generated test. A suite may compile successfully yet fail during execution because its assertions encode an incorrect test oracle, its fixture violates a precondition, or its reasoning ignores a state transition in the System Under Test (SUT) \cite{yuan2024chattester,gu2024testart,konstantinou2025yate}.
+
+The problem becomes more pronounced at class level. Function-level benchmarks such as HumanEval primarily evaluate isolated input-output behavior \cite{chen2021humaneval}, whereas object-oriented classes contain mutable fields, constructors, coupled methods, and multi-step state changes. ClassEval was introduced to evaluate class-level code generation under such conditions \cite{du2024classeval}, and ClassEval-T subsequently translated the benchmark into Java and C++ variants \cite{xue2025classevalt}. These properties make ClassEval-T suitable for studying whether an LLM can derive assertions from actual source semantics rather than from conventional or textbook expectations.
+
+Prior work on LLM-based test generation has explored compiler feedback, iterative repair, retrieval, program slicing, and structured prompting \cite{yuan2024chattester,gu2024testart,wang2024hits,ryan2024codeaware}. Nevertheless, a narrower empirical question remains relevant to our experiment: once a generated JUnit suite fails for a semantic reason, can the observed failure pattern be converted into a source-first prompt that helps the same model regenerate a compatible oracle without exposing a reference test or corrected expected value?
+
+To study this question, we evaluate two models, ChatGPT 6 Sol and Gemini 3.8 Flash, on 94 Java classes from ClassEval-T. We first generate tests using a standardized behavioral prompt (P0), separate genuine model-related failures from environment or input artifacts, analyze the failures against source code and execution reports, and then regenerate only the eligible failed pairs using an Oracle-Aware Prompt Refinement prompt (P1). The study addresses the following research questions:
+
+\begin{itemize}[leftmargin=*,nosep]
+    \item \textbf{RQ1:} What failure patterns appear in P0 JUnit suites generated by ChatGPT and Gemini on ClassEval-T?
+    \item \textbf{RQ2:} To what extent does OAPR convert P0 FAIL model-task pairs into P1 PASS pairs when the SUT and execution environment are held fixed?
+    \item \textbf{RQ3:} How does the focused-recovery workflow change combined success, and what limitations remain after P1?
+\end{itemize}
+
+This is an exploratory descriptive study. RQ1 is answered by a source-grounded failure register; RQ2 by the proportion recovered in the selected failure cohort, with exact binomial intervals; and RQ3 by a carry-forward accounting measure rather than a full-P1 estimate. The paper does not claim confirmatory causal inference.
+
+This paper makes four contributions. First, it provides a descriptive two-configuration evaluation over a class-level Java benchmark. Second, it reports a source-grounded descriptive taxonomy of observed oracle and compatibility failures. Third, it documents a failure-informed P1 workflow combining a source-tracing checklist and case-specific diagnostic focus statements. Fourth, it evaluates the intervention using focused recovery, recovering 15 of 18 eligible P0 failures while retaining the three unresolved cases as explicit evidence of the limits of prompt-only repair.
+
+Section II positions this work against prior test generation and repair research. Section III describes the dataset and setup, Section IV the workflow and measures, Section V the observed results, and Sections VI--VIII the discussion, validity limits, and next steps.
+
+\section{Background and Related Work}
+\subsection{Search-Based and LLM-Based Unit Test Generation}
+EvoSuite represents a well-established SBST approach for automatically constructing Java test suites using evolutionary search \cite{fraser2011evosuite}. Such tools are effective at exploring program structure, but generated assertions are typically regression-oriented observations of the current SUT. This motivates complementary approaches that use language models to reason from source code and natural-language task context.
+
+Recent studies show that LLM-generated unit tests can achieve useful coverage while still suffering from compilation, API hallucination, assertion, and runtime failures. Schafer et al. evaluated LLMs for automated unit test generation and highlighted the importance of executable quality, not merely plausible source text \cite{schafer2024empirical}. Siddiq et al. studied JUnit generation across HumanEval-Java and more complex Java settings, showing that complexity and missing context materially affect compilation success \cite{siddiq2024junit}. Yang et al. likewise found that prompt and focal context influence test-generation outcomes \cite{yang2024evaluation}. At industrial scale, TestGen-LLM used automated filters so that non-compiling or non-passing candidates were rejected before human review \cite{alshahwan2024meta}.
+
+Repair-oriented systems attempt to improve initially invalid tests after generation. ChatTester uses iterative feedback to repair generated tests \cite{yuan2024chattester}; TestART combines generation and repair loops \cite{gu2024testart}; and YATE explicitly distinguishes compilation fixing from oracle fixing \cite{konstantinou2025yate}. Structured prompting provides a complementary direction. Code-aware and path-sensitive prompts can constrain the model toward program-specific behavior rather than generic expectations \cite{ryan2024codeaware,wang2024hits}. OAPR follows this source-first direction but is evaluated here specifically as a focused repair prompt for previously failing class-level JUnit suites.
+
+
+\begin{table*}[t]
+\caption{Positioning relative to closely related test-generation and repair systems}
+\label{tab:prior}
+\centering\scriptsize
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+Approach & Repair signal & Main intervention & Distinction in this study \\
+\midrule
+ChatTester \cite{yuan2024chattester} & Compiler and execution feedback & Iterative generator/refiner & P1 was regenerated once after manual failure analysis, not an automated loop. \\
+TestART \cite{gu2024testart} & Execution and repair feedback & Automated co-evolution & OAPR uses a source-first checklist plus human-authored failure focus; no closed-loop automation was tested. \\
+YATE \cite{konstantinou2025yate} & Compilation/oracle repair & Decomposed repair process & Our endpoint is compile-and-pass compatibility of focused Java suites. \\
+ChatUniTest \cite{chatunitest} & Validation and repair & Adaptive focal context and repair & OAPR lacks automatic focal-context extraction and validation during generation. \\
+IntUT \cite{intut} & Test intentions & Intention-guided test creation & Our P1 uses observed failure descriptions, not verified intention/oracle specifications. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The intervention is therefore best understood as an exploratory adaptation of existing repair and structured-prompting ideas to a source-guided, failure-conditioned ClassEval-T evaluation. We do not claim a new general repair algorithm or demonstrate an improvement over the systems in Table~\ref{tab:prior}, which were not rerun here.
+
+\subsection{The Test Oracle Problem}
+A test oracle determines whether an observed execution is acceptable. In JUnit, the oracle is commonly expressed through assertions such as \texttt{assertEquals}, \texttt{assertTrue}, \texttt{assertFalse}, or expected-exception behavior. For LLM-generated tests, a test may compile while its oracle remains semantically wrong. Typical causes include assuming standard algorithm behavior that differs from the implementation, misunderstanding whether an update operation replaces or accumulates state, or interpreting a return value by method name rather than by tracing the actual branch that produces it.
+
+This distinction is important for our outcome measure. Compilation and execution success show that a generated suite is compatible with the evaluated SUT. They do not independently prove specification correctness, mutation adequacy, or real defect-detection effectiveness. The present study therefore reports executable compatibility and focused recovery, not defect-detection superiority.
+
+\subsection{Class-Level Evaluation with ClassEval-T}
+ClassEval introduced manually crafted class-level tasks that include constructors, mutable state, and inter-method dependencies \cite{du2024classeval}. ClassEval-T ports the benchmark to additional programming languages, including Java \cite{xue2025classevalt}. The Java edition used in this project contains 94 target classes, identified as CE001--CE094. Its benchmark paper describes the translation from the original class-level Python tasks \cite{xue2025classevalt}; the official dataset repository URL and exact revision still need confirmation against the archived project snapshot. Compared with function-level tasks, these classes create more opportunities for state-transition, precondition, and API-contract misunderstandings.
+
+For analysis, the team organized the 94 Java tasks into seven application-oriented groups: management systems, data formatting and utilities, financial and mathematical computation, security/authentication/parsing, games and state machines, file/document processing, and NLP/text processing. The group counts from the team's manuscript are 23, 20, 19, 11, 10, 6, and 5 respectively (summing to 94); this is an author-defined categorization requiring a published task-to-domain mapping. This grouping is used only as a descriptive analysis aid; the statistical unit remains the individual model-task pair.
+
+\section{Dataset and Experimental Setup}
+
+\begin{figure}[t]
+\centering
+\fbox{\begin{minipage}{0.92\columnwidth}\centering\footnotesize
+94 Java classes/model $\rightarrow$ P0 JUnit suites $\rightarrow$ Maven compile/JUnit execute\\[3pt]
+$\downarrow$ raw failures $\rightarrow$ retrospective audit $\rightarrow$ provisional adjusted P0 ($170/188$)\\[3pt]
+$\downarrow$ selected failures ($18$) $\rightarrow$ manual failure diagnosis\\[3pt]
+$\downarrow$ checklist + per-task focus $\rightarrow$ P1 regeneration $\rightarrow$ rerun\\[3pt]
+15 recovered, 3 unresolved $\rightarrow$ carry-forward workflow ($185/188$)
+\end{minipage}}
+\caption{Archived focused-recovery workflow. Only previously failing task slots received P1; the adjusted baseline includes retrospective artifact normalization.}
+\label{fig:workflow}
+\end{figure}
+
+\subsection{Benchmark Dataset and Systems Under Test}
+All 94 ClassEval-T Java solution classes are placed in a standardized Maven workspace under the package \texttt{org.example}. The source snapshots used for the model comparisons were kept unchanged during P0/P1 test generation; a separate harness/source compatibility adjustment is documented for CE023 and requires provenance review. Although the original benchmark provides reference tests, those tests are withheld from all generation prompts. Each model instead receives a task block containing the task identifier, target class, required generated test-class name, task/category context, public API hints when available, and the full Java target source.
+
+The generated suites use JUnit 4.13.2. The build uses Java 17, \texttt{maven-compiler-plugin} 3.13.0, and \texttt{maven-surefire-plugin} 3.2.5. External dependencies required by a small subset of SUTs are provisioned in \texttt{pom.xml}, including SQLite JDBC, Apache Commons Math, JSON Simple, Apache POI, Gson, and Jackson Databind. To preserve package-private access used by several benchmark classes, all generated tests remain in the Java package \texttt{org.example}, while separate Maven test-source roots isolate the four experimental conditions: \texttt{chatgpt-p0}, \texttt{chatgpt-p1}, \texttt{gemini-p0}, and \texttt{gemini-p1}.
+
+\subsection{Evaluated Models and Baseline Input Protocol}
+The archived experiment labels the two configurations as ``ChatGPT 6 Sol'' and ``Gemini 3.8 Flash''. These are study-reported interface labels, not verified immutable API model IDs; reporting model identity and inference settings is essential for reproducibility \cite{baltes2026guidelines}. Exact provider model snapshots, access interface, sampling parameters, token limits, and session timestamps were not consistently retained in the available manuscript and must be audited from the original logs before an external submission. For P0, both configurations were given the same documented structural requirements, although equivalent system prompts, decoding settings, and interface budgets cannot yet be verified: deterministic JUnit 4 tests, no modification of production code, no invented APIs, and behavioral assertions for supported normal, boundary, invalid-input, and state-transition scenarios. Reflection-only existence checks and trivial smoke tests are disallowed so that passing results require concrete behavioral oracles.
+
+\subsection{Infrastructure Hygiene and Experimental Population}
+For the reported adjusted baseline, the team retrospectively resolved local dependency or task-input mismatches before counting model-attributed failures. We retain all 94 task slots per model in this descriptive accounting. These adjustments are not a preregistered exclusion policy, and the raw first-run outcomes should also be retained for sensitivity analysis.
+
+For ChatGPT, CE029 and CE087 initially failed because the SQLite JDBC driver was missing from the Maven classpath. After adding \texttt{sqlite-jdbc} 3.46.1.0, the unmodified P0 suites passed. These cases are therefore retained as P0 PASS outcomes rather than counted as model failures.
+
+For Gemini, CE023 contained an input-source mismatch: the P0 test referenced \texttt{ClassroomManagementTest.Course}, whereas the execution project defined \texttt{Classroom.Course}. The original P0 log records a compilation failure. A passing CE023 log exists under the P1 directory, but the archived P1 test source differs from the P0 test source. This PASS does not demonstrate that the P0 suite passed after only correcting its input. The team's reported adjusted baseline provisionally treats CE023 as P0 PASS and excludes it from the seven-task OAPR recovery denominator; a rerun of the original P0 suite under a documented corrected input is still needed to substantiate that classification.
+
+The experimental inventory contains 188 model-task pairs: 94 ChatGPT pairs and 94 Gemini pairs. Under the team's provisional adjusted classification, P0 contains 18 model-attributed failures, 11 from ChatGPT and 7 from Gemini. These 18 pairs form the reported focused P1 recovery cohort. The raw P0 count is 21 failures, including the three retrospectively adjusted cases.
+
+% ============================================================
+% Section IV + V-A: Hao's assigned content, inferred from the
+% experiment history, Maven artifacts, P0/P1 prompts, and logs.
+% ============================================================
+\section{Methodology}
+\subsection{Overview of the Experimental Workflow}
+The archived study followed a descriptive before/after workflow without randomized or equal-budget controls:
+
+\begin{enumerate}[leftmargin=*,nosep]
+    \item \textbf{P0 generation.} Each model generates one JUnit suite for each available ClassEval-T task using the common baseline prompt.
+    \item \textbf{Compile and execute.} Maven compiles each generated suite and Surefire executes all test methods. A suite is a baseline success only if both stages succeed.
+    \item \textbf{Audit non-model artifacts.} CE029 and CE087 have passing logs after a dependency correction. CE023 has a P0 compilation failure and a passing, newly generated P1 suite after its task source was corrected. The team's adjusted accounting provisionally classifies all three as P0 PASS, but the CE023 classification is not verified by a rerun of the original P0 suite.
+    \item \textbf{Failure analysis.} For each eligible P0 failure, the generated test, target Java source, compiler output, and Surefire report are inspected to identify the violated API, state, transformation, boundary, parsing, or compatibility assumption.
+    \item \textbf{P1/OAPR regeneration.} The 18 selected model-attributed P0 failures are regenerated using a source-first refined prompt. CE023 was also regenerated with a corrected task source but is excluded from the reported recovery cohort. The SUT remains unchanged, reference tests remain hidden, and corrected expected outputs are not supplied as an answer key.
+    \item \textbf{Focused rerun.} Each regenerated P1 suite is compiled and executed in the same Maven environment.
+    \item \textbf{Comparison.} A P0 failure is counted as recovered only when the corresponding P1 suite both compiles and passes all its test methods.
+\end{enumerate}
+
+P1 was applied as a focused intervention rather than a complete second benchmark run. CE023 is an additional corrected-input P1 generation outside the 18-pair recovery cohort. Consequently, P0-passing pairs are carried forward when computing the workflow's final combined success; they are not evidence that P1 itself would preserve those outcomes.
+
+\subsection{Baseline Prompt P0}
+P0 consists of four functional blocks. First, the task context supplies the task ID, target/test class names, descriptive context, API hints, and complete target source. Second, generation constraints require Java 17-compatible code, JUnit 4.13.2, deterministic fixtures, the exact package/class name, and no production-code modification. Third, the behavioral requirement asks for concrete assertions covering supported normal behavior, boundaries, invalid inputs, and state transitions. Fourth, the output protocol requires only the Java test class for the specified task.
+
+P0 already instructs the model to derive expected values from the supplied source, but it does not impose an explicit multi-step semantic verification procedure. Observed P0 discrepancies are consistent with models occasionally substituting conventional assumptions for the behavior expressed by the evaluated implementation.
+
+\subsection{Oracle-Aware Prompt Refinement P1}
+P1 retains all P0 constraints and adds a nine-step source-first reasoning checklist before test emission:
+
+\begin{enumerate}[leftmargin=*,nosep]
+    \item extract the exact public API, method signatures, and return types;
+    \item identify accepted input values, constructor assumptions, and preconditions;
+    \item establish the initial object state and relevant mutable fields;
+    \item trace the concrete control-flow branch exercised by each planned test;
+    \item trace state mutations across sequential method calls;
+    \item derive expected numeric, string, collection, boolean, or exception outcomes from the executed source path;
+    \item verify boundary behavior and exception semantics explicitly;
+    \item check Java/JUnit compatibility, imports, package access, and fixture validity; and
+    \item perform a final consistency check linking each assertion to its setup, prior state, and executed branch.
+\end{enumerate}
+
+The P1 intervention has two inseparable components in the archived experiment: (A) the common nine-step checklist and (B) manually constructed, task-specific focus statements derived after inspecting P0 errors. The latter did not supply corrected expected values, but it directed attention to the previously observed failure mechanism. Since no checklist-only arm or same-budget P0 resampling arm was run, neither the checklist nor the focus statements can be assigned a separate causal effect.
+
+\subsection{Inclusion/Exclusion Criteria and Evaluation Metrics}
+The unit of analysis is a \emph{model-task pair}. For pair $i$, define compile success $C_i$ and execution success $E_i$ as binary indicators. Combined success is
+\begin{equation}
+S_i = C_i \land E_i.
+\end{equation}
+A pair is counted as successful only when its generated suite compiles and all executed JUnit methods pass.
+
+Let $V$ denote the complete set of 188 model-task pairs under the team's provisional retrospective classification, and let $F_0 \subseteq V$ be the 18 model-attributed P0 failures selected for the reported recovery analysis. Adjusted baseline combined success is
+\begin{equation}
+CS_{P0} = \frac{\sum_{i\in V} S_i^{P0}}{|V|}.
+\end{equation}
+The recovery count is
+\begin{equation}
+RC = \left|\left\{i\in F_0 : S_i^{P1}=1\right\}\right|,
+\end{equation}
+and the focused recovery rate is
+\begin{equation}
+RR = \frac{RC}{|F_0|}.
+\end{equation}
+Because P1 is not generated for P0-passing pairs, the workflow's final combined success is a carry-forward measure:
+\begin{equation}
+CS_{final} = \frac{\sum_{i\in V} S_i^{P0} + RC}{|V|}.
+\end{equation}
+This is not a full-P1 success rate and does not imply zero regression. The 188 denominator refers to task slots after normalization, not 188 independent P1 generations.
+
+
+\subsection{Statistical Analysis and Sensitivity}
+For recovery successes $k$ out of $n$ selected failing suites, we report the observed proportion $k/n$ and the two-sided 95\% Clopper--Pearson interval, calculated from beta-distribution quantiles. This interval describes sampling uncertainty under a binomial model and does not correct the selection of failures after observing P0. We deliberately do not use a paired McNemar significance test to claim a P1 treatment effect: the cohort was conditioned on P0 failure, there is no equal-budget P0 re-generation control, and no full-pair P1 outcomes exist. A confirmatory test would require prospectively defined paired repeated conditions and an appropriate discordance analysis.
+
+The adjusted baseline treats CE029 and CE087 as dependency failures that passed once the SQLite driver was supplied, and CE023 as an input mismatch provisionally counted as adjusted P0 PASS. As a conservative arithmetic sensitivity bound, counting all three raw failures as unresolved instead yields $167/188$ P0 passes and 21 failures. If only the 15 observed model-failure recoveries are carried forward, the corresponding success count would be $182/188$. The ratio $15/21$ is merely a scenario that retains all 21 raw failures in the denominator; P1 recovery was not observed for all 21. This sensitivity scenario is \emph{not} an observed rerun outcome and reveals the dependence of reported denominators on retrospective normalization.
+
+\section{Experimental Results}
+\subsection{ChatGPT Results}
+ChatGPT produced 83 successful P0 suites among 94 valid tasks, for a baseline combined success of 88.30\%. Eleven suites remained as valid P0 failures after the dependency-related cases CE029 and CE087 were rerun successfully with the corrected Maven classpath.
+
+Table~\ref{tab:chatgptfailures} summarizes the eleven failures and their P1 outcomes. The failures are heterogeneous: they include transformation/order assumptions, boundary handling, API return-value semantics, missing state setup, cumulative state, case normalization, accepted-domain validation, player encoding, aggregation semantics, URL parsing, and update semantics. P1 recovered ten of these eleven pairs, giving ChatGPT a focused recovery rate of $10/11=90.91\%$.
+
+\begin{table*}[t]
+\caption{ChatGPT P0 failure register and P1 outcome}
+\label{tab:chatgptfailures}
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}l l X l@{}}
+\toprule
+Task & Target class & Observed P0 discrepancy & P1 \\
+\midrule
+CE033 & DecryptionUtils & Transformation/order oracle differed from implementation behavior. & Pass \\
+CE041 & GomokuGame & Boundary move was expected to return false, while source behavior raised an index-related exception. & Pass \\
+CE043 & HRManagementSystem & Test assumed a null-like removed-employee result; implemented return semantics differed. & Pass \\
+CE050 & LongestWord & Assertions were generated without satisfying the internal state/setup required for non-empty results. & Pass \\
+CE053 & MetricsCalculator & Expected value ignored cumulative state; observed value was 0.75 rather than 0.50. & Pass \\
+CE060 & NumberConverter & Test expected uppercase hexadecimal output while the implementation returned lowercase. & Pass \\
+CE065 & PersonRequest & Test assumed an unsupported sex-domain value; implementation accepted a narrower enumerated domain. & Pass \\
+CE066 & PushBoxGame & P0 misread the player symbol; P1 later retained a separate return-value/zero-target oracle error. & \textbf{Fail} \\
+CE077 & StockPortfolioTracker & Test included cash in portfolio value although the implementation's calculation excluded it. & Pass \\
+CE085 & URLHandler & Test assumed standard path-only parsing; implementation retained query/fragment text in the returned path. & Pass \\
+CE090 & Warehouse & Test interpreted quantity update as SET; implementation performs an additive update. & Pass \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The remaining failure, CE066 (\texttt{PushBoxGame}), illustrates why source-first prompting improves but does not eliminate semantic mistakes. In P0, the model incorrectly assumed a conventional player marker instead of the source-defined character \texttt{'O'}. P1 corrected this issue, but the regenerated method \texttt{blockedPushKeepsPosition} asserted \texttt{assertFalse(g.move('d'))}. In the SUT, \texttt{move()} does not return whether physical movement succeeded; it always returns \texttt{checkWin()}. The P1 fixture contained no goals, so \texttt{targetCount=0} and \texttt{boxOnTargetCount=0}, making \texttt{checkWin()} evaluate $0=0$ and return true even though the box push itself was blocked. Thus the residual failure is a return-value and zero-target-state semantic error, not a compilation problem.
+
+% ============================================================
+% V-B: Khoa's assigned content, condensed from SWT_NCKH_Khoa.
+% CE094 is not promoted as a case study, per team presentation decision.
+% ============================================================
+\subsection{Gemini Results}
+The raw Gemini P0 run covered 94 tasks. Eight suites initially did not fully pass: two compilation failures and six suites with assertion failures or an unexpected runtime exception. One of these, CE023, was traced to an input-source mismatch: the P0 test referenced \texttt{ClassroomManagementTest.Course} while the production project defined \texttt{Classroom.Course}. The archived P1 CE023 suite differs from the P0 suite, so its PASS log cannot establish a corrected P0 PASS. Under the team's provisional adjusted accounting, Gemini contributes 87 P0 PASS and 7 model-attributed P0 FAIL among 94 pairs, for an adjusted success of 92.55\%; the unadjusted raw count is 86/94. The seven failures, not CE023, constitute the reported OAPR recovery set.
+
+The seven-task recovery set contained a mixture of semantic and compatibility failures. Observed mechanisms included one-rail exception behavior, rail-fence and whitespace transformation assumptions, expression transformation and parsing, suffix/loop-boundary behavior, token counting with leading whitespace, a missing JUnit assertion import, and fixture-sensitive file behavior. P1 applied the same source-first OAPR structure: exact API extraction, precondition and state analysis, expected-value derivation, oracle cross-checking, and a final consistency check.
+
+All seven selected P1 suites compiled. Five passed completely and two retained one failing test method each, yielding
+\begin{equation}
+RR_{Gemini}=\frac{5}{7}=71.43\%.
+\end{equation}
+The two remaining failures were CE033 and CE037. For CE033, P1 corrected the earlier one-rail expectation but still failed a Vigen\`ere decryption assertion: for the provided key and ciphertext, the expected plaintext in the regenerated test did not match the implementation's repeated-shift behavior. For CE037, P1 corrected the earlier rail-fence discrepancy but still generated an incorrect Vigen\`ere encryption oracle; tracing the shifts applied to the input shows that the asserted output was inconsistent with the source. These results demonstrate that repairing the original failure pattern does not guarantee that every newly generated assertion is semantically correct.
+
+% ============================================================
+% V-C, VI, VII, VIII: An's assigned synthesis, using the
+% 188-pair denominator retained in An's final aggregation.
+% ============================================================
+\subsection{Combined Results and Cross-Model Comparison}
+Table~\ref{tab:combined} summarizes the focused-recovery workflow. ChatGPT recovered 10/11 eligible failures and Gemini recovered 5/7. Across the 18 eligible P0 failures, OAPR therefore recovered 15 pairs, for an overall focused recovery rate of 83.33\% (exact 95\% CI: 58.58--96.42\%). ChatGPT achieved 10/11 (95\% CI: 58.72--99.77\%) and Gemini achieved 5/7 (95\% CI: 29.04--96.33\%).
+
+For RQ1, the archived failure register classifies 15 of these 18 selected P0 suites as assertion failures, two as runtime errors, and one as a compilation failure. These are suite-level failure-stage labels; a suite with multiple failing assertions is counted once. CE023 is outside this 18-pair register because the team's provisional accounting treats its input mismatch separately. The case-level semantic labels are more granular and are not presented as mutually exclusive, independently validated categories.
+
+\begin{table}[t]
+\caption{Reported focused-recovery workflow under provisional adjusted P0 accounting}
+\label{tab:combined}
+\centering
+\scriptsize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & P0 pass & P0 fail & Recovered & Final pass \\
+\midrule
+ChatGPT & 83/94 & 11 & 10/11 & 93/94 \\
+Gemini & 87/94 & 7 & 5/7 & 92/94 \\
+\midrule
+Combined & 170/188 & 18 & 15/18 & 185/188 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Under the provisional adjusted accounting, baseline combined success was $170/188=90.43\%$. Carrying forward those P0 passes and replacing the 15 recovered failures with their successful P1 outcomes yields $185/188=98.40\%$, an arithmetic difference of 7.98 percentage points. The corresponding raw-first-run sensitivity is $167/188$ and $182/188$ if only the 15 observed recoveries are carried forward; this is not a second observed intervention outcome. Three selected model-task pairs remained unsuccessful. Neither final figure is the success rate of applying P1 independently to every task.
+
+\begin{table}[t]
+\caption{Observed P0-to-P1 states among the 18 selected failures}
+\centering\scriptsize
+\begin{tabular}{@{}lrrr@{}}\toprule
+Cohort & P0 FAIL/P1 PASS & P0 FAIL/P1 FAIL & Total \\ \midrule
+ChatGPT & 10 & 1 & 11 \\
+Gemini & 5 & 2 & 7 \\
+Combined & 15 & 3 & 18 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion}
+The observed recovery is consistent with a benefit from the combined failure-informed P1 procedure, but it does not isolate source tracing from repeated generation or task-specific hints. Across both models, successful repairs covered state-dependent values, transformation behavior, boundary assumptions, parsing, return semantics, compilation compatibility, and fixture construction. The improvement is therefore broader than simply changing one incorrect literal in an assertion.
+
+The two configurations exhibited different descriptive profiles; their recovery denominators are different model-specific failed-task sets, so no paired model superiority test is justified. ChatGPT had more eligible P0 failures than Gemini (11 versus 7) but recovered a larger fraction under P1 (90.91\% versus 71.43\%). These differences should not be interpreted as evidence that one model is generally superior. The failure sets are small, model-specific, and concentrated on different tasks. In addition, P1 is informed by the observed P0 failure mechanisms, so the experiment measures targeted recoverability rather than zero-shot generalization.
+
+The three remaining failures are especially informative. ChatGPT CE066 shows that a model can correct the visible P0 mistake yet still misunderstand the semantics of a method's return value under a new fixture. Gemini CE033 and CE037 similarly show that a regenerated suite may repair one cipher-related assumption while introducing or retaining another incorrect Vigen\`ere oracle. These cases define a practical boundary for prompt-only repair: a checklist can encourage source-first reasoning, but it does not guarantee faithful execution tracing for every assertion.
+
+ChatTester \cite{yuan2024chattester} and TestART \cite{gu2024testart} use execution feedback in iterative repair workflows; YATE \cite{konstantinou2025yate} distinguishes compilation repair from oracle repair. The archived OAPR evaluation instead used one failure-informed regeneration after manual diagnosis. Its observed 15/18 recovery can guide triage of a suite that has already failed, but it does not establish a gain over those systems or over a same-budget P0 resample. For use beyond this benchmark, a regenerated suite should be executed and its assertions checked against an independent specification when available; compile-and-pass compatibility alone is insufficient evidence of defect detection.
+
+\section{Threats to Validity}
+\textbf{Internal validity.} P1 mixes source-tracing instructions with manual case-specific diagnoses; subsequent improvement cannot be assigned to either component. An equal-budget P0-resample control and checklist-only ablation were absent. Retrospective environment/input corrections altered raw outcomes. In particular, CE023's P1 suite was generated from a corrected task source and differs from its P0 suite; its P1 PASS cannot verify a corrected P0 PASS. We disclose all three adjusted cases, retain raw and adjusted counts, and provide an arithmetic sensitivity scenario. The original prompts, test sources, and logs must be retained for audit.
+
+\textbf{External validity.} The study used 94 Java ClassEval-T tasks and two interface-labelled model configurations. It cannot establish transfer to new projects, independently sampled failure cases, or unseen model versions. The benchmark and model-specific failure denominators are reported explicitly.
+
+\textbf{Construct validity.} A passing suite only shows compatibility with the current implementation. No reference-oracle validation, mutation score, or seeded-fault assessment was performed; even a passing suite can omit essential behavior. The paper therefore avoids claims about defect detection and general oracle accuracy.
+
+\textbf{Conclusion validity.} Each task appears to have a single archived generation per condition, with no reported randomness controls, repeated trials, or independent replication. Exact binomial intervals describe the small observed recovery cohort but do not remove selection bias or establish causality. The carry-forward $185/188$ is not 188 P1 observations. Prompt snapshots, run metadata, and all generated suites are needed to verify reproducibility.
+
+\section{Conclusion and Future Work}
+\textbf{RQ1:} Among 18 selected P0 failures, the archived register records 15 assertion-failure suites, two runtime-error suites, and one compilation-failure suite. The case-level register also describes transformation, state, boundary, parsing, return-value, domain, and fixture assumptions; these finer labels are descriptive rather than a validated universal taxonomy. \textbf{RQ2:} Within the same 18 selected failures, the archived failure-informed P1 workflow yielded 15 compile-and-pass recoveries (83.33\%, exact 95\% CI 58.58--96.42\%): 10/11 ChatGPT and 5/7 Gemini. \textbf{RQ3:} Under the team's provisional adjusted classification, carry-forward success changes arithmetically from 170/188 to 185/188; raw-first-run sensitivity is 167/188 and 182/188 when only the 15 observed recoveries are carried forward. CE066, CE033, and CE037 remained unresolved in the selected cohort. CE023's adjusted classification still requires a verified P0 rerun. This single-run observation does not isolate the checklist's causal effect or establish enhanced defect detection.
+
+Before making a stronger claim, we plan to (i) recover exact model IDs, interface settings, prompts and provenance, (ii) rerun failures in matched-budget P0-resample, checklist-only, and checklist-plus-focus arms across at least three repetitions, and (iii) evaluate mutation adequacy and full-suite P1 regressions. The proposed P2 feedback loop would execute candidate suites, classify failures, check assertions against an independent specification when available, and require safeguards against merely weakening assertions to force a pass.
+
+\section*{Declarations and Artifact Availability}
+\textbf{AI use.} ChatGPT and Gemini were the generators evaluated in the experiment. AI-assisted editing and interpretation may also have been used during manuscript preparation; the authors must verify and disclose the actual tools, versions, affected sections, and role in creating per-case diagnostic hints before submission. No unsupported claim of exclusively manual analysis is made here.
+
+\textbf{Artifacts.} The team retains local Java SUT snapshots, generated P0/P1 JUnit suites, prompts, spreadsheets, and Maven/Surefire reports. A verified public repository or archival DOI has not yet been supplied. Public release, licensing review, file manifest and anonymization remain pending.
+
+\textbf{Funding and competing interests.} Author confirmation is pending; this draft does not assert ``none'' without verification.
+
+\balance
+\begin{thebibliography}{00}
+
+\bibitem{fraser2011evosuite}
+G. Fraser and A. Arcuri, ``EvoSuite: Automatic test suite generation for object-oriented software,'' in \emph{Proc. 19th ACM SIGSOFT Symp. and 13th Eur. Conf. Foundations of Software Engineering (ESEC/FSE)}, 2011, pp. 416--419, doi: 10.1145/2025113.2025179.
+
+\bibitem{chen2021humaneval}
+M. Chen et al., ``Evaluating large language models trained on code,'' arXiv:2107.03374, 2021, doi: 10.48550/arXiv.2107.03374.
+
+\bibitem{du2024classeval}
+X. Du, M. Liu, K. Wang, H. Wang, J. Liu, Y. Chen, J. Feng, C. Sha, X. Peng, and Y. Lou, ``ClassEval: A manually-crafted benchmark for evaluating LLMs on class-level code generation,'' in \emph{Proc. IEEE/ACM 46th Int. Conf. Software Engineering (ICSE)}, 2024, Art. no. 107, pp. 1--13, doi: 10.1145/3643991.3644917.
+
+\bibitem{xue2025classevalt}
+P. Xue, L. Wu, Z. Yang, C. Wang, X. Li, Y. Zhang, J. Li, R. Jin, Y. Pei, Z. Shen, X. Lyu, and J. W. Keung, ``ClassEval-T: Evaluating large language models in class-level code translation,'' \emph{Proc. ACM Softw. Eng.}, vol. 2, no. ISSTA, Art. no. ISSTA063, 2025, doi: 10.1145/3728940.
+
+\bibitem{schafer2024empirical}
+M. Sch\"afer, S. Nadi, A. Eghbali, and F. Tip, ``An empirical evaluation of using large language models for automated unit test generation,'' \emph{IEEE Trans. Softw. Eng.}, vol. 50, no. 1, pp. 85--105, Jan. 2024, doi: 10.1109/TSE.2023.3334955.
+
+\bibitem{siddiq2024junit}
+M. L. Siddiq, J. C. S. Santos, R. H. Tanvir, N. Ulfat, F. A. Rifat, and V. C. Lopes, ``Using large language models to generate JUnit tests: An empirical study,'' in \emph{Proc. 28th Int. Conf. Evaluation and Assessment in Software Engineering (EASE)}, 2024, pp. 313--322, doi: 10.1145/3661167.3661216.
+
+\bibitem{yuan2024chattester}
+Z. Yuan, M. Liu, S. Ding, K. Wang, Y. Chen, X. Peng, and Y. Lou, ``Evaluating and improving ChatGPT for unit test generation,'' \emph{Proc. ACM Softw. Eng.}, vol. 1, no. FSE, Art. no. 76, 2024, doi: 10.1145/3660783.
+
+\bibitem{alshahwan2024meta}
+N. Alshahwan et al., ``Automated unit test improvement using large language models at Meta,'' in \emph{Companion Proc. 32nd ACM Int. Conf. Foundations of Software Engineering (FSE Companion)}, 2024, pp. 185--196, doi: 10.1145/3663529.3663839.
+
+\bibitem{gu2024testart}
+S. Gu, Q. Zhang, K. Li, C. Fang, F. Tian, L. Zhu, J. Zhou, and Z. Chen, ``TestART: Improving LLM-based unit testing via co-evolution of automated generation and repair iteration,'' arXiv:2408.03095, 2024, doi: 10.48550/arXiv.2408.03095.
+
+\bibitem{wang2024hits}
+Z. Wang, K. Liu, G. Li, and Z. Jin, ``HITS: High-coverage LLM-based unit test generation via method slicing,'' in \emph{Proc. 39th IEEE/ACM Int. Conf. Automated Software Engineering (ASE)}, 2024, pp. 1258--1268, doi: 10.1145/3691620.3695501.
+
+\bibitem{ryan2024codeaware}
+G. Ryan, S. Jain, M. Shang, S. Wang, X. Ma, M. K. Ramanathan, and B. Ray, ``Code-aware prompting: A study of coverage-guided test generation in regression setting using LLM,'' \emph{Proc. ACM Softw. Eng.}, vol. 1, no. FSE, Art. no. 43, 2024, doi: 10.1145/3643769.
+
+\bibitem{yang2024evaluation}
+L. Yang et al., ``On the evaluation of large language models in unit test generation,'' in \emph{Proc. 39th IEEE/ACM Int. Conf. Automated Software Engineering (ASE)}, 2024, pp. 1607--1619, doi: 10.1145/3691620.3695529.
+
+\bibitem{tang2024chatgpt}
+Y. Tang, Z. Liu, Z. Zhou, and X. Luo, ``ChatGPT vs SBST: A comparative assessment of unit test suite generation,'' \emph{IEEE Trans. Softw. Eng.}, vol. 50, no. 6, pp. 1340--1359, Jun. 2024, doi: 10.1109/TSE.2024.3382365.
+
+\bibitem{ouyang2024nondeterminism}
+S. Ouyang, J. M. Zhang, M. Harman, and M. Wang, ``An empirical study of the non-determinism of ChatGPT in code generation,'' \emph{ACM Trans. Softw. Eng. Methodol.}, vol. 34, no. 2, Art. no. 42, 2024, doi: 10.1145/3697010.
+
+\bibitem{kumar2025multillm}
+C. Kumar, U. S. Ponaka, and P. V. L. N. Naidu, ``AI-powered unit test generation via multi-LLM chaining: A case study with GPT-4o, Gemini, and Claude-3.5,'' \emph{IEEE Access}, vol. 13, pp. 18420--18436, 2025, doi: 10.1109/ACCESS.2025.3637221.
+
+\bibitem{konstantinou2025yate}
+M. Konstantinou, R. Degiovanni, and J. M. Zhang, ``YATE: The role of test repair in LLM-based unit test generation,'' arXiv:2507.18316, 2025, doi: 10.48550/arXiv.2507.18316.
+
+\bibitem{pan2025aster}
+R. Pan et al., ``ASTER: Natural and multi-language unit test generation with LLMs,'' in \emph{Proc. IEEE/ACM 47th Int. Conf. Software Engineering: Software Engineering in Practice (ICSE-SEIP)}, 2025, pp. 1--12, doi: 10.1109/ICSE-SEIP66354.2025.00042.
+
+\bibitem{diop2025scenario}
+A. Diop et al., ``From scenario to code: Structured prompting for LLM-based unit test generation,'' in \emph{Proc. 7th World Symp. Software Engineering (WSSE)}, 2025, pp. 1--8, doi: 10.1145/3779657.3779658.
+
+\bibitem{paul2025prompt}
+R. Paul et al., ``The impact of prompt programming on function-level code generation,'' \emph{IEEE Trans. Softw. Eng.}, vol. 51, 2025, doi: 10.1109/TSE.2025.3587794.
+
+\bibitem{ou2025judge}
+Y. Ou et al., ``On the effectiveness of LLM-as-a-judge for code generation and summarization,'' \emph{IEEE Trans. Softw. Eng.}, vol. 51, 2025, doi: 10.1109/TSE.2025.3586082.
+
+\bibitem{yang2025survey}
+Z. Yang, R. Huang, and C. Cui, ``Requirements-based test generation: A comprehensive survey,'' \emph{ACM Comput. Surv.}, 2025, doi: 10.1145/3771727.
+
+\bibitem{singh2026repairloops}
+J. Singh et al., ``A qualitative and quantitative exploration of LLM-based test generation repair loops,'' in \emph{Companion Proc. 34th ACM Int. Conf. Foundations of Software Engineering (FSE Companion)}, 2026, pp. 1--3, doi: 10.1145/3803437.3804438.
+
+\bibitem{chudic2026fewshot}
+A. Chudic and G. \c{C}al\i kl\i, ``Automated test suite enhancement using large language models with few-shot prompting,'' in \emph{Proc. 34th IEEE/ACM Int. Conf. Program Comprehension (ICPC)}, 2026, doi: 10.1145/3794763.3794828.
+
+\bibitem{chatunitest}
+Y. Chen, Z. Hu, C. Zhi, J. Han, S. Deng, and J. Yin, ``ChatUniTest: A framework for LLM-based test generation,'' arXiv:2305.04764, 2023.
+
+\bibitem{intut}
+Z. Nan, Z. Guo, K. Liu, and X. Xia, ``Test intention guided LLM-based unit test generation,'' in \emph{Proc. ICSE}, 2025, pp. 1026--1038, doi: 10.1109/ICSE55347.2025.00243.
+
+\bibitem{baltes2026guidelines}
+S. Baltes et al., ``Guidelines for empirical studies in software engineering involving large language models,'' \emph{Empirical Software Engineering}, published Nov. 3, 2026, doi: 10.1007/s10664-026-10922-3.
+\end{thebibliography}
+
+\end{document}
