@@ -1,0 +1,1185 @@
+[
+  {
+    "model": "ChatGPT",
+    "task": "CE001",
+    "class": "AccessGatewayFilter",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE001.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE002",
+    "class": "AreaCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE002.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE003",
+    "class": "ArgumentParser",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE003.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE004",
+    "class": "ArrangementCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE004.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE005",
+    "class": "AssessmentSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE005.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE006",
+    "class": "AutomaticGuitarSimulator",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE006.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE007",
+    "class": "AvgPartition",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE007.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE008",
+    "class": "BalancedBrackets",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE008.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE009",
+    "class": "BankAccount",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE009.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE010",
+    "class": "BigNumCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE010.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE011",
+    "class": "BinaryDataProcessor",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE011.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE012",
+    "class": "BitStatusUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE012.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE013",
+    "class": "BlackjackGame",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE013.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE014",
+    "class": "BookManagement",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE014.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE015",
+    "class": "BookManagementDB",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE015.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE016",
+    "class": "BoyerMooreSearch",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE016.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE017",
+    "class": "Calculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE017.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE018",
+    "class": "CalendarUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE018.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE019",
+    "class": "CamelCaseMap",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE019.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE020",
+    "class": "ChandrasekharSieve",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE020.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE021",
+    "class": "Chat",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE021.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE022",
+    "class": "ClassRegistrationSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE022.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE023",
+    "class": "Classroom",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE023.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE024",
+    "class": "CombinationCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE024.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE025",
+    "class": "ComplexCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE025.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE026",
+    "class": "CookiesUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE026.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE027",
+    "class": "CSVProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE027.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE028",
+    "class": "CurrencyConverter",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE028.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE029",
+    "class": "DatabaseProcessor",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE029.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE030",
+    "class": "DataStatistics",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE030.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE031",
+    "class": "DataStatistics2",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE031.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE032",
+    "class": "DataStatistics4",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE032.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE034",
+    "class": "DiscountStrategy",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE034.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE035",
+    "class": "EightPuzzle",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE035.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE036",
+    "class": "EmailClient",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE036.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE037",
+    "class": "EncryptionUtils",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE037.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE038",
+    "class": "ExcelProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE038.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE039",
+    "class": "ExpressionCalculator",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE039.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE040",
+    "class": "FitnessTracker",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE040.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE042",
+    "class": "Hotel",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE042.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE044",
+    "class": "Interpolation",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE044.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE045",
+    "class": "IPAddress",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE045.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE046",
+    "class": "IpUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE046.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE047",
+    "class": "JobMarketplace",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE047.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE048",
+    "class": "JSONProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE048.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE049",
+    "class": "KappaCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE049.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE051",
+    "class": "MahjongConnect",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE051.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE052",
+    "class": "Manacher",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE052.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE054",
+    "class": "MetricsCalculator2",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE054.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE055",
+    "class": "MovieBookingSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE055.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE056",
+    "class": "MovieTicketDB",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE056.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE057",
+    "class": "MusicPlayer",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE057.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE058",
+    "class": "NLPDataProcessor",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE058.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE059",
+    "class": "NLPDataProcessor2",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE059.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE061",
+    "class": "NumberWordFormatter",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE061.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE062",
+    "class": "NumericEntityUnescaper",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE062.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE063",
+    "class": "Order",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE063.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE064",
+    "class": "PageUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE064.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE067",
+    "class": "RegexUtils",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE067.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE068",
+    "class": "RPGCharacter",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE068.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE069",
+    "class": "Server",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE069.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE070",
+    "class": "ShoppingCart",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE070.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE071",
+    "class": "SignInSystem",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE071.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE072",
+    "class": "Snake",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE072.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE073",
+    "class": "SplitSentence",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE073.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE074",
+    "class": "SQLGenerator",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE074.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE075",
+    "class": "SQLQueryBuilder",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE075.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE076",
+    "class": "Statistics3",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE076.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE078",
+    "class": "StudentDatabaseProcessor",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE078.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE079",
+    "class": "TextFileProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE079.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE080",
+    "class": "Thermostat",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE080.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE081",
+    "class": "TicTacToe",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE081.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE082",
+    "class": "TimeUtils",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE082.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE083",
+    "class": "TriCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE083.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE084",
+    "class": "TwentyFourPointGame",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE084.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE086",
+    "class": "UrlPath",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE086.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE087",
+    "class": "UserLoginDB",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE087.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE088",
+    "class": "VectorUtil",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE088.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE089",
+    "class": "VendingMachine",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE089.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE091",
+    "class": "WeatherSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE091.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE092",
+    "class": "Words2Numbers",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE092.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE093",
+    "class": "XMLProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE093.txt"
+  },
+  {
+    "model": "ChatGPT",
+    "task": "CE094",
+    "class": "ZipFileProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-chatGPT/all-result/org.example.GeneratedTest_CE094.txt"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE001",
+    "class": "AccessGatewayFilter",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE001.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE002",
+    "class": "AreaCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE002.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE003",
+    "class": "ArgumentParser",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE003.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE004",
+    "class": "ArrangementCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE004.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE005",
+    "class": "AssessmentSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE005.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE006",
+    "class": "AutomaticGuitarSimulator",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE006.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE007",
+    "class": "AvgPartition",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE007.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE008",
+    "class": "BalancedBrackets",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE008.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE009",
+    "class": "BankAccount",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE009.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE010",
+    "class": "BigNumCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE010.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE011",
+    "class": "BinaryDataProcessor",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE011.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE012",
+    "class": "BitStatusUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE012.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE013",
+    "class": "BlackjackGame",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE013.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE014",
+    "class": "BookManagement",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE014.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE015",
+    "class": "BookManagementDB",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE015.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE016",
+    "class": "BoyerMooreSearch",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE016.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE017",
+    "class": "Calculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE017.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE018",
+    "class": "CalendarUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE018.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE019",
+    "class": "CamelCaseMap",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE019.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE020",
+    "class": "ChandrasekharSieve",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE020.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE021",
+    "class": "Chat",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE021.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE022",
+    "class": "ClassRegistrationSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE022.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE024",
+    "class": "CombinationCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE024.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE025",
+    "class": "ComplexCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE025.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE026",
+    "class": "CookiesUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE026.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE027",
+    "class": "CSVProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE027.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE028",
+    "class": "CurrencyConverter",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE028.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE029",
+    "class": "DatabaseProcessor",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE029.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE030",
+    "class": "DataStatistics",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE030.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE031",
+    "class": "DataStatistics2",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE031.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE032",
+    "class": "DataStatistics4",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE032.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE034",
+    "class": "DiscountStrategy",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE034.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE035",
+    "class": "EightPuzzle",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE035.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE036",
+    "class": "EmailClient",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE036.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE038",
+    "class": "ExcelProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE038.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE040",
+    "class": "FitnessTracker",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE040.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE041",
+    "class": "GomokuGame",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE041.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE042",
+    "class": "Hotel",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE042.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE043",
+    "class": "HRManagementSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE043.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE044",
+    "class": "Interpolation",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE044.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE045",
+    "class": "IPAddress",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE045.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE046",
+    "class": "IpUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE046.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE047",
+    "class": "JobMarketplace",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE047.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE048",
+    "class": "JSONProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE048.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE049",
+    "class": "KappaCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE049.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE050",
+    "class": "LongestWord",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE050.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE051",
+    "class": "MahjongConnect",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE051.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE052",
+    "class": "Manacher",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE052.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE053",
+    "class": "MetricsCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE053.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE054",
+    "class": "MetricsCalculator2",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE054.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE055",
+    "class": "MovieBookingSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE055.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE056",
+    "class": "MovieTicketDB",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE056.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE057",
+    "class": "MusicPlayer",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE057.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE058",
+    "class": "NLPDataProcessor",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE058.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE059",
+    "class": "NLPDataProcessor2",
+    "domain": "NLP & Text Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE059.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE060",
+    "class": "NumberConverter",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE060.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE061",
+    "class": "NumberWordFormatter",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE061.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE063",
+    "class": "Order",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE063.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE064",
+    "class": "PageUtil",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE064.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE065",
+    "class": "PersonRequest",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE065.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE066",
+    "class": "PushBoxGame",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE066.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE067",
+    "class": "RegexUtils",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE067.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE068",
+    "class": "RPGCharacter",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE068.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE069",
+    "class": "Server",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE069.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE070",
+    "class": "ShoppingCart",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE070.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE071",
+    "class": "SignInSystem",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE071.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE072",
+    "class": "Snake",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE072.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE074",
+    "class": "SQLGenerator",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE074.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE075",
+    "class": "SQLQueryBuilder",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE075.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE076",
+    "class": "Statistics3",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE076.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE077",
+    "class": "StockPortfolioTracker",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE077.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE078",
+    "class": "StudentDatabaseProcessor",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE078.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE080",
+    "class": "Thermostat",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE080.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE081",
+    "class": "TicTacToe",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE081.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE082",
+    "class": "TimeUtils",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE082.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE083",
+    "class": "TriCalculator",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE083.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE084",
+    "class": "TwentyFourPointGame",
+    "domain": "Game & State Machines",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE084.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE085",
+    "class": "URLHandler",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE085.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE086",
+    "class": "UrlPath",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE086.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE087",
+    "class": "UserLoginDB",
+    "domain": "Security, Auth & Parsing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE087.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE088",
+    "class": "VectorUtil",
+    "domain": "Financial & Math Computation",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE088.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE089",
+    "class": "VendingMachine",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE089.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE090",
+    "class": "Warehouse",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE090.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE091",
+    "class": "WeatherSystem",
+    "domain": "Management Systems",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE091.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE092",
+    "class": "Words2Numbers",
+    "domain": "Data Formatting & Utilities",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE092.log"
+  },
+  {
+    "model": "Gemini",
+    "task": "CE093",
+    "class": "XMLProcessor",
+    "domain": "File & Document Processing",
+    "p0_log": "workspace-template/behavioral-output-P0-gemini/per-task/CE093.log"
+  }
+]
