@@ -41,3 +41,5 @@ workspaces/
 ho-le-thien-an/SLR/papers/*.pdf
 ho-le-thien-an/SLR/papers/superseded/*.pdf
 .browser-profile/
+
+~$*
