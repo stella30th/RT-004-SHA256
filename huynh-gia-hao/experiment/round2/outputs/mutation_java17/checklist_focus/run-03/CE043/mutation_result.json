@@ -1,0 +1,28 @@
+{
+  "condition": "checklist_focus",
+  "run": "run-03",
+  "task_id": "CE043",
+  "baseline_classification": "PASS",
+  "source_sha256": "cd5b006da5d52d31011d96480c474b4324664d6d9ab9937ff447b22d83759a7f",
+  "production_class": "org.example.HRManagementSystem",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:54:14.102931+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 6.95,
+  "status_counts": {
+    "KILLED": 16
+  },
+  "mutants_total": 16,
+  "killed": 16,
+  "survived": 0,
+  "no_coverage": 0,
+  "timed_out": 0,
+  "mutation_score": 1.0,
+  "score_denominator": 16,
+  "status": "MUTATION_COMPLETE"
+}

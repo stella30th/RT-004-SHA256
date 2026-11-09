@@ -1,0 +1,12 @@
+reviewer_id,owner,action,evidence_required,status
+H2,Hao,Record model and call configuration,Verified run metadata and session captures,Pending verification
+H3,Hao + Khoa,Freeze infrastructure hygiene and sensitivity rules,CE029 CE087 CE023 before/after logs,Pending audit
+H4,Hao + Khoa,Repeated conditions,Raw responses and multiple run manifests,Not run
+H6,Hao + Khoa,Measure within-condition variation,Per-case repeated results and intervals,Not run
+H7,Hao,Publish exact prompt inputs,P0 source prompts and SHA256 manifest,Blocked: P0 exact prompts not confirmed
+H8,Hao,Run equal-budget P0 resample,Controlled execution records,Not run
+H13,Hao,Checklist vs checklist+focus ablation,Disclosed focus map and logs,Not run
+H15,Hao + An,Disclose diagnostic input leakage and limits,Methods and Threats with auditable records,Method draft ready
+M1,Hao + Khoa,Confirm actual model identifiers,Release/snapshot identifier with access timestamp,Pending verification
+M10,Hao,Specify timeout retry truncation and interface,Run metadata and exception logs,Method draft ready
+M11,Hao + An,Define PASS and script output,Protocol and structured results,Tooling ready for local validation

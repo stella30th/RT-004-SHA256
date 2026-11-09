@@ -1,0 +1,29 @@
+{
+  "condition": "checklist_only",
+  "run": "run-01",
+  "task_id": "CE050",
+  "baseline_classification": "PASS",
+  "source_sha256": "5ca6e45c040d1ae20b8e6edd962002e7d9e19ae61f3a9d21bd0f79fedb0215b1",
+  "production_class": "org.example.LongestWord",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:47:53.956189+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 6.68,
+  "status_counts": {
+    "KILLED": 4,
+    "NO_COVERAGE": 3
+  },
+  "mutants_total": 7,
+  "killed": 4,
+  "survived": 0,
+  "no_coverage": 3,
+  "timed_out": 0,
+  "mutation_score": 0.5714285714285714,
+  "score_denominator": 7,
+  "status": "MUTATION_COMPLETE"
+}

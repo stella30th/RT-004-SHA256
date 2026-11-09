@@ -1,0 +1,211 @@
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE066
+- Test the provided solution implementation.
+- Target class: org.example.PushBoxGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE066
+DATASET: ClassEval-T
+TARGET_CLASS: PushBoxGame
+TEST_CLASS: GeneratedTest_CE066
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng logic trò đẩy hộp
+
+PUBLIC_API_HINT:
+- boolean checkWin()
+- boolean move(char direction)
+- boolean isGameOver()
+- int getPlayerCol()
+- int getPlayerRow()
+- List<int[]> getTargets()
+- int getTargetCount()
+- char[][] getMap()
+- List<int[]> getBoxes()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class PushBoxGame {
+    private char[][] map;
+    private int playerRow;
+    private int playerCol;
+    private List<int[]> targets;
+    private List<int[]> boxes;
+    private int targetCount;
+    private boolean isGameOver;
+
+    public PushBoxGame(char[][] map) {
+        this.map = new char[map.length][];
+        for (int i = 0; i < map.length; i++) {
+            this.map[i] = map[i].clone();
+        }
+        this.playerRow = 0;
+        this.playerCol = 0;
+        this.targets = new ArrayList<>();
+        this.boxes = new ArrayList<>();
+        this.targetCount = 0;
+        this.isGameOver = false;
+        initGame();
+    }
+
+    private void initGame() {
+        for (int row = 0; row < map.length; row++) {
+            for (int col = 0; col < map[row].length; col++) {
+                if (map[row][col] == 'O') {
+                    this.playerRow = row;
+                    this.playerCol = col;
+                } else if (map[row][col] == 'G') {
+                    this.targets.add(new int[]{row, col});
+                    this.targetCount++;
+                } else if (map[row][col] == 'X') {
+                    this.boxes.add(new int[]{row, col});
+                }
+            }
+        }
+    }
+
+    public boolean checkWin() {
+        int boxOnTargetCount = 0;
+        for (int[] box : boxes) {
+            for (int[] target : targets) {
+                if (Arrays.equals(box, target)) {
+                    boxOnTargetCount++;
+                }
+            }
+        }
+        isGameOver = (boxOnTargetCount == targetCount);
+        return isGameOver;
+    }
+
+    public boolean move(char direction) {
+        int newPlayerRow = playerRow;
+        int newPlayerCol = playerCol;
+
+        if (direction == 'w') {
+            newPlayerRow -= 1;
+        } else if (direction == 's') {
+            newPlayerRow += 1;
+        } else if (direction == 'a') {
+            newPlayerCol -= 1;
+        } else if (direction == 'd') {
+            newPlayerCol += 1;
+        }
+
+        if (isValidMove(newPlayerRow, newPlayerCol)) {
+            if (isBoxAt(newPlayerRow, newPlayerCol)) {
+                int[] boxPosition = getBoxPosition(newPlayerRow, newPlayerCol);
+                int newBoxRow = newPlayerRow + (newPlayerRow - playerRow);
+                int newBoxCol = newPlayerCol + (newPlayerCol - playerCol);
+
+                if (isValidMove(newBoxRow, newBoxCol) && !isBoxAt(newBoxRow, newBoxCol)) {
+                    moveBox(boxPosition, newBoxRow, newBoxCol);
+                    playerRow = newPlayerRow;
+                    playerCol = newPlayerCol;
+                }
+            } else {
+                playerRow = newPlayerRow;
+                playerCol = newPlayerCol;
+            }
+        }
+
+        return checkWin();
+    }
+
+    private boolean isValidMove(int row, int col) {
+        return row >= 0 && row < map.length && col >= 0 && col < map[row].length && map[row][col] != '#';
+    }
+
+    private boolean isBoxAt(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] getBoxPosition(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return box;
+            }
+        }
+        return null;
+    }
+
+    private void moveBox(int[] boxPosition, int newRow, int newCol) {
+        for (int i = 0; i < boxes.size(); i++) {
+            if (Arrays.equals(boxes.get(i), boxPosition)) {
+                boxes.set(i, new int[]{newRow, newCol});
+                break;
+            }
+        }
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public int getPlayerCol() {
+        return playerCol;
+    }
+
+    public int getPlayerRow() {
+        return playerRow;
+    }
+
+    public List<int[]> getTargets() {
+        return new ArrayList<>(targets);
+    }
+
+    public int getTargetCount() {
+        return targetCount;
+    }
+
+    public char[][] getMap() {
+        return map;
+    }
+
+    public List<int[]> getBoxes() {
+        return new ArrayList<>(boxes);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE066 Java source class.
+
+TASK-SPECIFIC DIAGNOSTIC FOCUS (NO ANSWER KEY): Check board symbols, zero-target cases and the actual boolean meaning of move().

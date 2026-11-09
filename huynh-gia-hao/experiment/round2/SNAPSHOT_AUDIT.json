@@ -1,0 +1,22 @@
+{
+  "uploaded_archive": "RT-SWT302-004-SHA256(5).zip",
+  "sha256_original_archive": "198ef3c561c06787522b8ce1fe82f9c8fdee348f79439cf922a37c6a793e727d",
+  "source_count": 94,
+  "test_counts": {
+    "chatgpt-p0": 94,
+    "chatgpt-p1": 11,
+    "gemini-p0": 94,
+    "gemini-p1": 8
+  },
+  "old_pom_sha256": "8359016ab812ba7c5caed62f51004b05c74e36489f5671a0d0c91f6370dd92df",
+  "chatgpt_p0_report_counts": {
+    "PASS": 83,
+    "FAIL": 11
+  },
+  "chatgpt_p1_report_counts": {
+    "PASS": 10,
+    "FAIL": 1
+  },
+  "model_identifier_status": "UNVERIFIED (historic P1 prompt says ChatGPT 5.6 Sol)",
+  "execution_of_new_round": "NOT PERFORMED"
+}

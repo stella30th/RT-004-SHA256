@@ -1,0 +1,30 @@
+{
+  "condition": "checklist_focus",
+  "run": "run-03",
+  "task_id": "CE066",
+  "baseline_classification": "PASS",
+  "source_sha256": "a9e4ca09b36389d4d95173ab1bd54eae5be325bce51fd8fddc29a5230a621680",
+  "production_class": "org.example.PushBoxGame",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:54:48.656366+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 7.78,
+  "status_counts": {
+    "KILLED": 53,
+    "SURVIVED": 7,
+    "NO_COVERAGE": 1
+  },
+  "mutants_total": 61,
+  "killed": 53,
+  "survived": 7,
+  "no_coverage": 1,
+  "timed_out": 0,
+  "mutation_score": 0.8688524590163934,
+  "score_denominator": 61,
+  "status": "MUTATION_COMPLETE"
+}

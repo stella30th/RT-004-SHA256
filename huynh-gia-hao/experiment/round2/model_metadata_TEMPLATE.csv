@@ -1,0 +1,2 @@
+model,model_identifier,provider,interface,access_time_utc,system_prompt_accessible,temperature,top_p,max_output_tokens,timeout_seconds,retries,history_context_policy,raw_response_path,notes
+chatgpt,UNVERIFIED,OpenAI,UNVERIFIED,UNVERIFIED,UNVERIFIED,NOT_EXPOSED,NOT_EXPOSED,NOT_EXPOSED,UNVERIFIED,0,NEW_CHAT_PER_TASK,UNVERIFIED,Historic P1 prompt names ChatGPT 5.6 Sol; do not assume GPT-6

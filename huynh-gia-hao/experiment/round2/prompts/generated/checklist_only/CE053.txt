@@ -1,0 +1,131 @@
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE053
+- Test the provided solution implementation.
+- Target class: org.example.MetricsCalculator
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE053
+DATASET: ClassEval-T
+TARGET_CLASS: MetricsCalculator
+TEST_CLASS: GeneratedTest_CE053
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tính các metric số liệu
+
+PUBLIC_API_HINT:
+- void update(int[] predictedLabels, int[] trueLabels)
+- double precision(int[] predictedLabels, int[] trueLabels)
+- double recall(int[] predictedLabels, int[] trueLabels)
+- double f1Score(int[] predictedLabels, int[] trueLabels)
+- double accuracy(int[] predictedLabels, int[] trueLabels)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class MetricsCalculator {
+    int truePositives;
+    int falsePositives;
+    int falseNegatives;
+    int trueNegatives;
+
+    public MetricsCalculator() {
+        this.truePositives = 0;
+        this.falsePositives = 0;
+        this.falseNegatives = 0;
+        this.trueNegatives = 0;
+    }
+
+    public void update(int[] predictedLabels, int[] trueLabels) {
+        for (int i = 0; i < predictedLabels.length; i++) {
+            if (predictedLabels[i] == 1 && trueLabels[i] == 1) {
+                this.truePositives++;
+            } else if (predictedLabels[i] == 1 && trueLabels[i] == 0) {
+                this.falsePositives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 1) {
+                this.falseNegatives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 0) {
+                this.trueNegatives++;
+            }
+        }
+    }
+
+    public double precision(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falsePositives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falsePositives);
+    }
+
+    public double recall(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falseNegatives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falseNegatives);
+    }
+
+    public double f1Score(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        double precision = precision(predictedLabels, trueLabels);
+        double recall = recall(predictedLabels, trueLabels);
+        if (precision + recall == 0.0) {
+            return 0.0;
+        }
+        return (2 * precision * recall) / (precision + recall);
+    }
+
+    public double accuracy(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        int total = this.truePositives + this.trueNegatives + this.falsePositives + this.falseNegatives;
+        if (total == 0) {
+            return 0.0;
+        }
+        return (double) (this.truePositives + this.trueNegatives) / total;
+    }
+
+    public static void main(String[] args) {
+        MetricsCalculator mc = new MetricsCalculator();
+        int[] predictedLabels = {1, 1, 0, 0};
+        int[] trueLabels = {1, 0, 0, 1};
+        System.out.println(mc.precision(predictedLabels, trueLabels));
+        System.out.println(mc.recall(predictedLabels, trueLabels));
+        System.out.println(mc.f1Score(predictedLabels, trueLabels));
+        System.out.println(mc.accuracy(predictedLabels, trueLabels));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE053 Java source class.

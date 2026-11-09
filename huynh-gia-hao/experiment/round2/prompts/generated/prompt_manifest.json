@@ -1,0 +1,236 @@
+{
+  "prompts": [
+    {
+      "task_id": "CE033",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE033.txt",
+      "prompt_sha256": "0091451938ff209e51f24c968993ba6fd0e231ca131875d5bcd7a910681e7874",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE033",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE033.txt",
+      "prompt_sha256": "d55c62c4d23fd715bc42c6dc4db3df4fd66177af886046bf4a2e3d1891d7eb9c",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE033",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE033.txt",
+      "prompt_sha256": "ae29d40cdfb0b0c20ad8f594153600c7baca69412fd219e4ac6db3bfe192009f",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE041",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE041.txt",
+      "prompt_sha256": "f7a0d1591603ff17bdedb40d8fa1622f566de397cc05a054c71571d92b7194b5",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE041",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE041.txt",
+      "prompt_sha256": "a77fedeae43734d3a3b7a27400d45859499ecec8e89c5fde9720953c0dc78a42",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE041",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE041.txt",
+      "prompt_sha256": "544a717130e76c73df8689e932eb6001422d671d115336086225224b5f193d6f",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE043",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE043.txt",
+      "prompt_sha256": "95b93a0e9c7173b4e704dc6c569705b64d6f047b2f8dd2bfe31edd426f9dfe79",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE043",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE043.txt",
+      "prompt_sha256": "f8897551d3e7083c2a8c2ee31a112b68f52b40d46e5c70b668515dcd06e4f0e1",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE043",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE043.txt",
+      "prompt_sha256": "5a789724070d49304056163e4239c1274f9995ad521702a781622cee26c79c7f",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE050",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE050.txt",
+      "prompt_sha256": "f207f28944527123d4e2f4495f5d7301f2dadb102cda5ff9dc0dfbc2b19887f7",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE050",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE050.txt",
+      "prompt_sha256": "0b822298595a57760817e4e0b4ae8f521d699a05dfb70141d2a7f105101728e4",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE050",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE050.txt",
+      "prompt_sha256": "763f4f44d2a8bc6955c3ade4c00715e956fa2365b6f593adda68fd449b4677fa",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE053",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE053.txt",
+      "prompt_sha256": "57133d101a7f950dc70b42d485f75b2fe834c797f790b0d0314cdb58ba2ed2c9",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE053",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE053.txt",
+      "prompt_sha256": "0bb6b2a3da5eb4b4883542787a1ed2c68830854ba318e21be6862671567023e8",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE053",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE053.txt",
+      "prompt_sha256": "4b89e17bf9186df9be32e4c433cd1efb78b8a0a2b5b899038ab9751c515d8763",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE060",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE060.txt",
+      "prompt_sha256": "7a28c995287106056111bd86fd442bb9d4e02fdcb75f35230a7271793b6e9061",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE060",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE060.txt",
+      "prompt_sha256": "274e2383eae33bf4b63980f1fa2eb5e3bd56f6bb53e582690becf0930b2fff79",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE060",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE060.txt",
+      "prompt_sha256": "a061eecd6bb6ce87de7121f978edd3324260fb4f84db122b11c4d4eca232abbc",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE065",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE065.txt",
+      "prompt_sha256": "e854743fa068871b3852db3c6421f90c2e2a383233cb0edad04fa08d34dc62a1",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE065",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE065.txt",
+      "prompt_sha256": "756ddc15d72c8ed1483e328e519a308d592ae1615a174ee025977462ba19f975",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE065",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE065.txt",
+      "prompt_sha256": "0f7666c9aa5e2afda970a6852604f9eef7fa95bb6e2fc5e1c2b1402d218fc169",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE066",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE066.txt",
+      "prompt_sha256": "d76f780479c31d644a08d00f7e4f7bdb222443824e73c9ae19d2d644720bcaeb",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE066",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE066.txt",
+      "prompt_sha256": "b3004738cb5e3671405a4d74acbaaad600e07bc168c83b031da7da732002baff",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE066",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE066.txt",
+      "prompt_sha256": "6ce73a3cf7489518f017f0f6a25df03cc2aa9e628c23dd991dadac5d3ed0c043",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE077",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE077.txt",
+      "prompt_sha256": "95fcbdbf3a6242b1e21db3db8933ea09f683fdfe89283e10ed3ed795b578f495",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE077",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE077.txt",
+      "prompt_sha256": "4d696a512627f55726881e9f5201761a036d388ca499ceedadd03dd452969e86",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE077",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE077.txt",
+      "prompt_sha256": "8821d786d63c45975917b04041adb30be173b7621adc891335feec53586837e0",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE085",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE085.txt",
+      "prompt_sha256": "8e22dc3377e896f980394524e87881602029370bdc178e284bb848e71a64a46d",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE085",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE085.txt",
+      "prompt_sha256": "50b9e17519981c5ee45e0ca96ca31f59f56aab4ce7d1b6b443f5860929a934d3",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE085",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE085.txt",
+      "prompt_sha256": "cd32948aa2d62152eaa6657e462d9a7b28cd75654d948b127dad5309f1bcd4e9",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE090",
+      "condition": "p0_resample",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\p0_resample\\CE090.txt",
+      "prompt_sha256": "ba99e41e64225f996906e1ee76bb77490f4ae8fae97a9fccb04e6ce674556890",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE090",
+      "condition": "checklist_only",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_only\\CE090.txt",
+      "prompt_sha256": "177a509bc96758cdc23d167178eb3072ab79c811f321daf58a0b58dac1d09c61",
+      "source": "frozen P0 prompt + disclosed addendum"
+    },
+    {
+      "task_id": "CE090",
+      "condition": "checklist_focus",
+      "prompt_path": "huynh-gia-hao\\experiment\\round2\\prompts\\generated\\checklist_focus\\CE090.txt",
+      "prompt_sha256": "901acab086934df4b9bac3d7a3b0d01fdcf0f4d79bdedc8054bb75bf6d31f860",
+      "source": "frozen P0 prompt + disclosed addendum"
+    }
+  ],
+  "missing_baselines": []
+}

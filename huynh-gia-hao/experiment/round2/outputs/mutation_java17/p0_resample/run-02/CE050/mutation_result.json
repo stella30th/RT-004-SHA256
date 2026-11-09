@@ -1,0 +1,16 @@
+{
+  "condition": "p0_resample",
+  "run": "run-02",
+  "task_id": "CE050",
+  "baseline_classification": "TEST_FAILURE",
+  "source_sha256": "18d5d5dafac78ada52f228a22ac9b658ad408bfe19ab7e568fd9b7e21f6b0829",
+  "production_class": "org.example.LongestWord",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:46:04.597924+00:00",
+  "replacement": false,
+  "status": "BASELINE_FAIL_EXCLUDED",
+  "mutation_score": null
+}

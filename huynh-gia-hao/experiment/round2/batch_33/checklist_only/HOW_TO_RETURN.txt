@@ -1,0 +1,10 @@
+PREFERRED: return a ZIP containing one Java file per run/task: run-01/CE033.java ... run-03/CE090.java.
+If providing one text file, use exactly the markers shown below; include COMPLETE Java source between them.
+===== BEGIN JAVA run-01 CE033 =====
+// BEGIN GeneratedTest_CE033
+package org.example;
+...
+// END GeneratedTest_CE033
+===== END JAVA run-01 CE033 =====
+Do not concatenate runs as one JUnit class. Do not use an output as the input to a later run.
+A single chat generation for 33 items is NOT 33 independent samples and may truncate.

@@ -1,0 +1,29 @@
+{
+  "condition": "p0_resample",
+  "run": "run-01",
+  "task_id": "CE077",
+  "baseline_classification": "PASS",
+  "source_sha256": "e4067270c5370a07401e7dd314f0a6c38f873c6c61ad803fac35a0b2106dd012",
+  "production_class": "org.example.StockPortfolioTracker",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:45:20.741738+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 7.49,
+  "status_counts": {
+    "KILLED": 43,
+    "SURVIVED": 1
+  },
+  "mutants_total": 44,
+  "killed": 43,
+  "survived": 1,
+  "no_coverage": 0,
+  "timed_out": 0,
+  "mutation_score": 0.9772727272727273,
+  "score_denominator": 44,
+  "status": "MUTATION_COMPLETE"
+}
