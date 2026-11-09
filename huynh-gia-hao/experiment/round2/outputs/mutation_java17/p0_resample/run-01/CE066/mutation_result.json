@@ -1,0 +1,16 @@
+{
+  "condition": "p0_resample",
+  "run": "run-01",
+  "task_id": "CE066",
+  "baseline_classification": "TEST_FAILURE",
+  "source_sha256": "7c106a86ced08af1445f05db6e25aeb4a5b2f8b72b731c9da231c3a3d3521f4d",
+  "production_class": "org.example.PushBoxGame",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:45:20.737234+00:00",
+  "replacement": false,
+  "status": "BASELINE_FAIL_EXCLUDED",
+  "mutation_score": null
+}

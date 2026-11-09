@@ -1,0 +1,86 @@
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE065
+- Test the provided solution implementation.
+- Target class: org.example.PersonRequest
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE065
+DATASET: ClassEval-T
+TARGET_CLASS: PersonRequest
+TEST_CLASS: GeneratedTest_CE065
+CATEGORY: DATA_FILE_DB_PROCESSING
+
+BUSINESS_PROBLEM:
+biểu diễn/xử lý request dữ liệu người
+
+PUBLIC_API_HINT:
+- String getName()
+- String getSex()
+- String getPhoneNumber()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class PersonRequest {
+    private String name;
+    private String sex;
+    private String phoneNumber;
+
+    public PersonRequest(String name, String sex, String phoneNumber) {
+        this.name = validateName(name);
+        this.sex = validateSex(sex);
+        this.phoneNumber = validatePhoneNumber(phoneNumber);
+    }
+
+    private String validateName(String name) {
+        if (name == null || name.isEmpty() || name.length() > 33) {
+            return null;
+        }
+        return name;
+    }
+
+    private String validateSex(String sex) {
+        if (sex == null || (!sex.equals("Man") && !sex.equals("Woman") && !sex.equals("UGM"))) {
+            return null;
+        }
+        return sex;
+    }
+
+    private String validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.length() != 11 || !phoneNumber.matches("\\d{11}")) {
+            return null;
+        }
+        return phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}

@@ -1,0 +1,77 @@
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE050
+- Test the provided solution implementation.
+- Target class: org.example.LongestWord
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE050
+DATASET: ClassEval-T
+TARGET_CLASS: LongestWord
+TEST_CLASS: GeneratedTest_CE050
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tìm/xử lý từ dài nhất trong văn bản
+
+PUBLIC_API_HINT:
+- void addWord(String word)
+- String findLongestWord(String sentence)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+public class LongestWord {
+    List<String> wordList;
+
+    public LongestWord() {
+        wordList = new ArrayList<>();
+    }
+
+    public void addWord(String word) {
+        wordList.add(word);
+    }
+
+    public String findLongestWord(String sentence) {
+        String longestWord = "";
+        sentence = sentence.toLowerCase();
+        sentence = sentence.replaceAll("[" + Pattern.quote("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~") + "]", "");
+        String[] words = sentence.split(" ");
+        for (String word : words) {
+            if (wordList.contains(word) && word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+    public static void main(String[] args) {
+        LongestWord longestWord = new LongestWord();
+        longestWord.addWord("A");
+        longestWord.addWord("aM");
+        System.out.println(longestWord.findLongestWord("I am a student."));
+    }
+}

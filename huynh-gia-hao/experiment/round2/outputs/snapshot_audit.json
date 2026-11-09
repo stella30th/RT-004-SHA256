@@ -1,0 +1,36 @@
+{
+  "chatgpt-p0": {
+    "count": 94,
+    "expected_snapshot_count": 94,
+    "missing": [],
+    "packages": [
+      "org.example"
+    ]
+  },
+  "chatgpt-p1": {
+    "count": 11,
+    "expected_snapshot_count": 11,
+    "missing": [],
+    "packages": [
+      "org.example"
+    ]
+  },
+  "gemini-p0": {
+    "count": 94,
+    "expected_snapshot_count": 94,
+    "missing": [],
+    "packages": [
+      "org.example"
+    ]
+  },
+  "gemini-p1": {
+    "count": 8,
+    "expected_snapshot_count": 8,
+    "missing": [],
+    "packages": [
+      "org.example"
+    ]
+  },
+  "production_count": 94,
+  "pom_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a"
+}

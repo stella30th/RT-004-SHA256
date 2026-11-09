@@ -1,0 +1,28 @@
+{
+  "condition": "p0_resample",
+  "run": "run-03",
+  "task_id": "CE085",
+  "baseline_classification": "PASS",
+  "source_sha256": "d7973eb74a16d9922525c5fe5da4c8bbcd5f0a3281cbd0f83dadc1ce3c92de91",
+  "production_class": "org.example.URLHandler",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:47:17.646095+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 7.02,
+  "status_counts": {
+    "KILLED": 25
+  },
+  "mutants_total": 25,
+  "killed": 25,
+  "survived": 0,
+  "no_coverage": 0,
+  "timed_out": 0,
+  "mutation_score": 1.0,
+  "score_denominator": 25,
+  "status": "MUTATION_COMPLETE"
+}

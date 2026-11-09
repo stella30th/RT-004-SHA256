@@ -1,0 +1,164 @@
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE090
+- Test the provided solution implementation.
+- Target class: org.example.Warehouse
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE090
+DATASET: ClassEval-T
+TARGET_CLASS: Warehouse
+TEST_CLASS: GeneratedTest_CE090
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý tồn kho/kho hàng
+
+PUBLIC_API_HINT:
+- void addProduct(int productId, String name, int quantity)
+- void updateProductQuantity(int productId, int quantity)
+- int getProductQuantity(int productId)
+- boolean createOrder(int orderId, int productId, int quantity)
+- boolean changeOrderStatus(int orderId, String status)
+- String trackOrder(int orderId)
+- void addQuantity(int quantity)
+- int getQuantity()
+- String getStatus()
+- void setStatus(String status)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class Warehouse {
+    private Map<Integer, Product> inventory;
+    private Map<Integer, Order> orders;
+
+    public Warehouse() {
+        this.inventory = new HashMap<>();
+        this.orders = new HashMap<>();
+    }
+
+    public void addProduct(int productId, String name, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        } else {
+            inventory.put(productId, new Product(name, quantity));
+        }
+    }
+
+    public void updateProductQuantity(int productId, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        }
+    }
+
+    public int getProductQuantity(int productId) {
+        if (inventory.containsKey(productId)) {
+            return inventory.get(productId).getQuantity();
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean createOrder(int orderId, int productId, int quantity) {
+        if (inventory.containsKey(productId) && inventory.get(productId).getQuantity() >= quantity) {
+            inventory.get(productId).addQuantity(-quantity);
+            orders.put(orderId, new Order(productId, quantity, "Shipped"));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean changeOrderStatus(int orderId, String status) {
+        if (orders.containsKey(orderId)) {
+            orders.get(orderId).setStatus(status);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String trackOrder(int orderId) {
+        if (orders.containsKey(orderId)) {
+            return orders.get(orderId).getStatus();
+        } else {
+            return null;
+        }
+    }
+
+    private static class Product {
+        private String name;
+        private int quantity;
+
+        public Product(String name, int quantity) {
+            this.name = name;
+            this.quantity = quantity;
+        }
+
+        public void addQuantity(int quantity) {
+            this.quantity += quantity;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+    }
+
+    private static class Order {
+        private int productId;
+        private int quantity;
+        private String status;
+
+        public Order(int productId, int quantity, String status) {
+            this.productId = productId;
+            this.quantity = quantity;
+            this.status = status;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE090 Java source class.
+
+TASK-SPECIFIC DIAGNOSTIC FOCUS (NO ANSWER KEY): Check whether inventory updates add to, or replace, an existing quantity.

@@ -1,0 +1,10 @@
+condition,run,suites,pass,tests,failures
+p0_resample,run-01,11,8,149,3
+p0_resample,run-02,11,8,221,4
+p0_resample,run-03,11,7,319,5
+checklist_only,run-01,11,11,78,0
+checklist_only,run-02,11,11,78,0
+checklist_only,run-03,11,11,78,0
+checklist_focus,run-01,11,11,89,0
+checklist_focus,run-02,11,11,89,0
+checklist_focus,run-03,11,11,89,0

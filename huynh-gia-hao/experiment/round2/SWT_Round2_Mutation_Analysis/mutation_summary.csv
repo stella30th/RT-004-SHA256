@@ -1,0 +1,4 @@
+﻿condition,records,completed,baseline_fail_excluded,killed,denominator,survived,no_coverage,micro_score,macro_score,median_score
+p0_resample,33,23,10,649,730,30,51,0.889041,0.925243,0.977273
+checklist_only,33,33,0,924,1164,84,156,0.793814,0.85608,0.957447
+checklist_focus,33,33,0,924,1164,84,156,0.793814,0.85608,0.957447

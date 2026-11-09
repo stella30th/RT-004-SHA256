@@ -1,0 +1,16 @@
+{
+  "condition": "p0_resample",
+  "run": "run-01",
+  "task_id": "CE041",
+  "baseline_classification": "TEST_FAILURE",
+  "source_sha256": "fc3318964ed8f7afa514437d38d9db7462b504f421e4a02ceb898ad1ba64d2e3",
+  "production_class": "org.example.GomokuGame",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:44:52.238562+00:00",
+  "replacement": false,
+  "status": "BASELINE_FAIL_EXCLUDED",
+  "mutation_score": null
+}

@@ -1,0 +1,30 @@
+{
+  "condition": "p0_resample",
+  "run": "run-02",
+  "task_id": "CE041",
+  "baseline_classification": "PASS",
+  "source_sha256": "feca02df82db82f87427cc667eb3bcd8bed253cd8390d259e2e6eb4c18bc141f",
+  "production_class": "org.example.GomokuGame",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:45:50.149185+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 7.44,
+  "status_counts": {
+    "KILLED": 40,
+    "SURVIVED": 8,
+    "NO_COVERAGE": 1
+  },
+  "mutants_total": 49,
+  "killed": 40,
+  "survived": 8,
+  "no_coverage": 1,
+  "timed_out": 0,
+  "mutation_score": 0.8163265306122449,
+  "score_denominator": 49,
+  "status": "MUTATION_COMPLETE"
+}

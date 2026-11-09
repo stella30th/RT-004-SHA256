@@ -1,0 +1,30 @@
+{
+  "condition": "checklist_focus",
+  "run": "run-01",
+  "task_id": "CE077",
+  "baseline_classification": "PASS",
+  "source_sha256": "5610510fec01fd963dd24ce92857a736fd23701c4db654e1fc63c6b6bef8d971",
+  "production_class": "org.example.StockPortfolioTracker",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:52:18.777071+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 7.48,
+  "status_counts": {
+    "KILLED": 41,
+    "SURVIVED": 2,
+    "NO_COVERAGE": 1
+  },
+  "mutants_total": 44,
+  "killed": 41,
+  "survived": 2,
+  "no_coverage": 1,
+  "timed_out": 0,
+  "mutation_score": 0.9318181818181818,
+  "score_denominator": 44,
+  "status": "MUTATION_COMPLETE"
+}

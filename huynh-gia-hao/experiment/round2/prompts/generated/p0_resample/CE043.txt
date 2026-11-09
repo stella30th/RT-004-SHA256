@@ -1,0 +1,114 @@
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE043
+- Test the provided solution implementation.
+- Target class: org.example.HRManagementSystem
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE043
+DATASET: ClassEval-T
+TARGET_CLASS: HRManagementSystem
+TEST_CLASS: GeneratedTest_CE043
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý dữ liệu nhân sự
+
+PUBLIC_API_HINT:
+- boolean addEmployee(int employeeId, String name, String position, String department, double salary)
+- boolean removeEmployee(int employeeId)
+- boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo)
+- Object getEmployee(int employeeId)
+- Map<Integer, Map<String, Object>> listEmployees()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class HRManagementSystem {
+    public Map<Integer, Map<String, Object>> employees;
+
+    public HRManagementSystem() {
+        this.employees = new HashMap<>();
+    }
+
+    public boolean addEmployee(int employeeId, String name, String position, String department, double salary) {
+        if (employees.containsKey(employeeId)) {
+            return false;
+        } else {
+            Map<String, Object> employeeInfo = new HashMap<>();
+            employeeInfo.put("name", name);
+            employeeInfo.put("position", position);
+            employeeInfo.put("department", department);
+            employeeInfo.put("salary", salary);
+            employees.put(employeeId, employeeInfo);
+            return true;
+        }
+    }
+
+    public boolean removeEmployee(int employeeId) {
+        if (employees.containsKey(employeeId)) {
+            employees.remove(employeeId);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        }
+        else {
+            Set<String> validKeys = Set.of("name", "position", "department", "salary");
+            for (String key : updatedEmployeeInfo.keySet()) {
+                if (!validKeys.contains(key)) {
+                    return false;
+                }
+            }
+            employeeInfo.putAll(updatedEmployeeInfo);
+            return true;
+        }
+    }
+
+    public Object getEmployee(int employeeId) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        } else {
+            return employeeInfo;
+        }
+    }
+
+    public Map<Integer, Map<String, Object>> listEmployees() {
+        Map<Integer, Map<String, Object>> employeeData = new HashMap<>();
+        for (Map.Entry<Integer, Map<String, Object>> entry : employees.entrySet()) {
+            int employeeId = entry.getKey();
+            Map<String, Object> employeeInfo = new HashMap<>(entry.getValue());
+            employeeInfo.put("employee_ID", employeeId);
+            employeeData.put(employeeId, employeeInfo);
+        }
+        return employeeData;
+    }
+}

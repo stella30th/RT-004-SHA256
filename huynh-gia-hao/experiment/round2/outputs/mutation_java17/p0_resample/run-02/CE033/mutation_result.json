@@ -1,0 +1,29 @@
+{
+  "condition": "p0_resample",
+  "run": "run-02",
+  "task_id": "CE033",
+  "baseline_classification": "PASS",
+  "source_sha256": "4714c62a7aff9f5d705c869528830d2fc043bfba41893a78846d34f193212d65",
+  "production_class": "org.example.DecryptionUtils",
+  "java_major": 17,
+  "junit_version": "4.13.2",
+  "pit_version": "1.20.6",
+  "pom_original_sha256": "47d77ce980de2f95dcb06d64383ee054ae9f3255490e691c8006723db6ab7b7a",
+  "timestamp_utc": "2026-11-09T11:45:43.057331+00:00",
+  "replacement": false,
+  "baseline_recheck_exit_code": 0,
+  "pit_exit_code": 0,
+  "duration_seconds": 7.05,
+  "status_counts": {
+    "KILLED": 45,
+    "SURVIVED": 2
+  },
+  "mutants_total": 47,
+  "killed": 45,
+  "survived": 2,
+  "no_coverage": 0,
+  "timed_out": 0,
+  "mutation_score": 0.9574468085106383,
+  "score_denominator": 47,
+  "status": "MUTATION_COMPLETE"
+}

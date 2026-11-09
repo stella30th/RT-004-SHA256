@@ -1,0 +1,4671 @@
+OAPR prompt archive. Each task is a separate independent generation; do NOT submit all 33 in one chat expecting 33 independent runs.
+Each repetition must be a fresh generation using the same frozen prompt.
+
+
+========== BEGIN PROMPT checklist_only run-01 CE033 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE033
+- Test the provided solution implementation.
+- Target class: org.example.DecryptionUtils
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE033
+DATASET: ClassEval-T
+TARGET_CLASS: DecryptionUtils
+TEST_CLASS: GeneratedTest_CE033
+CATEGORY: SECURITY_NETWORK_WEB
+
+BUSINESS_PROBLEM:
+giải mã dữ liệu theo thuật toán được cài đặt
+
+PUBLIC_API_HINT:
+- String caesarDecipher(String ciphertext, int shift)
+- String vigenereDecipher(String ciphertext)
+- String railFenceDecipher(String encryptedText, int rails)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class DecryptionUtils {
+    private String key;
+
+    public DecryptionUtils(String key) {
+        this.key = key;
+    }
+
+    public String caesarDecipher(String ciphertext, int shift) {
+        StringBuilder plaintext = new StringBuilder();
+        shift = shift % 26;
+        for (char ch : ciphertext.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                int asciiOffset = Character.isUpperCase(ch) ? 'A' : 'a';
+                char shiftedChar = (char) ((ch - asciiOffset - shift + 26) % 26 + asciiOffset);
+                plaintext.append(shiftedChar);
+            }
+            else {
+                plaintext.append(ch);
+            }
+        }
+        return plaintext.toString();
+    }
+
+    public String vigenereDecipher(String ciphertext) {
+        StringBuilder decryptedText = new StringBuilder();
+        int keyIndex = 0;
+        for (char ch : ciphertext.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                int shift = Character.toLowerCase(key.charAt(keyIndex % key.length())) - 'a';
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                char decryptedChar = (char) ((ch - base - shift + 26) % 26 + base);
+                decryptedText.append(decryptedChar);
+                keyIndex++;
+            }
+            else {
+                decryptedText.append(ch);
+            }
+        }
+        return decryptedText.toString();
+    }
+
+    public String railFenceDecipher(String encryptedText, int rails) {
+        char[][] fence = new char[rails][encryptedText.length()];
+        for (int i = 0; i < rails; i++) {
+            for (int j = 0; j < encryptedText.length(); j++) {
+                fence[i][j] = '\0';
+            }
+        }
+
+        int direction = -1;
+        int row = 0, col = 0;
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            if (row == 0 || row == rails - 1) {
+                direction = -direction;
+            }
+            fence[row][col++] = '*';
+            row += direction;
+        }
+
+        int index = 0;
+        for (int i = 0; i < rails; i++) {
+            for (int j = 0; j < encryptedText.length(); j++) {
+                if (fence[i][j] == '*') {
+                    fence[i][j] = encryptedText.charAt(index++);
+                }
+            }
+        }
+
+        StringBuilder plainText = new StringBuilder();
+        direction = -1;
+        row = 0;
+        col = 0;
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            if (row == 0 || row == rails - 1) {
+                direction = -direction;
+            }
+            plainText.append(fence[row][col++]);
+            row += direction;
+        }
+
+        return plainText.toString();
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE033 Java source class.
+
+========== END PROMPT checklist_only run-01 CE033 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE041 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE041
+- Test the provided solution implementation.
+- Target class: org.example.GomokuGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE041
+DATASET: ClassEval-T
+TARGET_CLASS: GomokuGame
+TEST_CLASS: GeneratedTest_CE041
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng luật/trạng thái trò Gomoku
+
+PUBLIC_API_HINT:
+- boolean makeMove(int row, int col)
+- Character checkWinner()
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.Arrays;
+
+public class GomokuGame {
+    private int boardSize;
+    char[][] board;
+    private char currentPlayer;
+
+    public GomokuGame(int boardSize) {
+        this.boardSize = boardSize;
+        this.board = new char[boardSize][boardSize];
+        for (char[] row : this.board) {
+            Arrays.fill(row, ' ');
+        }
+        this.currentPlayer = 'X';
+    }
+
+    public boolean makeMove(int row, int col) {
+        if (this.board[row][col] == ' ') {
+            this.board[row][col] = this.currentPlayer;
+            this.currentPlayer = (this.currentPlayer == 'X') ? 'O' : 'X';
+            return true;
+        }
+        return false;
+    }
+
+    public Character checkWinner() {
+        int[][] directions = {{0, 1}, {1, 0}, {1, 1}, {1, -1}};
+        for (int row = 0; row < this.boardSize; row++) {
+            for (int col = 0; col < this.boardSize; col++) {
+                if (this.board[row][col] != ' ') {
+                    for (int[] direction : directions) {
+                        if (checkFiveInARow(row, col, direction)) {
+                            return this.board[row][col];
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    boolean checkFiveInARow(int row, int col, int[] direction) {
+        int dx = direction[0];
+        int dy = direction[1];
+        int count = 1;
+        char symbol = this.board[row][col];
+        for (int i = 1; i < 5; i++) {
+            int newRow = row + dx * i;
+            int newCol = col + dy * i;
+            if (newRow < 0 || newRow >= this.boardSize || newCol < 0 || newCol >= this.boardSize) {
+                break;
+            }
+            if (this.board[newRow][newCol] != symbol) {
+                break;
+            }
+            count++;
+        }
+        for (int i = 1; i < 5; i++) {
+            int newRow = row - dx * i;
+            int newCol = col - dy * i;
+            if (newRow < 0 || newRow >= this.boardSize || newCol < 0 || newCol >= this.boardSize) {
+                break;
+            }
+            if (this.board[newRow][newCol] != symbol) {
+                break;
+            }
+            count++;
+        }
+        return count >= 5;
+    }
+
+    public static void main(String[] args) {
+        GomokuGame gomokuGame = new GomokuGame(10);
+        int[][] moves = {{5, 5}, {0, 0}, {5, 4}, {0, 1}, {5, 3}, {0, 2}, {5, 2}, {0, 3}, {5, 1}};
+        for (int[] move : moves) {
+            gomokuGame.makeMove(move[0], move[1]);
+        }
+        System.out.println(gomokuGame.checkWinner());
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE041 Java source class.
+
+========== END PROMPT checklist_only run-01 CE041 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE043 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE043
+- Test the provided solution implementation.
+- Target class: org.example.HRManagementSystem
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE043
+DATASET: ClassEval-T
+TARGET_CLASS: HRManagementSystem
+TEST_CLASS: GeneratedTest_CE043
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý dữ liệu nhân sự
+
+PUBLIC_API_HINT:
+- boolean addEmployee(int employeeId, String name, String position, String department, double salary)
+- boolean removeEmployee(int employeeId)
+- boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo)
+- Object getEmployee(int employeeId)
+- Map<Integer, Map<String, Object>> listEmployees()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class HRManagementSystem {
+    public Map<Integer, Map<String, Object>> employees;
+
+    public HRManagementSystem() {
+        this.employees = new HashMap<>();
+    }
+
+    public boolean addEmployee(int employeeId, String name, String position, String department, double salary) {
+        if (employees.containsKey(employeeId)) {
+            return false;
+        } else {
+            Map<String, Object> employeeInfo = new HashMap<>();
+            employeeInfo.put("name", name);
+            employeeInfo.put("position", position);
+            employeeInfo.put("department", department);
+            employeeInfo.put("salary", salary);
+            employees.put(employeeId, employeeInfo);
+            return true;
+        }
+    }
+
+    public boolean removeEmployee(int employeeId) {
+        if (employees.containsKey(employeeId)) {
+            employees.remove(employeeId);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        }
+        else {
+            Set<String> validKeys = Set.of("name", "position", "department", "salary");
+            for (String key : updatedEmployeeInfo.keySet()) {
+                if (!validKeys.contains(key)) {
+                    return false;
+                }
+            }
+            employeeInfo.putAll(updatedEmployeeInfo);
+            return true;
+        }
+    }
+
+    public Object getEmployee(int employeeId) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        } else {
+            return employeeInfo;
+        }
+    }
+
+    public Map<Integer, Map<String, Object>> listEmployees() {
+        Map<Integer, Map<String, Object>> employeeData = new HashMap<>();
+        for (Map.Entry<Integer, Map<String, Object>> entry : employees.entrySet()) {
+            int employeeId = entry.getKey();
+            Map<String, Object> employeeInfo = new HashMap<>(entry.getValue());
+            employeeInfo.put("employee_ID", employeeId);
+            employeeData.put(employeeId, employeeInfo);
+        }
+        return employeeData;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE043 Java source class.
+
+========== END PROMPT checklist_only run-01 CE043 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE050 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE050
+- Test the provided solution implementation.
+- Target class: org.example.LongestWord
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE050
+DATASET: ClassEval-T
+TARGET_CLASS: LongestWord
+TEST_CLASS: GeneratedTest_CE050
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tìm/xử lý từ dài nhất trong văn bản
+
+PUBLIC_API_HINT:
+- void addWord(String word)
+- String findLongestWord(String sentence)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+public class LongestWord {
+    List<String> wordList;
+
+    public LongestWord() {
+        wordList = new ArrayList<>();
+    }
+
+    public void addWord(String word) {
+        wordList.add(word);
+    }
+
+    public String findLongestWord(String sentence) {
+        String longestWord = "";
+        sentence = sentence.toLowerCase();
+        sentence = sentence.replaceAll("[" + Pattern.quote("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~") + "]", "");
+        String[] words = sentence.split(" ");
+        for (String word : words) {
+            if (wordList.contains(word) && word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+    public static void main(String[] args) {
+        LongestWord longestWord = new LongestWord();
+        longestWord.addWord("A");
+        longestWord.addWord("aM");
+        System.out.println(longestWord.findLongestWord("I am a student."));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE050 Java source class.
+
+========== END PROMPT checklist_only run-01 CE050 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE053 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE053
+- Test the provided solution implementation.
+- Target class: org.example.MetricsCalculator
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE053
+DATASET: ClassEval-T
+TARGET_CLASS: MetricsCalculator
+TEST_CLASS: GeneratedTest_CE053
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tính các metric số liệu
+
+PUBLIC_API_HINT:
+- void update(int[] predictedLabels, int[] trueLabels)
+- double precision(int[] predictedLabels, int[] trueLabels)
+- double recall(int[] predictedLabels, int[] trueLabels)
+- double f1Score(int[] predictedLabels, int[] trueLabels)
+- double accuracy(int[] predictedLabels, int[] trueLabels)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class MetricsCalculator {
+    int truePositives;
+    int falsePositives;
+    int falseNegatives;
+    int trueNegatives;
+
+    public MetricsCalculator() {
+        this.truePositives = 0;
+        this.falsePositives = 0;
+        this.falseNegatives = 0;
+        this.trueNegatives = 0;
+    }
+
+    public void update(int[] predictedLabels, int[] trueLabels) {
+        for (int i = 0; i < predictedLabels.length; i++) {
+            if (predictedLabels[i] == 1 && trueLabels[i] == 1) {
+                this.truePositives++;
+            } else if (predictedLabels[i] == 1 && trueLabels[i] == 0) {
+                this.falsePositives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 1) {
+                this.falseNegatives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 0) {
+                this.trueNegatives++;
+            }
+        }
+    }
+
+    public double precision(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falsePositives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falsePositives);
+    }
+
+    public double recall(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falseNegatives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falseNegatives);
+    }
+
+    public double f1Score(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        double precision = precision(predictedLabels, trueLabels);
+        double recall = recall(predictedLabels, trueLabels);
+        if (precision + recall == 0.0) {
+            return 0.0;
+        }
+        return (2 * precision * recall) / (precision + recall);
+    }
+
+    public double accuracy(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        int total = this.truePositives + this.trueNegatives + this.falsePositives + this.falseNegatives;
+        if (total == 0) {
+            return 0.0;
+        }
+        return (double) (this.truePositives + this.trueNegatives) / total;
+    }
+
+    public static void main(String[] args) {
+        MetricsCalculator mc = new MetricsCalculator();
+        int[] predictedLabels = {1, 1, 0, 0};
+        int[] trueLabels = {1, 0, 0, 1};
+        System.out.println(mc.precision(predictedLabels, trueLabels));
+        System.out.println(mc.recall(predictedLabels, trueLabels));
+        System.out.println(mc.f1Score(predictedLabels, trueLabels));
+        System.out.println(mc.accuracy(predictedLabels, trueLabels));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE053 Java source class.
+
+========== END PROMPT checklist_only run-01 CE053 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE060 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE060
+- Test the provided solution implementation.
+- Target class: org.example.NumberConverter
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE060
+DATASET: ClassEval-T
+TARGET_CLASS: NumberConverter
+TEST_CLASS: GeneratedTest_CE060
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+chuyển đổi biểu diễn số
+
+PUBLIC_API_HINT:
+- String decimalToBinary(int decimalNum)
+- int binaryToDecimal(String binaryNum)
+- String decimalToOctal(int decimalNum)
+- int octalToDecimal(String octalNum)
+- String decimalToHex(int decimalNum)
+- int hexToDecimal(String hexNum)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class NumberConverter {
+
+    public static String decimalToBinary(int decimalNum) {
+        return Integer.toBinaryString(decimalNum);
+    }
+
+    public static int binaryToDecimal(String binaryNum) {
+        return Integer.parseInt(binaryNum, 2);
+    }
+
+    public static String decimalToOctal(int decimalNum) {
+        return Integer.toOctalString(decimalNum);
+    }
+
+    public static int octalToDecimal(String octalNum) {
+        return Integer.parseInt(octalNum, 8);
+    }
+
+    public static String decimalToHex(int decimalNum) {
+        return Integer.toHexString(decimalNum);
+    }
+
+    public static int hexToDecimal(String hexNum) {
+        return Integer.parseInt(hexNum, 16);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE060 Java source class.
+
+========== END PROMPT checklist_only run-01 CE060 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE065 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE065
+- Test the provided solution implementation.
+- Target class: org.example.PersonRequest
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE065
+DATASET: ClassEval-T
+TARGET_CLASS: PersonRequest
+TEST_CLASS: GeneratedTest_CE065
+CATEGORY: DATA_FILE_DB_PROCESSING
+
+BUSINESS_PROBLEM:
+biểu diễn/xử lý request dữ liệu người
+
+PUBLIC_API_HINT:
+- String getName()
+- String getSex()
+- String getPhoneNumber()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class PersonRequest {
+    private String name;
+    private String sex;
+    private String phoneNumber;
+
+    public PersonRequest(String name, String sex, String phoneNumber) {
+        this.name = validateName(name);
+        this.sex = validateSex(sex);
+        this.phoneNumber = validatePhoneNumber(phoneNumber);
+    }
+
+    private String validateName(String name) {
+        if (name == null || name.isEmpty() || name.length() > 33) {
+            return null;
+        }
+        return name;
+    }
+
+    private String validateSex(String sex) {
+        if (sex == null || (!sex.equals("Man") && !sex.equals("Woman") && !sex.equals("UGM"))) {
+            return null;
+        }
+        return sex;
+    }
+
+    private String validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.length() != 11 || !phoneNumber.matches("\\d{11}")) {
+            return null;
+        }
+        return phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE065 Java source class.
+
+========== END PROMPT checklist_only run-01 CE065 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE066 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE066
+- Test the provided solution implementation.
+- Target class: org.example.PushBoxGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE066
+DATASET: ClassEval-T
+TARGET_CLASS: PushBoxGame
+TEST_CLASS: GeneratedTest_CE066
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng logic trò đẩy hộp
+
+PUBLIC_API_HINT:
+- boolean checkWin()
+- boolean move(char direction)
+- boolean isGameOver()
+- int getPlayerCol()
+- int getPlayerRow()
+- List<int[]> getTargets()
+- int getTargetCount()
+- char[][] getMap()
+- List<int[]> getBoxes()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class PushBoxGame {
+    private char[][] map;
+    private int playerRow;
+    private int playerCol;
+    private List<int[]> targets;
+    private List<int[]> boxes;
+    private int targetCount;
+    private boolean isGameOver;
+
+    public PushBoxGame(char[][] map) {
+        this.map = new char[map.length][];
+        for (int i = 0; i < map.length; i++) {
+            this.map[i] = map[i].clone();
+        }
+        this.playerRow = 0;
+        this.playerCol = 0;
+        this.targets = new ArrayList<>();
+        this.boxes = new ArrayList<>();
+        this.targetCount = 0;
+        this.isGameOver = false;
+        initGame();
+    }
+
+    private void initGame() {
+        for (int row = 0; row < map.length; row++) {
+            for (int col = 0; col < map[row].length; col++) {
+                if (map[row][col] == 'O') {
+                    this.playerRow = row;
+                    this.playerCol = col;
+                } else if (map[row][col] == 'G') {
+                    this.targets.add(new int[]{row, col});
+                    this.targetCount++;
+                } else if (map[row][col] == 'X') {
+                    this.boxes.add(new int[]{row, col});
+                }
+            }
+        }
+    }
+
+    public boolean checkWin() {
+        int boxOnTargetCount = 0;
+        for (int[] box : boxes) {
+            for (int[] target : targets) {
+                if (Arrays.equals(box, target)) {
+                    boxOnTargetCount++;
+                }
+            }
+        }
+        isGameOver = (boxOnTargetCount == targetCount);
+        return isGameOver;
+    }
+
+    public boolean move(char direction) {
+        int newPlayerRow = playerRow;
+        int newPlayerCol = playerCol;
+
+        if (direction == 'w') {
+            newPlayerRow -= 1;
+        } else if (direction == 's') {
+            newPlayerRow += 1;
+        } else if (direction == 'a') {
+            newPlayerCol -= 1;
+        } else if (direction == 'd') {
+            newPlayerCol += 1;
+        }
+
+        if (isValidMove(newPlayerRow, newPlayerCol)) {
+            if (isBoxAt(newPlayerRow, newPlayerCol)) {
+                int[] boxPosition = getBoxPosition(newPlayerRow, newPlayerCol);
+                int newBoxRow = newPlayerRow + (newPlayerRow - playerRow);
+                int newBoxCol = newPlayerCol + (newPlayerCol - playerCol);
+
+                if (isValidMove(newBoxRow, newBoxCol) && !isBoxAt(newBoxRow, newBoxCol)) {
+                    moveBox(boxPosition, newBoxRow, newBoxCol);
+                    playerRow = newPlayerRow;
+                    playerCol = newPlayerCol;
+                }
+            } else {
+                playerRow = newPlayerRow;
+                playerCol = newPlayerCol;
+            }
+        }
+
+        return checkWin();
+    }
+
+    private boolean isValidMove(int row, int col) {
+        return row >= 0 && row < map.length && col >= 0 && col < map[row].length && map[row][col] != '#';
+    }
+
+    private boolean isBoxAt(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] getBoxPosition(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return box;
+            }
+        }
+        return null;
+    }
+
+    private void moveBox(int[] boxPosition, int newRow, int newCol) {
+        for (int i = 0; i < boxes.size(); i++) {
+            if (Arrays.equals(boxes.get(i), boxPosition)) {
+                boxes.set(i, new int[]{newRow, newCol});
+                break;
+            }
+        }
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public int getPlayerCol() {
+        return playerCol;
+    }
+
+    public int getPlayerRow() {
+        return playerRow;
+    }
+
+    public List<int[]> getTargets() {
+        return new ArrayList<>(targets);
+    }
+
+    public int getTargetCount() {
+        return targetCount;
+    }
+
+    public char[][] getMap() {
+        return map;
+    }
+
+    public List<int[]> getBoxes() {
+        return new ArrayList<>(boxes);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE066 Java source class.
+
+========== END PROMPT checklist_only run-01 CE066 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE077 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE077
+- Test the provided solution implementation.
+- Target class: org.example.StockPortfolioTracker
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE077
+DATASET: ClassEval-T
+TARGET_CLASS: StockPortfolioTracker
+TEST_CLASS: GeneratedTest_CE077
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+theo dõi danh mục cổ phiếu
+
+PUBLIC_API_HINT:
+- void addStock(Stock stock)
+- boolean removeStock(Stock stock)
+- boolean buyStock(Stock stock)
+- boolean sellStock(Stock stock)
+- List<Stock> getPortfolio()
+- double getCashBalance()
+- double calculatePortfolioValue()
+- String getPortfolioSummary()
+- String getName()
+- double getPrice()
+- int getQuantity()
+- void setQuantity(int quantity)
+- boolean equals(Object obj)
+- int hashCode()
+- String toString()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class StockPortfolioTracker {
+    private final double initialCashBalance;
+    private double cashBalance;
+    private final List<Stock> portfolio;
+
+    public StockPortfolioTracker(double initialCashBalance) {
+        this.initialCashBalance = initialCashBalance;
+        this.cashBalance = initialCashBalance;
+        this.portfolio = new ArrayList<>();
+    }
+
+    public void addStock(Stock stock) {
+        for (Stock s : portfolio) {
+            if (s.getName().equals(stock.getName()) && s.getPrice() == stock.getPrice()) {
+                s.setQuantity(s.getQuantity() + stock.getQuantity());
+                return;
+            }
+        }
+        portfolio.add(stock);
+    }
+
+    public boolean removeStock(Stock stock) {
+        for (Stock s : portfolio) {
+            if (s.getName().equals(stock.getName()) && s.getPrice() == stock.getPrice()) {
+                if (s.getQuantity() >= stock.getQuantity()) {
+                    s.setQuantity(s.getQuantity() - stock.getQuantity());
+                    if (s.getQuantity() == 0) {
+                        portfolio.remove(s);
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean buyStock(Stock stock) {
+        double cost = stock.getPrice() * stock.getQuantity();
+        if (cashBalance >= cost) {
+            addStock(stock);
+            cashBalance -= cost;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean sellStock(Stock stock) {
+        double revenue = stock.getPrice() * stock.getQuantity();
+        if (removeStock(stock)) {
+            cashBalance += revenue;
+            return true;
+        }
+        return false;
+    }
+
+    public List<Stock> getPortfolio() {
+        return new ArrayList<>(portfolio);
+    }
+
+    public double getCashBalance() {
+        return cashBalance;
+    }
+
+    public double calculatePortfolioValue() {
+        double totalValue = 0.0;
+        for (Stock stock : portfolio) {
+            totalValue += stock.getPrice() * stock.getQuantity();
+        }
+        return totalValue;
+    }
+
+    public String getPortfolioSummary() {
+        StringBuilder summary = new StringBuilder();
+        for (Stock stock : portfolio) {
+            summary.append(stock.toString()).append("\n");
+        }
+        summary.append("Total Value: $").append(calculatePortfolioValue()).append("\n");
+        return summary.toString();
+    }
+
+    public static class Stock {
+        private final String name;
+        private final double price;
+        private int quantity;
+
+        public Stock(String name, double price, int quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            Stock stock = (Stock) obj;
+            return Double.compare(stock.price, price) == 0 &&
+                    quantity == stock.quantity &&
+                    name.equals(stock.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, price, quantity);
+        }
+
+        @Override
+        public String toString() {
+            return name + ": " + quantity + " shares at $" + price + " each";
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE077 Java source class.
+
+========== END PROMPT checklist_only run-01 CE077 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE085 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE085
+- Test the provided solution implementation.
+- Target class: org.example.URLHandler
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE085
+DATASET: ClassEval-T
+TARGET_CLASS: URLHandler
+TEST_CLASS: GeneratedTest_CE085
+CATEGORY: SECURITY_NETWORK_WEB
+
+BUSINESS_PROBLEM:
+phân tích/xử lý URL
+
+PUBLIC_API_HINT:
+- String getScheme()
+- String getHost()
+- String getPath()
+- Map<String, String> getQueryParams()
+- String getFragment()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class URLHandler {
+    private String url;
+
+    public URLHandler(String url) {
+        this.url = url;
+    }
+
+    public String getScheme() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            return url.substring(0, schemeEnd);
+        }
+        return null;
+    }
+
+    public String getHost() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            String urlWithoutScheme = url.substring(schemeEnd + 3);
+            int hostEnd = urlWithoutScheme.indexOf("/");
+            if (hostEnd != -1) {
+                return urlWithoutScheme.substring(0, hostEnd);
+            }
+            return urlWithoutScheme;
+        }
+        return null;
+    }
+
+    public String getPath() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            String urlWithoutScheme = url.substring(schemeEnd + 3);
+            int hostEnd = urlWithoutScheme.indexOf("/");
+            if (hostEnd != -1) {
+                return urlWithoutScheme.substring(hostEnd);
+            }
+        }
+        return null;
+    }
+
+    public Map<String, String> getQueryParams() {
+        int queryStart = url.indexOf("?");
+        int fragmentStart = url.indexOf("#");
+        if (queryStart != -1) {
+            String queryString = url.substring(queryStart + 1, fragmentStart != -1 ? fragmentStart : url.length());
+            Map<String, String> params = new HashMap<>();
+            if (!queryString.isEmpty()) {
+                String[] paramPairs = queryString.split("&");
+                for (String pair : paramPairs) {
+                    String[] keyValue = pair.split("=");
+                    if (keyValue.length == 2) {
+                        params.put(keyValue[0], keyValue[1]);
+                    }
+                }
+            }
+            return params;
+        }
+        return null;
+    }
+
+    public String getFragment() {
+        int fragmentStart = url.indexOf("#");
+        if (fragmentStart != -1) {
+            return url.substring(fragmentStart + 1);
+        }
+        return null;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE085 Java source class.
+
+========== END PROMPT checklist_only run-01 CE085 ==========
+
+========== BEGIN PROMPT checklist_only run-01 CE090 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE090
+- Test the provided solution implementation.
+- Target class: org.example.Warehouse
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE090
+DATASET: ClassEval-T
+TARGET_CLASS: Warehouse
+TEST_CLASS: GeneratedTest_CE090
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý tồn kho/kho hàng
+
+PUBLIC_API_HINT:
+- void addProduct(int productId, String name, int quantity)
+- void updateProductQuantity(int productId, int quantity)
+- int getProductQuantity(int productId)
+- boolean createOrder(int orderId, int productId, int quantity)
+- boolean changeOrderStatus(int orderId, String status)
+- String trackOrder(int orderId)
+- void addQuantity(int quantity)
+- int getQuantity()
+- String getStatus()
+- void setStatus(String status)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class Warehouse {
+    private Map<Integer, Product> inventory;
+    private Map<Integer, Order> orders;
+
+    public Warehouse() {
+        this.inventory = new HashMap<>();
+        this.orders = new HashMap<>();
+    }
+
+    public void addProduct(int productId, String name, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        } else {
+            inventory.put(productId, new Product(name, quantity));
+        }
+    }
+
+    public void updateProductQuantity(int productId, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        }
+    }
+
+    public int getProductQuantity(int productId) {
+        if (inventory.containsKey(productId)) {
+            return inventory.get(productId).getQuantity();
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean createOrder(int orderId, int productId, int quantity) {
+        if (inventory.containsKey(productId) && inventory.get(productId).getQuantity() >= quantity) {
+            inventory.get(productId).addQuantity(-quantity);
+            orders.put(orderId, new Order(productId, quantity, "Shipped"));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean changeOrderStatus(int orderId, String status) {
+        if (orders.containsKey(orderId)) {
+            orders.get(orderId).setStatus(status);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String trackOrder(int orderId) {
+        if (orders.containsKey(orderId)) {
+            return orders.get(orderId).getStatus();
+        } else {
+            return null;
+        }
+    }
+
+    private static class Product {
+        private String name;
+        private int quantity;
+
+        public Product(String name, int quantity) {
+            this.name = name;
+            this.quantity = quantity;
+        }
+
+        public void addQuantity(int quantity) {
+            this.quantity += quantity;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+    }
+
+    private static class Order {
+        private int productId;
+        private int quantity;
+        private String status;
+
+        public Order(int productId, int quantity, String status) {
+            this.productId = productId;
+            this.quantity = quantity;
+            this.status = status;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE090 Java source class.
+
+========== END PROMPT checklist_only run-01 CE090 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE033 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE033
+- Test the provided solution implementation.
+- Target class: org.example.DecryptionUtils
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE033
+DATASET: ClassEval-T
+TARGET_CLASS: DecryptionUtils
+TEST_CLASS: GeneratedTest_CE033
+CATEGORY: SECURITY_NETWORK_WEB
+
+BUSINESS_PROBLEM:
+giải mã dữ liệu theo thuật toán được cài đặt
+
+PUBLIC_API_HINT:
+- String caesarDecipher(String ciphertext, int shift)
+- String vigenereDecipher(String ciphertext)
+- String railFenceDecipher(String encryptedText, int rails)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class DecryptionUtils {
+    private String key;
+
+    public DecryptionUtils(String key) {
+        this.key = key;
+    }
+
+    public String caesarDecipher(String ciphertext, int shift) {
+        StringBuilder plaintext = new StringBuilder();
+        shift = shift % 26;
+        for (char ch : ciphertext.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                int asciiOffset = Character.isUpperCase(ch) ? 'A' : 'a';
+                char shiftedChar = (char) ((ch - asciiOffset - shift + 26) % 26 + asciiOffset);
+                plaintext.append(shiftedChar);
+            }
+            else {
+                plaintext.append(ch);
+            }
+        }
+        return plaintext.toString();
+    }
+
+    public String vigenereDecipher(String ciphertext) {
+        StringBuilder decryptedText = new StringBuilder();
+        int keyIndex = 0;
+        for (char ch : ciphertext.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                int shift = Character.toLowerCase(key.charAt(keyIndex % key.length())) - 'a';
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                char decryptedChar = (char) ((ch - base - shift + 26) % 26 + base);
+                decryptedText.append(decryptedChar);
+                keyIndex++;
+            }
+            else {
+                decryptedText.append(ch);
+            }
+        }
+        return decryptedText.toString();
+    }
+
+    public String railFenceDecipher(String encryptedText, int rails) {
+        char[][] fence = new char[rails][encryptedText.length()];
+        for (int i = 0; i < rails; i++) {
+            for (int j = 0; j < encryptedText.length(); j++) {
+                fence[i][j] = '\0';
+            }
+        }
+
+        int direction = -1;
+        int row = 0, col = 0;
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            if (row == 0 || row == rails - 1) {
+                direction = -direction;
+            }
+            fence[row][col++] = '*';
+            row += direction;
+        }
+
+        int index = 0;
+        for (int i = 0; i < rails; i++) {
+            for (int j = 0; j < encryptedText.length(); j++) {
+                if (fence[i][j] == '*') {
+                    fence[i][j] = encryptedText.charAt(index++);
+                }
+            }
+        }
+
+        StringBuilder plainText = new StringBuilder();
+        direction = -1;
+        row = 0;
+        col = 0;
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            if (row == 0 || row == rails - 1) {
+                direction = -direction;
+            }
+            plainText.append(fence[row][col++]);
+            row += direction;
+        }
+
+        return plainText.toString();
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE033 Java source class.
+
+========== END PROMPT checklist_only run-02 CE033 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE041 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE041
+- Test the provided solution implementation.
+- Target class: org.example.GomokuGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE041
+DATASET: ClassEval-T
+TARGET_CLASS: GomokuGame
+TEST_CLASS: GeneratedTest_CE041
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng luật/trạng thái trò Gomoku
+
+PUBLIC_API_HINT:
+- boolean makeMove(int row, int col)
+- Character checkWinner()
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.Arrays;
+
+public class GomokuGame {
+    private int boardSize;
+    char[][] board;
+    private char currentPlayer;
+
+    public GomokuGame(int boardSize) {
+        this.boardSize = boardSize;
+        this.board = new char[boardSize][boardSize];
+        for (char[] row : this.board) {
+            Arrays.fill(row, ' ');
+        }
+        this.currentPlayer = 'X';
+    }
+
+    public boolean makeMove(int row, int col) {
+        if (this.board[row][col] == ' ') {
+            this.board[row][col] = this.currentPlayer;
+            this.currentPlayer = (this.currentPlayer == 'X') ? 'O' : 'X';
+            return true;
+        }
+        return false;
+    }
+
+    public Character checkWinner() {
+        int[][] directions = {{0, 1}, {1, 0}, {1, 1}, {1, -1}};
+        for (int row = 0; row < this.boardSize; row++) {
+            for (int col = 0; col < this.boardSize; col++) {
+                if (this.board[row][col] != ' ') {
+                    for (int[] direction : directions) {
+                        if (checkFiveInARow(row, col, direction)) {
+                            return this.board[row][col];
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    boolean checkFiveInARow(int row, int col, int[] direction) {
+        int dx = direction[0];
+        int dy = direction[1];
+        int count = 1;
+        char symbol = this.board[row][col];
+        for (int i = 1; i < 5; i++) {
+            int newRow = row + dx * i;
+            int newCol = col + dy * i;
+            if (newRow < 0 || newRow >= this.boardSize || newCol < 0 || newCol >= this.boardSize) {
+                break;
+            }
+            if (this.board[newRow][newCol] != symbol) {
+                break;
+            }
+            count++;
+        }
+        for (int i = 1; i < 5; i++) {
+            int newRow = row - dx * i;
+            int newCol = col - dy * i;
+            if (newRow < 0 || newRow >= this.boardSize || newCol < 0 || newCol >= this.boardSize) {
+                break;
+            }
+            if (this.board[newRow][newCol] != symbol) {
+                break;
+            }
+            count++;
+        }
+        return count >= 5;
+    }
+
+    public static void main(String[] args) {
+        GomokuGame gomokuGame = new GomokuGame(10);
+        int[][] moves = {{5, 5}, {0, 0}, {5, 4}, {0, 1}, {5, 3}, {0, 2}, {5, 2}, {0, 3}, {5, 1}};
+        for (int[] move : moves) {
+            gomokuGame.makeMove(move[0], move[1]);
+        }
+        System.out.println(gomokuGame.checkWinner());
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE041 Java source class.
+
+========== END PROMPT checklist_only run-02 CE041 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE043 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE043
+- Test the provided solution implementation.
+- Target class: org.example.HRManagementSystem
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE043
+DATASET: ClassEval-T
+TARGET_CLASS: HRManagementSystem
+TEST_CLASS: GeneratedTest_CE043
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý dữ liệu nhân sự
+
+PUBLIC_API_HINT:
+- boolean addEmployee(int employeeId, String name, String position, String department, double salary)
+- boolean removeEmployee(int employeeId)
+- boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo)
+- Object getEmployee(int employeeId)
+- Map<Integer, Map<String, Object>> listEmployees()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class HRManagementSystem {
+    public Map<Integer, Map<String, Object>> employees;
+
+    public HRManagementSystem() {
+        this.employees = new HashMap<>();
+    }
+
+    public boolean addEmployee(int employeeId, String name, String position, String department, double salary) {
+        if (employees.containsKey(employeeId)) {
+            return false;
+        } else {
+            Map<String, Object> employeeInfo = new HashMap<>();
+            employeeInfo.put("name", name);
+            employeeInfo.put("position", position);
+            employeeInfo.put("department", department);
+            employeeInfo.put("salary", salary);
+            employees.put(employeeId, employeeInfo);
+            return true;
+        }
+    }
+
+    public boolean removeEmployee(int employeeId) {
+        if (employees.containsKey(employeeId)) {
+            employees.remove(employeeId);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        }
+        else {
+            Set<String> validKeys = Set.of("name", "position", "department", "salary");
+            for (String key : updatedEmployeeInfo.keySet()) {
+                if (!validKeys.contains(key)) {
+                    return false;
+                }
+            }
+            employeeInfo.putAll(updatedEmployeeInfo);
+            return true;
+        }
+    }
+
+    public Object getEmployee(int employeeId) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        } else {
+            return employeeInfo;
+        }
+    }
+
+    public Map<Integer, Map<String, Object>> listEmployees() {
+        Map<Integer, Map<String, Object>> employeeData = new HashMap<>();
+        for (Map.Entry<Integer, Map<String, Object>> entry : employees.entrySet()) {
+            int employeeId = entry.getKey();
+            Map<String, Object> employeeInfo = new HashMap<>(entry.getValue());
+            employeeInfo.put("employee_ID", employeeId);
+            employeeData.put(employeeId, employeeInfo);
+        }
+        return employeeData;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE043 Java source class.
+
+========== END PROMPT checklist_only run-02 CE043 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE050 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE050
+- Test the provided solution implementation.
+- Target class: org.example.LongestWord
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE050
+DATASET: ClassEval-T
+TARGET_CLASS: LongestWord
+TEST_CLASS: GeneratedTest_CE050
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tìm/xử lý từ dài nhất trong văn bản
+
+PUBLIC_API_HINT:
+- void addWord(String word)
+- String findLongestWord(String sentence)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+public class LongestWord {
+    List<String> wordList;
+
+    public LongestWord() {
+        wordList = new ArrayList<>();
+    }
+
+    public void addWord(String word) {
+        wordList.add(word);
+    }
+
+    public String findLongestWord(String sentence) {
+        String longestWord = "";
+        sentence = sentence.toLowerCase();
+        sentence = sentence.replaceAll("[" + Pattern.quote("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~") + "]", "");
+        String[] words = sentence.split(" ");
+        for (String word : words) {
+            if (wordList.contains(word) && word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+    public static void main(String[] args) {
+        LongestWord longestWord = new LongestWord();
+        longestWord.addWord("A");
+        longestWord.addWord("aM");
+        System.out.println(longestWord.findLongestWord("I am a student."));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE050 Java source class.
+
+========== END PROMPT checklist_only run-02 CE050 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE053 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE053
+- Test the provided solution implementation.
+- Target class: org.example.MetricsCalculator
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE053
+DATASET: ClassEval-T
+TARGET_CLASS: MetricsCalculator
+TEST_CLASS: GeneratedTest_CE053
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tính các metric số liệu
+
+PUBLIC_API_HINT:
+- void update(int[] predictedLabels, int[] trueLabels)
+- double precision(int[] predictedLabels, int[] trueLabels)
+- double recall(int[] predictedLabels, int[] trueLabels)
+- double f1Score(int[] predictedLabels, int[] trueLabels)
+- double accuracy(int[] predictedLabels, int[] trueLabels)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class MetricsCalculator {
+    int truePositives;
+    int falsePositives;
+    int falseNegatives;
+    int trueNegatives;
+
+    public MetricsCalculator() {
+        this.truePositives = 0;
+        this.falsePositives = 0;
+        this.falseNegatives = 0;
+        this.trueNegatives = 0;
+    }
+
+    public void update(int[] predictedLabels, int[] trueLabels) {
+        for (int i = 0; i < predictedLabels.length; i++) {
+            if (predictedLabels[i] == 1 && trueLabels[i] == 1) {
+                this.truePositives++;
+            } else if (predictedLabels[i] == 1 && trueLabels[i] == 0) {
+                this.falsePositives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 1) {
+                this.falseNegatives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 0) {
+                this.trueNegatives++;
+            }
+        }
+    }
+
+    public double precision(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falsePositives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falsePositives);
+    }
+
+    public double recall(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falseNegatives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falseNegatives);
+    }
+
+    public double f1Score(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        double precision = precision(predictedLabels, trueLabels);
+        double recall = recall(predictedLabels, trueLabels);
+        if (precision + recall == 0.0) {
+            return 0.0;
+        }
+        return (2 * precision * recall) / (precision + recall);
+    }
+
+    public double accuracy(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        int total = this.truePositives + this.trueNegatives + this.falsePositives + this.falseNegatives;
+        if (total == 0) {
+            return 0.0;
+        }
+        return (double) (this.truePositives + this.trueNegatives) / total;
+    }
+
+    public static void main(String[] args) {
+        MetricsCalculator mc = new MetricsCalculator();
+        int[] predictedLabels = {1, 1, 0, 0};
+        int[] trueLabels = {1, 0, 0, 1};
+        System.out.println(mc.precision(predictedLabels, trueLabels));
+        System.out.println(mc.recall(predictedLabels, trueLabels));
+        System.out.println(mc.f1Score(predictedLabels, trueLabels));
+        System.out.println(mc.accuracy(predictedLabels, trueLabels));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE053 Java source class.
+
+========== END PROMPT checklist_only run-02 CE053 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE060 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE060
+- Test the provided solution implementation.
+- Target class: org.example.NumberConverter
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE060
+DATASET: ClassEval-T
+TARGET_CLASS: NumberConverter
+TEST_CLASS: GeneratedTest_CE060
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+chuyển đổi biểu diễn số
+
+PUBLIC_API_HINT:
+- String decimalToBinary(int decimalNum)
+- int binaryToDecimal(String binaryNum)
+- String decimalToOctal(int decimalNum)
+- int octalToDecimal(String octalNum)
+- String decimalToHex(int decimalNum)
+- int hexToDecimal(String hexNum)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class NumberConverter {
+
+    public static String decimalToBinary(int decimalNum) {
+        return Integer.toBinaryString(decimalNum);
+    }
+
+    public static int binaryToDecimal(String binaryNum) {
+        return Integer.parseInt(binaryNum, 2);
+    }
+
+    public static String decimalToOctal(int decimalNum) {
+        return Integer.toOctalString(decimalNum);
+    }
+
+    public static int octalToDecimal(String octalNum) {
+        return Integer.parseInt(octalNum, 8);
+    }
+
+    public static String decimalToHex(int decimalNum) {
+        return Integer.toHexString(decimalNum);
+    }
+
+    public static int hexToDecimal(String hexNum) {
+        return Integer.parseInt(hexNum, 16);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE060 Java source class.
+
+========== END PROMPT checklist_only run-02 CE060 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE065 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE065
+- Test the provided solution implementation.
+- Target class: org.example.PersonRequest
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE065
+DATASET: ClassEval-T
+TARGET_CLASS: PersonRequest
+TEST_CLASS: GeneratedTest_CE065
+CATEGORY: DATA_FILE_DB_PROCESSING
+
+BUSINESS_PROBLEM:
+biểu diễn/xử lý request dữ liệu người
+
+PUBLIC_API_HINT:
+- String getName()
+- String getSex()
+- String getPhoneNumber()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class PersonRequest {
+    private String name;
+    private String sex;
+    private String phoneNumber;
+
+    public PersonRequest(String name, String sex, String phoneNumber) {
+        this.name = validateName(name);
+        this.sex = validateSex(sex);
+        this.phoneNumber = validatePhoneNumber(phoneNumber);
+    }
+
+    private String validateName(String name) {
+        if (name == null || name.isEmpty() || name.length() > 33) {
+            return null;
+        }
+        return name;
+    }
+
+    private String validateSex(String sex) {
+        if (sex == null || (!sex.equals("Man") && !sex.equals("Woman") && !sex.equals("UGM"))) {
+            return null;
+        }
+        return sex;
+    }
+
+    private String validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.length() != 11 || !phoneNumber.matches("\\d{11}")) {
+            return null;
+        }
+        return phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE065 Java source class.
+
+========== END PROMPT checklist_only run-02 CE065 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE066 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE066
+- Test the provided solution implementation.
+- Target class: org.example.PushBoxGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE066
+DATASET: ClassEval-T
+TARGET_CLASS: PushBoxGame
+TEST_CLASS: GeneratedTest_CE066
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng logic trò đẩy hộp
+
+PUBLIC_API_HINT:
+- boolean checkWin()
+- boolean move(char direction)
+- boolean isGameOver()
+- int getPlayerCol()
+- int getPlayerRow()
+- List<int[]> getTargets()
+- int getTargetCount()
+- char[][] getMap()
+- List<int[]> getBoxes()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class PushBoxGame {
+    private char[][] map;
+    private int playerRow;
+    private int playerCol;
+    private List<int[]> targets;
+    private List<int[]> boxes;
+    private int targetCount;
+    private boolean isGameOver;
+
+    public PushBoxGame(char[][] map) {
+        this.map = new char[map.length][];
+        for (int i = 0; i < map.length; i++) {
+            this.map[i] = map[i].clone();
+        }
+        this.playerRow = 0;
+        this.playerCol = 0;
+        this.targets = new ArrayList<>();
+        this.boxes = new ArrayList<>();
+        this.targetCount = 0;
+        this.isGameOver = false;
+        initGame();
+    }
+
+    private void initGame() {
+        for (int row = 0; row < map.length; row++) {
+            for (int col = 0; col < map[row].length; col++) {
+                if (map[row][col] == 'O') {
+                    this.playerRow = row;
+                    this.playerCol = col;
+                } else if (map[row][col] == 'G') {
+                    this.targets.add(new int[]{row, col});
+                    this.targetCount++;
+                } else if (map[row][col] == 'X') {
+                    this.boxes.add(new int[]{row, col});
+                }
+            }
+        }
+    }
+
+    public boolean checkWin() {
+        int boxOnTargetCount = 0;
+        for (int[] box : boxes) {
+            for (int[] target : targets) {
+                if (Arrays.equals(box, target)) {
+                    boxOnTargetCount++;
+                }
+            }
+        }
+        isGameOver = (boxOnTargetCount == targetCount);
+        return isGameOver;
+    }
+
+    public boolean move(char direction) {
+        int newPlayerRow = playerRow;
+        int newPlayerCol = playerCol;
+
+        if (direction == 'w') {
+            newPlayerRow -= 1;
+        } else if (direction == 's') {
+            newPlayerRow += 1;
+        } else if (direction == 'a') {
+            newPlayerCol -= 1;
+        } else if (direction == 'd') {
+            newPlayerCol += 1;
+        }
+
+        if (isValidMove(newPlayerRow, newPlayerCol)) {
+            if (isBoxAt(newPlayerRow, newPlayerCol)) {
+                int[] boxPosition = getBoxPosition(newPlayerRow, newPlayerCol);
+                int newBoxRow = newPlayerRow + (newPlayerRow - playerRow);
+                int newBoxCol = newPlayerCol + (newPlayerCol - playerCol);
+
+                if (isValidMove(newBoxRow, newBoxCol) && !isBoxAt(newBoxRow, newBoxCol)) {
+                    moveBox(boxPosition, newBoxRow, newBoxCol);
+                    playerRow = newPlayerRow;
+                    playerCol = newPlayerCol;
+                }
+            } else {
+                playerRow = newPlayerRow;
+                playerCol = newPlayerCol;
+            }
+        }
+
+        return checkWin();
+    }
+
+    private boolean isValidMove(int row, int col) {
+        return row >= 0 && row < map.length && col >= 0 && col < map[row].length && map[row][col] != '#';
+    }
+
+    private boolean isBoxAt(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] getBoxPosition(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return box;
+            }
+        }
+        return null;
+    }
+
+    private void moveBox(int[] boxPosition, int newRow, int newCol) {
+        for (int i = 0; i < boxes.size(); i++) {
+            if (Arrays.equals(boxes.get(i), boxPosition)) {
+                boxes.set(i, new int[]{newRow, newCol});
+                break;
+            }
+        }
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public int getPlayerCol() {
+        return playerCol;
+    }
+
+    public int getPlayerRow() {
+        return playerRow;
+    }
+
+    public List<int[]> getTargets() {
+        return new ArrayList<>(targets);
+    }
+
+    public int getTargetCount() {
+        return targetCount;
+    }
+
+    public char[][] getMap() {
+        return map;
+    }
+
+    public List<int[]> getBoxes() {
+        return new ArrayList<>(boxes);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE066 Java source class.
+
+========== END PROMPT checklist_only run-02 CE066 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE077 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE077
+- Test the provided solution implementation.
+- Target class: org.example.StockPortfolioTracker
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE077
+DATASET: ClassEval-T
+TARGET_CLASS: StockPortfolioTracker
+TEST_CLASS: GeneratedTest_CE077
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+theo dõi danh mục cổ phiếu
+
+PUBLIC_API_HINT:
+- void addStock(Stock stock)
+- boolean removeStock(Stock stock)
+- boolean buyStock(Stock stock)
+- boolean sellStock(Stock stock)
+- List<Stock> getPortfolio()
+- double getCashBalance()
+- double calculatePortfolioValue()
+- String getPortfolioSummary()
+- String getName()
+- double getPrice()
+- int getQuantity()
+- void setQuantity(int quantity)
+- boolean equals(Object obj)
+- int hashCode()
+- String toString()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class StockPortfolioTracker {
+    private final double initialCashBalance;
+    private double cashBalance;
+    private final List<Stock> portfolio;
+
+    public StockPortfolioTracker(double initialCashBalance) {
+        this.initialCashBalance = initialCashBalance;
+        this.cashBalance = initialCashBalance;
+        this.portfolio = new ArrayList<>();
+    }
+
+    public void addStock(Stock stock) {
+        for (Stock s : portfolio) {
+            if (s.getName().equals(stock.getName()) && s.getPrice() == stock.getPrice()) {
+                s.setQuantity(s.getQuantity() + stock.getQuantity());
+                return;
+            }
+        }
+        portfolio.add(stock);
+    }
+
+    public boolean removeStock(Stock stock) {
+        for (Stock s : portfolio) {
+            if (s.getName().equals(stock.getName()) && s.getPrice() == stock.getPrice()) {
+                if (s.getQuantity() >= stock.getQuantity()) {
+                    s.setQuantity(s.getQuantity() - stock.getQuantity());
+                    if (s.getQuantity() == 0) {
+                        portfolio.remove(s);
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean buyStock(Stock stock) {
+        double cost = stock.getPrice() * stock.getQuantity();
+        if (cashBalance >= cost) {
+            addStock(stock);
+            cashBalance -= cost;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean sellStock(Stock stock) {
+        double revenue = stock.getPrice() * stock.getQuantity();
+        if (removeStock(stock)) {
+            cashBalance += revenue;
+            return true;
+        }
+        return false;
+    }
+
+    public List<Stock> getPortfolio() {
+        return new ArrayList<>(portfolio);
+    }
+
+    public double getCashBalance() {
+        return cashBalance;
+    }
+
+    public double calculatePortfolioValue() {
+        double totalValue = 0.0;
+        for (Stock stock : portfolio) {
+            totalValue += stock.getPrice() * stock.getQuantity();
+        }
+        return totalValue;
+    }
+
+    public String getPortfolioSummary() {
+        StringBuilder summary = new StringBuilder();
+        for (Stock stock : portfolio) {
+            summary.append(stock.toString()).append("\n");
+        }
+        summary.append("Total Value: $").append(calculatePortfolioValue()).append("\n");
+        return summary.toString();
+    }
+
+    public static class Stock {
+        private final String name;
+        private final double price;
+        private int quantity;
+
+        public Stock(String name, double price, int quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            Stock stock = (Stock) obj;
+            return Double.compare(stock.price, price) == 0 &&
+                    quantity == stock.quantity &&
+                    name.equals(stock.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, price, quantity);
+        }
+
+        @Override
+        public String toString() {
+            return name + ": " + quantity + " shares at $" + price + " each";
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE077 Java source class.
+
+========== END PROMPT checklist_only run-02 CE077 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE085 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE085
+- Test the provided solution implementation.
+- Target class: org.example.URLHandler
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE085
+DATASET: ClassEval-T
+TARGET_CLASS: URLHandler
+TEST_CLASS: GeneratedTest_CE085
+CATEGORY: SECURITY_NETWORK_WEB
+
+BUSINESS_PROBLEM:
+phân tích/xử lý URL
+
+PUBLIC_API_HINT:
+- String getScheme()
+- String getHost()
+- String getPath()
+- Map<String, String> getQueryParams()
+- String getFragment()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class URLHandler {
+    private String url;
+
+    public URLHandler(String url) {
+        this.url = url;
+    }
+
+    public String getScheme() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            return url.substring(0, schemeEnd);
+        }
+        return null;
+    }
+
+    public String getHost() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            String urlWithoutScheme = url.substring(schemeEnd + 3);
+            int hostEnd = urlWithoutScheme.indexOf("/");
+            if (hostEnd != -1) {
+                return urlWithoutScheme.substring(0, hostEnd);
+            }
+            return urlWithoutScheme;
+        }
+        return null;
+    }
+
+    public String getPath() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            String urlWithoutScheme = url.substring(schemeEnd + 3);
+            int hostEnd = urlWithoutScheme.indexOf("/");
+            if (hostEnd != -1) {
+                return urlWithoutScheme.substring(hostEnd);
+            }
+        }
+        return null;
+    }
+
+    public Map<String, String> getQueryParams() {
+        int queryStart = url.indexOf("?");
+        int fragmentStart = url.indexOf("#");
+        if (queryStart != -1) {
+            String queryString = url.substring(queryStart + 1, fragmentStart != -1 ? fragmentStart : url.length());
+            Map<String, String> params = new HashMap<>();
+            if (!queryString.isEmpty()) {
+                String[] paramPairs = queryString.split("&");
+                for (String pair : paramPairs) {
+                    String[] keyValue = pair.split("=");
+                    if (keyValue.length == 2) {
+                        params.put(keyValue[0], keyValue[1]);
+                    }
+                }
+            }
+            return params;
+        }
+        return null;
+    }
+
+    public String getFragment() {
+        int fragmentStart = url.indexOf("#");
+        if (fragmentStart != -1) {
+            return url.substring(fragmentStart + 1);
+        }
+        return null;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE085 Java source class.
+
+========== END PROMPT checklist_only run-02 CE085 ==========
+
+========== BEGIN PROMPT checklist_only run-02 CE090 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE090
+- Test the provided solution implementation.
+- Target class: org.example.Warehouse
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE090
+DATASET: ClassEval-T
+TARGET_CLASS: Warehouse
+TEST_CLASS: GeneratedTest_CE090
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý tồn kho/kho hàng
+
+PUBLIC_API_HINT:
+- void addProduct(int productId, String name, int quantity)
+- void updateProductQuantity(int productId, int quantity)
+- int getProductQuantity(int productId)
+- boolean createOrder(int orderId, int productId, int quantity)
+- boolean changeOrderStatus(int orderId, String status)
+- String trackOrder(int orderId)
+- void addQuantity(int quantity)
+- int getQuantity()
+- String getStatus()
+- void setStatus(String status)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class Warehouse {
+    private Map<Integer, Product> inventory;
+    private Map<Integer, Order> orders;
+
+    public Warehouse() {
+        this.inventory = new HashMap<>();
+        this.orders = new HashMap<>();
+    }
+
+    public void addProduct(int productId, String name, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        } else {
+            inventory.put(productId, new Product(name, quantity));
+        }
+    }
+
+    public void updateProductQuantity(int productId, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        }
+    }
+
+    public int getProductQuantity(int productId) {
+        if (inventory.containsKey(productId)) {
+            return inventory.get(productId).getQuantity();
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean createOrder(int orderId, int productId, int quantity) {
+        if (inventory.containsKey(productId) && inventory.get(productId).getQuantity() >= quantity) {
+            inventory.get(productId).addQuantity(-quantity);
+            orders.put(orderId, new Order(productId, quantity, "Shipped"));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean changeOrderStatus(int orderId, String status) {
+        if (orders.containsKey(orderId)) {
+            orders.get(orderId).setStatus(status);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String trackOrder(int orderId) {
+        if (orders.containsKey(orderId)) {
+            return orders.get(orderId).getStatus();
+        } else {
+            return null;
+        }
+    }
+
+    private static class Product {
+        private String name;
+        private int quantity;
+
+        public Product(String name, int quantity) {
+            this.name = name;
+            this.quantity = quantity;
+        }
+
+        public void addQuantity(int quantity) {
+            this.quantity += quantity;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+    }
+
+    private static class Order {
+        private int productId;
+        private int quantity;
+        private String status;
+
+        public Order(int productId, int quantity, String status) {
+            this.productId = productId;
+            this.quantity = quantity;
+            this.status = status;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE090 Java source class.
+
+========== END PROMPT checklist_only run-02 CE090 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE033 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE033
+- Test the provided solution implementation.
+- Target class: org.example.DecryptionUtils
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE033
+DATASET: ClassEval-T
+TARGET_CLASS: DecryptionUtils
+TEST_CLASS: GeneratedTest_CE033
+CATEGORY: SECURITY_NETWORK_WEB
+
+BUSINESS_PROBLEM:
+giải mã dữ liệu theo thuật toán được cài đặt
+
+PUBLIC_API_HINT:
+- String caesarDecipher(String ciphertext, int shift)
+- String vigenereDecipher(String ciphertext)
+- String railFenceDecipher(String encryptedText, int rails)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class DecryptionUtils {
+    private String key;
+
+    public DecryptionUtils(String key) {
+        this.key = key;
+    }
+
+    public String caesarDecipher(String ciphertext, int shift) {
+        StringBuilder plaintext = new StringBuilder();
+        shift = shift % 26;
+        for (char ch : ciphertext.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                int asciiOffset = Character.isUpperCase(ch) ? 'A' : 'a';
+                char shiftedChar = (char) ((ch - asciiOffset - shift + 26) % 26 + asciiOffset);
+                plaintext.append(shiftedChar);
+            }
+            else {
+                plaintext.append(ch);
+            }
+        }
+        return plaintext.toString();
+    }
+
+    public String vigenereDecipher(String ciphertext) {
+        StringBuilder decryptedText = new StringBuilder();
+        int keyIndex = 0;
+        for (char ch : ciphertext.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                int shift = Character.toLowerCase(key.charAt(keyIndex % key.length())) - 'a';
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                char decryptedChar = (char) ((ch - base - shift + 26) % 26 + base);
+                decryptedText.append(decryptedChar);
+                keyIndex++;
+            }
+            else {
+                decryptedText.append(ch);
+            }
+        }
+        return decryptedText.toString();
+    }
+
+    public String railFenceDecipher(String encryptedText, int rails) {
+        char[][] fence = new char[rails][encryptedText.length()];
+        for (int i = 0; i < rails; i++) {
+            for (int j = 0; j < encryptedText.length(); j++) {
+                fence[i][j] = '\0';
+            }
+        }
+
+        int direction = -1;
+        int row = 0, col = 0;
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            if (row == 0 || row == rails - 1) {
+                direction = -direction;
+            }
+            fence[row][col++] = '*';
+            row += direction;
+        }
+
+        int index = 0;
+        for (int i = 0; i < rails; i++) {
+            for (int j = 0; j < encryptedText.length(); j++) {
+                if (fence[i][j] == '*') {
+                    fence[i][j] = encryptedText.charAt(index++);
+                }
+            }
+        }
+
+        StringBuilder plainText = new StringBuilder();
+        direction = -1;
+        row = 0;
+        col = 0;
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            if (row == 0 || row == rails - 1) {
+                direction = -direction;
+            }
+            plainText.append(fence[row][col++]);
+            row += direction;
+        }
+
+        return plainText.toString();
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE033 Java source class.
+
+========== END PROMPT checklist_only run-03 CE033 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE041 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE041
+- Test the provided solution implementation.
+- Target class: org.example.GomokuGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE041
+DATASET: ClassEval-T
+TARGET_CLASS: GomokuGame
+TEST_CLASS: GeneratedTest_CE041
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng luật/trạng thái trò Gomoku
+
+PUBLIC_API_HINT:
+- boolean makeMove(int row, int col)
+- Character checkWinner()
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.Arrays;
+
+public class GomokuGame {
+    private int boardSize;
+    char[][] board;
+    private char currentPlayer;
+
+    public GomokuGame(int boardSize) {
+        this.boardSize = boardSize;
+        this.board = new char[boardSize][boardSize];
+        for (char[] row : this.board) {
+            Arrays.fill(row, ' ');
+        }
+        this.currentPlayer = 'X';
+    }
+
+    public boolean makeMove(int row, int col) {
+        if (this.board[row][col] == ' ') {
+            this.board[row][col] = this.currentPlayer;
+            this.currentPlayer = (this.currentPlayer == 'X') ? 'O' : 'X';
+            return true;
+        }
+        return false;
+    }
+
+    public Character checkWinner() {
+        int[][] directions = {{0, 1}, {1, 0}, {1, 1}, {1, -1}};
+        for (int row = 0; row < this.boardSize; row++) {
+            for (int col = 0; col < this.boardSize; col++) {
+                if (this.board[row][col] != ' ') {
+                    for (int[] direction : directions) {
+                        if (checkFiveInARow(row, col, direction)) {
+                            return this.board[row][col];
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    boolean checkFiveInARow(int row, int col, int[] direction) {
+        int dx = direction[0];
+        int dy = direction[1];
+        int count = 1;
+        char symbol = this.board[row][col];
+        for (int i = 1; i < 5; i++) {
+            int newRow = row + dx * i;
+            int newCol = col + dy * i;
+            if (newRow < 0 || newRow >= this.boardSize || newCol < 0 || newCol >= this.boardSize) {
+                break;
+            }
+            if (this.board[newRow][newCol] != symbol) {
+                break;
+            }
+            count++;
+        }
+        for (int i = 1; i < 5; i++) {
+            int newRow = row - dx * i;
+            int newCol = col - dy * i;
+            if (newRow < 0 || newRow >= this.boardSize || newCol < 0 || newCol >= this.boardSize) {
+                break;
+            }
+            if (this.board[newRow][newCol] != symbol) {
+                break;
+            }
+            count++;
+        }
+        return count >= 5;
+    }
+
+    public static void main(String[] args) {
+        GomokuGame gomokuGame = new GomokuGame(10);
+        int[][] moves = {{5, 5}, {0, 0}, {5, 4}, {0, 1}, {5, 3}, {0, 2}, {5, 2}, {0, 3}, {5, 1}};
+        for (int[] move : moves) {
+            gomokuGame.makeMove(move[0], move[1]);
+        }
+        System.out.println(gomokuGame.checkWinner());
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE041 Java source class.
+
+========== END PROMPT checklist_only run-03 CE041 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE043 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE043
+- Test the provided solution implementation.
+- Target class: org.example.HRManagementSystem
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE043
+DATASET: ClassEval-T
+TARGET_CLASS: HRManagementSystem
+TEST_CLASS: GeneratedTest_CE043
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý dữ liệu nhân sự
+
+PUBLIC_API_HINT:
+- boolean addEmployee(int employeeId, String name, String position, String department, double salary)
+- boolean removeEmployee(int employeeId)
+- boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo)
+- Object getEmployee(int employeeId)
+- Map<Integer, Map<String, Object>> listEmployees()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class HRManagementSystem {
+    public Map<Integer, Map<String, Object>> employees;
+
+    public HRManagementSystem() {
+        this.employees = new HashMap<>();
+    }
+
+    public boolean addEmployee(int employeeId, String name, String position, String department, double salary) {
+        if (employees.containsKey(employeeId)) {
+            return false;
+        } else {
+            Map<String, Object> employeeInfo = new HashMap<>();
+            employeeInfo.put("name", name);
+            employeeInfo.put("position", position);
+            employeeInfo.put("department", department);
+            employeeInfo.put("salary", salary);
+            employees.put(employeeId, employeeInfo);
+            return true;
+        }
+    }
+
+    public boolean removeEmployee(int employeeId) {
+        if (employees.containsKey(employeeId)) {
+            employees.remove(employeeId);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean updateEmployee(int employeeId, Map<String, Object> updatedEmployeeInfo) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        }
+        else {
+            Set<String> validKeys = Set.of("name", "position", "department", "salary");
+            for (String key : updatedEmployeeInfo.keySet()) {
+                if (!validKeys.contains(key)) {
+                    return false;
+                }
+            }
+            employeeInfo.putAll(updatedEmployeeInfo);
+            return true;
+        }
+    }
+
+    public Object getEmployee(int employeeId) {
+        Map<String, Object> employeeInfo = employees.get(employeeId);
+        if (employeeInfo == null) {
+            return false;
+        } else {
+            return employeeInfo;
+        }
+    }
+
+    public Map<Integer, Map<String, Object>> listEmployees() {
+        Map<Integer, Map<String, Object>> employeeData = new HashMap<>();
+        for (Map.Entry<Integer, Map<String, Object>> entry : employees.entrySet()) {
+            int employeeId = entry.getKey();
+            Map<String, Object> employeeInfo = new HashMap<>(entry.getValue());
+            employeeInfo.put("employee_ID", employeeId);
+            employeeData.put(employeeId, employeeInfo);
+        }
+        return employeeData;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE043 Java source class.
+
+========== END PROMPT checklist_only run-03 CE043 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE050 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE050
+- Test the provided solution implementation.
+- Target class: org.example.LongestWord
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE050
+DATASET: ClassEval-T
+TARGET_CLASS: LongestWord
+TEST_CLASS: GeneratedTest_CE050
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tìm/xử lý từ dài nhất trong văn bản
+
+PUBLIC_API_HINT:
+- void addWord(String word)
+- String findLongestWord(String sentence)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+public class LongestWord {
+    List<String> wordList;
+
+    public LongestWord() {
+        wordList = new ArrayList<>();
+    }
+
+    public void addWord(String word) {
+        wordList.add(word);
+    }
+
+    public String findLongestWord(String sentence) {
+        String longestWord = "";
+        sentence = sentence.toLowerCase();
+        sentence = sentence.replaceAll("[" + Pattern.quote("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~") + "]", "");
+        String[] words = sentence.split(" ");
+        for (String word : words) {
+            if (wordList.contains(word) && word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+    public static void main(String[] args) {
+        LongestWord longestWord = new LongestWord();
+        longestWord.addWord("A");
+        longestWord.addWord("aM");
+        System.out.println(longestWord.findLongestWord("I am a student."));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE050 Java source class.
+
+========== END PROMPT checklist_only run-03 CE050 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE053 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE053
+- Test the provided solution implementation.
+- Target class: org.example.MetricsCalculator
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE053
+DATASET: ClassEval-T
+TARGET_CLASS: MetricsCalculator
+TEST_CLASS: GeneratedTest_CE053
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+tính các metric số liệu
+
+PUBLIC_API_HINT:
+- void update(int[] predictedLabels, int[] trueLabels)
+- double precision(int[] predictedLabels, int[] trueLabels)
+- double recall(int[] predictedLabels, int[] trueLabels)
+- double f1Score(int[] predictedLabels, int[] trueLabels)
+- double accuracy(int[] predictedLabels, int[] trueLabels)
+- void main(String[] args)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class MetricsCalculator {
+    int truePositives;
+    int falsePositives;
+    int falseNegatives;
+    int trueNegatives;
+
+    public MetricsCalculator() {
+        this.truePositives = 0;
+        this.falsePositives = 0;
+        this.falseNegatives = 0;
+        this.trueNegatives = 0;
+    }
+
+    public void update(int[] predictedLabels, int[] trueLabels) {
+        for (int i = 0; i < predictedLabels.length; i++) {
+            if (predictedLabels[i] == 1 && trueLabels[i] == 1) {
+                this.truePositives++;
+            } else if (predictedLabels[i] == 1 && trueLabels[i] == 0) {
+                this.falsePositives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 1) {
+                this.falseNegatives++;
+            } else if (predictedLabels[i] == 0 && trueLabels[i] == 0) {
+                this.trueNegatives++;
+            }
+        }
+    }
+
+    public double precision(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falsePositives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falsePositives);
+    }
+
+    public double recall(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        if (this.truePositives + this.falseNegatives == 0) {
+            return 0.0;
+        }
+        return (double) this.truePositives / (this.truePositives + this.falseNegatives);
+    }
+
+    public double f1Score(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        double precision = precision(predictedLabels, trueLabels);
+        double recall = recall(predictedLabels, trueLabels);
+        if (precision + recall == 0.0) {
+            return 0.0;
+        }
+        return (2 * precision * recall) / (precision + recall);
+    }
+
+    public double accuracy(int[] predictedLabels, int[] trueLabels) {
+        update(predictedLabels, trueLabels);
+        int total = this.truePositives + this.trueNegatives + this.falsePositives + this.falseNegatives;
+        if (total == 0) {
+            return 0.0;
+        }
+        return (double) (this.truePositives + this.trueNegatives) / total;
+    }
+
+    public static void main(String[] args) {
+        MetricsCalculator mc = new MetricsCalculator();
+        int[] predictedLabels = {1, 1, 0, 0};
+        int[] trueLabels = {1, 0, 0, 1};
+        System.out.println(mc.precision(predictedLabels, trueLabels));
+        System.out.println(mc.recall(predictedLabels, trueLabels));
+        System.out.println(mc.f1Score(predictedLabels, trueLabels));
+        System.out.println(mc.accuracy(predictedLabels, trueLabels));
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE053 Java source class.
+
+========== END PROMPT checklist_only run-03 CE053 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE060 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE060
+- Test the provided solution implementation.
+- Target class: org.example.NumberConverter
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE060
+DATASET: ClassEval-T
+TARGET_CLASS: NumberConverter
+TEST_CLASS: GeneratedTest_CE060
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+chuyển đổi biểu diễn số
+
+PUBLIC_API_HINT:
+- String decimalToBinary(int decimalNum)
+- int binaryToDecimal(String binaryNum)
+- String decimalToOctal(int decimalNum)
+- int octalToDecimal(String octalNum)
+- String decimalToHex(int decimalNum)
+- int hexToDecimal(String hexNum)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class NumberConverter {
+
+    public static String decimalToBinary(int decimalNum) {
+        return Integer.toBinaryString(decimalNum);
+    }
+
+    public static int binaryToDecimal(String binaryNum) {
+        return Integer.parseInt(binaryNum, 2);
+    }
+
+    public static String decimalToOctal(int decimalNum) {
+        return Integer.toOctalString(decimalNum);
+    }
+
+    public static int octalToDecimal(String octalNum) {
+        return Integer.parseInt(octalNum, 8);
+    }
+
+    public static String decimalToHex(int decimalNum) {
+        return Integer.toHexString(decimalNum);
+    }
+
+    public static int hexToDecimal(String hexNum) {
+        return Integer.parseInt(hexNum, 16);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE060 Java source class.
+
+========== END PROMPT checklist_only run-03 CE060 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE065 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE065
+- Test the provided solution implementation.
+- Target class: org.example.PersonRequest
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE065
+DATASET: ClassEval-T
+TARGET_CLASS: PersonRequest
+TEST_CLASS: GeneratedTest_CE065
+CATEGORY: DATA_FILE_DB_PROCESSING
+
+BUSINESS_PROBLEM:
+biểu diễn/xử lý request dữ liệu người
+
+PUBLIC_API_HINT:
+- String getName()
+- String getSex()
+- String getPhoneNumber()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+public class PersonRequest {
+    private String name;
+    private String sex;
+    private String phoneNumber;
+
+    public PersonRequest(String name, String sex, String phoneNumber) {
+        this.name = validateName(name);
+        this.sex = validateSex(sex);
+        this.phoneNumber = validatePhoneNumber(phoneNumber);
+    }
+
+    private String validateName(String name) {
+        if (name == null || name.isEmpty() || name.length() > 33) {
+            return null;
+        }
+        return name;
+    }
+
+    private String validateSex(String sex) {
+        if (sex == null || (!sex.equals("Man") && !sex.equals("Woman") && !sex.equals("UGM"))) {
+            return null;
+        }
+        return sex;
+    }
+
+    private String validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.length() != 11 || !phoneNumber.matches("\\d{11}")) {
+            return null;
+        }
+        return phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE065 Java source class.
+
+========== END PROMPT checklist_only run-03 CE065 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE066 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE066
+- Test the provided solution implementation.
+- Target class: org.example.PushBoxGame
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE066
+DATASET: ClassEval-T
+TARGET_CLASS: PushBoxGame
+TEST_CLASS: GeneratedTest_CE066
+CATEGORY: GAMES_SIMULATION
+
+BUSINESS_PROBLEM:
+mô phỏng logic trò đẩy hộp
+
+PUBLIC_API_HINT:
+- boolean checkWin()
+- boolean move(char direction)
+- boolean isGameOver()
+- int getPlayerCol()
+- int getPlayerRow()
+- List<int[]> getTargets()
+- int getTargetCount()
+- char[][] getMap()
+- List<int[]> getBoxes()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class PushBoxGame {
+    private char[][] map;
+    private int playerRow;
+    private int playerCol;
+    private List<int[]> targets;
+    private List<int[]> boxes;
+    private int targetCount;
+    private boolean isGameOver;
+
+    public PushBoxGame(char[][] map) {
+        this.map = new char[map.length][];
+        for (int i = 0; i < map.length; i++) {
+            this.map[i] = map[i].clone();
+        }
+        this.playerRow = 0;
+        this.playerCol = 0;
+        this.targets = new ArrayList<>();
+        this.boxes = new ArrayList<>();
+        this.targetCount = 0;
+        this.isGameOver = false;
+        initGame();
+    }
+
+    private void initGame() {
+        for (int row = 0; row < map.length; row++) {
+            for (int col = 0; col < map[row].length; col++) {
+                if (map[row][col] == 'O') {
+                    this.playerRow = row;
+                    this.playerCol = col;
+                } else if (map[row][col] == 'G') {
+                    this.targets.add(new int[]{row, col});
+                    this.targetCount++;
+                } else if (map[row][col] == 'X') {
+                    this.boxes.add(new int[]{row, col});
+                }
+            }
+        }
+    }
+
+    public boolean checkWin() {
+        int boxOnTargetCount = 0;
+        for (int[] box : boxes) {
+            for (int[] target : targets) {
+                if (Arrays.equals(box, target)) {
+                    boxOnTargetCount++;
+                }
+            }
+        }
+        isGameOver = (boxOnTargetCount == targetCount);
+        return isGameOver;
+    }
+
+    public boolean move(char direction) {
+        int newPlayerRow = playerRow;
+        int newPlayerCol = playerCol;
+
+        if (direction == 'w') {
+            newPlayerRow -= 1;
+        } else if (direction == 's') {
+            newPlayerRow += 1;
+        } else if (direction == 'a') {
+            newPlayerCol -= 1;
+        } else if (direction == 'd') {
+            newPlayerCol += 1;
+        }
+
+        if (isValidMove(newPlayerRow, newPlayerCol)) {
+            if (isBoxAt(newPlayerRow, newPlayerCol)) {
+                int[] boxPosition = getBoxPosition(newPlayerRow, newPlayerCol);
+                int newBoxRow = newPlayerRow + (newPlayerRow - playerRow);
+                int newBoxCol = newPlayerCol + (newPlayerCol - playerCol);
+
+                if (isValidMove(newBoxRow, newBoxCol) && !isBoxAt(newBoxRow, newBoxCol)) {
+                    moveBox(boxPosition, newBoxRow, newBoxCol);
+                    playerRow = newPlayerRow;
+                    playerCol = newPlayerCol;
+                }
+            } else {
+                playerRow = newPlayerRow;
+                playerCol = newPlayerCol;
+            }
+        }
+
+        return checkWin();
+    }
+
+    private boolean isValidMove(int row, int col) {
+        return row >= 0 && row < map.length && col >= 0 && col < map[row].length && map[row][col] != '#';
+    }
+
+    private boolean isBoxAt(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] getBoxPosition(int row, int col) {
+        for (int[] box : boxes) {
+            if (Arrays.equals(box, new int[]{row, col})) {
+                return box;
+            }
+        }
+        return null;
+    }
+
+    private void moveBox(int[] boxPosition, int newRow, int newCol) {
+        for (int i = 0; i < boxes.size(); i++) {
+            if (Arrays.equals(boxes.get(i), boxPosition)) {
+                boxes.set(i, new int[]{newRow, newCol});
+                break;
+            }
+        }
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public int getPlayerCol() {
+        return playerCol;
+    }
+
+    public int getPlayerRow() {
+        return playerRow;
+    }
+
+    public List<int[]> getTargets() {
+        return new ArrayList<>(targets);
+    }
+
+    public int getTargetCount() {
+        return targetCount;
+    }
+
+    public char[][] getMap() {
+        return map;
+    }
+
+    public List<int[]> getBoxes() {
+        return new ArrayList<>(boxes);
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE066 Java source class.
+
+========== END PROMPT checklist_only run-03 CE066 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE077 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE077
+- Test the provided solution implementation.
+- Target class: org.example.StockPortfolioTracker
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE077
+DATASET: ClassEval-T
+TARGET_CLASS: StockPortfolioTracker
+TEST_CLASS: GeneratedTest_CE077
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+theo dõi danh mục cổ phiếu
+
+PUBLIC_API_HINT:
+- void addStock(Stock stock)
+- boolean removeStock(Stock stock)
+- boolean buyStock(Stock stock)
+- boolean sellStock(Stock stock)
+- List<Stock> getPortfolio()
+- double getCashBalance()
+- double calculatePortfolioValue()
+- String getPortfolioSummary()
+- String getName()
+- double getPrice()
+- int getQuantity()
+- void setQuantity(int quantity)
+- boolean equals(Object obj)
+- int hashCode()
+- String toString()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class StockPortfolioTracker {
+    private final double initialCashBalance;
+    private double cashBalance;
+    private final List<Stock> portfolio;
+
+    public StockPortfolioTracker(double initialCashBalance) {
+        this.initialCashBalance = initialCashBalance;
+        this.cashBalance = initialCashBalance;
+        this.portfolio = new ArrayList<>();
+    }
+
+    public void addStock(Stock stock) {
+        for (Stock s : portfolio) {
+            if (s.getName().equals(stock.getName()) && s.getPrice() == stock.getPrice()) {
+                s.setQuantity(s.getQuantity() + stock.getQuantity());
+                return;
+            }
+        }
+        portfolio.add(stock);
+    }
+
+    public boolean removeStock(Stock stock) {
+        for (Stock s : portfolio) {
+            if (s.getName().equals(stock.getName()) && s.getPrice() == stock.getPrice()) {
+                if (s.getQuantity() >= stock.getQuantity()) {
+                    s.setQuantity(s.getQuantity() - stock.getQuantity());
+                    if (s.getQuantity() == 0) {
+                        portfolio.remove(s);
+                    }
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean buyStock(Stock stock) {
+        double cost = stock.getPrice() * stock.getQuantity();
+        if (cashBalance >= cost) {
+            addStock(stock);
+            cashBalance -= cost;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean sellStock(Stock stock) {
+        double revenue = stock.getPrice() * stock.getQuantity();
+        if (removeStock(stock)) {
+            cashBalance += revenue;
+            return true;
+        }
+        return false;
+    }
+
+    public List<Stock> getPortfolio() {
+        return new ArrayList<>(portfolio);
+    }
+
+    public double getCashBalance() {
+        return cashBalance;
+    }
+
+    public double calculatePortfolioValue() {
+        double totalValue = 0.0;
+        for (Stock stock : portfolio) {
+            totalValue += stock.getPrice() * stock.getQuantity();
+        }
+        return totalValue;
+    }
+
+    public String getPortfolioSummary() {
+        StringBuilder summary = new StringBuilder();
+        for (Stock stock : portfolio) {
+            summary.append(stock.toString()).append("\n");
+        }
+        summary.append("Total Value: $").append(calculatePortfolioValue()).append("\n");
+        return summary.toString();
+    }
+
+    public static class Stock {
+        private final String name;
+        private final double price;
+        private int quantity;
+
+        public Stock(String name, double price, int quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            Stock stock = (Stock) obj;
+            return Double.compare(stock.price, price) == 0 &&
+                    quantity == stock.quantity &&
+                    name.equals(stock.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, price, quantity);
+        }
+
+        @Override
+        public String toString() {
+            return name + ": " + quantity + " shares at $" + price + " each";
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE077 Java source class.
+
+========== END PROMPT checklist_only run-03 CE077 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE085 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE085
+- Test the provided solution implementation.
+- Target class: org.example.URLHandler
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE085
+DATASET: ClassEval-T
+TARGET_CLASS: URLHandler
+TEST_CLASS: GeneratedTest_CE085
+CATEGORY: SECURITY_NETWORK_WEB
+
+BUSINESS_PROBLEM:
+phân tích/xử lý URL
+
+PUBLIC_API_HINT:
+- String getScheme()
+- String getHost()
+- String getPath()
+- Map<String, String> getQueryParams()
+- String getFragment()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class URLHandler {
+    private String url;
+
+    public URLHandler(String url) {
+        this.url = url;
+    }
+
+    public String getScheme() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            return url.substring(0, schemeEnd);
+        }
+        return null;
+    }
+
+    public String getHost() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            String urlWithoutScheme = url.substring(schemeEnd + 3);
+            int hostEnd = urlWithoutScheme.indexOf("/");
+            if (hostEnd != -1) {
+                return urlWithoutScheme.substring(0, hostEnd);
+            }
+            return urlWithoutScheme;
+        }
+        return null;
+    }
+
+    public String getPath() {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd != -1) {
+            String urlWithoutScheme = url.substring(schemeEnd + 3);
+            int hostEnd = urlWithoutScheme.indexOf("/");
+            if (hostEnd != -1) {
+                return urlWithoutScheme.substring(hostEnd);
+            }
+        }
+        return null;
+    }
+
+    public Map<String, String> getQueryParams() {
+        int queryStart = url.indexOf("?");
+        int fragmentStart = url.indexOf("#");
+        if (queryStart != -1) {
+            String queryString = url.substring(queryStart + 1, fragmentStart != -1 ? fragmentStart : url.length());
+            Map<String, String> params = new HashMap<>();
+            if (!queryString.isEmpty()) {
+                String[] paramPairs = queryString.split("&");
+                for (String pair : paramPairs) {
+                    String[] keyValue = pair.split("=");
+                    if (keyValue.length == 2) {
+                        params.put(keyValue[0], keyValue[1]);
+                    }
+                }
+            }
+            return params;
+        }
+        return null;
+    }
+
+    public String getFragment() {
+        int fragmentStart = url.indexOf("#");
+        if (fragmentStart != -1) {
+            return url.substring(fragmentStart + 1);
+        }
+        return null;
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE085 Java source class.
+
+========== END PROMPT checklist_only run-03 CE085 ==========
+
+========== BEGIN PROMPT checklist_only run-03 CE090 ==========
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 11 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE090
+- Test the provided solution implementation.
+- Target class: org.example.Warehouse
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE090
+DATASET: ClassEval-T
+TARGET_CLASS: Warehouse
+TEST_CLASS: GeneratedTest_CE090
+CATEGORY: BUSINESS_MANAGEMENT
+
+BUSINESS_PROBLEM:
+quản lý tồn kho/kho hàng
+
+PUBLIC_API_HINT:
+- void addProduct(int productId, String name, int quantity)
+- void updateProductQuantity(int productId, int quantity)
+- int getProductQuantity(int productId)
+- boolean createOrder(int orderId, int productId, int quantity)
+- boolean changeOrderStatus(int orderId, String status)
+- String trackOrder(int orderId)
+- void addQuantity(int quantity)
+- int getQuantity()
+- String getStatus()
+- void setStatus(String status)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class Warehouse {
+    private Map<Integer, Product> inventory;
+    private Map<Integer, Order> orders;
+
+    public Warehouse() {
+        this.inventory = new HashMap<>();
+        this.orders = new HashMap<>();
+    }
+
+    public void addProduct(int productId, String name, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        } else {
+            inventory.put(productId, new Product(name, quantity));
+        }
+    }
+
+    public void updateProductQuantity(int productId, int quantity) {
+        if (inventory.containsKey(productId)) {
+            inventory.get(productId).addQuantity(quantity);
+        }
+    }
+
+    public int getProductQuantity(int productId) {
+        if (inventory.containsKey(productId)) {
+            return inventory.get(productId).getQuantity();
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean createOrder(int orderId, int productId, int quantity) {
+        if (inventory.containsKey(productId) && inventory.get(productId).getQuantity() >= quantity) {
+            inventory.get(productId).addQuantity(-quantity);
+            orders.put(orderId, new Order(productId, quantity, "Shipped"));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean changeOrderStatus(int orderId, String status) {
+        if (orders.containsKey(orderId)) {
+            orders.get(orderId).setStatus(status);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String trackOrder(int orderId) {
+        if (orders.containsKey(orderId)) {
+            return orders.get(orderId).getStatus();
+        } else {
+            return null;
+        }
+    }
+
+    private static class Product {
+        private String name;
+        private int quantity;
+
+        public Product(String name, int quantity) {
+            this.name = name;
+            this.quantity = quantity;
+        }
+
+        public void addQuantity(int quantity) {
+            this.quantity += quantity;
+        }
+
+        public int getQuantity() {
+            return quantity;
+        }
+    }
+
+    private static class Order {
+        private int productId;
+        private int quantity;
+        private String status;
+
+        public Order(int productId, int quantity, String status) {
+            this.productId = productId;
+            this.quantity = quantity;
+            this.status = status;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+    }
+}
+
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.
+Return only one GeneratedTest_CE090 Java source class.
+
+========== END PROMPT checklist_only run-03 CE090 ==========
