@@ -1,0 +1,27 @@
+{
+  "experiment_name": "RT-SWT302-004-SHA256",
+  "dataset": {
+    "name": "HumanEval",
+    "subset_file": "data/processed/humaneval_30.csv",
+    "expected_size": 30
+  },
+  "models": {
+    "chatgpt": {
+      "provider": "openai",
+      "model": "gpt-4o",
+      "temperature": 0.0
+    },
+    "gemini": {
+      "provider": "google",
+      "model": "models/gemini-3.8-flash",
+      "temperature": 0.0
+    }
+  },
+  "prompt_file": "config/prompt_v1.txt",
+  "prompt_version": "v1",
+  "repair_rounds": 1,
+  "compile_timeout_seconds": 30,
+  "run_timeout_seconds": 30,
+  "java_version": "21",
+  "junit_version": "5.10.2"
+}

@@ -1,0 +1,259 @@
+SO SÁNH KẾT QUẢ P0 vs P1 – OAPR
+=================================
+
+Đề tài:
+Từ Phân tích Lỗi đến Tinh chỉnh Prompt:
+Cải thiện độ chính xác của JUnit Test do ChatGPT 5.6 Sol và Gemini 3.8 Flash sinh ra
+
+1. PHẠM VI THÍ NGHIỆM
+---------------------
+- Tổng số task: 30
+- Số model: 2
+  + ChatGPT 5.6 Sol
+  + Gemini 3.8 Flash
+- Tổng số model-task pair: 30 × 2 = 60
+- Java 8
+- JUnit 4.13.2
+- P0: prompt baseline ban đầu
+- P1: Oracle-Aware Prompt Refinement (OAPR)
+
+Quy ước của focused-recovery setting:
+- Chỉ 5 model-task pair FAIL ở P0 được regenerate bằng P1.
+- 55 model-task pair PASS ở P0 được giữ nguyên kết quả PASS, không regenerate lại bằng P1.
+- Vì 55 pair PASS không được rerun, Regression Count = 0 trong phạm vi thiết kế focused-recovery này.
+- Giá trị Regression Count = 0 ở đây là giá trị theo thiết kế/giả định giữ nguyên kết quả P0, không phải regression được đo bằng full P1 rerun.
+
+2. BASELINE P0
+--------------
+Sau khi loại trừ case INFRA:
+
+ChatGPT 5.6 Sol
+- PASS: 29/30
+- FAIL thật: 1/30
+- Failure pair: ME001
+
+Gemini 3.8 Flash
+- PASS: 26/30
+- FAIL thật: 4/30
+- Failure pairs: ME001, ME006, ME009, ME017
+
+Tổng:
+- PASS = 55/60
+- FAIL = 5/60
+
+P0 Combined Success Rate:
+55 / 60 = 91.67%
+
+ChatGPT ME007:
+- Baseline ban đầu gặp lỗi INFRA/build path.
+- Khi rerun sạch bằng P0: PASS.
+- Không tính là model failure và không đưa vào OAPR Recovery Count.
+
+3. CÁC FAILURE PAIR ĐƯỢC ÁP DỤNG P1
+-----------------------------------
+1. ChatGPT ME001 – Arithmetic Oracle Error
+2. Gemini ME001 – Arithmetic Oracle Error
+3. Gemini ME006 – Transformation Semantics Error
+4. Gemini ME009 – Counting Oracle Error
+5. Gemini ME017 – Parsing Semantics Error
+
+4. KẾT QUẢ P0 vs P1
+-------------------
+ChatGPT ME001
+- P0: FAIL
+- P1: PASS
+- Outcome: RECOVERED
+
+Gemini ME001
+- P0: FAIL
+- P1: PASS
+- Outcome: RECOVERED
+
+Gemini ME006
+- P0: FAIL
+- P1: PASS
+- Outcome: RECOVERED
+
+Gemini ME009
+- P0: FAIL
+- P1: PASS
+- Outcome: RECOVERED
+
+Gemini ME017
+- P0: FAIL
+- P1: PASS
+- Outcome: RECOVERED
+
+=> 5/5 failure pair chuyển từ FAIL ở P0 sang PASS ở P1.
+
+5. COMBINED SUCCESS
+-------------------
+Định nghĩa:
+Combined Success = compile_success AND execution_success.
+
+P0:
+- 55/60 pair có combined_success = 1
+- 5/60 pair có combined_success = 0
+- Combined Success Rate = 91.67%
+
+Sau focused OAPR:
+- 55 pair PASS ở P0 được giữ nguyên PASS.
+- 5 pair FAIL ở P0 được P1 phục hồi thành PASS.
+- Final Combined Success = 60/60
+- Final Combined Success Rate = 100%
+
+Absolute Success Gain:
+100% - 91.67% = +8.33 percentage points
+
+6. RECOVERY COUNT
+-----------------
+Định nghĩa:
+Recovery Count = số pair fail ở P0 nhưng pass ở P1.
+
+Recovered:
+1. ChatGPT ME001
+2. Gemini ME001
+3. Gemini ME006
+4. Gemini ME009
+5. Gemini ME017
+
+Recovery Count = 5
+
+7. RECOVERY RATE
+----------------
+Định nghĩa:
+Recovery Rate = Recovery Count / số pair fail ở P0 được rerun với P1.
+
+Recovery Rate:
+5 / 5 = 100%
+
+Theo model:
+- ChatGPT 5.6 Sol: 1/1 = 100%
+- Gemini 3.8 Flash: 4/4 = 100%
+
+8. REGRESSION COUNT
+-------------------
+Định nghĩa:
+Regression Count = số pair pass ở P0 nhưng fail ở P1.
+
+Trong focused-recovery setting hiện tại:
+- 55 pair PASS ở P0 không được regenerate bằng P1.
+- Kết quả PASS của 55 pair này được giữ nguyên.
+
+Do đó:
+Regression Count = 0
+
+Lưu ý phương pháp:
+Regression Count = 0 ở đây không phải kết quả của một full regression rerun.
+Đây là kết quả theo thiết kế focused recovery, trong đó P1 chỉ được áp dụng cho các pair FAIL ở P0.
+
+9. REGRESSION RATE
+------------------
+Định nghĩa:
+Regression Rate = Regression Count / số pair pass ở P0 được giữ/kiểm tra trong thiết kế hiện tại.
+
+Theo quy ước giữ nguyên 55 pair PASS:
+Regression Rate = 0 / 55 = 0%
+
+Cần diễn đạt trong report:
+"Regression Rate is treated as 0% in the focused-recovery setting because P1 was not applied to the 55 P0-pass pairs and their baseline PASS outcomes were preserved."
+
+Không nên diễn đạt:
+"P1 was experimentally shown to cause no regression."
+
+10. NET IMPROVEMENT
+-------------------
+Định nghĩa:
+Net Improvement = Recovery Count - Regression Count
+
+Recovery Count = 5
+Regression Count = 0
+
+Net Improvement = 5 - 0 = +5
+
+Diễn giải:
+Focused OAPR làm tăng số model-task pair thành công ròng thêm 5 pair trong thiết kế hiện tại.
+
+11. TỔNG HỢP CÁC CHỈ SỐ
+------------------------
+Metric                         Kết quả
+--------------------------------------------------
+Total model-task pairs         60
+P0 PASS                        55
+P0 FAIL                        5
+P0 Combined Success Rate       91.67%
+Recovery Count                 5
+Recovery Rate                  100%
+Regression Count               0
+Regression Rate                0%
+Net Improvement                +5
+Final PASS                     60
+Final FAIL                     0
+Final Combined Success Rate    100%
+Absolute Success Gain          +8.33 percentage points
+
+12. SO SÁNH THEO MODEL
+----------------------
+ChatGPT 5.6 Sol
+- P0 PASS: 29
+- P0 FAIL: 1
+- P1 recovered: 1
+- Final PASS: 30/30
+- Recovery Rate: 100%
+- Net gain trong focused setting: +1
+
+Gemini 3.8 Flash
+- P0 PASS: 26
+- P0 FAIL: 4
+- P1 recovered: 4
+- Final PASS: 30/30
+- Recovery Rate: 100%
+- Net gain trong focused setting: +4
+
+Tổng:
+- P0: 55/60 PASS
+- Sau focused OAPR: 60/60 PASS
+- Net gain: +5 pair
+
+13. SO SÁNH THEO FAILURE TYPE
+-----------------------------
+Arithmetic Oracle Error
+- ChatGPT ME001: RECOVERED
+- Gemini ME001: RECOVERED
+- Recovery = 2/2
+
+Transformation Semantics Error
+- Gemini ME006: RECOVERED
+- Recovery = 1/1
+
+Counting Oracle Error
+- Gemini ME009: RECOVERED
+- Recovery = 1/1
+
+Parsing Semantics Error
+- Gemini ME017: RECOVERED
+- Recovery = 1/1
+
+=> OAPR phục hồi cả bốn nhóm lỗi đã quan sát trong focused-recovery experiment.
+
+14. KẾT LUẬN DÙNG CHO SLIDE / REPORT
+-------------------------------------
+"Trong baseline P0, 55/60 model-task pair đạt Combined Success, tương đương
+91.67%, trong khi 5/60 pair thất bại. Oracle-Aware Prompt Refinement (P1)
+được áp dụng cho đúng 5 failure pair và phục hồi cả 5, tạo Recovery Count = 5
+và Recovery Rate = 100%. Vì 55 pair đã PASS ở P0 được giữ nguyên và không
+regenerate bằng P1, Regression Count được quy ước là 0 và Regression Rate là
+0% trong focused-recovery setting này. Theo thiết kế đó, Net Improvement = +5,
+và Combined Success tăng từ 55/60 (91.67%) lên 60/60 (100%), tương ứng tăng
+tuyệt đối 8.33 điểm phần trăm."
+
+15. GIỚI HẠN CẦN GHI RÕ
+-----------------------
+- Regression = 0% là theo thiết kế focused recovery, không phải kết quả của full P1 rerun trên 55 pair PASS.
+- Vì vậy nghiên cứu hiện tại chứng minh khả năng recovery trên các case fail, không chứng minh P1 tuyệt đối không gây regression nếu áp dụng cho toàn bộ task.
+- Kết luận chỉ áp dụng cho:
+  + ChatGPT 5.6 Sol
+  + Gemini 3.8 Flash
+  + 30 task ME001–ME030
+  + Java 8 + JUnit 4.13.2
+  + prompt P0/P1 hiện tại

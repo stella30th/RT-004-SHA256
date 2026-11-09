@@ -1,0 +1,7 @@
+﻿database,query,date,raw_hits,screened,candidate,included,notes
+Semantic scholar,JUnit ChatGPT compilation,2026-10-11,37,,1,1,Run ID: SS-P01. Exact string: JUnit ChatGPT compilation. Filter: 2024-2026; sorted by citation count.
+Semantic scholar,JUnit Gemini compilation,2026-10-11,33,,0,0,Run ID: SS-P02. Exact string: JUnit Gemini compilation. Filter: 2024-2026; sorted by citation count.
+Semantic scholar,LLM JUnit test generation,2026-10-11,6610,,2,2,Run ID: SS-P03. Exact string: LLM JUnit test generation. Filter: 2024-2026; sorted by citation count.
+Semantic scholar,JUnit LLM repair,2026-10-11,2230,,1,1,Run ID: SS-P04. Exact string: JUnit LLM repair. Filter: 2024-2026; sorted by citation count.
+Semantic scholar,Automated test generation Large Language Models,2026-10-11,90100,,1,1,Run ID: SS-P05. Exact string: Automated test generation Large Language Models. Filter: 2024-2026; sorted by citation count.
+Semantic scholar,"""unit tests"" ChatGPT runnable",2026-10-11,1650,,0,0,"Run ID: SS-P06. Exact string: ""unit tests"" ChatGPT runnable. Filter: 2024-2026; sorted by citation count."

@@ -1,0 +1,16 @@
+You are generating JUnit 5 tests for the following Java programming task.
+
+Problem ID: {{problem_id}}
+Task:
+{{prompt}}
+
+Target signature:
+{{target_signature}}
+
+Requirements:
+- Generate JUnit 5 tests only.
+- Package declaration must be: package {{problem_id}};
+- Test class name must be: class SolutionTest
+- Do not modify the production implementation in Solution.java.
+- Output compilable Java test code.
+- Do not include explanations outside the test code.

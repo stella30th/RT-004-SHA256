@@ -1,0 +1,4 @@
+problem_id,task_category,human,chatgpt,gemini
+HE001,array,1,1,0
+HE002,string,1,0,1
+HE003,math,1,1,1

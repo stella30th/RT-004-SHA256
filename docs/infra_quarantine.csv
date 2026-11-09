@@ -1,0 +1,2 @@
+﻿model,task_id,classification,action
+ChatGPT,ME007,INFRA,Rerun baseline P0 after environment/build-path cleanup; do not count as model failure or OAPR recovery.

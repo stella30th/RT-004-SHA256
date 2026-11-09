@@ -1,0 +1,41 @@
+Repair the JUnit 4 test below so that it compiles against the provided target class.
+
+Rules:
+- This is the only repair round.
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Keep: package humaneval.generated;
+- Keep the public test class name exactly: GeneratedTest_HE000
+- Use JUnit 4.13.2 only.
+- Use Java 8 compatible syntax and APIs.
+- Fix only issues necessary for compilation.
+- Do not modify production code.
+- Do not add unsupported dependencies.
+- Preserve the intended test behavior where possible.
+
+TASK_ID: HE000
+TARGET_CLASS: HAS_CLOSE_ELEMENTS
+
+COMPILER_OUTPUT:
+{PASTE_COMPILER_OUTPUT_HERE}
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+import java.util.List;
+
+public class HAS_CLOSE_ELEMENTS {
+    public static boolean has_close_elements(List<Double> numbers, double threshold){
+        for (int i = 0; i < numbers.size(); i += 1){
+            for (int j = i + 1; j < numbers.size(); j += 1){
+                double distance = Math.abs(numbers.get(i) - numbers.get(j));
+                if (distance < threshold)
+                    return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+CURRENT_TEST:
+{PASTE_GENERATED_TEST_HERE}

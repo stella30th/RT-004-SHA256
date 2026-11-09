@@ -1,0 +1,2 @@
+database,query,date,raw_hits,screened,candidate,included,notes
+OpenAlex,"(""unit test generation"" OR ""JUnit test suite"" OR HumanEval) AND (ChatGPT OR Gemini OR ""compiler-feedback repair"" OR ""structured prompting"") AND (compilability OR executability OR ""build success rate"" OR ""test execution rate"")",10/9/2026,3441,23,23,18,Automated IC/EC screening applied. Identified 18 included papers matching RQ and course seeds.

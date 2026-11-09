@@ -1,0 +1,14 @@
+ClassEval-T - ChatGPT P1 / OAPR
+Generated: 10/28/2026 17:56:41
+
+CE033	Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.050 s -- in org.example.GeneratedTest_CE033
+CE041	Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in org.example.GeneratedTest_CE041
+CE043	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE043
+CE050	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in org.example.GeneratedTest_CE050
+CE053	Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in org.example.GeneratedTest_CE053
+CE060	Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE060
+CE065	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in org.example.GeneratedTest_CE065
+CE066	Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! -- in org.example.GeneratedTest_CE066
+CE077	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE077
+CE085	Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in org.example.GeneratedTest_CE085
+CE090	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in org.example.GeneratedTest_CE090

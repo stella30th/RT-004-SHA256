@@ -1,0 +1,45 @@
+- .gitignore
+- README.md
++ config
+  - experiment.example.json
++ data
+  + human_baseline
+  + processed
+    - humaneval_30.csv
+  + raw
+    - .gitkeep
++ docs
+  - authorship.md
+  - evidence_table_template.csv
+  - experiment_protocol.md
+  - ie_criteria.md
+  - progress_report_template.md
+  - review_protocol.md
+  - rq_definition.md
+  - search_log_template.csv
++ generated
+  + chatgpt
+    - .gitkeep
+  + gemini
+    - .gitkeep
++ logs
+  - .gitkeep
++ paper
+  - README.md
++ presentation
+  - README.md
+- requirements.txt
++ results
+  - experiment_results.csv
+  - mock_results.csv
++ scripts
+  - compile_and_run.py
+  - compute_metrics.py
+  - init_results.py
+  - logger.py
+  - prompt_builder.py
+  + providers
+    - base.py
+    - chatgpt_provider.py
+    - gemini_provider.py
+  - run_experiment.py

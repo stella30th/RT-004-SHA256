@@ -1,0 +1,87 @@
+5. Test Intention Guided LLM-Based Unit Test Generation
+   DOI: 10.1109/ICSE55347.2025.00243
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00243
+
+12. Rug: Turbo LLM for Rust Unit Test Generation
+   DOI: 10.1109/ICSE55347.2025.00097
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00097
+
+32. Nuances Are the Key: Unlocking ChatGPT to Find Failure-Inducing Tests with Differential Prompting
+   DOI: 10.1109/ASE56229.2023.00089
+   https://dl.acm.org/doi/10.1109/ASE56229.2023.00089
+
+40. A Closer Look at Different Difficulty Levels Code Generation Abilities of ChatGPT
+   DOI: 10.1109/ASE56229.2023.00096
+   https://dl.acm.org/doi/10.1109/ASE56229.2023.00096
+
+114. Towards Understanding the Characteristics of Code Generation Errors Made by Large Language Models
+   DOI: 10.1109/ICSE55347.2025.00180
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00180
+
+119. SOEN-101: Code Generation by Emulating Software Process Models Using Large Language Model Agents
+   DOI: 10.1109/ICSE55347.2025.00140
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00140
+
+166. Fixing Large Language Models' Specification Misunderstanding for Better Code Generation
+   DOI: 10.1109/ICSE55347.2025.00108
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00108
+
+170. Enhancing Code Generation via Bidirectional Comment-Level Mutual Grounding
+   DOI: 10.1109/ICSE55347.2025.00165
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00165
+
+184. ROCODE: Integrating Backtracking Mechanism and Program Analysis in Large Language Models for Code Generation
+   DOI: 10.1109/ICSE55347.2025.00133
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00133
+
+224. AskIt: Unified Programming Interface for Programming with Large Language Models
+   DOI: 10.1109/CGO57630.2024.10444830
+   https://dl.acm.org/doi/10.1109/CGO57630.2024.10444830
+
+238. Unseen Horizons: Unveiling the Real Capability of LLM Code Generation Beyond the Familiar
+   DOI: 10.1109/ICSE55347.2025.00082
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00082
+
+273. LLM4VV: Exploring LLM-as-a-Judge for Validation and Verification Testsuites
+   DOI: 10.1109/SCW63240.2024.00238
+   https://dl.acm.org/doi/10.1109/SCW63240.2024.00238
+
+361. Context Conquers Parameters: Outperforming Proprietary LLM in Commit Message Generation
+   DOI: 10.1109/ICSE55347.2025.00048
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00048
+
+384. Enhancing GPT-3.5's Proficiency in Netlogo through Few-Shot Prompting and Retrieval-Augmented Generation
+   DOI: 10.5555/3712729.3712784
+   https://dl.acm.org/doi/10.5555/3712729.3712784
+
+394. Revisiting Task-Oriented Dataset Search in the Era of Large Language Models: Challenges, Benchmark, and Solution
+   DOI: 10.14778/3796195.3796209
+   https://dl.acm.org/doi/10.14778/3796195.3796209
+
+409. The Dawn of Natural Language to SQL: Are We Fully Ready?
+   DOI: 10.14778/3681954.3682003
+   https://dl.acm.org/doi/10.14778/3681954.3682003
+
+471. LiCoEval: Evaluating LLMs on License Compliance in Code Generation
+   DOI: 10.1109/ICSE55347.2025.00052
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00052
+
+486. Measuring the Runtime Performance of C++ Code Written by Humans Using GitHub Copilot
+   DOI: 10.1109/ICSE55347.2025.00059
+   https://dl.acm.org/doi/10.1109/ICSE55347.2025.00059
+
+550. ICSE '23: Proceedings of the 45th International Conference on Software Engineering
+   DOI: 10.5555/3606010
+   https://dl.acm.org/doi/proceedings/10.5555/3606010
+
+579. SC-W '24: Proceedings of the SC '24 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis
+   DOI: 10.5555/3715674
+   https://dl.acm.org/doi/proceedings/10.5555/3715674
+
+586. ICSE-SEIP '23: Proceedings of the 45th International Conference on Software Engineering: Software Engineering in Practice
+   DOI: 10.5555/3623293
+   https://dl.acm.org/doi/proceedings/10.5555/3623293
+
+592. ICSE '23: Proceedings of the 45th International Conference on Software Engineering: Companion Proceedings
+   DOI: 10.5555/3606013
+   https://dl.acm.org/doi/proceedings/10.5555/3606013

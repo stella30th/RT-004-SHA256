@@ -1,0 +1,748 @@
+﻿record_id,search_query_id,rank_in_runs,item_type,year_source,abstract_source,access,pdf_status,auto_flags,title
+ACM_0001,ACM-S0;ACM-S1,ACM-S0#1;ACM-S1#20,research-article,openalex,openalex,public,already_downloaded,,From Scenario to Code: Structured Prompting for LLM-Based Unit Test Generation
+ACM_0002,ACM-S0;ACM-S1,ACM-S0#2;ACM-S1#1,research-article,openalex,openalex,public,already_downloaded,,Reference-Based Retrieval-Augmented Unit Test Generation
+ACM_0003,ACM-S0;ACM-S1;ACM-S2,ACM-S0#3;ACM-S1#12;ACM-S2#8,research-article,openalex,openalex,public,already_downloaded,,Enhancing Automated Unit Test Generation with Large Language Models: A Systematic Literature Review
+ACM_0004,ACM-S0;ACM-S1;ACM-S2,ACM-S0#4;ACM-S1#7;ACM-S2#5,research-article,openalex,openalex,public,already_downloaded,,Context Matters: Improving the Practical Reliability of LLM-Based Unit Test Generation (Experience Paper)
+ACM_0005,ACM-S0;ACM-S1,ACM-S0#5;ACM-S1#11,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Test Intention Guided LLM-Based Unit Test Generation
+ACM_0006,ACM-S0;ACM-S1,ACM-S0#6;ACM-S1#13,research-article,openalex,openalex,public,already_downloaded,,Leveraging GPT-4 for Vulnerability-Witnessing Unit Test Generation
+ACM_0007,ACM-S0;ACM-S1;ACM-S2,ACM-S0#7;ACM-S1#22;ACM-S2#10,research-article,openalex,openalex,public,already_downloaded,,CITYWALK: Enhancing LLM-Based C++ Unit Test Generation via Project-Dependency Awareness and Language-Specific Knowledge
+ACM_0008,ACM-S0;ACM-S1;ACM-S2,ACM-S0#8;ACM-S1#2;ACM-S2#13,research-article,openalex,openalex,public,already_downloaded,,Understanding and Mitigating Hallucinations in Industrial LLM-based Unit Test Generation
+ACM_0009,ACM-S0;ACM-S1;ACM-S2,ACM-S0#9;ACM-S1#19;ACM-S2#14,research-article,openalex,openalex,public,already_downloaded,,Evaluating and Improving ChatGPT for Unit Test Generation
+ACM_0010,ACM-S0;ACM-S1,ACM-S0#10;ACM-S1#30,research-article,openalex,openalex,public,already_downloaded,,Automated Unit Test Generation via Chain-of-Thought Prompt and Reinforcement Learning from Coverage Feedback
+ACM_0011,ACM-S0;ACM-S1,ACM-S0#11;ACM-S1#29,research-article,openalex,openalex,public,already_downloaded,,On the Evaluation of Large Language Models in Unit Test Generation
+ACM_0012,ACM-S0;ACM-S1;ACM-S2,ACM-S0#12;ACM-S1#10;ACM-S2#11,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Rug: Turbo LLM for Rust Unit Test Generation
+ACM_0013,ACM-S0;ACM-S1,ACM-S0#13;ACM-S1#32,research-article,openalex,openalex,public,already_downloaded,,Less Is More: On the Importance of Data Quality for Unit Test Generation
+ACM_0014,ACM-S0;ACM-S1,ACM-S0#14;ACM-S1#28,research-article,openalex,openalex,public,already_downloaded,,STRUT: Structured Seed Case Guided Unit Test Generation for C Programs using LLMs
+ACM_0015,ACM-S0;ACM-S1,ACM-S0#15;ACM-S1#23,short-paper,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,JUnitGenie: A Framework for Path-Sensitive Unit Test Generation with Large Language Models
+ACM_0016,ACM-S0;ACM-S1,ACM-S0#16;ACM-S1#37,research-article,openalex,openalex,public,already_downloaded,,Unit Test Generation using Generative AI : A Comparative Performance Analysis of Autogeneration Tools
+ACM_0017,ACM-S0;ACM-S1,ACM-S0#17;ACM-S1#33,research-article,openalex,openalex,public,already_downloaded,,HITS: High-coverage LLM-based Unit Test Generation via Method Slicing
+ACM_0018,ACM-S0,ACM-S0#18,research-article,openalex,openalex,public,already_downloaded,,Observation-Based Unit Test Generation at Meta
+ACM_0019,ACM-S0;ACM-S1,ACM-S0#19;ACM-S1#31,research-article,openalex,openalex,public,already_downloaded,,An initial investigation of ChatGPT unit test generation capability
+ACM_0020,ACM-S0;ACM-S1,ACM-S0#20;ACM-S1#36,research-article,openalex,openalex,public,already_downloaded,,Unit Test Generation using Large Language Models for Unity Game Development
+ACM_0021,ACM-S0,ACM-S0#21,research-article,openalex,openalex,public,already_downloaded,,"Programming with AI: Evaluating ChatGPT, Gemini, AlphaCode, and GitHub Copilot for Programmers"
+ACM_0022,ACM-S0;ACM-S1,ACM-S0#22;ACM-S1#94,research-article,openalex,openalex,public,already_downloaded,,Evaluating and Mitigating the Misguidance Effect of Buggy Code in LLM-Generated Unit Tests
+ACM_0023,ACM-S0;ACM-S1,ACM-S0#23;ACM-S1#45,research-article,openalex,openalex,public,already_downloaded,,Retrieval-Augmented Test Generation: How Far Are We?
+ACM_0024,ACM-S0;ACM-S1;ACM-S2,ACM-S0#24;ACM-S1#93;ACM-S2#2,research-article,openalex,openalex,public,already_downloaded,,TestART: Improving LLM-based Unit Testing via Co-evolution of Automated Generation and Repair Iteration
+ACM_0025,ACM-S0;ACM-S1;ACM-S3,ACM-S0#25;ACM-S1#129;ACM-S3#2,research-article,openalex,openalex,public,already_downloaded,,Automated Test Suite Enhancement Using Large Language Models with Few-shot Prompting
+ACM_0026,ACM-S0,ACM-S0#26,research-article,openalex,openalex,public,already_downloaded,,HumanEval-V: Systematic Evaluation of Visual Reasoning in Large Multimodal Models for Code Generation
+ACM_0027,ACM-S0;ACM-S1,ACM-S0#27;ACM-S1#76,research-article,openalex,openalex,public,already_downloaded,,TestSpark: IntelliJ IDEA's Ultimate Test Generation Companion
+ACM_0028,ACM-S0,ACM-S0#28,survey,openalex,openalex,public,already_downloaded,,Assessing the Effectiveness of ChatGPT in Secure Code Development: A Systematic Literature Review
+ACM_0029,ACM-S0,ACM-S0#29,research-article,openalex,openalex,public,already_downloaded,,Refining ChatGPT-Generated Code: Characterizing and Mitigating Code Quality Issues
+ACM_0030,ACM-S0,ACM-S0#30,research-article,openalex,openalex,public,already_downloaded,,Assessing ChatGPT’s Code Generation Capabilities with Short vs Long Context Programming Problems
+ACM_0031,ACM-S0,ACM-S0#31,research-article,openalex,openalex,public,already_downloaded,,Text2VQL: Teaching a Model Query Language to Open-Source Language Models with ChatGPT
+ACM_0032,ACM-S0;ACM-S1;ACM-S2,ACM-S0#32;ACM-S1#114;ACM-S2#28,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Nuances Are the Key: Unlocking ChatGPT to Find Failure-Inducing Tests with Differential Prompting
+ACM_0033,ACM-S0,ACM-S0#33,research-article,openalex,openalex,public,already_downloaded,,Self-Collaboration Code Generation via ChatGPT
+ACM_0034,ACM-S0,ACM-S0#34,research-article,,acm_snippet,public,already_downloaded,NO_YEAR;ABSTRACT_TRUNCATED,Experimental Analysis of Productive Interaction Strategy with ChatGPT: User Study on Function and Project-level Code Generation Tasks
+ACM_0035,ACM-S0,ACM-S0#35,research-article,openalex,openalex,public,already_downloaded,,An Empirical Study of the Non-Determinism of ChatGPT in Code Generation
+ACM_0036,ACM-S0,ACM-S0#36,tutorial,openalex,openalex,public,already_downloaded,,Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond
+ACM_0037,ACM-S0,ACM-S0#37,research-article,openalex,openalex,public,already_downloaded,,Learning Agent-based Modeling with LLM Companions: Experiences of Novices and Experts Using ChatGPT & NetLogo Chat
+ACM_0038,ACM-S0,ACM-S0#38,research-article,openalex,openalex,public,already_downloaded,,Implications of ChatGPT for Data Science Education
+ACM_0039,ACM-S0,ACM-S0#39,research-article,openalex,openalex,public,already_downloaded,,Automated Program Repair via Conversation: Fixing 162 out of 337 Bugs for $0.42 Each using ChatGPT
+ACM_0040,ACM-S0,ACM-S0#40,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,A Closer Look at Different Difficulty Levels Code Generation Abilities of ChatGPT
+ACM_0041,ACM-S0;ACM-S1;ACM-S3,ACM-S0#41;ACM-S1#95;ACM-S3#1,research-article,openalex,openalex,public,already_downloaded,,Using Large Language Models to Generate JUnit Tests: An Empirical Study
+ACM_0042,ACM-S0,ACM-S0#42,research-article,openalex,openalex,public,already_downloaded,,Decompose to Conquer: A Multi-agent LLM Pipeline for Requirements Engineering and Software Design
+ACM_0043,ACM-S0;ACM-S1;ACM-S2,ACM-S0#43;ACM-S1#97;ACM-S2#23,research-article,openalex,openalex,public,already_downloaded,,On the Diffusion of Test Smells in LLM-Generated Unit Tests
+ACM_0044,ACM-S0;ACM-S1,ACM-S0#44;ACM-S1#98,research-article,openalex,openalex,public,already_downloaded,,VibeCheck: Assessing the Quality of LLM-Generated Unit Tests: A Multi-agent Empirical Study across Heterogeneous Repositories
+ACM_0045,ACM-S0,ACM-S0#45,research-article,openalex,openalex,public,already_downloaded,,FitGen: Validation and Guided Repair of LLM Generated Executable Fitness Functions for Search Based Software Testing
+ACM_0046,ACM-S0,ACM-S0#46,research-article,openalex,openalex,public,already_downloaded,,Demystifying Errors in LLM Reasoning Traces: An Empirical Study of Code Execution Simulation
+ACM_0047,ACM-S0,ACM-S0#47,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,"LCTES '26: Proceedings of the 27th ACM SIGPLAN/SIGBED International Conference on Languages, Compilers, and Tools for Embedded Systems"
+ACM_0048,ACM-S0,ACM-S0#48,research-article,openalex,openalex,public,already_downloaded,,SEDCoT: Enhancing LLM-Based COBOL Code Translation via Symbolic Execution and Delta Debugging
+ACM_0049,ACM-S0,ACM-S0#49,research-article,openalex,openalex,public,already_downloaded,,Rethinking Scientific Modeling: Toward Physically Consistent and Simulation-Executable Programmatic Generation
+ACM_0050,ACM-S0,ACM-S0#50,research-article,openalex,openalex,public,already_downloaded,,Code-MUE: Measuring Code LLMs’ Uncertainty through Execution-Based Semantic Interaction Graphs
+ACM_0051,ACM-S0,ACM-S0#51,research-article,openalex,openalex,public,already_downloaded,,Assessing Coherency and Consistency of Code Execution Reasoning by Large Language Models
+ACM_0052,ACM-S0,ACM-S0#52,research-article,openalex,openalex,public,already_downloaded,,Compiler.next: A Search-Based Compiler to Power the AI-Native Future of Software Engineering
+ACM_0053,ACM-S0,ACM-S0#53,short-paper,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Executable but Unlearnable: Designing Code That Resists LLM-Based Learning
+ACM_0054,ACM-S0,ACM-S0#54,research-article,openalex,openalex,public,already_downloaded,,AI-Generated Code Is Not Reproducible (Yet): An Empirical Study of Execution Reliability in LLM-Based Coding Agents
+ACM_0055,ACM-S0;ACM-S1;ACM-S2,ACM-S0#55;ACM-S1#103;ACM-S2#22,research-article,openalex,openalex,public,already_downloaded,,Bug Whisperer: Unleashing LLMs to Craft Context-Aware Tests Guided by Path Constraints and Bug Clues
+ACM_0056,ACM-S0;ACM-S1;ACM-S2,ACM-S0#56;ACM-S1#39;ACM-S2#24,research-article,openalex,openalex,public,already_downloaded,,Retrieval-Augmented Unit Test Suggestion Generation
+ACM_0057,ACM-S0;ACM-S1,ACM-S0#57;ACM-S1#194,research-article,openalex,openalex,public,already_downloaded,,WhiteFox: White-Box Compiler Fuzzing Empowered by Large Language Models
+ACM_0058,ACM-S0;ACM-S1,ACM-S0#58;ACM-S1#192,research-article,openalex,openalex,public,already_downloaded,,Natural Symbolic Execution-Based Testing for Big Data Analytics
+ACM_0059,ACM-S0,ACM-S0#59,research-article,openalex,openalex,public,already_downloaded,,Sifting through the Chaff: On Utilizing Execution Feedback for Ranking the Generated Code Candidates
+ACM_0060,ACM-S0;ACM-S1;ACM-S2,ACM-S0#60;ACM-S1#123;ACM-S2#21,research-article,openalex,openalex,public,already_downloaded,,STARS: Static Analysis-Guided Assertion Synthesis using Large Language Models
+ACM_0061,ACM-S0,ACM-S0#61,research-article,openalex,openalex,public,already_downloaded,,Toward Secure Code Generation: Bridging Correctness and Security via Task-Adaptive Vulnerability Modeling and Execution-Based Benchmarking
+ACM_0062,ACM-S0;ACM-S1,ACM-S0#62;ACM-S1#107,research-article,openalex,openalex,public,already_downloaded,,TestTailor: Generating High-Coverage Tests via Path-Proximal Tests with LLMs
+ACM_0063,ACM-S0,ACM-S0#63,research-article,openalex,openalex,public,already_downloaded,,SelfPiCo: Self-Guided Partial Code Execution with LLMs
+ACM_0064,ACM-S0,ACM-S0#64,research-article,openalex,openalex,public,already_downloaded,,dcc --help: Transforming the Role of the Compiler by Generating Context-Aware Error Explanations with Large Language Models
+ACM_0065,ACM-S0,ACM-S0#65,research-article,openalex,openalex,public,already_downloaded,,CodeScore: Evaluating Code Generation by Learning Code Execution
+ACM_0066,ACM-S0;ACM-S1,ACM-S0#66;ACM-S1#116,research-article,openalex,openalex,public,already_downloaded,,Unrestricted Use of LLMs in a Software Project Course: Student Perceptions on Learning and Impact on Course Performance
+ACM_0067,ACM-S0,ACM-S0#67,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics
+ACM_0068,ACM-S0,ACM-S0#68,research-article,openalex,openalex,public,already_downloaded,,Sakura: An Approach for Generating Complex Tests from Natural Language Test Descriptions
+ACM_0069,ACM-S0,ACM-S0#69,short-paper,openalex,openalex,public,already_downloaded,,A Tool for In-depth Analysis of Code Execution Reasoning of Large Language Models
+ACM_0070,ACM-S0,ACM-S0#70,survey,openalex,openalex,public,already_downloaded,,A Survey on Large Language Models for Code Generation
+ACM_0071,ACM-S0;ACM-S1;ACM-S2,ACM-S0#71;ACM-S1#143;ACM-S2#25,research-article,openalex,openalex,public,already_downloaded,,Beyond Coverage: Automatic Test Suite Augmentation for Enhanced Effectiveness using Large Language Models
+ACM_0072,ACM-S0;ACM-S1,ACM-S0#72;ACM-S1#191,research-article,openalex,openalex,public,already_downloaded,,CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios
+ACM_0073,ACM-S0,ACM-S0#73,survey,openalex,openalex,public,already_downloaded,,A Comprehensive Overview of Large Language Models
+ACM_0074,ACM-S0;ACM-S1,ACM-S0#74;ACM-S1#99,research-article,openalex,openalex,public,already_downloaded,,Can LLMs Make Software Testing Greener? An Empirical Study on JUnit Test Energy Reengineering
+ACM_0075,ACM-S0,ACM-S0#75,research-article,openalex,openalex,public,already_downloaded,,An Industry Case Study on Adoption of AI-based Programming Assistants
+ACM_0076,ACM-S0,ACM-S0#76,research-article,openalex,openalex,public,already_downloaded,,Generating Java Methods: An Empirical Assessment of Four AI-Based Code Assistants
+ACM_0077,ACM-S0,ACM-S0#77,research-article,openalex,openalex,public,already_downloaded,,ContrastRepair: Enhancing Conversation-Based Automated Program Repair via Contrastive Test Case Pairs
+ACM_0078,ACM-S0,ACM-S0#78,research-article,openalex,openalex,public,already_downloaded,,Wenwang: Toward Effectively Generating Code Beyond Standalone Functions via Generative Pre-trained Models
+ACM_0079,ACM-S0,ACM-S0#79,research-article,openalex,openalex,public,already_downloaded,,Customizing an LLM for Enterprise Software Engineering
+ACM_0080,ACM-S0,ACM-S0#80,research-article,openalex,openalex,public,already_downloaded,,Assessing the Latent Automated Program Repair Capabilities of Large Language Models Using Round-Trip Translation
+ACM_0081,ACM-S0,ACM-S0#81,research-article,openalex,openalex,public,already_downloaded,,With Power comes Responsibility: Attack Synthesis for Industrial Control Systems using Large Language Models
+ACM_0082,ACM-S0,ACM-S0#82,research-article,openalex,openalex,public,already_downloaded,,On the Effectiveness of Large Language Models in Domain-Specific Code Generation
+ACM_0083,ACM-S0,ACM-S0#83,research-article,openalex,openalex,public,already_downloaded,,How Do Large Language Models Perform in Deep Learning Code Generation? An Empirical Study
+ACM_0084,ACM-S0,ACM-S0#84,research-article,openalex,openalex,public,already_downloaded,,Think Before You Code: Dual Reasoning for the NLSafety–Utility Trade-Off in LLM Code Generation
+ACM_0085,ACM-S0,ACM-S0#85,research-article,openalex,openalex,public,already_downloaded,,Fully Autonomous Programming Using Iterative Multi-Agent Debugging with Large Language Models
+ACM_0086,ACM-S0,ACM-S0#86,research-article,openalex,openalex,public,already_downloaded,,Analyzing Prominent LLMs: An Empirical Study of Performance and Complexity in Solving LeetCode Problems
+ACM_0087,ACM-S0,ACM-S0#87,research-article,openalex,openalex,public,already_downloaded,,An Empirical Study of Reasoning Steps in Thinking Code LLMs
+ACM_0088,ACM-S0,ACM-S0#88,research-article,openalex,openalex,public,already_downloaded,,Thrilled by Your Progress! Large Language Models (GPT-4) No Longer Struggle to Pass Assessments in Higher Education Programming Courses
+ACM_0089,ACM-S0,ACM-S0#89,research-article,openalex,openalex,public,already_downloaded,,Nurturing Code Quality: Leveraging Static Analysis and Large Language Models for Software Quality in Education
+ACM_0090,ACM-S0,ACM-S0#90,research-article,openalex,openalex,public,already_downloaded,,From Code to Correctness: Closing the Last Mile of Code Generation with Hierarchical Debugging
+ACM_0091,ACM-S0,ACM-S0#91,research-article,openalex,openalex,public,already_downloaded,,Exploring Multi-Lingual Bias of Large Code Models in Code Generation
+ACM_0092,ACM-S0,ACM-S0#92,research-article,openalex,openalex,public,already_downloaded,,"Anvil: An Empirical Study of LLM-Powered Alloy Synthesis, Validation, and Repair"
+ACM_0093,ACM-S0,ACM-S0#93,research-article,openalex,openalex,public,already_downloaded,,HumanEvalComm: Benchmarking the Communication Competence of Code Generation for LLMs and LLM Agents
+ACM_0094,ACM-S0,ACM-S0#94,research-article,openalex,openalex,public,already_downloaded,,Towards Understanding the Effectiveness of Large Language Models on Directed Test Input Generation
+ACM_0095,ACM-S0,ACM-S0#95,survey,openalex,openalex,public,already_downloaded,,A Survey on LLM-based Code Generation for Low-Resource and Domain-Specific Programming Languages
+ACM_0096,ACM-S0,ACM-S0#96,research-article,openalex,openalex,public,already_downloaded,,An Empirical Study of Waterfall-style Multi-Agent Workflows for Class-Level Code Generation
+ACM_0097,ACM-S0,ACM-S0#97,research-article,openalex,openalex,public,already_downloaded,,CodeUltraFeedback: An LLM-as-a-Judge Dataset for Aligning Large Language Models to Coding Preferences
+ACM_0098,ACM-S0,ACM-S0#98,research-article,openalex,openalex,public,already_downloaded,,The Robots Are Here: Navigating the Generative AI Revolution in Computing Education
+ACM_0099,ACM-S0,ACM-S0#99,research-article,openalex,openalex,public,already_downloaded,,Spec2FaaS: using AI Agents for Autonomous Serverless Function Development and Deployment
+ACM_0100,ACM-S0,ACM-S0#100,research-article,openalex,openalex,public,already_downloaded,,Beyond Functional Correctness: A Knowledge-Enhanced Iterative Framework for Generating Criteria-Compliant Code
+ACM_0101,ACM-S0,ACM-S0#101,research-article,openalex,openalex,public,already_downloaded,,An Empirical Study on Focal Methods in Deep-Learning-Based Approaches for Assertion Generation
+ACM_0102,ACM-S0,ACM-S0#102,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,MetaCoder: Generating Code from Multiple Perspectives
+ACM_0103,ACM-S0;ACM-S1,ACM-S0#103;ACM-S1#41,research-article,openalex,openalex,public,already_downloaded,,"Test Case Generation Using Large Language Models: Review, Classification and Challenges"
+ACM_0104,ACM-S0,ACM-S0#104,research-article,openalex,openalex,public,already_downloaded,,Do Advanced Language Models Eliminate the Need for Prompt Engineering in Software Engineering?
+ACM_0105,ACM-S0,ACM-S0#105,research-article,openalex,openalex,public,already_downloaded,,Reward-Free Code Alignment from Pretrained or Fine-Tuned LLM: Unpacking the Trade-offs for Code Generation
+ACM_0106,ACM-S0,ACM-S0#106,research-article,openalex,openalex,public,already_downloaded,,A Multi-Dimensional Quality Evaluation of Code Generated by LLM-Based Tools across Multiple Programming Languages
+ACM_0107,ACM-S0,ACM-S0#107,research-article,openalex,openalex,public,already_downloaded,,CoderEval: A Benchmark of Pragmatic Code Generation with Generative Pre-trained Models
+ACM_0108,ACM-S0,ACM-S0#108,research-article,openalex,openalex,public,already_downloaded,,Energy-Efficient LLM-Based Decompilation via a Two-Stage Pipeline on Constrained Hardware
+ACM_0109,ACM-S0,ACM-S0#109,research-article,openalex,openalex,public,already_downloaded,,"Exploring Code Language Models for Automated HLS-based Hardware Generation: Benchmark, Infrastructure and Analysis"
+ACM_0110,ACM-S0,ACM-S0#110,research-article,openalex,openalex,public,already_downloaded,,ScratchNet: A Multi-modal Benchmark for Evaluating and Advancing LLMs on Scratch Programming Tasks
+ACM_0111,ACM-S0,ACM-S0#111,research-article,openalex,openalex,public,already_downloaded,,SEER: Enhancing Chain-of-Thought Code Generation through Self-Exploring Deep Reasoning
+ACM_0112,ACM-S0,ACM-S0#112,research-article,openalex,openalex,public,already_downloaded,,Strategies for Guiding LLMs to Use Software Design Patterns: A Case of Singleton
+ACM_0113,ACM-S0,ACM-S0#113,research-article,openalex,openalex,public,already_downloaded,,Towards More Realistic Assertion Generation under Mixed-Assertion Scenario
+ACM_0114,ACM-S0,ACM-S0#114,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Towards Understanding the Characteristics of Code Generation Errors Made by Large Language Models
+ACM_0115,ACM-S0,ACM-S0#115,research-article,openalex,openalex,public,already_downloaded,,Understanding the Code and Architectural Smells Generated by LLMs and Autonomous Agents
+ACM_0116,ACM-S0,ACM-S0#116,research-article,openalex,openalex,public,already_downloaded,,RealBench: A Repo-Level Code Generation Benchmark Aligned with Real-World Software Development Practices
+ACM_0117,ACM-S0,ACM-S0#117,research-article,openalex,openalex,public,already_downloaded,,Automatic Validation of LLM-Generated Code with Prompt Paraphrasing
+ACM_0118,ACM-S0;ACM-S1;ACM-S2,ACM-S0#118;ACM-S1#49;ACM-S2#4,research-article,openalex,openalex,public,already_downloaded,,On the Evaluation of Large Language Models in Unit Test Evolution (Experience Paper)
+ACM_0119,ACM-S0,ACM-S0#119,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,SOEN-101: Code Generation by Emulating Software Process Models Using Large Language Model Agents
+ACM_0120,ACM-S0,ACM-S0#120,research-article,openalex,openalex,public,already_downloaded,,CYCLE: Learning to Self-Refine the Code Generation
+ACM_0121,ACM-S0;ACM-S1,ACM-S0#121;ACM-S1#104,research-article,openalex,openalex,public,already_downloaded,,Do Coverage and Mutation Scores of LLM-Generated Test Suites Correlate with Their Effectiveness? (Replicability Study)
+ACM_0122,ACM-S0,ACM-S0#122,research-article,openalex,openalex,public,already_downloaded,,Enhancing LLM Code Generation with Ensembles: A Similarity-Based Selection Approach
+ACM_0123,ACM-S0,ACM-S0#123,research-article,openalex,openalex,public,already_downloaded,,Do LLMs Dream of Energy-Efficient Code?
+ACM_0124,ACM-S0;ACM-S1,ACM-S0#124;ACM-S1#102,research-article,openalex,openalex,public,already_downloaded,,Reducing Hallucinations in LLM-Generated Code via Semantic Triangulation
+ACM_0125,ACM-S0,ACM-S0#125,research-article,openalex,openalex,public,already_downloaded,,AdverIntent-Agent: Adversarial Reasoning for Repair Based on Inferred Program Intent
+ACM_0126,ACM-S0,ACM-S0#126,research-article,openalex,openalex,public,already_downloaded,,Environment-Aware Code Generation: How far are We?
+ACM_0127,ACM-S0,ACM-S0#127,research-article,venue_label,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,"When Prompts Go Wrong: Evaluating Code Model Robustness to Ambiguous, Contradictory, and Incomplete Task Descriptions"
+ACM_0128,ACM-S0;ACM-S1,ACM-S0#128;ACM-S1#61,research-article,openalex,openalex,public,already_downloaded,,Less Is More: Failing Test Generation with Large Language Models
+ACM_0129,ACM-S0;ACM-S1,ACM-S0#129;ACM-S1#162,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,LLM4Code '26: Proceedings of the 3rd International Workshop on Large Language Models For Code
+ACM_0130,ACM-S0,ACM-S0#130,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Mitigating Cognitive Vulnerabilities in Code Generation via Multi-Agent Adversarial Debate
+ACM_0131,ACM-S0,ACM-S0#131,research-article,openalex,openalex,public,already_downloaded,,A-ProS: Towards Reliable Autonomous Programming Through Multi-Model Feedback
+ACM_0132,ACM-S0,ACM-S0#132,research-article,openalex,openalex,public,already_downloaded,,RAT: Retrieval-Augmented Testing of Certificate Revocation List Parsers in TLS Implementations
+ACM_0133,ACM-S0,ACM-S0#133,research-article,,acm_snippet,public,already_downloaded,NO_YEAR;ABSTRACT_TRUNCATED,MoT: Modularization-of-Thought Prompting for Effective Code Generation
+ACM_0134,ACM-S0,ACM-S0#134,research-article,openalex,openalex,public,already_downloaded,,Smaller but Better: Self-Paced Knowledge Distillation for Lightweight yet Effective LCMs
+ACM_0135,ACM-S0,ACM-S0#135,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,"AI-SQE '26: Proceedings of the 1st International Workshop on AI for Software Quality Evaluation - Judgment, Metrics, Benchmarks, and Beyond"
+ACM_0136,ACM-S0,ACM-S0#136,research-article,openalex,openalex,public,already_downloaded,,Self-Adaptive Code Representation: Grammar-Guided or Token-Based?
+ACM_0137,ACM-S0,ACM-S0#137,research-article,openalex,openalex,public,already_downloaded,,Beyond Public Benchmarks: An LLM-as-Judge Framework for Enterprise Code Evaluation with Margin-Driven Optimization
+ACM_0138,ACM-S0,ACM-S0#138,research-article,openalex,openalex,public,already_downloaded,,Not All Local LLMs Are Equal: A Benchmark of Energy and Performance
+ACM_0139,ACM-S0,ACM-S0#139,research-article,openalex,openalex,public,already_downloaded,,CREME: Robustness Enhancement of Code LLMs via Layer-Aware Model Editing
+ACM_0140,ACM-S0,ACM-S0#140,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,BudgetMLAgent: A Cost-Effective LLM Multi-Agent system for Automating Machine Learning Tasks
+ACM_0141,ACM-S0,ACM-S0#141,research-article,openalex,openalex,public,already_downloaded,,Reasoning as a Resource: Optimizing Fast and Slow Thinking in Code Generation Models
+ACM_0142,ACM-S0,ACM-S0#142,research-article,openalex,openalex,public,already_downloaded,,Multi-Agent Strategies for Bridging Programming Language Gaps in Code Generation
+ACM_0143,ACM-S0,ACM-S0#143,research-article,openalex,openalex,public,already_downloaded,,COFFE: A Code Efficiency Benchmark for Code Generation
+ACM_0144,ACM-S0,ACM-S0#144,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,From Human to Machine Refactoring: Assessing GPT-4’s Impact on Python Class Quality and Readability
+ACM_0145,ACM-S0,ACM-S0#145,research-article,openalex,openalex,public,already_downloaded,,"Synthesis-in-the-Loop Evaluation of LLMs for RTL Generation: Quality, Reliability, and Failure Modes"
+ACM_0146,ACM-S0,ACM-S0#146,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,"SPLASH Companion '26: Companion Proceedings of the 2026 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity"
+ACM_0147,ACM-S0,ACM-S0#147,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,ICPC '26: Proceedings of the 2026 34th IEEE/ACM International Conference on Program Comprehension
+ACM_0148,ACM-S0,ACM-S0#148,research-article,openalex,openalex,public,already_downloaded,,Needle in the Repo: Diagnosing Maintainability Failures in AI-Generated Repository Edits
+ACM_0149,ACM-S0,ACM-S0#149,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Refuting LLM-generated Code with Reactive Task Comprehension
+ACM_0150,ACM-S0,ACM-S0#150,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,ICSE-Companion '26: Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering
+ACM_0151,ACM-S0,ACM-S0#151,research-article,openalex,openalex,public,already_downloaded,,Exploring Data-Efficient Adaptation of Large Language Models for Code Generation
+ACM_0152,ACM-S0;ACM-S1,ACM-S0#152;ACM-S1#139,research-article,openalex,openalex,public,already_downloaded,,From Greedy Steps to Global Optimization: Learning Sequential Test Suite Generation
+ACM_0153,ACM-S0,ACM-S0#153,research-article,openalex,openalex,public,already_downloaded,,TerraFormer: Automated Infrastructure-as-Code with LLMs Fine-Tuned via Policy-Guided Verifier Feedback
+ACM_0154,ACM-S0,ACM-S0#154,research-article,openalex,openalex,public,already_downloaded,,A Dataset for Evaluating LLMs Vulnerability Repair Performance in Android Applications: Data/Toolset paper
+ACM_0155,ACM-S0,ACM-S0#155,research-article,openalex,openalex,public,already_downloaded,,FreshBrew: A Benchmark for Evaluating AI Agents on Java Code Migration
+ACM_0156,ACM-S0,ACM-S0#156,research-article,openalex,openalex,public,already_downloaded,,Leveraging Change Types and Contexts to Guide LLMs for Automated Test Code Updating
+ACM_0157,ACM-S0,ACM-S0#157,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,PROMISE '26: Proceedings of the 22nd International Conference on Predictive Models and Data Analytics in Software Engineering
+ACM_0158,ACM-S0,ACM-S0#158,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,APR '26: Proceedings of the 7th International Workshop on Automated Program Repair
+ACM_0159,ACM-S0,ACM-S0#159,research-article,openalex,openalex,public,already_downloaded,,Exploring Code Analysis: Zero-Shot Insights on Syntax and Semantics with LLMs
+ACM_0160,ACM-S0,ACM-S0#160,research-article,openalex,openalex,public,already_downloaded,,The First Prompt Counts the Most! An Evaluation of Large Language Models on Iterative Example-Based Code Generation
+ACM_0161,ACM-S0,ACM-S0#161,research-article,openalex,openalex,public,already_downloaded,,ReqEvolve: User-Oriented Software Self-Evolution through Automatic Requirement Interpretation
+ACM_0162,ACM-S0;ACM-S1,ACM-S0#162;ACM-S1#47,research-article,openalex,openalex,public,already_downloaded,,Type-aware LLM-based Test Generation for Python Programs
+ACM_0163,ACM-S0,ACM-S0#163,research-article,openalex,openalex,public,already_downloaded,,TraceDev: A Traceability-Driven Multi-agent Framework for Requirement-to-Code Development
+ACM_0164,ACM-S0,ACM-S0#164,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,POVC '26: Proceedings of the 1st International Workshop on PromptOps and Vibe Coding
+ACM_0165,ACM-S0;ACM-S1,ACM-S0#165;ACM-S1#15,research-article,openalex,openalex,public,already_downloaded,,Domain Adaptation for Code Model-Based Unit Test Case Generation
+ACM_0166,ACM-S0,ACM-S0#166,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Fixing Large Language Models' Specification Misunderstanding for Better Code Generation
+ACM_0167,ACM-S0,ACM-S0#167,research-article,openalex,openalex,public,already_downloaded,,CelloAI: Leveraging Large Language Models for HPC Software Development in High Energy Physics
+ACM_0168,ACM-S0,ACM-S0#168,short-paper,openalex,openalex,public,already_downloaded,,On Evaluating the Efficiency of Source Code Generated by LLMs
+ACM_0169,ACM-S0,ACM-S0#169,research-article,openalex,openalex,public,already_downloaded,,Oracle-Guided Program Selection from Large Language Models
+ACM_0170,ACM-S0,ACM-S0#170,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Enhancing Code Generation via Bidirectional Comment-Level Mutual Grounding
+ACM_0171,ACM-S0,ACM-S0#171,research-article,openalex,openalex,public,already_downloaded,,Bipartite-Grammar–Aware Pretraining for XML-SQL Code Updating
+ACM_0172,ACM-S0,ACM-S0#172,research-article,openalex,openalex,public,already_downloaded,,The Current Challenges of Software Engineering in the Era of Large Language Models
+ACM_0173,ACM-S0,ACM-S0#173,research-article,openalex,openalex,public,already_downloaded,,VeriGen: A Large Language Model for Verilog Code Generation
+ACM_0174,ACM-S0,ACM-S0#174,research-article,openalex,openalex,public,already_downloaded,,Test Oracle Automation in the Era of LLMs
+ACM_0175,ACM-S0,ACM-S0#175,survey,openalex,openalex,public,already_downloaded,,Metamorphic Testing of Deep Code Models: A Systematic Literature Review
+ACM_0176,ACM-S0,ACM-S0#176,research-article,openalex,openalex,public,already_downloaded,,On LLMs’ Internal Representation of Code Correctness
+ACM_0177,ACM-S0,ACM-S0#177,survey,openalex,openalex,public,already_downloaded,,Fundamental Capabilities and Applications of Large Language Models: A Survey
+ACM_0178,ACM-S0,ACM-S0#178,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,ICSE '26: Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering
+ACM_0179,ACM-S0,ACM-S0#179,research-article,openalex,openalex,public,already_downloaded,,Enterprise-Scale COBOL-to-Java Translation: LLMs Augmented with Program Analysis
+ACM_0180,ACM-S0,ACM-S0#180,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,ICSE-NIER '26: Proceedings of the IEEE/ACM 48th International Conference on Software Engineering
+ACM_0181,ACM-S0,ACM-S0#181,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,FORGE '26: Proceedings of the 2026 IEEE/ACM Third International Conference on AI Foundation Models and Software Engineering
+ACM_0182,ACM-S0,ACM-S0#182,research-article,openalex,openalex,public,already_downloaded,,"LLM-as-a-Judge for Software Engineering: Literature Review, Vision, and the Road Ahead"
+ACM_0183,ACM-S0,ACM-S0#183,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,ASE '26: Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering
+ACM_0184,ACM-S0,ACM-S0#184,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,ROCODE: Integrating Backtracking Mechanism and Program Analysis in Large Language Models for Code Generation
+ACM_0185,ACM-S0;ACM-S1,ACM-S0#185;ACM-S1#42,research-article,openalex,openalex,public,already_downloaded,,Evaluating LLM-Based Regression Test Generation
+ACM_0186,ACM-S0,ACM-S0#186,research-article,openalex,openalex,public,already_downloaded,,REAP: Automatic Curation of Coding Agent Benchmarks from Interactive Production Usage
+ACM_0187,ACM-S0,ACM-S0#187,extended-abstract,openalex,openalex,public,already_downloaded,,LLM-Powered On-Demand Test Suites in Self-Graded Student Programming Assignments
+ACM_0188,ACM-S0,ACM-S0#188,research-article,openalex,openalex,public,already_downloaded,,JavaBench: A Benchmark of Object-Oriented Code Generation for Evaluating Large Language Models
+ACM_0189,ACM-S0;ACM-S1,ACM-S0#189;ACM-S1#81,research-article,openalex,openalex,public,already_downloaded,,Tracking the Moving Target: A Framework for Continuous Evaluation of LLM Test Generation in Industry
+ACM_0190,ACM-S0,ACM-S0#190,research-article,openalex,openalex,public,already_downloaded,,Toward Agentic Runtime Healing
+ACM_0191,ACM-S0,ACM-S0#191,research-article,openalex,openalex,public,already_downloaded,,Large Language Model vs. Stack Overflow in Addressing Android Permission Related Challenges
+ACM_0192,ACM-S0,ACM-S0#192,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,SAST '23: Proceedings of the 8th Brazilian Symposium on Systematic and Automated Software Testing
+ACM_0193,ACM-S0,ACM-S0#193,research-article,openalex,openalex,public,already_downloaded,,Mutation-based Consistency Testing for Evaluating the Code Understanding Capability of LLMs
+ACM_0194,ACM-S0,ACM-S0#194,research-article,openalex,openalex,public,already_downloaded,,ClarifyGPT: A Framework for Enhancing LLM-Based Code Generation via Requirements Clarification
+ACM_0195,ACM-S0,ACM-S0#195,research-article,openalex,openalex,public,already_downloaded,,Cross-Model Collaboration for Enhancing LLM-Based Code Generation
+ACM_0196,ACM-S0,ACM-S0#196,research-article,openalex,openalex,public,already_downloaded,,Debugging with Open-Source Large Language Models: An Evaluation
+ACM_0197,ACM-S0,ACM-S0#197,survey,openalex,openalex,public,already_downloaded,,"A Survey of Reasoning with Foundation Models: Concepts, Methodologies, and Outlook"
+ACM_0198,ACM-S0,ACM-S0#198,research-article,openalex,openalex,public,already_downloaded,,"Preemptive, Buffered, or Guided? Empirical Studies on Human–AI Interaction Strategies for Software Test Case Development"
+ACM_0199,ACM-S0,ACM-S0#199,research-article,openalex,openalex,public,already_downloaded,,Bias Testing and Mitigation in LLM-based Code Generation
+ACM_0200,ACM-S0,ACM-S0#200,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,WSSE '25: Proceedings of the 2025 7th World Symposium on Software Engineering
+ACM_0201,ACM-S0,ACM-S0#201,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Passing Parity Is Not Preserving Behaviour: Oracle Escape in Function-Level LLM Code Migration
+ACM_0202,ACM-S0,ACM-S0#202,research-article,openalex,openalex,public,already_downloaded,,Morescient GAI for Software Engineering
+ACM_0203,ACM-S0,ACM-S0#203,research-article,openalex,openalex,public,already_downloaded,,Debugging Functionality-Twisting Translations by LLMs via Differential Testing with Bayesian Prior
+ACM_0204,ACM-S0,ACM-S0#204,tutorial,openalex,openalex,public,already_downloaded,,Reasoning and Planning with Large Language Models in Code Development
+ACM_0205,ACM-S0,ACM-S0#205,research-article,openalex,openalex,public,already_downloaded,,TACO: Trust Assessment of Large Language Models in Coding Assistance Tasks
+ACM_0206,ACM-S0,ACM-S0#206,short-paper,openalex,openalex,public,already_downloaded,,How Do Agents Perform Code Optimization? An Empirical Study
+ACM_0207,ACM-S0,ACM-S0#207,proceeding,,,public,already_downloaded,NO_YEAR;PROCEEDINGS_VOLUME;NO_ABSTRACT,GoodIT '26: Proceedings of the 2026 International Conference on Information Technology for Social Good
+ACM_0208,ACM-S0,ACM-S0#208,research-article,openalex,openalex,public,already_downloaded,,NLPerturbator: Studying the Robustness of Code LLMs to Natural Language Variations
+ACM_0209,ACM-S0,ACM-S0#209,research-article,openalex,openalex,public,already_downloaded,,Rethinking the Evaluation of Secure Code Generation
+ACM_0210,ACM-S0,ACM-S0#210,research-article,openalex,openalex,public,already_downloaded,,Knowledge-Aware Code Generation with Large Language Models
+ACM_0211,ACM-S0,ACM-S0#211,research-article,openalex,openalex,public,already_downloaded,,Make LLM a Testing Expert: Bringing Human-like Interaction to Mobile GUI Testing via Functionality-aware Decisions
+ACM_0212,ACM-S0;ACM-S1,ACM-S0#212;ACM-S1#188,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,LLM4Code '24: Proceedings of the 1st International Workshop on Large Language Models for Code
+ACM_0213,ACM-S0,ACM-S0#213,research-article,openalex,openalex,public,already_downloaded,,RMCBench: Benchmarking Large Language Models' Resistance to Malicious Code
+ACM_0214,ACM-S0,ACM-S0#214,research-article,openalex,openalex,public,already_downloaded,,ConTested: Consistency-Aided Tested Code Generation with LLM
+ACM_0215,ACM-S0,ACM-S0#215,research-article,openalex,openalex,public,already_downloaded,,Prompting Techniques for Secure Code Generation: A Systematic Investigation
+ACM_0216,ACM-S0,ACM-S0#216,research-article,openalex,openalex,public,already_downloaded,,ChemGen: Towards Understanding First-Principles Calculation Code Generation Based on Large Language Models
+ACM_0217,ACM-S0,ACM-S0#217,research-article,openalex,openalex,public,already_downloaded,,Chain of Targeted Verification Questions to Improve the Reliability of Code Generated by LLMs
+ACM_0218,ACM-S0,ACM-S0#218,research-article,openalex,openalex,public,already_downloaded,,ClassEval-Pro: A Cross-Domain Benchmark for Class-Level Code Generation
+ACM_0219,ACM-S0,ACM-S0#219,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,MODELS '26: Proceedings of the ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems
+ACM_0220,ACM-S0,ACM-S0#220,research-article,openalex,openalex,public,already_downloaded,,Exploring Parameter-Efficient Fine-Tuning of Large Language Model on Automated Program Repair
+ACM_0221,ACM-S0,ACM-S0#221,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,AIware '26: Proceedings of the 3rd ACM International Conference on AI-Powered Software
+ACM_0222,ACM-S0,ACM-S0#222,research-article,openalex,openalex,public,already_downloaded,,From Cool Demos to Production-Ready FMware: Core Challenges and a Technology Roadmap
+ACM_0223,ACM-S0,ACM-S0#223,research-article,openalex,openalex,public,already_downloaded,,Understanding Conversational Patterns in Multi-agent Programming: A Case Study on Fibonacci Game Development
+ACM_0224,ACM-S0,ACM-S0#224,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,AskIt: Unified Programming Interface for Programming with Large Language Models
+ACM_0225,ACM-S0,ACM-S0#225,research-article,openalex,openalex,public,already_downloaded,,Developing Critical Thinking with AI Coding Assistants: An Educational Experience focusing on Testing and Legacy Code
+ACM_0226,ACM-S0,ACM-S0#226,survey,openalex,openalex,public,already_downloaded,,A Systematic Literature Review on Large Language Models for Automated Program Repair
+ACM_0227,ACM-S0,ACM-S0#227,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,MAS-GAIN '26: Proceedings of the 2nd International Workshop on Multi-Agent Systems using Generative Artificial INtelligence for Automated Software Engineering
+ACM_0228,ACM-S0,ACM-S0#228,research-article,openalex,openalex,public,already_downloaded,,MFTCoder: Boosting Code LLMs with Multitask Fine-Tuning
+ACM_0229,ACM-S0,ACM-S0#229,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,WSDM '25: Proceedings of the Eighteenth ACM International Conference on Web Search and Data Mining
+ACM_0230,ACM-S0,ACM-S0#230,survey,openalex,openalex,public,already_downloaded,,Assessing and Advancing Benchmarks for Evaluating Large Language Models in Software Engineering Tasks
+ACM_0231,ACM-S0,ACM-S0#231,survey,openalex,openalex,public,already_downloaded,,Large Language Model-Based Agents for Software Engineering: A Survey
+ACM_0232,ACM-S0,ACM-S0#232,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,BioFlowBench: A Comprehensive Benchmark for Evaluating Bioinformatics Tool-use Capabilities of LLMs and Agents
+ACM_0233,ACM-S0,ACM-S0#233,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,ACM REP '26: Proceedings of the 4th ACM Conference on Reproducibility and Replicability
+ACM_0234,ACM-S0,ACM-S0#234,research-article,openalex,openalex,public,already_downloaded,,MioHint: LLM-Assisted Request Mutation for Whitebox REST API Testing
+ACM_0235,ACM-S0,ACM-S0#235,research-article,openalex,openalex,public,already_downloaded,,TraceCoder: A Trace-Driven Multi-Agent Framework for Automated Debugging of LLM-Generated Code
+ACM_0236,ACM-S0,ACM-S0#236,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,AGENT '26: Proceedings of the 2026 International Workshop on Agentic Engineering
+ACM_0237,ACM-S0,ACM-S0#237,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,ResBench: A Resource-Aware Benchmark for LLM-Generated FPGA Designs
+ACM_0238,ACM-S0,ACM-S0#238,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Unseen Horizons: Unveiling the Real Capability of LLM Code Generation Beyond the Familiar
+ACM_0239,ACM-S0,ACM-S0#239,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICSE-SEIP '26: Proceedings of the IEEE/ACM 48th International Conference on Software Engineering: Software Engineering in Practice
+ACM_0240,ACM-S0,ACM-S0#240,research-article,openalex,openalex,public,already_downloaded,,Autofy: Automated Synthesis of Formally Verified Code
+ACM_0241,ACM-S0,ACM-S0#241,research-article,openalex,openalex,public,already_downloaded,,Self-Promotion in LLM Recommendations
+ACM_0242,ACM-S0,ACM-S0#242,research-article,openalex,openalex,public,already_downloaded,,LLM4JMH: Studying the Use of LLMs for Generating Java Performance Microbenchmarks
+ACM_0243,ACM-S0,ACM-S0#243,research-article,openalex,openalex,public,already_downloaded,,RACE-Bench: A Reasoning-Augmented Benchmark for Repository-Level Code Agents on Feature Addition
+ACM_0244,ACM-S0,ACM-S0#244,survey,openalex,openalex,public,already_downloaded,,Large Language Models for Software Engineering: A Systematic Literature Review
+ACM_0245,ACM-S0,ACM-S0#245,research-article,openalex,openalex,public,already_downloaded,,Static and Dynamic Comparison of Mutation Testing Tools for Python
+ACM_0246,ACM-S0,ACM-S0#246,research-article,openalex,openalex,public,already_downloaded,,ProxyWar: Dynamic Assessment of LLM Code Generation in Game Arenas
+ACM_0247,ACM-S0,ACM-S0#247,research-article,openalex,openalex,public,already_downloaded,,KGMACG: Knowledge-Guided Multi-Agent Orchestration for Scalable Application-Level Code Generation
+ACM_0248,ACM-S0;ACM-S1,ACM-S0#248;ACM-S1#145,research-article,openalex,openalex,public,already_downloaded,,Breaking the Silence: the Threats of Using LLMs in Software Engineering
+ACM_0249,ACM-S0,ACM-S0#249,research-article,openalex,openalex,public,already_downloaded,,Beyond Final Code: A Process-Oriented Error Analysis of Software Development Agents in Real-World GitHub Scenarios
+ACM_0250,ACM-S0,ACM-S0#250,research-article,openalex,openalex,public,already_downloaded,,How Humans Communicate Programming Tasks in Natural Language and Implications For End-User Programming with LLMs
+ACM_0251,ACM-S0,ACM-S0#251,research-article,openalex,openalex,public,already_downloaded,,Guidelines to Prompt Large Language Models for Code Generation: An Empirical Characterization
+ACM_0252,ACM-S0,ACM-S0#252,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,AISM '26: Proceedings of the 2nd International Workshop on AI for Software Modernization
+ACM_0253,ACM-S0,ACM-S0#253,research-article,openalex,openalex,public,already_downloaded,,LLMs for Intelligent Software Testing: A Comparative Study
+ACM_0254,ACM-S0,ACM-S0#254,research-article,openalex,openalex,public,already_downloaded,,DSCode Comparator: An Interactive Interface for Comparing Models and Evaluating Code for Data Science Tasks
+ACM_0255,ACM-S0,ACM-S0#255,survey,openalex,openalex,public,already_downloaded,,A Technical Survey of Reinforcement Learning Techniques for Large Language Models
+ACM_0256,ACM-S0,ACM-S0#256,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,EASE '25: Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering
+ACM_0257,ACM-S0,ACM-S0#257,survey,openalex,openalex,public,already_downloaded,,"Multi-Step Reasoning with Large Language Models, a Survey"
+ACM_0258,ACM-S0,ACM-S0#258,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,LMPL '25: Proceedings of the 1st ACM SIGPLAN International Workshop on Language Models and Programming Languages
+ACM_0259,ACM-S0,ACM-S0#259,research-article,openalex,openalex,public,already_downloaded,,Security of Cross-Platform and Cross-Language Software Technologies: A Systematic Review
+ACM_0260,ACM-S0,ACM-S0#260,research-article,openalex,openalex,public,already_downloaded,,LLMs for Accessibility in Mobile Apps: Detection and Repair
+ACM_0261,ACM-S0,ACM-S0#261,research-article,openalex,openalex,public,already_downloaded,,COMPASS: A Psychometrics-Guided Multi-Dimensional Benchmark for Code Generation Evaluation
+ACM_0262,ACM-S0;ACM-S1,ACM-S0#262;ACM-S1#118,research-article,openalex,openalex,public,already_downloaded,,Can Vibe Coding Beat Graduate CS Students? An LLM vs. Human Coding Tournament on Market-driven Strategic Planning
+ACM_0263,ACM-S0,ACM-S0#263,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,AgenticDev '26: Proceedings of the 1st International Workshop on Agentic AI for Next-Generation Software Development
+ACM_0264,ACM-S0,ACM-S0#264,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,CAIS '26: Proceedings of the ACM Conference on AI and Agentic Systems
+ACM_0265,ACM-S0,ACM-S0#265,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,GREENS '26: Proceedings of the IEEE/ACM 10th International Workshop on Green and Sustainable Software
+ACM_0266,ACM-S0,ACM-S0#266,research-article,openalex,openalex,public,already_downloaded,,"LLM Hallucinations in Practical Code Generation: Phenomena, Mechanism, and Mitigation"
+ACM_0267,ACM-S0,ACM-S0#267,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Large Language Models for Code Translation: An In-Depth Analysis of Code Smells and Functional Correctness
+ACM_0268,ACM-S0,ACM-S0#268,research-article,openalex,openalex,public,already_downloaded,,Open Source Language Models Can Provide Feedback: Evaluating LLMs' Ability to Help Students Using GPT-4-As-A-Judge
+ACM_0269,ACM-S0,ACM-S0#269,survey,openalex,openalex,public,already_downloaded,,Surveying the Benchmarking Landscape of Large Language Models in Code Intelligence
+ACM_0270,ACM-S0;ACM-S1,ACM-S0#270;ACM-S1#59,research-article,openalex,openalex,public,already_downloaded,,Just-in-Time Catching Test Generation at Meta
+ACM_0271,ACM-S0,ACM-S0#271,research-article,openalex,openalex,public,already_downloaded,,Sometimes Painful but Promising: Feasibility and Trade-Offs of On-Device Language Model Inference
+ACM_0272,ACM-S0,ACM-S0#272,short-paper,openalex,openalex,public,already_downloaded,,Trustworthiness of Vibe Coding from the NIST AI RMF Perspective
+ACM_0273,ACM-S0,ACM-S0#273,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,LLM4VV: Exploring LLM-as-a-Judge for Validation and Verification Testsuites
+ACM_0274,ACM-S0,ACM-S0#274,research-article,openalex,openalex,public,already_downloaded,,LLM for Mobile: An Initial Roadmap
+ACM_0275,ACM-S0,ACM-S0#275,research-article,openalex,openalex,public,already_downloaded,,TypeNFuzz: Dynamic Type-aware Object Dependence Graph-Guided Fuzzing for JavaScript Library Bug Discovery
+ACM_0276,ACM-S0,ACM-S0#276,research-article,openalex,openalex,public,already_downloaded,,BDD-Bench: A Behavior-Driven Benchmark for Coding Agents across the Application Lifecycle
+ACM_0277,ACM-S0,ACM-S0#277,research-article,openalex,openalex,public,already_downloaded,,MR-Coupler: Automated Metamorphic Test Generation via Functional Coupling Analysis
+ACM_0278,ACM-S0,ACM-S0#278,research-article,openalex,openalex,public,already_downloaded,,LUMEN: Enhancing IoT System Observability with Multi-Agent Large Language Models and Knowledge Graphs
+ACM_0279,ACM-S0,ACM-S0#279,research-article,openalex,openalex,public,already_downloaded,,Code–Test Co-translation: Towards Practical and Effective Program Migration in the Wild
+ACM_0280,ACM-S0,ACM-S0#280,research-article,openalex,openalex,public,already_downloaded,,FURINA: A Multi-Agent Framework for Automated Patch Correctness Assessment
+ACM_0281,ACM-S0,ACM-S0#281,research-article,openalex,openalex,public,already_downloaded,,LoCaL: Countering Surface Bias in Code Evaluation Metrics
+ACM_0282,ACM-S0,ACM-S0#282,research-article,openalex,openalex,public,already_downloaded,,Code LLMs Still Fall Short of Top Programmers: Evaluating Algorithmic Code Generation Through Computational Thinking
+ACM_0283,ACM-S0,ACM-S0#283,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,WebSci '26: Proceedings of the 18th ACM Web Science Conference 2026
+ACM_0284,ACM-S0,ACM-S0#284,research-article,openalex,openalex,public,already_downloaded,,SWE-Bench Mobile: Can Large Language Model Agents Develop Industry-Level Mobile Applications?
+ACM_0285,ACM-S0,ACM-S0#285,survey,openalex,openalex,public,already_downloaded,,"A Comprehensive Survey of Small Language Models in the Era of Large Language Models: Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness"
+ACM_0286,ACM-S0,ACM-S0#286,research-article,openalex,openalex,public,already_downloaded,,Developers’ Experience with Generative AI - First Insights from an Empirical Mixed-Methods Field Study
+ACM_0287,ACM-S0,ACM-S0#287,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,LMPL '26: Proceedings of the 2nd ACM SIGPLAN International Workshop on Language Models and Programming Languages
+ACM_0288,ACM-S0,ACM-S0#288,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,ICER '26: Proceedings of the 2026 ACM Conference on International Computing Education Research Vol. 1
+ACM_0289,ACM-S0,ACM-S0#289,proceeding,,,public,already_downloaded,NO_YEAR;PROCEEDINGS_VOLUME;NO_ABSTRACT,ICSE-SEET '26: Proceedings of the IEEE/ACM 48th International Conference on Software Engineering
+ACM_0290,ACM-S0,ACM-S0#290,proceeding,,,public,already_downloaded,NO_YEAR;PROCEEDINGS_VOLUME;NO_ABSTRACT,"FAccT '26: Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency"
+ACM_0291,ACM-S0,ACM-S0#291,research-article,openalex,openalex,public,already_downloaded,,A Localization Framework for Reasoning Faults in LLM-based Code Agents
+ACM_0292,ACM-S0,ACM-S0#292,research-article,openalex,openalex,public,already_downloaded,,Automatic Programming: Large Language Models and Beyond
+ACM_0293,ACM-S0,ACM-S0#293,survey,openalex,openalex,public,already_downloaded,,Security of Language Models for Code: A Systematic Literature Review
+ACM_0294,ACM-S0;ACM-S1;ACM-S2,ACM-S0#294;ACM-S1#184;ACM-S2#27,research-article,openalex,openalex,public,already_downloaded,,Exploring Automated Assertion Generation via Large Language Models
+ACM_0295,ACM-S0,ACM-S0#295,research-article,openalex,openalex,public,already_downloaded,,ProjectEvalPlus: An Agentic Software Engineering Benchmark with Automatic Language Extension and User Simulated Evaluation
+ACM_0296,ACM-S0,ACM-S0#296,research-article,openalex,openalex,public,already_downloaded,,Automated Prompt Engineering for Cost-Effective Code Generation Using Evolutionary Algorithms
+ACM_0297,ACM-S0,ACM-S0#297,research-article,openalex,openalex,public,already_downloaded,,Steering Tree-of-Thought Reasoning via Deductive Verification
+ACM_0298,ACM-S0,ACM-S0#298,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,FaSE4Games 2024: Proceedings of the 1st ACM International Workshop on Foundations of Applied Software Engineering for Games
+ACM_0299,ACM-S0,ACM-S0#299,research-article,openalex,openalex,public,already_downloaded,,Towards AI-Native Software Engineering (SE 3.0): A Vision and a Challenge Roadmap
+ACM_0300,ACM-S0,ACM-S0#300,research-article,openalex,openalex,public,already_downloaded,,CCCI: Code Completion with Contextual Information for Complex Data Transfer Tasks Using Large Language Models
+ACM_0301,ACM-S0,ACM-S0#301,research-article,openalex,openalex,public,already_downloaded,,From Triumph to Uncertainty: The Journey of Software Engineering in the AI Era
+ACM_0302,ACM-S0,ACM-S0#302,research-article,openalex,openalex,public,already_downloaded,,Automatically Inspecting Thousands of Static Bug Warnings with Large Language Model: How Far Are We?
+ACM_0303,ACM-S0,ACM-S0#303,research-article,openalex,openalex,public,already_downloaded,,Do Current Language Models Support Code Intelligence for R Programming Language?
+ACM_0304,ACM-S0,ACM-S0#304,research-article,openalex,openalex,public,already_downloaded,,Large Language Model-Aware In-Context Learning for Code Generation
+ACM_0305,ACM-S0,ACM-S0#305,research-article,openalex,openalex,public,already_downloaded,,Less Is More: DocString Compression in Code Generation
+ACM_0306,ACM-S0,ACM-S0#306,research-article,openalex,openalex,public,already_downloaded,,Beyond Maintenance: A Benchmark and Multi-Agent Framework for Repository-Usage Code Generation
+ACM_0307,ACM-S0,ACM-S0#307,research-article,openalex,openalex,public,already_downloaded,,Automated Program Refinement: Guide and Verify Code Large Language Model with Refinement Calculus
+ACM_0308,ACM-S0,ACM-S0#308,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,MODELS Companion '26: Proceedings of the ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems
+ACM_0309,ACM-S0,ACM-S0#309,research-article,openalex,openalex,public,already_downloaded,,Code with Me or for Me? How Increasing AI Automation Transforms Developer Workflows
+ACM_0310,ACM-S0,ACM-S0#310,research-article,openalex,openalex,public,already_downloaded,,Fate: Fasss sEsdge Inference of Mixture-of-Experts Models via Cross-Layer Gate
+ACM_0311,ACM-S0,ACM-S0#311,research-article,openalex,openalex,public,already_downloaded,,AutoDFBench: A Framework for AI Generated Digital Forensic Code and Tool Testing and Evaluation
+ACM_0312,ACM-S0,ACM-S0#312,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,IUI '26: Proceedings of the 31st International Conference on Intelligent User Interfaces
+ACM_0313,ACM-S0,ACM-S0#313,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,FSE 2024: Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering
+ACM_0314,ACM-S0,ACM-S0#314,research-article,openalex,openalex,public,already_downloaded,,CuFuzz: An API-Knowledge-Graph Coverage-Driven Fuzzing Framework for CUDA Libraries
+ACM_0315,ACM-S0,ACM-S0#315,research-article,openalex,openalex,public,already_downloaded,,Sandhi: Fine-Grained Merging for Memory Efficient Multi-Model Serving
+ACM_0316,ACM-S0,ACM-S0#316,proceeding,,,public,already_downloaded,NO_YEAR;PROCEEDINGS_VOLUME;NO_ABSTRACT,EKI '25: Proceedings of the 2025 3rd International Conference on Educational Knowledge and Informatization
+ACM_0317,ACM-S0,ACM-S0#317,research-article,openalex,openalex,public,already_downloaded,,Towards Fully Automated Medical Imaging Code Generation via Validation-Based Context Engineering
+ACM_0318,ACM-S0,ACM-S0#318,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,ISSTA 2024: Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis
+ACM_0319,ACM-S0,ACM-S0#319,research-article,openalex,openalex,public,already_downloaded,,Towards Comprehensive Benchmarking Infrastructure for LLMs In Software Engineering
+ACM_0320,ACM-S0,ACM-S0#320,research-article,openalex,openalex,public,already_downloaded,,"Secure-Instruct: Prompt, Synthesize, and Fine-Tune for Secure Code Generation"
+ACM_0321,ACM-S0,ACM-S0#321,survey,openalex,openalex,public,already_downloaded,,Novice Developers’ Perspectives on Adopting LLMs for Software Development: A Systematic Literature Review
+ACM_0322,ACM-S0,ACM-S0#322,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,GenieWizard: Multimodal App Feature Discovery with Large Language Models
+ACM_0323,ACM-S0,ACM-S0#323,research-article,openalex,openalex,public,already_downloaded,,Towards a Human-in-the-Loop Framework for Reliable Patch Evaluation Using an LLM-as-a-Judge
+ACM_0324,ACM-S0,ACM-S0#324,survey,openalex,openalex,public,already_downloaded,,"Network Edge Inference for Large Language Models: Principles, Techniques, and Opportunities"
+ACM_0325,ACM-S0,ACM-S0#325,research-article,openalex,openalex,public,already_downloaded,,A Language for Describing Agentic LLM Contexts
+ACM_0326,ACM-S0,ACM-S0#326,research-article,openalex,openalex,public,already_downloaded,,Agent-Based Ensemble Reasoning for Repository-Level Issue Resolution
+ACM_0327,ACM-S0,ACM-S0#327,research-article,openalex,openalex,public,already_downloaded,,Vibe Code Bench: Evaluating AI Models on End-to-End Web Application Development
+ACM_0328,ACM-S0,ACM-S0#328,research-article,openalex,openalex,public,already_downloaded,,Using Mutation-Analysis to Examine an LLM's Ability to Summarize Code
+ACM_0329,ACM-S0,ACM-S0#329,survey,openalex,openalex,public,already_downloaded,,"Deep Learning for Code Intelligence: Survey, Benchmark and Toolkit"
+ACM_0330,ACM-S0,ACM-S0#330,research-article,openalex,openalex,public,already_downloaded,,LLM Safeguard is a Double-Edged Sword: Exploiting False Positives for Denial-of-Service Attacks
+ACM_0331,ACM-S0,ACM-S0#331,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,W4A '25: Proceedings of the 22nd International Web for All Conference
+ACM_0332,ACM-S0,ACM-S0#332,research-article,openalex,openalex,public,already_downloaded,,An Initial Exploration of Contrastive Prompt Tuning to Generate Energy-Efficient Code
+ACM_0333,ACM-S0,ACM-S0#333,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,DEEM '25: Proceedings of the Workshop on Data Management for End-to-End Machine Learning
+ACM_0334,ACM-S0,ACM-S0#334,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,"ReCode '26: Proceedings of the 1st Workshop on Code Translation, Transformation, and Modernization"
+ACM_0335,ACM-S0,ACM-S0#335,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,EuroMLSys '26: Proceedings of the Sixth European Workshop on Machine Learning and Systems
+ACM_0336,ACM-S0,ACM-S0#336,research-article,openalex,openalex,public,already_downloaded,,Exploring the Potential of Diffusion Large Language Models in Code Generation
+ACM_0337,ACM-S0,ACM-S0#337,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,GLSVLSI '26: Proceedings of the Great Lakes Symposium on VLSI 2026
+ACM_0338,ACM-S0,ACM-S0#338,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,MSR '26: Proceedings of the 23rd International Conference on Mining Software Repositories
+ACM_0339,ACM-S0,ACM-S0#339,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,LAMPS '25: Proceedings of the 2025 Workshop on Large AI Systems and Models with Privacy and Security Analysis
+ACM_0340,ACM-S0,ACM-S0#340,research-article,openalex,openalex,public,already_downloaded,,Teaching Scalability Reasoning through a Complexity-First Approach to Algorithms and Data Structures
+ACM_0341,ACM-S0,ACM-S0#341,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ESEM '24: Proceedings of the 18th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement
+ACM_0342,ACM-S0,ACM-S0#342,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,SOSP '26: Proceedings of the ACM SIGOPS 32nd Symposium on Operating Systems Principles
+ACM_0343,ACM-S0,ACM-S0#343,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,ITiCSE 2025: Proceedings of the 30th ACM Conference on Innovation and Technology in Computer Science Education V. 1
+ACM_0344,ACM-S0,ACM-S0#344,research-article,openalex,openalex,public,already_downloaded,,From Runnable Code to Shippable Applications: Test-Driven Development for Full-Stack Web Application Generation
+ACM_0345,ACM-S0,ACM-S0#345,research-article,openalex,openalex,public,already_downloaded,,EditFlow: Benchmarking and Optimizing Code Edit Recommendation Systems via Reconstruction of Developer Flows
+ACM_0346,ACM-S0,ACM-S0#346,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,SEAMS '26: Proceedings of the 21st International Conference on Software Engineering for Adaptive and Self-Managing Systems
+ACM_0347,ACM-S0,ACM-S0#347,research-article,openalex,openalex,public,already_downloaded,,Large Language Models for Code Generation from Multilingual Prompts: A Curated Benchmark and a Study on Code Quality
+ACM_0348,ACM-S0,ACM-S0#348,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,PASC '26: Proceedings of the Platform for Advanced Scientific Computing Conference
+ACM_0349,ACM-S0,ACM-S0#349,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,"D3MAS: Decompose, Deduce, and Distribute for Enhanced Knowledge Sharing in Multi-Agent Systems"
+ACM_0350,ACM-S0,ACM-S0#350,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,GeoAI '24: Proceedings of the 7th ACM SIGSPATIAL International Workshop on AI for Geographic Knowledge Discovery
+ACM_0351,ACM-S0,ACM-S0#351,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,FORGE '24: Proceedings of the 2024 IEEE/ACM First International Conference on AI Foundation Models and Software Engineering
+ACM_0352,ACM-S0,ACM-S0#352,research-article,openalex,openalex,public,already_downloaded,,Requirements Are All You Need: The Final Frontier for End-User Software Engineering
+ACM_0353,ACM-S0,ACM-S0#353,research-article,openalex,openalex,public,already_downloaded,,Building a Coding Assistant via the Retrieval-Augmented Language Model
+ACM_0354,ACM-S0,ACM-S0#354,research-article,openalex,openalex,public,already_downloaded,,"Can LLMs Really Reason about Code? Studying How Well LLMs Understand the Relation between Input, Code, and Output"
+ACM_0355,ACM-S0,ACM-S0#355,research-article,openalex,openalex,public,already_downloaded,,A Roadmap for Software Testing in Open-Collaborative and AI-Powered Era
+ACM_0356,ACM-S0,ACM-S0#356,research-article,openalex,openalex,public,already_downloaded,,Can Multimodal LLMs Perform Time Series Anomaly Detection?
+ACM_0357,ACM-S0,ACM-S0#357,research-article,openalex,openalex,public,already_downloaded,,ClarifySTL: An Interactive LLM Agent Framework for STL Transformation through Requirements Clarification
+ACM_0358,ACM-S0,ACM-S0#358,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,EdgeFM '24: Proceedings of the Workshop on Edge and Mobile Foundation Models
+ACM_0359,ACM-S0,ACM-S0#359,extended-abstract,openalex,openalex,public,already_downloaded,,Evaluating LLMs Code Reasoning Under Real-World Context
+ACM_0360,ACM-S0,ACM-S0#360,research-article,openalex,openalex,public,already_downloaded,,Improving Deep Assertion Generation via Fine-Tuning Retrieval-Augmented Pre-Trained Language Models
+ACM_0361,ACM-S0,ACM-S0#361,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Context Conquers Parameters: Outperforming Proprietary LLM in Commit Message Generation
+ACM_0362,ACM-S0,ACM-S0#362,research-article,openalex,openalex,public,already_downloaded,,Large Language Models Are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via Large Language Models
+ACM_0363,ACM-S0,ACM-S0#363,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,Koli Calling '25: Proceedings of the 25th Koli Calling International Conference on Computing Education Research
+ACM_0364,ACM-S0,ACM-S0#364,research-article,openalex,openalex,public,already_downloaded,,ViBench: A Benchmark on Vibe Coding
+ACM_0365,ACM-S0,ACM-S0#365,research-article,openalex,openalex,public,already_downloaded,,CodeGlance: Understanding Code Reasoning Challenges in LLMs through Multi-Dimensional Feature Analysis
+ACM_0366,ACM-S0,ACM-S0#366,research-article,openalex,openalex,public,already_downloaded,,Understanding LLM-Centric Challenges for Deep Learning Frameworks: An Empirical Analysis
+ACM_0367,ACM-S0,ACM-S0#367,research-article,openalex,openalex,public,already_downloaded,,The FormAI Dataset: Generative AI in Software Security through the Lens of Formal Verification
+ACM_0368,ACM-S0,ACM-S0#368,survey,openalex,openalex,public,already_downloaded,,Instruction Tuning for Large Language Models: A Survey
+ACM_0369,ACM-S0,ACM-S0#369,research-article,openalex,openalex,public,already_downloaded,,SWE-GPT: A Process-Centric Language Model for Automated Software Improvement
+ACM_0370,ACM-S0,ACM-S0#370,research-article,openalex,openalex,public,already_downloaded,,Code Roulette: How Prompt Variability Affects LLM Code Generation
+ACM_0371,ACM-S0,ACM-S0#371,research-article,openalex,openalex,public,already_downloaded,,RE-APR: Reasoning-Enhanced Automated Program Repair via Large Language Models
+ACM_0372,ACM-S0,ACM-S0#372,research-article,openalex,openalex,public,already_downloaded,,Think Like Human Developers: Harnessing Community Knowledge for Structured Code Reasoning
+ACM_0373,ACM-S0,ACM-S0#373,research-article,openalex,openalex,public,already_downloaded,,Exploring Large Language Models in Resolving Environment-Related Crash Bugs: Localizing and Repairing
+ACM_0374,ACM-S0,ACM-S0#374,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,CODS-COMAD '24: Proceedings of the 8th International Conference on Data Science and Management of Data (12th ACM IKDD CODS and 30th COMAD)
+ACM_0375,ACM-S0,ACM-S0#375,research-article,openalex,openalex,public,already_downloaded,,Evaluating Incompatible Third-party Library API Usage in LLM-based Code Completion
+ACM_0376,ACM-S0;ACM-S1,ACM-S0#376;ACM-S1#90,research-article,openalex,openalex,public,already_downloaded,,Using GitHub Copilot for Test Generation in Python: An Empirical Study
+ACM_0377,ACM-S0,ACM-S0#377,research-article,openalex,openalex,public,already_downloaded,,AIMS: Cost-Efficient LLM-Based Agent Deployment in Hybrid Cloud-Edge Environments
+ACM_0378,ACM-S0,ACM-S0#378,research-article,openalex,openalex,public,already_downloaded,,JsDeObsBench: Measuring and Benchmarking LLMs for JavaScript Deobfuscation
+ACM_0379,ACM-S0;ACM-S1,ACM-S0#379;ACM-S1#85,research-article,openalex,openalex,public,already_downloaded,,Automated Unit Test Improvement using Large Language Models at Meta
+ACM_0380,ACM-S0,ACM-S0#380,research-article,openalex,openalex,public,already_downloaded,,MR-Adopt: Automatic Deduction of Input Transformation Function for Metamorphic Testing
+ACM_0381,ACM-S0,ACM-S0#381,research-article,openalex,openalex,public,already_downloaded,,Aligning Requirement for Large Language Model's Code Generation
+ACM_0382,ACM-S0,ACM-S0#382,research-article,openalex,openalex,public,already_downloaded,,RuberDuckBench: A Benchmark for AI Coding Assistants
+ACM_0383,ACM-S0,ACM-S0#383,research-article,openalex,openalex,public,already_downloaded,,"Less Effort, More Productivity: Lessons Learned from Developing Millions of Lines of Code with Large Language Model"
+ACM_0384,ACM-S0,ACM-S0#384,research-article,venue_label,acm_snippet,locked,not_requested,LOCKED;NO_PDF;ABSTRACT_TRUNCATED,Enhancing GPT-3.5's Proficiency in Netlogo through Few-Shot Prompting and Retrieval-Augmented Generation
+ACM_0385,ACM-S0,ACM-S0#385,research-article,openalex,openalex,public,already_downloaded,,Lookahead-Then-Verify: Reliable Constrained Decoding for Diffusion LLMs under Context-Free Grammars
+ACM_0386,ACM-S0,ACM-S0#386,research-article,openalex,openalex,public,already_downloaded,,Tricky²: Towards a Benchmark for Evaluating Human and LLM Error Interactions
+ACM_0387,ACM-S0,ACM-S0#387,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,EASE '24: Proceedings of the 28th International Conference on Evaluation and Assessment in Software Engineering
+ACM_0388,ACM-S0,ACM-S0#388,survey,openalex,openalex,public,already_downloaded,,Efficient Compressing and Tuning Methods for Large Language Models: A Systematic Literature Review
+ACM_0389,ACM-S0,ACM-S0#389,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,SEA4DQ 2024: Proceedings of the 4th International Workshop on Software Engineering and AI for Data Quality in Cyber-Physical Systems/Internet of Things
+ACM_0390,ACM-S0,ACM-S0#390,research-article,openalex,openalex,public,already_downloaded,,Is “Knowing It’s Malicious” Enough? Evaluating LLMs for Fine-Grained Malware Behavior Auditing
+ACM_0391,ACM-S0,ACM-S0#391,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,SBFT '24: Proceedings of the 17th ACM/IEEE International Workshop on Search-Based and Fuzz Testing
+ACM_0392,ACM-S0,ACM-S0#392,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,ICSE-Companion '24: Proceedings of the 2024 IEEE/ACM 46th International Conference on Software Engineering: Companion Proceedings
+ACM_0393,ACM-S0,ACM-S0#393,article,openalex,openalex,public,already_downloaded,,Doing More with Less
+ACM_0394,ACM-S0,ACM-S0#394,article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,"Revisiting Task-Oriented Dataset Search in the Era of Large Language Models: Challenges, Benchmark, and Solution"
+ACM_0395,ACM-S0,ACM-S0#395,survey,openalex,openalex,public,already_downloaded,,Patch Generation in APR: A Survey from the Perspectives of Utilizing LLMs and Using APR-Specific Information
+ACM_0396,ACM-S0,ACM-S0#396,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,ICCA '24: Proceedings of the 3rd International Conference on Computing Advancements
+ACM_0397,ACM-S0,ACM-S0#397,research-article,openalex,openalex,public,already_downloaded,,On the Use of Agentic Coding: An Empirical Study of Pull Requests on GitHub
+ACM_0398,ACM-S0,ACM-S0#398,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,SBQS '24: Proceedings of the XXIII Brazilian Symposium on Software Quality
+ACM_0399,ACM-S0;ACM-S1,ACM-S0#399;ACM-S1#173,research-article,openalex,openalex,public,already_downloaded,,Quality Assessment of Python Tests Generated by Large Language Models
+ACM_0400,ACM-S0,ACM-S0#400,research-article,openalex,openalex,public,already_downloaded,,"Programming by Chat: A Large-Scale Behavioral Analysis of 11,579 Real-World AI-Assisted IDE Sessions"
+ACM_0401,ACM-S0,ACM-S0#401,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,CAIN '26: Proceedings of the IEEE/ACM 5th International Conference on AI Engineering - Software Engineering for AI
+ACM_0402,ACM-S0,ACM-S0#402,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,PPoPP '26: Proceedings of the 31st ACM SIGPLAN Annual Symposium on Principles and Practice of Parallel Programming
+ACM_0403,ACM-S0,ACM-S0#403,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,Internetware '25: Proceedings of the 16th International Conference on Internetware
+ACM_0404,ACM-S0,ACM-S0#404,research-article,openalex,openalex,public,already_downloaded,,Automated Commit Intelligence by Pre-training
+ACM_0405,ACM-S0,ACM-S0#405,research-article,openalex,openalex,public,already_downloaded,,Self-Speculative Decoding for On-device MoE Acceleration
+ACM_0406,ACM-S0,ACM-S0#406,short-paper,openalex,openalex,public,already_downloaded,,ASTL: An Adaptive Serving Stack for LLMs to Balance Utilization and Tail Latency
+ACM_0407,ACM-S0,ACM-S0#407,proceeding,openalex,,public,already_downloaded,PROCEEDINGS_VOLUME;NO_ABSTRACT,ICS '26: Proceedings of the 40th ACM International Conference on Supercomputing
+ACM_0408,ACM-S0,ACM-S0#408,research-article,openalex,openalex,public,already_downloaded,,Generating Energy-Efficient Code via Large-Language Models - Where are we now?
+ACM_0409,ACM-S0,ACM-S0#409,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,The Dawn of Natural Language to SQL: Are We Fully Ready?
+ACM_0410,ACM-S0,ACM-S0#410,research-article,venue_label,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,Flowco: Mixed-Initiative Authoring of Reliable End-to-End Data Analyses via Dataflow Graphs and LLMs
+ACM_0411,ACM-S0,ACM-S0#411,research-article,openalex,openalex,public,already_downloaded,,Inside Out: Uncovering How Comment Internalization Steers LLMs for Better or Worse
+ACM_0412,ACM-S0,ACM-S0#412,research-article,openalex,openalex,public,oa_fallback_failed,NO_PDF,CREF: An LLM-Based Conversational Software Repair Framework for Programming Tutors
+ACM_0413,ACM-S0,ACM-S0#413,research-article,openalex,openalex,public,already_downloaded,,AI Coders Are among Us: Rethinking Programming Language Grammar towards Efficient Code Generation
+ACM_0414,ACM-S0,ACM-S0#414,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,AdaServe: Accelerating Multi-SLO LLM Serving with SLO-Customized Speculative Decoding
+ACM_0415,ACM-S0,ACM-S0#415,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Artificial Intelligence for Software Engineering: The Journey So Far and the Road Ahead
+ACM_0416,ACM-S0,ACM-S0#416,research-article,openalex,openalex,public,already_downloaded,,LogBabylon: A Unified Framework for Cross-Log File Integration and Analysis
+ACM_0417,ACM-S0,ACM-S0#417,research-article,openalex,openalex,public,already_downloaded,,Fuzz4All: Universal Fuzzing with Large Language Models
+ACM_0418,ACM-S0,ACM-S0#418,research-article,openalex,openalex,public,already_downloaded,,Investigating Autonomous Agent Contributions in the Wild: Activity Patterns and Code Change over Time
+ACM_0419,ACM-S0,ACM-S0#419,article,openalex,openalex,public,already_downloaded,,"Agentic Large Language Models, a Survey"
+ACM_0420,ACM-S0,ACM-S0#420,proceeding,,,public,oa_fallback_unavailable,NO_YEAR;PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,AIMLSystems '24: Proceedings of the 4th International Conference on AI-ML Systems
+ACM_0421,ACM-S0,ACM-S0#421,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,DiffKV: Differentiated Memory Management for Large Language Models with Parallel KV Compaction
+ACM_0422,ACM-S0,ACM-S0#422,extended-abstract,openalex,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,Examining the Use and Impact of an AI Code Assistant on Developer Productivity and Experience in the Enterprise
+ACM_0423,ACM-S0,ACM-S0#423,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,dLLM-Serve: Bridging the Memory Gap in Diffusion Language Model Serving
+ACM_0424,ACM-S0,ACM-S0#424,research-article,openalex,openalex,public,already_downloaded,,Guiding AI to Fix Its Own Flaws: An Empirical Study on LLM-Driven Secure Code Generation
+ACM_0425,ACM-S0,ACM-S0#425,research-article,openalex,openalex,public,oa_fallback_failed,NO_PDF,DataRecipe --- How to Cook the Data for CodeLLM?
+ACM_0426,ACM-S0,ACM-S0#426,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,AIware 2024: Proceedings of the 1st ACM International Conference on AI-Powered Software
+ACM_0427,ACM-S0,ACM-S0#427,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICSE '24: Proceedings of the IEEE/ACM 46th International Conference on Software Engineering
+ACM_0428,ACM-S0;ACM-S1,ACM-S0#428;ACM-S1#161,research-article,openalex,openalex,public,already_downloaded,,A Large-Scale Empirical Study on Fine-Tuning Large Language Models for Unit Testing
+ACM_0429,ACM-S0,ACM-S0#429,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,E-Energy '26: Proceedings of the 17th ACM International Conference on Future and Sustainable Energy Systems
+ACM_0430,ACM-S0,ACM-S0#430,proceeding,,,public,oa_fallback_unavailable,NO_YEAR;PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,UIST '25: Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology
+ACM_0431,ACM-S0,ACM-S0#431,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,AdaGen: Workload-Adaptive Cluster Scheduler for Latency-Optimal LLM Inference Serving
+ACM_0432,ACM-S0,ACM-S0#432,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,System for Omni-modal AI No-code Generation Technology-Driven Library Personalized Services
+ACM_0433,ACM-S0,ACM-S0#433,research-article,openalex,openalex,public,already_downloaded,,Risk Assessment Framework for Code LLMs via Leveraging Internal States
+ACM_0434,ACM-S0,ACM-S0#434,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Unsteady Metrics and Benchmarking Cultures of AI Model Builders
+ACM_0435,ACM-S0,ACM-S0#435,survey,openalex,openalex,public,already_downloaded,,From Individual to Society: A Survey on Social Simulation Driven by Large Language Model-based Agents
+ACM_0436,ACM-S0,ACM-S0#436,research-article,openalex,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,Generalized Adversarial Code-Suggestions: Exploiting Contexts of LLM-based Code-Completion
+ACM_0437,ACM-S0,ACM-S0#437,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICSIM '26: Proceedings of the 2026 9th International Conference on Software Engineering and Information Management
+ACM_0438,ACM-S0,ACM-S0#438,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,Internetware '24: Proceedings of the 15th Asia-Pacific Symposium on Internetware
+ACM_0439,ACM-S0,ACM-S0#439,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,SenSys '26: Proceedings of the 2026 ACM/IEEE International Conference on Embedded Artificial Intelligence and Sensing Systems
+ACM_0440,ACM-S0,ACM-S0#440,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,SDDT 2026: Proceedings of the 2026 2nd International Conference on Sustainable Development and Digital Transformation
+ACM_0441,ACM-S0,ACM-S0#441,short-paper,openalex,openalex,public,oa_fallback_failed,NO_PDF,On Programming Variability with Large Language Model-based Assistant
+ACM_0442,ACM-S0,ACM-S0#442,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,JMigBench: A Benchmark for Evaluating LLMs on Source Code Migration (Java 8 to Java 11)
+ACM_0443,ACM-S0,ACM-S0#443,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,SEMODS: A Validated Dataset of Open-Source Software Engineering Models
+ACM_0444,ACM-S0,ACM-S0#444,research-article,openalex,openalex,public,oa_fallback_failed,NO_PDF,DeltaZip: Efficient Serving of Multiple Full-Model-Tuned LLMs
+ACM_0445,ACM-S0,ACM-S0#445,research-article,venue_label,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,ViseGPT: Towards Better Alignment of LLM-generated Data Wrangling Scripts and User Prompts
+ACM_0446,ACM-S0,ACM-S0#446,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Large Language Models for Equivalent Mutant Detection: How Far Are We?
+ACM_0447,ACM-S0,ACM-S0#447,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,LogBase: A Large-Scale Benchmark for Semantic Log Parsing
+ACM_0448,ACM-S0,ACM-S0#448,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,From Code to Rubrics: A Multimodal Evaluation of LLM Systems for Automated Feedback Generation
+ACM_0449,ACM-S0,ACM-S0#449,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Exploring Fine-Grained Bug Report Categorization with Large Language Models and Prompt Engineering: An Empirical Study
+ACM_0450,ACM-S0,ACM-S0#450,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Tackling Students' Coding Assignments with LLMs
+ACM_0451,ACM-S0,ACM-S0#451,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Teaching Code LLMs to Use Autocompletion Tools in Repository-Level Code Generation
+ACM_0452,ACM-S0,ACM-S0#452,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Programming Embedded IoT Applications in Natural Language with IoTPilot
+ACM_0453,ACM-S0,ACM-S0#453,research-article,openalex,openalex,public,already_downloaded,,SALLM: Security Assessment of Generated Code
+ACM_0454,ACM-S0,ACM-S0#454,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Causality-Aided Evaluation and Explanation of Large Language Model-Based Code Generation
+ACM_0455,ACM-S0,ACM-S0#455,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ECSEE '25: Proceedings of the 6th European Conference on Software Engineering Education
+ACM_0456,ACM-S0,ACM-S0#456,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,"Survey on Knowledge Distillation for Large Language Models: Methods, Evaluation, and Application"
+ACM_0457,ACM-S0,ACM-S0#457,research-article,openalex,openalex,public,already_downloaded,,Automated Test Generation for Medical Rules Web Services: A Case Study at the Cancer Registry of Norway
+ACM_0458,ACM-S0,ACM-S0#458,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,CCS '25: Proceedings of the 2025 ACM SIGSAC Conference on Computer and Communications Security
+ACM_0459,ACM-S0,ACM-S0#459,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,fastWorkflow: Closing the Performance Gap Between Small and Frontier Language Models for Conversational Agents
+ACM_0460,ACM-S0,ACM-S0#460,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,A Large-Scale Empirical Evaluation of LLMs for Automated Self-Admitted Technical Debt Repayment
+ACM_0461,ACM-S0,ACM-S0#461,research-article,openalex,openalex,public,already_downloaded,,LLM Code Customization with Visual Results: A Benchmark on TikZ
+ACM_0462,ACM-S0,ACM-S0#462,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,IGSC '26: Proceedings of the 16th ACM International Green and Sustainable Computing Conference
+ACM_0463,ACM-S0,ACM-S0#463,research-article,openalex,openalex,public,already_downloaded,,Dependency-Aware Code Naturalness
+ACM_0464,ACM-S0,ACM-S0#464,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,CodeS: Natural Language to Code Repository via Multi-Layer Sketch
+ACM_0465,ACM-S0,ACM-S0#465,research-article,openalex,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,Industrial Deployment of an AI Multi-Agent System for Requirements-Driven Code Verification
+ACM_0466,ACM-S0,ACM-S0#466,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,"NSysS '24: Proceedings of the 11th International Conference on Networking, Systems, and Security"
+ACM_0467,ACM-S0,ACM-S0#467,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,How to Evaluate AI that's Smarter than Us
+ACM_0468,ACM-S0,ACM-S0#468,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,EdgeFM '25: Proceedings of the 2nd International Workshop on Edge and Mobile Foundation Models
+ACM_0469,ACM-S0,ACM-S0#469,research-article,openalex,openalex,public,already_downloaded,,Apt-Serve: Adaptive Request Scheduling on Hybrid Cache for Scalable LLM Inference Serving
+ACM_0470,ACM-S0,ACM-S0#470,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,APR '24: Proceedings of the 5th ACM/IEEE International Workshop on Automated Program Repair
+ACM_0471,ACM-S0,ACM-S0#471,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,LiCoEval: Evaluating LLMs on License Compliance in Code Generation
+ACM_0472,ACM-S0,ACM-S0#472,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Xpert: Empowering Incident Management with Query Recommendations via Large Language Models
+ACM_0473,ACM-S0,ACM-S0#473,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,PACMI '25: Proceedings of the 4th Workshop on Practical Adoption Challenges of ML for Systems
+ACM_0474,ACM-S0,ACM-S0#474,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Challenges in Using Conversational AI for Data Science
+ACM_0475,ACM-S0,ACM-S0#475,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Toward Explainable Physical Audiovisual Commonsense Reasoning
+ACM_0476,ACM-S0,ACM-S0#476,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Assessing the Capability of LLMs for Deprecated API Usage Updating from Natural Language Descriptions
+ACM_0477,ACM-S0,ACM-S0#477,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,ICPC '24: Proceedings of the 32nd IEEE/ACM International Conference on Program Comprehension
+ACM_0478,ACM-S0,ACM-S0#478,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Accelerating LLM Serving for Multi-turn Dialogues with Efficient Resource Management
+ACM_0479,ACM-S0,ACM-S0#479,short-paper,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Do AI-Generated Pull Requests Get Rejected More? (Yes but Why?)
+ACM_0480,ACM-S0,ACM-S0#480,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,ITiCSE 2024: Proceedings of the 2024 on Innovation and Technology in Computer Science Education V. 1
+ACM_0481,ACM-S0,ACM-S0#481,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ISCA '25: Proceedings of the 52nd Annual International Symposium on Computer Architecture
+ACM_0482,ACM-S0,ACM-S0#482,research-article,venue_label,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,SEAlign: Alignment Training for Software Engineering Agent
+ACM_0483,ACM-S0,ACM-S0#483,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,CG-Bench: Can Language Models Assist Call Graph Construction in the Real World?
+ACM_0484,ACM-S0,ACM-S0#484,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ASIA CCS '25: Proceedings of the 20th ACM Asia Conference on Computer and Communications Security
+ACM_0485,ACM-S0,ACM-S0#485,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,CSAI '25: Proceedings of the 2025 9th International Conference on Computer Science and Artificial Intelligence
+ACM_0486,ACM-S0,ACM-S0#486,research-article,openalex,openalex,locked,not_requested,LOCKED;NO_PDF,Measuring the Runtime Performance of C++ Code Written by Humans Using GitHub Copilot
+ACM_0487,ACM-S0,ACM-S0#487,research-article,openalex,openalex,public,already_downloaded,,Probe to Generate: Program Variant-Guided Test Augmentation for Repository-Level Repair Benchmarks
+ACM_0488,ACM-S0,ACM-S0#488,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Testing the Limits: Unusual Text Inputs Generation for Mobile App Crash Detection with Large Language Model
+ACM_0489,ACM-S0,ACM-S0#489,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICSIE '26: Proceedings of the 2026 14th International Conference on Software and Information Engineering
+ACM_0490,ACM-S0,ACM-S0#490,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,MaCTG: Multi-Agent Collaborative Thought Graph for Automatic Programming
+ACM_0491,ACM-S0,ACM-S0#491,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,ConDefects: A Complementary Dataset to Address the Data Leakage Concern for LLM-Based Fault Localization and Program Repair
+ACM_0492,ACM-S0,ACM-S0#492,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ICTIR '25: Proceedings of the 2025 International ACM SIGIR Conference on Innovative Concepts and Theories in Information Retrieval (ICTIR)
+ACM_0493,ACM-S0,ACM-S0#493,research-article,venue_label,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,MACEDON : Supporting Programmers with Real-Time Multi-Dimensional Code Evaluation and Optimization
+ACM_0494,ACM-S0,ACM-S0#494,research-article,openalex,openalex,public,already_downloaded,,Large Language Models for Code: Security Hardening and Adversarial Testing
+ACM_0495,ACM-S0,ACM-S0#495,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,CODASPY '25: Proceedings of the Fifteenth ACM Conference on Data and Application Security and Privacy
+ACM_0496,ACM-S0,ACM-S0#496,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,FormaliSE '26: Proceedings of the IEEE/ACM 14th International Conference on Formal Methods in Software Engineering
+ACM_0497,ACM-S0,ACM-S0#497,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,DFDS '25: Proceedings of the Digital Forensics Doctoral Symposium
+ACM_0498,ACM-S0,ACM-S0#498,article,openalex,openalex,public,already_downloaded,,WorldView-Bench
+ACM_0499,ACM-S0,ACM-S0#499,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,How Important Are Good Method Names in Neural Code Generation? A Model Robustness Perspective
+ACM_0500,ACM-S0,ACM-S0#500,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,FinanSE '26: Proceedings of the 3rd IEEE/ACM Workshop on Software Engineering Challenges in Financial Firms
+ACM_0501,ACM-S0;ACM-S1,ACM-S0#501;ACM-S1#181,research-article,openalex,openalex,public,already_downloaded,,LlamaRestTest: Effective REST API Testing with Small Language Models
+ACM_0502,ACM-S0,ACM-S0#502,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,FastFixer: An Efficient and Effective Approach for Repairing Programming Assignments
+ACM_0503,ACM-S0,ACM-S0#503,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,DAInfer: Inferring API Aliasing Specifications from Library Documentation via Neurosymbolic Optimization
+ACM_0504,ACM-S0,ACM-S0#504,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,MODELS '24: Proceedings of the ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems
+ACM_0505,ACM-S0,ACM-S0#505,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,SIGIR-AP 2024: Proceedings of the 2024 Annual International ACM SIGIR Conference on Research and Development in Information Retrieval in the Asia Pacific Region
+ACM_0506,ACM-S0,ACM-S0#506,proceeding,openalex,openalex,public,already_downloaded,PROCEEDINGS_VOLUME,MM '24: Proceedings of the 32nd ACM International Conference on Multimedia
+ACM_0507,ACM-S0,ACM-S0#507,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,"ASPLOS '25: Proceedings of the 30th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2"
+ACM_0508,ACM-S0,ACM-S0#508,research-article,openalex,openalex,public,already_downloaded,,Multi-Location Software Model Completion
+ACM_0509,ACM-S0,ACM-S0#509,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,CODS '25: Proceedings of the 13th ACM IKDD International Conference on Data Science
+ACM_0510,ACM-S0,ACM-S0#510,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,ClassEval-T: Evaluating Large Language Models in Class-Level Code Translation
+ACM_0511,ACM-S0,ACM-S0#511,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,ASIA CCS '24: Proceedings of the 19th ACM Asia Conference on Computer and Communications Security
+ACM_0512,ACM-S0,ACM-S0#512,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,AST '26: Proceedings of the 7th ACM/IEEE International Conference on Automation of Software Test
+ACM_0513,ACM-S0,ACM-S0#513,research-article,openalex,openalex,public,already_downloaded,,A Performance Study of LLM-Generated Code on Leetcode
+ACM_0514,ACM-S0,ACM-S0#514,research-article,openalex,openalex,public,already_downloaded,,GlitchProber: Advancing Effective Detection and Mitigation of Glitch Tokens in Large Language Models
+ACM_0515,ACM-S0,ACM-S0#515,survey,openalex,openalex,public,already_downloaded,,A Survey on the Optimization of Large Language Model-based Agents
+ACM_0516,ACM-S0,ACM-S0#516,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,A Pilot Study in Surveying Data Challenges of Automatic Software Engineering Tasks
+ACM_0517,ACM-S0,ACM-S0#517,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,CodingCare: AI Code Generation Security Framework for Common Vulnerability Mitigation
+ACM_0518,ACM-S0,ACM-S0#518,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,NLBSE '24: Proceedings of the Third ACM/IEEE International Workshop on NL-based Software Engineering
+ACM_0519,ACM-S0,ACM-S0#519,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ESEC/FSE 2023: Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering
+ACM_0520,ACM-S0,ACM-S0#520,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICSE-SEIP '24: Proceedings of the 46th International Conference on Software Engineering: Software Engineering in Practice
+ACM_0521,ACM-S0,ACM-S0#521,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICPP '26: Proceedings of the 55th International Conference on Parallel Processing
+ACM_0522,ACM-S0,ACM-S0#522,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,FIRE '24: Proceedings of the 16th Annual Meeting of the Forum for Information Retrieval Evaluation
+ACM_0523,ACM-S0,ACM-S0#523,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Towards Greener Yet Powerful Code Generation via Quantization: An Empirical Study
+ACM_0524,ACM-S0,ACM-S0#524,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,"FAccT '24: Proceedings of the 2024 ACM Conference on Fairness, Accountability, and Transparency"
+ACM_0525,ACM-S0,ACM-S0#525,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ICSE-NIER'24: Proceedings of the 2024 ACM/IEEE 44th International Conference on Software Engineering: New Ideas and Emerging Results
+ACM_0526,ACM-S0,ACM-S0#526,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,RecSys '24: Proceedings of the 18th ACM Conference on Recommender Systems
+ACM_0527,ACM-S0,ACM-S0#527,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,A Survey of Testing Techniques Based on Large Language Models
+ACM_0528,ACM-S0,ACM-S0#528,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,STALL+: Boosting LLM-based Repository-level Code Completion with Static Analysis
+ACM_0529,ACM-S0,ACM-S0#529,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU
+ACM_0530,ACM-S0,ACM-S0#530,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,CodeCleaner: Mitigating Data Contamination for LLM Benchmarking
+ACM_0531,ACM-S0,ACM-S0#531,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,CAIN '24: Proceedings of the IEEE/ACM 3rd International Conference on AI Engineering - Software Engineering for AI
+ACM_0532,ACM-S0,ACM-S0#532,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,CHItaly '25: Proceedings of the 16th Biannual Conference of the Italian SIGCHI Chapter
+ACM_0533,ACM-S0,ACM-S0#533,research-article,openalex,openalex,public,already_downloaded,,How Beginning Programmers and Code LLMs (Mis)read Each Other
+ACM_0534,ACM-S0,ACM-S0#534,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,EuroSys '25: Proceedings of the Twentieth European Conference on Computer Systems
+ACM_0535,ACM-S0,ACM-S0#535,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,EDCS '26: Proceedings of the 3rd International Conference on Educational Digitalization and Computer Science in the Guangdong-Hong Kong-Macao Greater Bay Area
+ACM_0536,ACM-S0,ACM-S0#536,research-article,openalex,acm_snippet,public,oa_fallback_unavailable,NO_PDF;ABSTRACT_TRUNCATED,LogoMotion: Visually-Grounded Code Synthesis for Creating and Editing Animation
+ACM_0537,ACM-S0,ACM-S0#537,research-article,openalex,openalex,public,already_downloaded,,Statically Contextualizing Large Language Models with Typed Holes
+ACM_0538,ACM-S0,ACM-S0#538,research-article,openalex,openalex,public,already_downloaded,,Foundation Models for Software Engineering of Cyber-Physical Systems: The Road Ahead
+ACM_0539,ACM-S0,ACM-S0#539,research-article,openalex,openalex,public,already_downloaded,,Unveiling Memorization in Code Models
+ACM_0540,ACM-S0,ACM-S0#540,research-article,openalex,openalex,public,already_downloaded,,Large Language Models for Information Retrieval: A Survey
+ACM_0541,ACM-S0,ACM-S0#541,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,AceCoder: An Effective Prompting Technique Specialized in Code Generation
+ACM_0542,ACM-S0,ACM-S0#542,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,SoCC '24: Proceedings of the 2024 ACM Symposium on Cloud Computing
+ACM_0543,ACM-S0,ACM-S0#543,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,An Empirical Study of Retrieval-Augmented Code Generation: Challenges and Opportunities
+ACM_0544,ACM-S0,ACM-S0#544,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ISSTA 2023: Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis
+ACM_0545,ACM-S0,ACM-S0#545,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,Koli Calling '24: Proceedings of the 24th Koli Calling International Conference on Computing Education Research
+ACM_0546,ACM-S0,ACM-S0#546,survey,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,A Survey on Human Preference Learning for Aligning Large Language Models
+ACM_0547,ACM-S0,ACM-S0#547,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Can GPT-4 Replicate Empirical Software Engineering Research?
+ACM_0548,ACM-S0,ACM-S0#548,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Assessing the Potential of Large Language Models for Chemical Engineering Applications
+ACM_0549,ACM-S0,ACM-S0#549,research-article,openalex,openalex,public,already_downloaded,,“What It Wants Me To Say”: Bridging the Abstraction Gap Between End-User Programmers and Code-Generating Large Language Models
+ACM_0550,ACM-S0,ACM-S0#550,proceeding,,acm_snippet,locked,not_requested,NO_YEAR;PROCEEDINGS_VOLUME;LOCKED;NO_PDF;ABSTRACT_TRUNCATED,ICSE '23: Proceedings of the 45th International Conference on Software Engineering
+ACM_0551,ACM-S0,ACM-S0#551,survey,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,AI-Generated Content (AIGC) for Various Data Modalities: A Survey
+ACM_0552,ACM-S0,ACM-S0#552,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,DEIT '26: Proceedings of the 2026 2nd International Conference on Digital Education and Information Technology
+ACM_0553,ACM-S0,ACM-S0#553,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,CNSSE '26: Proceedings of the 2026 6th International Conference on Computer Network Security and Software Engineering
+ACM_0554,ACM-S0,ACM-S0#554,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,SIGCSE 2024: Proceedings of the 55th ACM Technical Symposium on Computer Science Education V. 1
+ACM_0555,ACM-S0,ACM-S0#555,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ITiCSE-WGR '23: Proceedings of the 2023 Working Group Reports on Innovation and Technology in Computer Science Education
+ACM_0556,ACM-S0,ACM-S0#556,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ISEC '24: Proceedings of the 17th Innovations in Software Engineering Conference
+ACM_0557,ACM-S0,ACM-S0#557,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,SIGIR '25: Proceedings of the 48th International ACM SIGIR Conference on Research and Development in Information Retrieval
+ACM_0558,ACM-S0,ACM-S0#558,survey,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,"A Survey of Defenses Against AI-Generated Visual Media: Detection, Disruption, and Authentication"
+ACM_0559,ACM-S0,ACM-S0#559,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,PROMISE 2023: Proceedings of the 19th International Conference on Predictive Models and Data Analytics in Software Engineering
+ACM_0560,ACM-S0,ACM-S0#560,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,KDD '25: Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2
+ACM_0561,ACM-S0,ACM-S0#561,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,HEART '25: Proceedings of the 15th International Symposium on Highly Efficient Accelerators and Reconfigurable Technologies
+ACM_0562,ACM-S0,ACM-S0#562,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Ansible Lightspeed: A Code Generation Service for IT Automation
+ACM_0563,ACM-S0,ACM-S0#563,short-paper,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,Does my BFT protocol implementation scale?
+ACM_0564,ACM-S0,ACM-S0#564,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,"Developer Experiences with a Contextualized AI Coding Assistant: Usability, Expectations, and Outcomes"
+ACM_0565,ACM-S0,ACM-S0#565,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,COMPUTE '23: Proceedings of the 16th Annual ACM India Compute Conference
+ACM_0566,ACM-S0,ACM-S0#566,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,AST '24: Proceedings of the 5th ACM/IEEE International Conference on Automation of Software Test (AST 2024)
+ACM_0567,ACM-S0,ACM-S0#567,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,CCS '24: Proceedings of the 2024 on ACM SIGSAC Conference on Computer and Communications Security
+ACM_0568,ACM-S0,ACM-S0#568,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ICPP Workshops '23: Proceedings of the 52nd International Conference on Parallel Processing Workshops
+ACM_0569,ACM-S0,ACM-S0#569,proceeding,,acm_snippet,public,oa_fallback_unavailable,NO_YEAR;PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,CompEd 2025: Proceedings of the ACM Global Computing Education Conference 2025 - Volume 1
+ACM_0570,ACM-S0,ACM-S0#570,research-article,openalex,openalex,public,oa_fallback_unavailable,NO_PDF,AutoCodeRover: Autonomous Program Improvement
+ACM_0571,ACM-S0,ACM-S0#571,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,CHI '23: Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems
+ACM_0572,ACM-S0,ACM-S0#572,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,ICMR '25: Proceedings of the 2025 International Conference on Multimedia Retrieval
+ACM_0573,ACM-S0,ACM-S0#573,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ISAIE '25: Proceedings of the 2025 2nd International Symposium on Artificial Intelligence for Education
+ACM_0574,ACM-S0,ACM-S0#574,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,EASE '23: Proceedings of the 27th International Conference on Evaluation and Assessment in Software Engineering
+ACM_0575,ACM-S0,ACM-S0#575,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICCSMT '25: Proceedings of the 2025 6th International Conference on Computer Science and Management Technology
+ACM_0576,ACM-S0,ACM-S0#576,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,MLIC '26: Proceedings of the 2026 3rd International Conference on Machine Learning and Intelligent Computing
+ACM_0577,ACM-S0,ACM-S0#577,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICER '23: Proceedings of the 2023 ACM Conference on International Computing Education Research - Volume 1
+ACM_0578,ACM-S0,ACM-S0#578,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,IOTMMIM '24: Proceedings of the First International Workshop on IoT Datasets for Multi-modal Large Model
+ACM_0579,ACM-S0,ACM-S0#579,proceeding,,,locked,not_requested,NO_YEAR;PROCEEDINGS_VOLUME;LOCKED;NO_PDF;NO_ABSTRACT,"SC-W '24: Proceedings of the SC '24 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis"
+ACM_0580,ACM-S0,ACM-S0#580,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,Internetware '23: Proceedings of the 14th Asia-Pacific Symposium on Internetware
+ACM_0581,ACM-S0,ACM-S0#581,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ASIA CCS '26: Proceedings of the ACM Asia Conference on Computer and Communications Security
+ACM_0582,ACM-S0,ACM-S0#582,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,"NISS '24: Proceedings of the 7th International Conference on Networking, Intelligent Systems and Security"
+ACM_0583,ACM-S0,ACM-S0#583,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,AIIIP '25: Proceedings of the 4th International Conference on Artificial Intelligence and Intelligent Information Processing
+ACM_0584,ACM-S0,ACM-S0#584,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,CHI '24: Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems
+ACM_0585,ACM-S0,ACM-S0#585,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICMR '26: Proceedings of the 2026 International Conference on Multimedia Retrieval
+ACM_0586,ACM-S0,ACM-S0#586,proceeding,,,locked,not_requested,NO_YEAR;PROCEEDINGS_VOLUME;LOCKED;NO_PDF;NO_ABSTRACT,ICSE-SEIP '23: Proceedings of the 45th International Conference on Software Engineering: Software Engineering in Practice
+ACM_0587,ACM-S0,ACM-S0#587,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ASE '22: Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering
+ACM_0588,ACM-S0,ACM-S0#588,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,"SC '25: Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis"
+ACM_0589,ACM-S0,ACM-S0#589,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,GECCO '24 Companion: Proceedings of the Genetic and Evolutionary Computation Conference Companion
+ACM_0590,ACM-S0,ACM-S0#590,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,DSAI '26: Proceedings of the 2026 3rd International Conference on Digital Society and Artificial Intelligence
+ACM_0591,ACM-S0,ACM-S0#591,proceeding,,acm_snippet,public,oa_fallback_unavailable,NO_YEAR;PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,AAMAS '24: Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems
+ACM_0592,ACM-S0,ACM-S0#592,proceeding,,acm_snippet,locked,not_requested,NO_YEAR;PROCEEDINGS_VOLUME;LOCKED;NO_PDF;ABSTRACT_TRUNCATED,ICSE '23: Proceedings of the 45th International Conference on Software Engineering: Companion Proceedings
+ACM_0593,ACM-S0,ACM-S0#593,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,SAC '23: Proceedings of the 38th ACM/SIGAPP Symposium on Applied Computing
+ACM_0594,ACM-S0,ACM-S0#594,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICCMT '24: Proceedings of the 2024 International Conference on Computer and Multimedia Technology
+ACM_0595,ACM-S0,ACM-S0#595,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,DICG '22: Proceedings of the 3rd International Workshop on Distributed Infrastructure for the Common Good
+ACM_0596,ACM-S0,ACM-S0#596,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,CSAI '24: Proceedings of the 2024 8th International Conference on Computer Science and Artificial Intelligence
+ACM_0597,ACM-S0,ACM-S0#597,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,ICAISD '25: Proceedings of the 2025 International Conference on Artificial Intelligence and Sustainable Development
+ACM_0598,ACM-S0,ACM-S0#598,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,"AIVRID '25: Proceedings of the 2025 International Conference on Artificial Intelligence, Virtual Reality and Interaction Design"
+ACM_0599,ACM-S0,ACM-S0#599,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,CISAI '25: Proceedings of the 2025 8th International Conference on Computer Information Science and Artificial Intelligence
+ACM_0600,ACM-S0,ACM-S0#600,proceeding,openalex,openalex,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF,ESEC/FSE 2022: Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering
+ACM_0601,ACM-S0,ACM-S0#601,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,"ISCCN '25: Proceedings of the 2025 4th International Conference on Intelligent Systems, Communications and Computer Networks"
+ACM_0602,ACM-S0,ACM-S0#602,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,GECCO '23 Companion: Proceedings of the Companion Conference on Genetic and Evolutionary Computation
+ACM_0603,ACM-S0,ACM-S0#603,proceeding,openalex,,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;NO_ABSTRACT,"CSAIDE '24: Proceedings of the 2024 3rd International Conference on Cyber Security, Artificial Intelligence and Digital Economy"
+ACM_0604,ACM-S0,ACM-S0#604,research-article,openalex,openalex,public,already_downloaded,,Difficulty-Aware Agentic Orchestration for Query-Specific Multi-Agent Workflows
+ACM_0605,ACM-S0,ACM-S0#605,proceeding,openalex,acm_snippet,public,already_downloaded,PROCEEDINGS_VOLUME;ABSTRACT_TRUNCATED,MSR '24: Proceedings of the 21st International Conference on Mining Software Repositories
+ACM_0606,ACM-S0,ACM-S0#606,research-article,openalex,openalex,public,already_downloaded,,HarnessLLM: Rust Verification Harness Generation with Large Language Models
+ACM_0607,ACM-S0,ACM-S0#607,research-article,openalex,openalex,public,already_downloaded,,Towards Efficient LLM Inference via Collective and Adaptive Speculative Decoding
+ACM_0608,ACM-S0;ACM-S1,ACM-S0#608;ACM-S1#171,research-article,openalex,openalex,public,already_downloaded,,Advancing Code Coverage: Incorporating Program Analysis with Large Language Models
+ACM_0609,ACM-S0,ACM-S0#609,research-article,openalex,openalex,public,already_downloaded,,EvaLooop: A Self-Consistency-Centered Framework for Assessing Large Language Model Robustness in Programming
+ACM_0610,ACM-S0;ACM-S1,ACM-S0#610;ACM-S1#86,research-article,openalex,openalex,public,already_downloaded,,Code-Aware Prompting: A Study of Coverage-Guided Test Generation in Regression Setting using LLM
+ACM_0611,ACM-S0,ACM-S0#611,proceeding,openalex,acm_snippet,public,oa_fallback_unavailable,PROCEEDINGS_VOLUME;NO_PDF;ABSTRACT_TRUNCATED,WWW '25: Proceedings of the ACM on Web Conference 2025
+ACM_0612,ACM-S0,ACM-S0#612,research-article,openalex,openalex,public,already_downloaded,,A Pair Programming Framework for Code Generation via Multi-Plan Exploration and Feedback-Driven Refinement
+ACM_0613,ACM-S1,ACM-S1#3,short-paper,openalex,openalex,public,already_downloaded,,SCOUT: A Scenario-Guided Unit Test Generation Tool for Compact Open-Source LLMs
+ACM_0614,ACM-S1;ACM-S2,ACM-S1#4;ACM-S2#3,research-article,openalex,openalex,public,already_downloaded,,Fusing LLMs and Genetic Algorithm for High-Quality Unit Test Generation
+ACM_0615,ACM-S1,ACM-S1#5,research-article,openalex,openalex,public,already_downloaded,,Test vs Mutant: Adversarial LLM Agents for Robust Unit Test Generation
+ACM_0616,ACM-S1,ACM-S1#6,research-article,openalex,openalex,public,already_downloaded,,Benchmarking LLMs for Unit Test Generation from Real-World Functions
+ACM_0617,ACM-S1,ACM-S1#8,research-article,openalex,openalex,public,already_downloaded,,Uncovering Business Logic Bugs via Semantics-Driven Unit Test Generation (Experience Paper)
+ACM_0618,ACM-S1;ACM-S2,ACM-S1#9;ACM-S2#19,short-paper,openalex,openalex,public,already_downloaded,,TestAgent: A Multi-Agent LLM Framework for Repository-Level Unit Test Generation
+ACM_0619,ACM-S1,ACM-S1#14,short-paper,openalex,openalex,public,already_downloaded,,WiseUT: An Intelligent Framework for Unit Test Generation
+ACM_0620,ACM-S1,ACM-S1#16,research-article,openalex,openalex,public,already_downloaded,,Knowledge Matters: Injecting Project and Testing Knowledge into LLM-based Unit Test Generation
+ACM_0621,ACM-S1,ACM-S1#17,research-article,venue_label,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,"EvoLLM: High-Coverage, Readable, and Token-Efficient Unit Test Generation for Industrial Java Codebases"
+ACM_0622,ACM-S1,ACM-S1#18,research-article,venue_label,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,LSPRAG: LSP-Guided RAG for Language-Agnostic Real-Time Unit Test Generation
+ACM_0623,ACM-S1,ACM-S1#21,research-article,openalex,openalex,public,already_downloaded,,Static Program Analysis Guided LLM Based Unit Test Generation
+ACM_0624,ACM-S1,ACM-S1#24,research-article,openalex,openalex,public,already_downloaded,,JSTestCraft: Addressing Context Deficits in JavaScript Unit Test Generation via Agentic Multi-Level Contextual Analysis
+ACM_0625,ACM-S1,ACM-S1#25,research-article,openalex,openalex,public,already_downloaded,,Large Language Model-based Test Case Generation for GP Agents
+ACM_0626,ACM-S1;ACM-S2,ACM-S1#26;ACM-S2#20,research-article,openalex,openalex,public,already_downloaded,,Synthesizing File-Level Data for Unit Test Generation with Chain-of-Thoughts via Self-Debugging
+ACM_0627,ACM-S1,ACM-S1#27,short-paper,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,LSPAI: An IDE Plugin for LLM-Powered Multi-Language Unit Test Generation with Language Server Protocol
+ACM_0628,ACM-S1,ACM-S1#34,research-article,openalex,openalex,public,already_downloaded,,LLMs and Prompting for Unit Test Generation: A Large-Scale Evaluation
+ACM_0629,ACM-S1,ACM-S1#35,research-article,openalex,openalex,public,already_downloaded,,Optimizing Search-Based Unit Test Generation with Large Language Models: An Empirical Study
+ACM_0630,ACM-S1,ACM-S1#38,extended-abstract,openalex,openalex,public,already_downloaded,,Accurate Specification Recovery for Effective Test Generation
+ACM_0631,ACM-S1,ACM-S1#40,research-article,openalex,openalex,public,already_downloaded,,LLM-Based Test Case Generation in DBMS through Monte Carlo Tree Search
+ACM_0632,ACM-S1,ACM-S1#43,research-article,venue_label,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,LLM Test Generation via Iterative Hybrid Program Analysis
+ACM_0633,ACM-S1,ACM-S1#44,research-article,openalex,openalex,public,already_downloaded,,Hallucination to Consensus: Multi-Agent LLMs for End-to-End JUnit Test Generation
+ACM_0634,ACM-S1,ACM-S1#46,research-article,openalex,openalex,public,already_downloaded,,Automated Unit Test Refactoring
+ACM_0635,ACM-S1;ACM-S2,ACM-S1#48;ACM-S2#16,research-article,openalex,openalex,public,already_downloaded,,UTFix: Change Aware Unit Test Repairing using LLM
+ACM_0636,ACM-S1,ACM-S1#50,research-article,openalex,openalex,public,already_downloaded,,Evaluating the Complex Reasoning and Performance Capabilities of Large Language Models for Test Case Generation
+ACM_0637,ACM-S1,ACM-S1#51,research-article,openalex,openalex,public,already_downloaded,,PALM: Path-aware LLM-based Test Generation with Comprehension
+ACM_0638,ACM-S1,ACM-S1#52,research-article,openalex,openalex,public,already_downloaded,,Leveraging Large Language Models for Automated Discriminatory Test Generation
+ACM_0639,ACM-S1,ACM-S1#53,short-paper,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Beyond Input Maturity: Evolving LLM-Based Test Generation
+ACM_0640,ACM-S1,ACM-S1#54,research-article,openalex,openalex,public,already_downloaded,,ConUT: Condition-Aware Test Generation for Complex Java Code
+ACM_0641,ACM-S1,ACM-S1#55,research-article,openalex,openalex,public,already_downloaded,,Test Case Generation for Requirements in Natural Language - An LLM Comparison Study
+ACM_0642,ACM-S1,ACM-S1#56,research-article,openalex,openalex,public,already_downloaded,,AutoHIL: LLM-Based ECU Functional Test Generation through Domain Knowledge Augmentation
+ACM_0643,ACM-S1,ACM-S1#57,research-article,openalex,openalex,public,already_downloaded,,FAiLGen: Calibrating LLM for Failing Test Generation with Monte Carlo Tree Search
+ACM_0644,ACM-S1,ACM-S1#58,short-paper,openalex,openalex,public,already_downloaded,,A Qualitative and Quantitative Exploration of LLM-Based Test Generation Repair Loops
+ACM_0645,ACM-S1,ACM-S1#60,short-paper,openalex,openalex,public,already_downloaded,,LIReDroid: LLM-Enhanced Test Case Generation for Static Sensitive Behavior Replication
+ACM_0646,ACM-S1,ACM-S1#62,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Mutation-Guided LLM-based Test Generation at Meta
+ACM_0647,ACM-S1,ACM-S1#63,extended-abstract,openalex,openalex,public,already_downloaded,,Bug Relevant Test Generation for Better Fault Localization
+ACM_0648,ACM-S1;ACM-S2,ACM-S1#64;ACM-S2#18,research-article,openalex,openalex,public,already_downloaded,,ChatUniTest: A Framework for LLM-Based Test Generation
+ACM_0649,ACM-S1,ACM-S1#65,research-article,openalex,openalex,public,already_downloaded,,LLM4Fin: Fully Automating LLM-Powered Test Case Generation for FinTech Software Acceptance Testing
+ACM_0650,ACM-S1,ACM-S1#66,research-article,openalex,openalex,public,already_downloaded,,Grounding AI Agents in Contracts: An Empirical Evaluation of Spec-Driven Test Generation
+ACM_0651,ACM-S1,ACM-S1#67,research-article,openalex,openalex,public,already_downloaded,,SAINT: Service-level Integration Test Generation with Program Analysis and LLM-based Agents
+ACM_0652,ACM-S1,ACM-S1#68,research-article,openalex,openalex,public,already_downloaded,,Measuring the Influence of Incorrect Code on Test Generation
+ACM_0653,ACM-S1,ACM-S1#69,research-article,openalex,openalex,public,already_downloaded,,LogiDroid: Individual Functional Test Generation via Business Logic Extraction and Adaptation
+ACM_0654,ACM-S1,ACM-S1#70,research-article,openalex,openalex,public,already_downloaded,,DBcover: A White-box SQL Test Generation Framework for Coverage Improvement
+ACM_0655,ACM-S1,ACM-S1#71,research-article,openalex,openalex,public,already_downloaded,,RustGTC: Constraint-Guided Test Generation for Rust APIs via Comment Analysis and Code Context
+ACM_0656,ACM-S1,ACM-S1#72,research-article,openalex,openalex,public,already_downloaded,,iCoRe: An Iterative Correlation-Aware Retriever for Bug Reproduction Test Generation
+ACM_0657,ACM-S1;ACM-S2,ACM-S1#73;ACM-S2#7,short-paper,openalex,openalex,public,already_downloaded,,Understandable Test Generation Through Capture/Replay and LLMs
+ACM_0658,ACM-S1,ACM-S1#74,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,Feature-Driven End-to-End Test Generation
+ACM_0659,ACM-S1,ACM-S1#75,research-article,openalex,openalex,public,already_downloaded,,PRIMG : Efficient LLM-driven Test Generation Using Mutant Prioritization
+ACM_0660,ACM-S1,ACM-S1#77,research-article,openalex,openalex,public,already_downloaded,,CoverUp: Effective High Coverage Test Generation for Python
+ACM_0661,ACM-S1,ACM-S1#78,research-article,openalex,openalex,public,already_downloaded,,Large Language Models for Automated Web-Form-Test Generation: An Empirical Study
+ACM_0662,ACM-S1,ACM-S1#79,research-article,openalex,openalex,public,already_downloaded,,CASCADE: Detecting Inconsistencies between Code and Documentation with Automatic Test Generation
+ACM_0663,ACM-S1,ACM-S1#80,research-article,openalex,openalex,public,already_downloaded,,Semantic Constraint Inference for Web Form Test Generation
+ACM_0664,ACM-S1,ACM-S1#82,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,ChatGPT-Based Test Generation for Refactoring Engines Enhanced by Feature Analysis on Examples
+ACM_0665,ACM-S1,ACM-S1#83,research-article,openalex,openalex,public,already_downloaded,,Large Language Models for Automated Web-Form-Test Generation: An Empirical Study — RCR Report
+ACM_0666,ACM-S1,ACM-S1#84,short-paper,openalex,openalex,public,already_downloaded,,Domain Knowledge is All You Need: A Field Deployment of LLM-Powered Test Case Generation in FinTech Domain
+ACM_0667,ACM-S1,ACM-S1#87,research-article,openalex,openalex,public,already_downloaded,,"Enabling Global, Human-Centered Explanations for LLMs: From Tokens to Interpretable Code and Test Generation"
+ACM_0668,ACM-S1,ACM-S1#88,research-article,openalex,openalex,public,already_downloaded,,Doc2Test: An Industrial Multi-agent Framework for Document-Driven End-to-End Selenium Test Generation
+ACM_0669,ACM-S1,ACM-S1#89,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Using a Large Language Model as a Building Block to Generate UsableValidation and Verification Suite for OpenMP
+ACM_0670,ACM-S1,ACM-S1#91,research-article,openalex,openalex,public,already_downloaded,,Automated Software Test Generation at Industry Scale Using a Multi-Agent Architecture and Workflow Integration
+ACM_0671,ACM-S1,ACM-S1#92,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,CodaMosa: Escaping Coverage Plateaus in Test Generation with Pre-Trained Large Language Models
+ACM_0672,ACM-S1,ACM-S1#96,extended-abstract,openalex,openalex,public,already_downloaded,,Test Smell Refactoring with Agentic LLMs: An Empirical Study of Gemini-2.5-Pro
+ACM_0673,ACM-S1,ACM-S1#100,short-paper,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,kS-LLM: k-Step based Automatic LLM Test Case Generator using Caching Mechanism to Achieve Higher Code Coverage
+ACM_0674,ACM-S1,ACM-S1#101,research-article,openalex,openalex,public,already_downloaded,,What’s in a Display Name? An Empirical Study on the Use of Display Names in Open-Source JUnit Tests
+ACM_0675,ACM-S1,ACM-S1#105,research-article,openalex,openalex,public,already_downloaded,,How Well Do ChatGPT Models Maintain Software?
+ACM_0676,ACM-S1;ACM-S2,ACM-S1#106;ACM-S2#12,research-article,openalex,openalex,public,already_downloaded,,RefAgent: A Multi-agent LLM-based Framework for Automatic Software Refactoring
+ACM_0677,ACM-S1,ACM-S1#108,research-article,openalex,openalex,public,already_downloaded,,On the Flakiness of LLM-Generated Tests for Industrial and Open-Source Database Management Systems
+ACM_0678,ACM-S1;ACM-S2,ACM-S1#109;ACM-S2#26,research-article,openalex,openalex,public,already_downloaded,,Reality Check: Assessing GPT-4 in Fixing Real-World Software Vulnerabilities
+ACM_0679,ACM-S1,ACM-S1#110,extended-abstract,openalex,openalex,public,already_downloaded,,Correct According to Whom? Auditing What LLM-Generated Tests Actually Check
+ACM_0680,ACM-S1,ACM-S1#111,research-article,openalex,openalex,public,already_downloaded,,Barista: Synthesizing Typestate Specifications with LLM Agents
+ACM_0681,ACM-S1,ACM-S1#112,research-article,openalex,openalex,public,already_downloaded,,Is Three the Magic Number? An Empirical Evaluation of LLM-Based Repair Loops
+ACM_0682,ACM-S1,ACM-S1#113,short-paper,openalex,openalex,public,already_downloaded,,Whose Specification Did You Test? The Hidden Interpretation Bias in LLM-Generated Test Suites
+ACM_0683,ACM-S1,ACM-S1#115,research-article,openalex,openalex,public,already_downloaded,,Scenario-Guided LLM-based Mobile App GUI Testing
+ACM_0684,ACM-S1,ACM-S1#117,research-article,openalex,openalex,public,already_downloaded,,LLM-Assisted Input-Requirement-Aware Differential Testing of Array Programming Frameworks
+ACM_0685,ACM-S1,ACM-S1#119,research-article,openalex,openalex,public,already_downloaded,,LLM-Based Automated Diagnosis Of Integration Test Failures At Google
+ACM_0686,ACM-S1,ACM-S1#120,research-article,openalex,openalex,public,already_downloaded,,BACE: LLM-based Code Generation through Bayesian Anchored Co-Evolution of Code and Test Populations
+ACM_0687,ACM-S1,ACM-S1#121,research-article,openalex,openalex,public,already_downloaded,,Demystifying LLM-Based Software Engineering Agents
+ACM_0688,ACM-S1;ACM-S3,ACM-S1#122;ACM-S3#3,research-article,openalex,openalex,public,already_downloaded,,From Prompts to Properties: Rethinking LLM Code Generation with Property-Based Testing
+ACM_0689,ACM-S1,ACM-S1#124,research-article,openalex,openalex,public,already_downloaded,,Teaching Algorithms and Data Structures with a Test-Driven Development Framework
+ACM_0690,ACM-S1,ACM-S1#125,invited-talk,openalex,openalex,public,already_downloaded,,Harden and Catch for Just-in-Time Assured LLM-Based Software Testing: Open Research Challenges
+ACM_0691,ACM-S1,ACM-S1#126,poster,openalex,openalex,public,already_downloaded,,Pay Attention! Human-Centric Improvements of LLM-based Interfaces for Assisting Software Test Case Development
+ACM_0692,ACM-S1,ACM-S1#127,research-article,openalex,openalex,public,already_downloaded,,TDiFf: Detecting Bugs in DataFrame Systems via Transferred DBMS Test Cases
+ACM_0693,ACM-S1,ACM-S1#128,research-article,openalex,openalex,public,already_downloaded,,CrossProbe: LLM-Empowered Cross-Project Bug Detection for Deep Learning Frameworks
+ACM_0694,ACM-S1;ACM-S2,ACM-S1#130;ACM-S2#17,research-article,openalex,openalex,public,already_downloaded,,Automated Validation of COBOL to Java Transformation
+ACM_0695,ACM-S1,ACM-S1#131,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,exLong: Generating Exceptional Behavior Tests with Large Language Models
+ACM_0696,ACM-S1,ACM-S1#132,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,Large Language Models are Few-Shot Testers: Exploring LLM-Based General Bug Reproduction
+ACM_0697,ACM-S1,ACM-S1#133,research-article,openalex,openalex,public,already_downloaded,,UniTSyn: A Large-Scale Dataset Capable of Enhancing the Prowess of Large Language Models for Program Testing
+ACM_0698,ACM-S1;ACM-S2,ACM-S1#134;ACM-S2#6,research-article,openalex,openalex,public,already_downloaded,,Finding Typing-Related Bugs in JVM Implementations
+ACM_0699,ACM-S1,ACM-S1#135,research-article,openalex,openalex,public,already_downloaded,,AgoneTest: Automated creation and assessment of Unit tests leveraging Large Language Models
+ACM_0700,ACM-S1,ACM-S1#136,research-article,openalex,openalex,public,already_downloaded,,Code Optimization Chain-of-Thought: Structured Understanding and Self-Checking
+ACM_0701,ACM-S1;ACM-S2,ACM-S1#137;ACM-S2#9,short-paper,openalex,openalex,public,already_downloaded,,Toward a Multi-Agent System for Reliable Mocking of Static Methods and Continuous Integration
+ACM_0702,ACM-S1,ACM-S1#138,research-article,openalex,openalex,public,already_downloaded,,When Retrieval Augmentation Meets API Documentation: Can LLMs Code with Less-Common Libraries?
+ACM_0703,ACM-S1,ACM-S1#140,research-article,openalex,openalex,public,already_downloaded,,Quantifying Memorization Advantage in Code LLMs
+ACM_0704,ACM-S1,ACM-S1#141,research-article,openalex,openalex,public,already_downloaded,,"TestWeaver: Execution-aware, Feedback-driven Regression Testing Generation with Large Language Models"
+ACM_0705,ACM-S1,ACM-S1#142,research-article,openalex,openalex,public,already_downloaded,,A DSL for Testing LLMs for Fairness and Bias
+ACM_0706,ACM-S1,ACM-S1#144,research-article,openalex,openalex,public,already_downloaded,,Hamster: A Large-Scale Study and Characterization of Developer-Written Tests
+ACM_0707,ACM-S1,ACM-S1#146,research-article,openalex,openalex,public,already_downloaded,,Codellm-Devkit: A Framework for Contextualizing Code LLMs with Program Analysis Insights
+ACM_0708,ACM-S1,ACM-S1#147,research-article,venue_label,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Assertion Messages with Large Language Models (LLMs) for Code
+ACM_0709,ACM-S1,ACM-S1#148,research-article,openalex,openalex,public,already_downloaded,,Understanding Automated Program Repair Agents through the Lens of Traceability: An Empirical Study
+ACM_0710,ACM-S1,ACM-S1#149,keynote,openalex,openalex,public,already_downloaded,,Finding the Bugs Users Would Find: From Sapienz to Autonomous Agents (Keynote)
+ACM_0711,ACM-S1;ACM-S2,ACM-S1#150;ACM-S2#1,research-article,openalex,openalex,public,already_downloaded,,A Survey on Feedback Types in Automated Programming Assessment Systems
+ACM_0712,ACM-S1;ACM-S2,ACM-S1#151;ACM-S2#15,research-article,openalex,openalex,public,already_downloaded,,Automated Testing of COBOL to Java Transformation
+ACM_0713,ACM-S1,ACM-S1#152,research-article,openalex,openalex,public,already_downloaded,,Applying Genetic Improvement Techniques for Automated Program Repair of Transpiled Code
+ACM_0714,ACM-S1,ACM-S1#153,short-paper,openalex,openalex,public,already_downloaded,,UAgent: Adversarial Co-evolution for Targeted Bug Revelation in Unit Testing
+ACM_0715,ACM-S1,ACM-S1#154,research-article,openalex,openalex,public,already_downloaded,,An Empirical Study on the Code Refactoring Capability of Large Language Models
+ACM_0716,ACM-S1,ACM-S1#155,short-paper,openalex,openalex,public,already_downloaded,,A Tutorial on Software Engineering for FMware
+ACM_0717,ACM-S1,ACM-S1#156,research-article,openalex,openalex,public,already_downloaded,,CTForge: Automatically Generating Test Suites for Software Configuration
+ACM_0718,ACM-S1,ACM-S1#157,short-paper,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Demo: Mobile Vibe-Coding with Fully Local Models and Memory
+ACM_0719,ACM-S1,ACM-S1#158,research-article,openalex,openalex,public,already_downloaded,,Generating Project-Specific Test Cases with Requirement Validation Intention
+ACM_0720,ACM-S1,ACM-S1#159,research-article,openalex,openalex,public,already_downloaded,,Investigating the Efficacy of Large Language Models for Code Clone Detection
+ACM_0721,ACM-S1,ACM-S1#160,research-article,openalex,openalex,public,already_downloaded,,Generalizing Test Cases for Comprehensive Test Scenario Coverage
+ACM_0722,ACM-S1,ACM-S1#163,research-article,openalex,openalex,public,already_downloaded,,KQFuzz: Knowledge-Guided Fuzzing for Quantum Libraries via Large Language Models
+ACM_0723,ACM-S1,ACM-S1#164,research-article,openalex,openalex,public,already_downloaded,,LLMutantKiller: Using Large Language Models to Generate Tests That Kill Mutants
+ACM_0724,ACM-S1,ACM-S1#165,short-paper,openalex,openalex,public,already_downloaded,,In-IDE Toolkit for Developers of AI-Based Features
+ACM_0725,ACM-S1,ACM-S1#166,research-article,openalex,openalex,public,already_downloaded,,From Prompts to Pareto Fronts: Using Code LMs as Semantic Genetic Operators for Compiler Bug Discovery
+ACM_0726,ACM-S1,ACM-S1#167,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation
+ACM_0727,ACM-S1,ACM-S1#168,research-article,openalex,openalex,public,already_downloaded,,Revisiting the Conflict-Resolving Problem from a Semantic Perspective
+ACM_0728,ACM-S1,ACM-S1#169,short-paper,openalex,openalex,public,already_downloaded,,An Empirical Analysis of Test Failures in AI-Generated Pull Requests
+ACM_0729,ACM-S1,ACM-S1#170,research-article,venue_label,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,HoarePrompt: Structural Reasoning About Program Correctness in Natural Language
+ACM_0730,ACM-S1,ACM-S1#172,research-article,,acm_snippet,public,already_downloaded,NO_YEAR;ABSTRACT_TRUNCATED,TorchCP
+ACM_0731,ACM-S1,ACM-S1#174,short-paper,openalex,openalex,public,already_downloaded,,A Tutorial on Software Engineering for FMware
+ACM_0732,ACM-S1,ACM-S1#175,research-article,openalex,openalex,public,already_downloaded,,Testora: Using Natural Language Intent to Detect Behavioral Regressions
+ACM_0733,ACM-S1,ACM-S1#176,tutorial,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Generating Test Inputs and Interactions with the Fandango Fuzzer: How to Test Complex Systems Automatically and Exhaustively
+ACM_0734,ACM-S1,ACM-S1#177,research-article,openalex,openalex,public,already_downloaded,,Automated Knowledge-Aware Test Reuse
+ACM_0735,ACM-S1;ACM-S3,ACM-S1#178;ACM-S3#4,research-article,openalex,openalex,public,already_downloaded,,Generating Software Tests for Mobile Applications Using Fine-Tuned Large Language Models
+ACM_0736,ACM-S1,ACM-S1#179,research-article,openalex,openalex,public,already_downloaded,,OmniBench-RAG: A Multi-Domain Evaluation Platform for Retrieval-Augmented Generation Tools
+ACM_0737,ACM-S1,ACM-S1#180,research-article,openalex,openalex,locked,locked_not_downloaded,LOCKED;NO_PDF,CAT-LM Training Language Models on Aligned Code and Tests
+ACM_0738,ACM-S1,ACM-S1#182,research-article,openalex,openalex,public,already_downloaded,,Technical Brief on Software Engineering for FMware
+ACM_0739,ACM-S1,ACM-S1#183,research-article,openalex,openalex,public,already_downloaded,,S-Eval: Towards Automated Safety Evaluation with Enhancement for Large Language Models
+ACM_0740,ACM-S1,ACM-S1#185,research-article,openalex,openalex,public,already_downloaded,,"Change And Cover: Last-Mile, Pull Request-Based Regression Test Augmentation"
+ACM_0741,ACM-S1,ACM-S1#186,abstract,openalex,openalex,unknown,unknown_not_downloaded,NO_PDF,Creating in-IDE Programming Courses
+ACM_0742,ACM-S1,ACM-S1#187,research-article,openalex,openalex,public,already_downloaded,,Coverage-based Strategies for the Automated Synthesis of Test Scenarios for Conversational Agents
+ACM_0743,ACM-S1,ACM-S1#189,research-article,openalex,acm_snippet,public,already_downloaded,ABSTRACT_TRUNCATED,Enhancing the Resiliency of Automated Web Tests with Natural Language
+ACM_0744,ACM-S1,ACM-S1#190,research-article,openalex,openalex,public,already_downloaded,,S-Eval: Towards Automated and Comprehensive Safety Evaluation for Large Language Models
+ACM_0745,ACM-S1,ACM-S1#193,research-article,openalex,openalex,public,already_downloaded,,An Extensible Framework for Implementing and Validating Byzantine Fault-Tolerant Protocols
+ACM_0746,ACM-S1,ACM-S1#195,short-paper,openalex,openalex,public,already_downloaded,,MiG.4: A Curated Dataset of Library Migrations in Java and Python
+ACM_0747,ACM-S1,ACM-S1#196,Article,openalex,openalex,public,already_downloaded,PRE_2022,Helping system engineers bridge the peaks

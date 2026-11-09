@@ -1,0 +1,76 @@
+{
+  "by_model": {
+    "ChatGPT": {
+      "pairs": 94,
+      "raw_p0_pass": 81,
+      "adjusted_p0_pass": 83,
+      "eligible_failures": 11,
+      "p1_recovered": 10,
+      "p1_still_failed": 1,
+      "recovery_rate": 0.9090909090909091,
+      "exact_95_ci": [
+        0.58722008,
+        0.99770103
+      ],
+      "carry_forward_pass": 93,
+      "raw_sensitivity_pass_if_only_observed_recoveries_carried": 91
+    },
+    "Gemini": {
+      "pairs": 94,
+      "raw_p0_pass": 86,
+      "adjusted_p0_pass": 87,
+      "eligible_failures": 7,
+      "p1_recovered": 5,
+      "p1_still_failed": 2,
+      "recovery_rate": 0.7142857142857143,
+      "exact_95_ci": [
+        0.29042086,
+        0.96330743
+      ],
+      "carry_forward_pass": 92,
+      "raw_sensitivity_pass_if_only_observed_recoveries_carried": 91
+    }
+  },
+  "combined": {
+    "pairs": 188,
+    "raw_p0_pass": 167,
+    "adjusted_p0_pass": 170,
+    "eligible_failures": 18,
+    "p1_recovered": 15,
+    "p1_still_failed": 3,
+    "recovery_rate": 0.8333333333333334,
+    "exact_95_ci": [
+      0.58582251,
+      0.96421492
+    ],
+    "carry_forward_pass": 185,
+    "raw_sensitivity_pass_if_only_observed_recoveries_carried": 182
+  },
+  "provenance_flags": [
+    "CE023 adjusted P0 PASS is provisional: archived P1 CE023 test source differs from P0 test source; P1 PASS does not verify rerun of the P0 suite."
+  ],
+  "selected_p0_failure_stages": {
+    "assertion": 15,
+    "runtime": 2,
+    "compilation": 1
+  },
+  "p0_to_p1_selected": {
+    "FAIL_to_PASS": 15,
+    "FAIL_to_FAIL": 3
+  },
+  "remaining": [
+    "ChatGPT CE066",
+    "Gemini CE033",
+    "Gemini CE037"
+  ],
+  "log_checks": {
+    "p0": {
+      "pass": 169,
+      "fail": 19
+    },
+    "p1_eligible": {
+      "pass": 15,
+      "fail": 3
+    }
+  }
+}

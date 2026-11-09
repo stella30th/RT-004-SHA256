@@ -1,0 +1,40 @@
+You are generating a JUnit 4 test class for the Java task below.
+
+Requirements:
+- Output Java source code only. Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- The first line must be: package humaneval.generated;
+- The public test class name must be exactly: GeneratedTest_HE003
+- Test the provided correct Java implementation.
+- Call the target class using its fully qualified name: humaneval.correct.BELOW_ZERO
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Use only Java 8 compatible syntax and APIs.
+
+TASK_ID: HE003
+TARGET_CLASS: BELOW_ZERO
+
+TASK_SPECIFICATION:
+You're given a list of deposit and withdrawal operations on a bank account that starts with
+   zero balance. Your task is to detect if at any point the balance of account fallls below zero, and
+   at that point function should return True. Otherwise it should return False.
+
+TARGET_SOURCE:
+package humaneval.correct;
+
+import java.util.List;
+
+public class BELOW_ZERO {
+    public static boolean below_zero(List<Integer> operations) {
+        int balance = 0;
+        for (Integer op : operations){
+            balance += op;
+            if (balance < 0){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+

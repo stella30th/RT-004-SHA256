@@ -1,0 +1,9 @@
+﻿database,query,date,raw_hits,screened,candidate,included,notes
+Google Scholar,"""ChatGPT"" ""unit test generation""",2026-10-11,1830,,,,GS-A01; first 10 pages collected; combined screening/dedup performed across GS-A01..A06.
+Google Scholar,ChatGPT JUnit,2026-10-11,1130,,,,GS-A02; first 10 pages collected; combined screening/dedup performed across GS-A01..A06.
+Google Scholar,"ChatGPT ""unit testing""",2026-10-11,2940,,,,GS-A03; first 10 pages collected; combined screening/dedup performed across GS-A01..A06.
+Google Scholar,"""large language model"" ""unit test generation""",2026-10-11,1610,,,,GS-A04; first 10 pages collected; combined screening/dedup performed across GS-A01..A06.
+Google Scholar,"LLM ""unit testing"" compilation",2026-10-11,1490,,,,GS-A05; first 10 pages collected; combined screening/dedup performed across GS-A01..A06.
+Google Scholar,LLM JUnit repair,2026-10-11,601,,,,GS-A06; first 10 pages collected; combined screening/dedup performed across GS-A01..A06.
+Google Scholar,GS-A01..GS-A06 combined,2026-10-11,600,456,19,,Source-level PRISMA working counts: ~600 visible result slots; 144 within-source overlaps removed; 456 screened; 19 retained for cross-source merge.
+IEEE Xplore,"(ChatGPT OR ""large language model"" OR LLM) AND (""unit test generation"" OR ""unit testing"")",2026-10-12,,85,,,IEEE-A01; 85 records exported to CSV. Total IEEE site hit count was not frozen in the log. A02-A04 pending.
