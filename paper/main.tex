@@ -1,0 +1,79 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+% Prevent long inline code/identifiers from overflowing IEEE two-column margins
+\emergencystretch=1.5em
+
+\begin{document}
+
+\title{From Failure Analysis to Oracle-Aware Prompt Refinement: Improving the Accuracy of LLM-Generated JUnit Tests on ClassEval-T}
+
+\author{
+\IEEEauthorblockN{Huynh Gia Hao, Ho Le Thien An, Nguyen Hoang Khoi, and Nguyen Nam Khoa}
+\IEEEauthorblockA{\textit{Department of Software Engineering, FPT University}\\
+Ho Chi Minh City, Vietnam}
+}
+
+\maketitle
+
+% =====================================================================
+% MODULAR PAPER STRUCTURE FOR TEAM SHA256
+% Each team member edits only their assigned file(s) inside sections/
+% =====================================================================
+
+% 0. Abstract & Keywords (Assigned to: An)
+\input{sections/00_abstract}
+
+% I. Introduction (Assigned to: Khoi - COMPLETED)
+\input{sections/01_introduction}
+
+% II. Background & Related Work (Assigned to: Khoi - COMPLETED)
+\input{sections/02_background_related_work}
+
+% III. Dataset & Experimental Setup (Assigned to: Khoi + Hao - COMPLETED)
+\input{sections/03_dataset_experimental_setup}
+
+% IV. Methodology (Assigned to: Hao)
+\input{sections/04_methodology}
+
+% V. Experimental Results (Split into 3 sub-files for Hao, Khoa, and An)
+\section{Experimental Results}
+\label{sec:results}
+\input{sections/05a_results_chatgpt}
+\input{sections/05b_results_gemini}
+\input{sections/05c_results_combined}
+
+% VI. Discussion (Assigned to: An)
+\input{sections/06_discussion}
+
+% VII. Threats to Validity (Assigned to: An)
+\input{sections/07_threats_to_validity}
+
+% VIII. Conclusion & Future Work (Assigned to: An)
+\input{sections/08_conclusion}
+
+% References (Assigned to: Khoi - COMPLETED)
+% Option A (Default): Direct IEEE \bibitem entries
+\input{sections/09_references}
+
+% Option B: If using BibTeX (references.bib), comment out \input{sections/09_references}
+% above and uncomment the two lines below:
+% \bibliographystyle{IEEEtran}
+% \bibliography{references}
+
+% Appendix / Artifact, if permitted (Assigned to: Hao + Khoa)
+% \input{sections/10_appendix}
+
+\end{document}

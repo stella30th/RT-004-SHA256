@@ -1,0 +1,41 @@
+\section{Background and Related Work}
+\label{sec:background}
+
+\subsection{Search-Based and LLM-Based Unit Test Generation}
+\label{subsec:sbst_llm}
+EvoSuite represents a well-established SBST approach for automatically constructing Java test suites using evolutionary search~\cite{fraser2011evosuite}. Such tools are effective at exploring program structure, but generated assertions are typically regression-oriented observations of the current SUT. This motivates complementary approaches that use language models to reason from source code and natural-language task context.
+
+Recent studies show that LLM-generated unit tests can achieve useful coverage while still suffering from compilation, API hallucination, assertion, and runtime failures. Schafer et al. evaluated LLMs for automated unit test generation and highlighted the importance of executable quality, not merely plausible source text~\cite{schafer2024empirical}. Siddiq et al. studied JUnit generation across HumanEval-Java and more complex Java settings, showing that complexity and missing context materially affect compilation success~\cite{siddiq2024junit}. Yang et al. likewise found that prompt and focal context influence test-generation outcomes~\cite{yang2024evaluation}. At industrial scale, TestGen-LLM used automated filters so that non-compiling or non-passing candidates were rejected before human review~\cite{alshahwan2024meta}.
+
+Repair-oriented systems attempt to improve initially invalid tests after generation. ChatTester uses iterative feedback to repair generated tests~\cite{yuan2024chattester}; TestART combines generation and repair loops~\cite{gu2024testart}; and YATE explicitly distinguishes compilation fixing from oracle fixing~\cite{konstantinou2025yate}. Structured prompting provides a complementary direction. Code-aware and path-sensitive prompts can constrain the model toward program-specific behavior rather than generic expectations~\cite{ryan2024codeaware,wang2024hits}. OAPR follows this source-first direction but is evaluated here specifically as a focused repair prompt for previously failing class-level JUnit suites.
+
+\begin{table*}[t]
+\caption{Positioning relative to closely related test-generation and repair systems}
+\label{tab:prior}
+\centering\scriptsize
+\begin{tabularx}{\textwidth}{@{}l l X X@{}}
+\toprule
+Approach & Repair signal & Main intervention & Distinction in this study \\
+\midrule
+ChatTester~\cite{yuan2024chattester} & Compiler and execution feedback & Iterative generator/refiner & P1 was regenerated once after manual failure analysis, not an automated loop. \\
+TestART~\cite{gu2024testart} & Execution and repair feedback & Automated co-evolution & OAPR uses a source-first checklist plus human-authored failure focus; no closed-loop automation was tested. \\
+YATE~\cite{konstantinou2025yate} & Compilation/oracle repair & Decomposed repair process & Our endpoint is compile-and-pass compatibility of focused Java suites. \\
+ChatUniTest~\cite{chatunitest} & Validation and repair & Adaptive focal context and repair & OAPR lacks automatic focal-context extraction and validation during generation. \\
+IntUT~\cite{intut} & Test intentions & Intention-guided test creation & Our P1 uses observed failure descriptions, not verified intention/oracle specifications. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The intervention is therefore best understood as an exploratory adaptation of existing repair and structured-prompting ideas to a source-guided, failure-conditioned ClassEval-T evaluation. We do not claim a new general repair algorithm or demonstrate an improvement over the systems in Table~\ref{tab:prior}, which were not rerun here.
+
+\subsection{The Test Oracle Problem}
+\label{subsec:oracle_problem}
+A test oracle determines whether an observed execution is acceptable. In JUnit, the oracle is commonly expressed through assertions such as \texttt{assertEquals}, \texttt{assertTrue}, \texttt{assertFalse}, or expected-exception behavior. For LLM-generated tests, a test may compile while its oracle remains semantically wrong. Typical causes include assuming standard algorithm behavior that differs from the implementation, misunderstanding whether an update operation replaces or accumulates state, or interpreting a return value by method name rather than by tracing the actual branch that produces it.
+
+This distinction is important for our outcome measure. Compilation and execution success show that a generated suite is compatible with the evaluated SUT. They do not independently prove specification correctness, mutation adequacy, or real defect-detection effectiveness. The present study therefore reports executable compatibility and focused recovery, not defect-detection superiority.
+
+\subsection{Class-Level Evaluation with ClassEval-T}
+\label{subsec:classeval_t}
+ClassEval introduced manually crafted class-level tasks that include constructors, mutable state, and inter-method dependencies~\cite{du2024classeval}. ClassEval-T ports the benchmark to additional programming languages, including Java~\cite{xue2025classevalt}. The Java edition used in this project contains 94 target classes, identified as CE001--CE094. Its benchmark paper describes the translation from the original class-level Python tasks~\cite{xue2025classevalt}; the official dataset repository URL and exact revision still need confirmation against the archived project snapshot. Compared with function-level tasks, these classes create more opportunities for state-transition, precondition, and API-contract misunderstandings.
+
+For analysis, the team organized the 94 Java tasks into seven application-oriented groups: management systems, data formatting and utilities, financial and mathematical computation, security/authentication/parsing, games and state machines, file/document processing, and NLP/text processing. The group counts from the team's manuscript are 23, 20, 19, 11, 10, 6, and 5 respectively (summing to 94); this is an author-defined categorization requiring a published task-to-domain mapping. This grouping is used only as a descriptive analysis aid; the statistical unit remains the individual model-task pair.
