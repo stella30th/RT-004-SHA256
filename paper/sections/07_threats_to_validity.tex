@@ -1,8 +1,10 @@
-% =====================================================================
-% ASSIGNED TO: HO LE THIEN AN
-% CONTENT: Focused recovery bias, no full regression, prompt overfitting, reproducibility, correctness != defect detection
-% =====================================================================
-
+% Assigned to Ho Le Thien An.
 \section{Threats to Validity}
 \label{sec:threats}
-\emph{[TODO -- An: Discuss focused recovery bias, absence of full regression rerun on $P_0$ PASS pairs, prompt overfitting risks, model/version reproducibility, and execution correctness versus defect detection.]}
+\textbf{Internal validity.} Historical P1 mixes an additional model call, a general checklist, and human-authored failure focus; no equal-budget historical P0 control isolates their effects. The round-2 ChatGPT records include two labeled replacement P0 outputs (CE085 run-01 and CE033 run-03), and two P0 run pairs have identical source hashes. These records are retained and disclosed rather than treated as verified independent generations. CE023 used different P0 and P1 target sources; its P1 PASS is excluded from the valid historical cohort.
+
+\textbf{External validity.} Historical results cover 94 Java classes and two interface-labelled model configurations. The repeated three-condition evaluation covers only 11 ChatGPT tasks selected after historical failure; the new Gemini handover audits historical P0/P1 but contains no matched three-arm Gemini reruns. Findings cannot be generalized to new task samples, model snapshots, or projects without replication.
+
+\textbf{Construct validity.} JUnit PASS means compilation and execution with zero reported failures/errors against the current implementation. It does not verify specification correctness. PIT mutation score is a separate proxy for artificial fault sensitivity; no-coverage mutants count as not killed, and equivalent mutants or real defects were not independently assessed. P0 mutation results are conditional on 23 valid suites, while both checklist conditions have 33 valid suites.
+
+\textbf{Conclusion validity and reproducibility.} The original 15/18 exact interval describes a small, failure-selected cohort and does not remove selection bias. Round-2 task--run cells share 11 tasks, so 33 suite observations are not 33 independent tasks; no confirmatory model or condition test is claimed. The committed CSV indexes cover 99 JUnit and mutation-stage records, but the primary ZIP archives named in the handover are not in this repository. Model session provenance and some generation settings remain incomplete. The manuscript therefore separates historical, round-2, and provisional 188-pair sensitivity counts.

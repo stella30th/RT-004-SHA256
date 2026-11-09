@@ -13,7 +13,7 @@ To evaluate LLM-based JUnit test generation on realistic object-oriented softwar
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{p{1.95cm}p{2.75cm}p{3.05cm}}
 \hline
-\textbf{Dimension} & \textbf{HumanEval-Java~\cite{chen2021evaluating, siddiq2024using}} & \textbf{ClassEval-T (Java)~\cite{du2024classeval, xue2025classevalt}} \\
+\textbf{Dimension} & \textbf{HumanEval-Java~\cite{chen2021humaneval,siddiq2024junit}} & \textbf{ClassEval-T (Java)~\cite{du2024classeval,xue2025classevalt}} \\
 \hline
 Granularity & Standalone function/method & Complete OOP class \\
 Average Scale & $\sim$11.5 LOC / task & 66.7 LOC / class \\
@@ -29,7 +29,7 @@ Oracle Challenge & Single-call input/output & Multi-step state \& domain trace \
 Table~\ref{tab:benchmark_comparison} contrasts ClassEval-T against traditional function-level benchmarks such as HumanEval-Java. Selecting ClassEval-T offers three methodological advantages for our study:
 \begin{enumerate}
     \item \textbf{Object-Oriented State and Coupling:} Across the 94 Java classes, 76.2\% of methods read or mutate shared instance fields (e.g., \texttt{this.\allowbreak balance}, \texttt{this.\allowbreak inventory}, \texttt{this.\allowbreak postfixStack}) or invoke other methods within the same class. This structure directly exposes \emph{state-transition} and \emph{precondition} oracle errors that cannot be observed in stateless \texttt{static} functions.
-    \item \textbf{Mitigation of Data Contamination:} Both ClassEval~\cite{du2024classeval} and its Java translation in ClassEval-T~\cite{xue2025classevalt} were written manually from scratch rather than scraped from public repositories or competitive programming platforms, with 0\% exact-match overlap against pre-existing public Java corpora.
+    \item \textbf{Contamination Considerations:} ClassEval and its Java translation were manually constructed~\cite{du2024classeval,xue2025classevalt}. We did not perform an independent overlap audit against the evaluated models' training data, so contamination remains possible.
     \item \textbf{Domain Diversity:} To analyze failure patterns across realistic software contexts, we mapped all 94 Java classes into \textbf{seven application domains}, as summarized in Table~\ref{tab:domain_distribution}.
 \end{enumerate}
 
@@ -70,14 +70,14 @@ Specifically, the build and execution environment is configured as follows:
 
 \subsection{Evaluated Models and Infrastructure Hygiene Protocol}
 \label{subsec:models_hygiene}
-We evaluate two frontier Large Language Models under identical input specifications and output protocols:
+The historical archive reports two model configurations under a common structural prompt protocol, although full equivalence of interface settings and task inputs is not established:
 \begin{enumerate}
-    \item \textbf{ChatGPT} (OpenAI ChatGPT~6 Sol configuration); and
-    \item \textbf{Gemini} (Google Gemini~3.8 Flash configuration).
+    \item \textbf{ChatGPT} (archived interface label ChatGPT 6 Sol; exact snapshot unverified); and
+    \item \textbf{Gemini} (archived AI Studio label Gemini 3.8 Flash; generation settings incompletely archived).
 \end{enumerate}
-For each task \texttt{CE001}--\texttt{CE094}, both models receive the exact same task specification block containing \texttt{TASK\_ID}, \texttt{TARGET\_\allowbreak CLASS}, \texttt{TEST\_\allowbreak CLASS} (\texttt{GeneratedTest\_\allowbreak CE<ID>}), \texttt{CATEGORY}, \texttt{BUSINESS\_\allowbreak PROBLEM}, \texttt{PUBLIC\_\allowbreak API\_\allowbreak HINT}, and the full Java \texttt{TARGET\_\allowbreak SOURCE}. Reference test suites are strictly withheld from all prompts. To prevent trivial test generation, our protocol explicitly prohibits reflection-only existence checks (e.g., \texttt{Class.\allowbreak forName}, \texttt{getDeclared\allowbreak Method}) and single \texttt{assertNotNull} smoke tests, requiring deterministic behavioral assertions across normal, boundary, invalid-input, and state-transition scenarios.
+The intended prompt format for tasks \texttt{CE001}--\texttt{CE094} contains \texttt{TASK\_ID}, \texttt{TARGET\_\allowbreak CLASS}, \texttt{TEST\_\allowbreak CLASS} (\texttt{GeneratedTest\_\allowbreak CE<ID>}), \texttt{CATEGORY}, \texttt{BUSINESS\_\allowbreak PROBLEM}, \texttt{PUBLIC\_\allowbreak API\_\allowbreak HINT}, and Java \texttt{TARGET\_\allowbreak SOURCE}. Exact equality of the two models' archived input blocks has not been established; CE023 has a known mismatch. The prompt instructions withhold reference test suites and prohibit reflection-only existence checks (e.g., \texttt{Class.\allowbreak forName}, \texttt{getDeclared\allowbreak Method}) and single \texttt{assertNotNull} smoke tests, requesting deterministic behavioral assertions across normal, boundary, invalid-input, and state-transition scenarios.
 
-To ensure that our failure analysis measures genuine model capabilities rather than harness or input artifacts, we enforce a strict \textbf{Infrastructure Quarantine Protocol} prior to computing $P_0$ failure counts and $P_1$ recovery rates:
+For the reported adjusted analysis, the team retrospectively separated environment and task-input artifacts from model-attributed failures. This was not a preregistered quarantine rule:
 \begin{itemize}
     \item \textbf{Environment Dependency Resolution (\texttt{CE029} and \texttt{CE087} -- ChatGPT):} During initial $P_0$ execution, ChatGPT's generated tests for \texttt{CE029} (\texttt{Database\allowbreak Processor}) and \texttt{CE087} (\texttt{UserLoginDB}) threw \texttt{NullPointer\allowbreak Exception} solely because the SQLite JDBC driver was not yet registered on the Maven classpath. Once \texttt{sqlite-\allowbreak jdbc} (v3.46.1.0) was added to \texttt{pom.xml}, both unmodified $P_0$ test suites compiled and passed completely. In accordance with our protocol, \texttt{CE029} and \texttt{CE087} are recorded as valid $P_0$ PASS outcomes and excluded from the $P_1$ recovery denominator, yielding $N_{\text{ChatGPT}} = 94$ valid task pairs (83 $P_0$ PASS, 11 valid $P_0$ FAIL).
     \item \textbf{Input Specification Mismatch Quarantine (\texttt{CE023} -- Gemini):} In task \texttt{CE023} (\texttt{Classroom}), the initial $P_0$ prompt block inadvertently referenced a mismatched inner class qualifier (\texttt{Classroom\allowbreak Management\allowbreak Test.\allowbreak Course}), whereas the production SUT in the Maven workspace defines \texttt{Classroom.\allowbreak Course}. Because the resulting $P_0$ compilation error was induced by an input specification discrepancy rather than model hallucination, \texttt{CE023} is quarantined and excluded from Gemini's valid statistical denominator, yielding $N_{\text{Gemini}} = 93$ valid task pairs (86 $P_0$ PASS, 7 valid $P_0$ FAIL).\footnote{Although \texttt{CE023} was also regenerated and verified to pass under $P_1$ after supplying the corrected \texttt{Classroom.java} source, we exclude it from the primary $15/18$ recovery statistic to maintain strict input invariance between $P_0$ and $P_1$.}

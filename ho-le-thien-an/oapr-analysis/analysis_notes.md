@@ -30,3 +30,6 @@ Chưa thấy run registry cho ba nhánh đối chứng A = P0-resample, B = chec
 - P1: exit code 0; 4 tests, 0 failures, 0 errors; `BUILD SUCCESS`. Xem `ce023-repro-p1/rerun.log`.
 
 Đây là chạy lại **các file test đã lưu**, không phải gọi lại mô hình Gemini để sinh test mới. Hai file test khác nhau và prompt P1 cũng thay `TARGET_SOURCE` của CE023; phép chạy này xác nhận trạng thái build của từng artifact, không tách được nguyên nhân P1 PASS.
+# Update 2026-11-09
+
+The strict historical analysis now excludes Gemini CE023 because its P0 input did not match the project source. The valid cohort is 187 pairs: 169 P0 passes, 18 eligible failures, and 15 recoveries for 184 carry-forward passes. The former 188-pair adjusted counts are retained only as a sensitivity scenario pending a successful rerun of the original CE023 P0 suite. See round2_analysis_notes.md and round2_summary.json for the separate ChatGPT round-2 handover analysis.

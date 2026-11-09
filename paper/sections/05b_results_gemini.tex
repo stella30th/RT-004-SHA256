@@ -1,8 +1,5 @@
-% =====================================================================
-% ASSIGNED TO: NGUYEN NAM KHOA
-% CONTENT: P0 Gemini, 7 failures, P1 5/7 recovered, CE033/CE037 remaining
-% =====================================================================
-
 \subsection{Gemini Results}
 \label{subsec:gemini_results}
-\emph{[TODO -- Khoa: Present Gemini $P_0$ results (86/93 PASS, 7 valid failures), failure taxonomy, $P_1$ recovery of 5/7 (71.43\%), and case analysis of the two remaining failures \texttt{CE033} (\texttt{DecryptionUtils}) and \texttt{CE037} (\texttt{EncryptionUtils}).]}
+The archived Gemini P0 run had 86 passing suites among 94 task slots and eight failures. CE023 failed to compile because its supplied target source referred to \texttt{ClassroomManagementTest.Course} while the execution project defines \texttt{Classroom.Course}. A new P1 suite generated from corrected source passed four tests, but no successful rerun of the original P0 suite has been found. Excluding CE023 leaves 86 P0 passes and seven eligible failures among 93 valid pairs.
+
+Five of those seven P1 suites passed (71.43\%). Their P0 discrepancies involved cipher behavior, expression parsing, suffix transformation, token counting, a missing JUnit import, and fixture-sensitive file processing. CE033 and CE037 remained unsuccessful: each P1 suite addressed an earlier cipher discrepancy yet retained a failing Vigenère assertion. The Gemini handover audits the 94-task historical inventory and logs; it does not contain a three-arm repeated-run experiment comparable to the new ChatGPT round-2 cohort.

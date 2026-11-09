@@ -1,8 +1,6 @@
-% =====================================================================
-% ASSIGNED TO: HO LE THIEN AN
-% CONTENT: Conclusion (15/18 recovered) and Future Work (P2: prompt refinement + execution feedback + oracle verification)
-% =====================================================================
-
+% Assigned to Ho Le Thien An.
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
-\emph{[TODO -- An: Summarize the 15/18 (83.33\%) focused recovery outcome and outline future $P_2$ directions combining prompt refinement, execution feedback, and automated oracle verification.]}
+For RQ1, the 18 eligible historical P0 failures comprise 15 assertion-failing suites, two runtime errors, and one compilation failure. For RQ2, a single failure-informed P1 regeneration recovered 15/18 (83.33\%; exact 95\% interval 58.58--96.42\%). For RQ3, valid-cohort carry-forward success changes arithmetically from 169/187 to 184/187; the earlier 170/188 to 185/188 accounting depends on an unverified CE023 P0 adjustment. Three selected historical pairs remain unsuccessful: ChatGPT CE066 and Gemini CE033 and CE037.
+
+In a separate 11-task ChatGPT round-2 cohort, P0 resampling passed 23/33 recorded suites and both checklist variants passed 33/33. The two checklist variants had identical recorded mutant-killing outcomes, so this study does not demonstrate an extra mutation benefit from task-specific focus. Before stronger claims, the team should verify generation sessions and CE023 provenance, repeat the three conditions on Gemini and held-out failures, run P1 on baseline-passing tasks to measure regression, and compare assertions against independent specifications or fault-based evidence.

@@ -1,8 +1,8 @@
-% =====================================================================
-% ASSIGNED TO: HO LE THIEN AN
-% CONTENT: Implications of OAPR, model differences, failure patterns, interpretation
-% =====================================================================
-
+% Assigned to Ho Le Thien An.
 \section{Discussion}
 \label{sec:discussion}
-\emph{[TODO -- An: Discuss the implications of OAPR, differences between ChatGPT and Gemini, recurring failure patterns, and interpretation of findings.]}
+The historical P1 outcome shows that failure-informed regeneration often produced suites compatible with the evaluated implementation: 15 of 18 selected failures became compile-and-pass suites. This observation combines a source-tracing checklist, manually written case-specific focus statements, and an additional generation. It does not identify which component caused a recovery. ChatGPT and Gemini were evaluated on different failure sets; 10/11 versus 5/7 does not establish model superiority.
+
+The separate ChatGPT round-2 results sharpen the descriptive comparison. P0 resampling passed 23/33 recorded suites, while each checklist variant passed 33/33. Yet checklist plus focus did not kill an additional recorded mutant relative to checklist only: both killed 924 of 1,164. More passing suites therefore did not demonstrate better mutation detection from the task-specific focus in this cohort. The conditional P0 mutation score also benefits from excluding ten invalid suites; comparing only valid P0 cells avoids treating failures as zero but conditions the comparison on an observed outcome.
+
+ChatTester~\cite{yuan2024chattester} and TestART~\cite{gu2024testart} use execution feedback in iterative repair; YATE~\cite{konstantinou2025yate} distinguishes compilation from oracle repair. The archived OAPR workflow is a single manually diagnosed regeneration, not an automated feedback loop. For a failing generated suite, a source-guided prompt can be a triage step, followed by execution and independent checking of assertions when a specification is available. Passing the current implementation alone cannot establish that a test detects real defects.

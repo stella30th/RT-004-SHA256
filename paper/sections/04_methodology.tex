@@ -1,19 +1,20 @@
-% =====================================================================
-% ASSIGNED TO: HUYNH GIA HAO
-% CONTENT: P0 baseline -> failure analysis -> OAPR P1 -> rerun; prompt design; inclusion/exclusion; metrics
-% =====================================================================
-
 \section{Methodology}
 \label{sec:methodology}
 
 \subsection{Overview of the Experimental Workflow}
 \label{subsec:workflow}
-\emph{[TODO -- Hao: Describe the experimental workflow ($P_0$ baseline $\rightarrow$ failure analysis $\rightarrow$ OAPR $P_1$ $\rightarrow$ focused rerun).]}
+The historical study generated one P0 JUnit suite for each of 94 Java tasks under each reported model configuration. Maven compiled and ran each suite against the archived implementation. The team then inspected failing suites, source, compiler output, and Surefire reports. Two ChatGPT dependency failures passed after adding the missing SQLite driver without changing their tests. Gemini CE023 used a P0 task source inconsistent with the execution project; its P1 suite used corrected source and passed, but this is not evidence that the original P0 suite passed after a correction. We therefore exclude CE023 from the 187-pair valid cohort and retain the earlier 188-pair accounting as sensitivity analysis. The 18 remaining model-attributed P0 failures (11 ChatGPT, seven Gemini) received one failure-informed P1 regeneration each.
+
+A separate round-2 ChatGPT evaluation revisited the same 11 historically failing ChatGPT tasks. The committed result index contains three recorded runs for each of three prompt conditions, yielding 99 suite records. The two historical and round-2 datasets are analyzed separately. The round-2 handover labels two P0 records as replacement outputs because their originals were unavailable.
 
 \subsection{Baseline Prompt Design ($P_0$) and Oracle-Aware Prompt Refinement ($P_1$)}
 \label{subsec:prompt_design}
-\emph{[TODO -- Hao: Detail the structure of the $P_0$ baseline prompt and the nine reasoning steps of OAPR ($P_1$).]}
+P0 supplies the task identifier, target and test class names, category and context, API hints, and target Java source. It asks for deterministic JUnit 4 tests with concrete assertions and no production-code modification. Historical P1 retains those constraints and adds a nine-step source-first checklist: identify exact API and return types; check inputs and preconditions; establish initial state; trace the selected control-flow branch; follow state mutations; derive expected values and exceptions; check boundaries; verify JUnit and fixture compatibility; and link every assertion to its setup and source path. Manually authored, case-specific focus statements identify the observed P0 failure mechanism without supplying a corrected expected value.
+
+Round 2 separates P0 resampling, checklist-only, and checklist-plus-focus conditions. The latter includes both the generic checklist and task-specific focus. The committed protocol describes equal task sets and three labeled runs per condition, but full independent-generation provenance and exact model settings remain unverified. These records support a descriptive condition comparison, not an isolated causal estimate.
 
 \subsection{Inclusion/Exclusion Criteria and Evaluation Metrics}
 \label{subsec:metrics}
-\emph{[TODO -- Hao: Define valid failure filtering criteria and formulas for Combined Success, Recovery Count, and Recovery Rate.]}
+The unit for historical accounting is a model--task pair. A suite is a PASS only if it compiles, executes at least one JUnit method, and reports zero failures and errors. Let $F_0$ be the 18 eligible historical P0 failures. Focused recovery is $\sum_{i\in F_0}\mathbf{1}(\mathrm{P1}_i=\mathrm{PASS})/|F_0|$. The workflow carry-forward measure adds recovered failures to P0 passes, leaving P0-passing pairs unregenerated; it is not a full-P1 success rate. For the valid cohort its denominator is 187.
+
+Round-2 suite PASS is evaluated with the same compile-and-execute rule. Mutation testing is attempted only after a suite passes the reference implementation. The recorded score is $\mathrm{KILLED}/(\mathrm{KILLED}+\mathrm{SURVIVED}+\mathrm{NO\_COVERAGE}+\mathrm{TIMED\_OUT})$; baseline-invalid suites are reported as excluded, not scored zero. The 33 task--run cells per condition repeat only 11 underlying tasks. We report counts and task-level variation; the exact binomial interval for historical 15/18 is descriptive and does not correct failure selection. No McNemar test or condition p-value is interpreted as causal evidence from these records.

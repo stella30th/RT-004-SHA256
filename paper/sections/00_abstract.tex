@@ -1,12 +1,8 @@
-% =====================================================================
-% ASSIGNED TO: HO LE THIEN AN
-% CONTENT: Abstract (Problem -> method -> 18 P0 failures -> 15 recovered -> 83.33% -> limitation) & Keywords
-% =====================================================================
-
+% Historical two-model focused recovery and separate ChatGPT round-2 evaluation.
 \begin{abstract}
-\emph{[TODO -- An: Problem $\rightarrow$ method $\rightarrow$ 18 $P_0$ failures $\rightarrow$ 15 recovered (83.33\%) $\rightarrow$ limitation.]}
+LLM-generated JUnit suites can fail because their assertions or fixtures do not match the evaluated Java source. We examine a failure-informed Oracle-Aware Prompt Refinement (OAPR) workflow on 94 ClassEval-T classes and two reported model configurations. After excluding Gemini CE023, whose P0 prompt used a different target source, and correcting two ChatGPT dependency failures without changing their tests, 187 model--task pairs remain. The adjusted P0 baseline passed 169/187. One archived P1 regeneration recovered 15 of 18 selected failures (83.33\%; exact 95\% interval 58.58--96.42\%): 10/11 for ChatGPT and 5/7 for Gemini. Carrying forward P0 passes gives 184/187 (98.40\%); this is not a full-P1 result. A separate ChatGPT round-2 evaluation recorded three runs of each of three conditions on 11 selected tasks. P0 resampling passed 23/33 suites; checklist-only and checklist-plus-focus each passed 33/33. The two checklist conditions had identical recorded mutation outcomes (924/1,164 mutants killed each), while P0 mutation scoring included only its 23 baseline-valid suites. Incomplete generation provenance, repeated observations of the same tasks, and the absence of Gemini round-2 arms limit inference. These results describe observed executable compatibility and focused recovery, not an isolated causal effect or general defect-detection improvement.
 \end{abstract}
 
 \begin{IEEEkeywords}
-LLM, Unit Test Generation, Test Oracle, Prompt Refinement, JUnit, ClassEval-T
+large language models, unit test generation, test oracle, prompt refinement, JUnit, ClassEval-T
 \end{IEEEkeywords}

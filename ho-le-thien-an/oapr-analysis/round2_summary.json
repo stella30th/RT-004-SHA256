@@ -1,0 +1,95 @@
+{
+  "round2_chatgpt_only": {
+    "p0_resample": {
+      "suites": 33,
+      "pass": 23,
+      "pass_fraction": 0.696969696969697,
+      "suite_level_exact_95_ci_descriptive_only": [
+        0.5128893024616066,
+        0.8440833976030142
+      ],
+      "by_run_pass": {
+        "run-01": 8,
+        "run-02": 8,
+        "run-03": 7
+      },
+      "executed_methods": 689,
+      "mutation_completed": 23,
+      "mutation_baseline_excluded": 10,
+      "mutation_killed": 649,
+      "mutation_denominator": 730,
+      "conditional_micro_mutation_score": 0.8890410958904109
+    },
+    "checklist_only": {
+      "suites": 33,
+      "pass": 33,
+      "pass_fraction": 1.0,
+      "suite_level_exact_95_ci_descriptive_only": [
+        0.8942371899254207,
+        1.0
+      ],
+      "by_run_pass": {
+        "run-01": 11,
+        "run-02": 11,
+        "run-03": 11
+      },
+      "executed_methods": 234,
+      "mutation_completed": 33,
+      "mutation_baseline_excluded": 0,
+      "mutation_killed": 924,
+      "mutation_denominator": 1164,
+      "conditional_micro_mutation_score": 0.7938144329896907
+    },
+    "checklist_focus": {
+      "suites": 33,
+      "pass": 33,
+      "pass_fraction": 1.0,
+      "suite_level_exact_95_ci_descriptive_only": [
+        0.8942371899254207,
+        1.0
+      ],
+      "by_run_pass": {
+        "run-01": 11,
+        "run-02": 11,
+        "run-03": 11
+      },
+      "executed_methods": 267,
+      "mutation_completed": 33,
+      "mutation_baseline_excluded": 0,
+      "mutation_killed": 924,
+      "mutation_denominator": 1164,
+      "conditional_micro_mutation_score": 0.7938144329896907
+    }
+  },
+  "round2_task_run_cells": 33,
+  "round2_p0_to_checklist_pass": {
+    "1->1": 23,
+    "0->1": 10
+  },
+  "round2_p0_replacement_outputs": [
+    "run-01 CE085",
+    "run-03 CE033"
+  ],
+  "round2_only_focus_equal_mutation_scores": 33,
+  "round2_matched_valid_p0_mutation_cells": 23,
+  "historical_valid_cohort_excluding_gemini_ce023": {
+    "valid_pairs": 187,
+    "p0_pass": 169,
+    "eligible_p0_fail": 18,
+    "focused_p1_recovered": 15,
+    "carry_forward_pass": 184
+  },
+  "historical_reported_adjusted_188": {
+    "pairs": 188,
+    "p0_pass": 170,
+    "focused_p1_recovered": 15,
+    "carry_forward_pass": 185,
+    "ce023_p0_pass_verification": "absent; retain only as sensitivity scenario"
+  },
+  "evidence_limitations": [
+    "The five primary Hào ZIP archives listed in SHA256_MANIFEST.csv are not committed; this audit checks CSV indexes, not all raw Maven/PIT XML.",
+    "Two P0 round-2 cells are labeled replacement outputs; independent generation provenance is incomplete.",
+    "Three runs per task are correlated; suite-level binomial intervals are descriptive, not independent-task inference.",
+    "Khoa's new handover audits historical Gemini P0/P1; no Gemini three-arm repeated-run registry was found."
+  ]
+}

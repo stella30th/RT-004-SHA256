@@ -1,8 +1,41 @@
-% =====================================================================
-% ASSIGNED TO: HO LE THIEN AN
-% CONTENT: Cross-model comparison, recovery rate, combined success, summary table
-% =====================================================================
-
-\subsection{Combined Results and Cross-Model Comparison}
+% Assigned to Ho Le Thien An: historical cross-model synthesis and separate round-2 analysis.
+\subsection{Combined Results and Cross-Model Synthesis}
 \label{subsec:combined_results}
-\emph{[TODO -- An: Compare both models, overall Recovery Rate of 15/18 (83.33\%), Final Combined Success (ChatGPT 93/94 = 98.94\%, Gemini 91/93 = 97.85\%), and summary table across the seven application domains.]}
+For RQ1, the archived register labels 15 of the 18 eligible P0 failures as assertion-failing suites, two as runtime errors, and one as a compilation failure. These are suite-level labels: a suite with several failing assertions is counted once. Gemini CE023 is outside this cohort because its P0 task source did not match the project source.
+
+For RQ2, ChatGPT recovered 10/11 eligible failures and Gemini 5/7. The combined focused recovery is 15/18 (83.33\%; two-sided exact 95\% Clopper--Pearson interval 58.58--96.42\%). The corresponding intervals are 58.72--99.77\% for ChatGPT and 29.04--96.33\% for Gemini. The two models have different selected failure sets, so their proportions are descriptive rather than a paired comparison.
+
+\begin{table*}[t]
+\caption{Historical focused recovery after excluding Gemini CE023}
+\label{tab:combined}
+\centering\scriptsize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & P0 PASS & P0 FAIL & P1 recovery & Carry-forward PASS \\
+\midrule
+ChatGPT & 83/94 & 11 & 10/11 & 93/94 \\
+Gemini & 86/93 & 7 & 5/7 & 91/93 \\
+\midrule
+Combined & 169/187 & 18 & 15/18 & 184/187 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+For RQ3, the valid-cohort P0 count is 169/187 (90.37\%). Retaining those passes and adding the 15 observed P1 recoveries gives 184/187 (98.40\%), an arithmetic difference of 8.02 percentage points. P1 was not run on the P0-passing pairs, so 184/187 is a carry-forward workflow measure. The earlier 188-pair adjusted accounting treats CE023 as P0 PASS and gives 170/188 to 185/188; no successful rerun of its original P0 suite has been found, so those counts remain a sensitivity scenario. The raw-first-run scenario that also leaves CE029 and CE087 unresolved is 167/188 to 182/188 when only the 15 observed recoveries are carried forward.
+
+\begin{table*}[t]
+\caption{Separate ChatGPT round-2 results on 11 selected tasks, three recorded runs per condition}
+\label{tab:round2}
+\centering\scriptsize
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Condition & JUnit PASS & Mutation-eligible & Mutants killed \\
+\midrule
+P0 resample & 23/33 & 23/33 & 649/730 \\
+Checklist only & 33/33 & 33/33 & 924/1,164 \\
+Checklist plus focus & 33/33 & 33/33 & 924/1,164 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Table~\ref{tab:round2} reports a \emph{separate} ChatGPT cohort; its 99 suite records are not added to the historical 187 pairs. The P0 resample had 8, 8, and 7 passes across the three runs; both checklist conditions passed 11/11 in each run. Ten P0 resample suites failed the reference baseline and were excluded from mutation scoring rather than assigned a score of zero. The two checklist conditions had identical recorded per-suite mutation scores on all 33 task--run cells, despite generating different test-source hashes. The P0 mutation denominator covers only 23 baseline-valid cells, so its 649/730 conditional score cannot be ranked against 924/1,164 as an unconditional condition effect.

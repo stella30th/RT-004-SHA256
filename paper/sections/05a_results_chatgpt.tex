@@ -1,8 +1,5 @@
-% =====================================================================
-% ASSIGNED TO: HUYNH GIA HAO
-% CONTENT: P0 ChatGPT, 11 failures, taxonomy, P1 10/11 recovered, CE066 remaining
-% =====================================================================
-
 \subsection{ChatGPT Results}
 \label{subsec:chatgpt_results}
-\emph{[TODO -- Hao: Present ChatGPT $P_0$ results (83/94 PASS, 11 valid failures), failure taxonomy, $P_1$ recovery of 10/11 (90.91\%), and case analysis of the remaining failure \texttt{CE066} (\texttt{PushBoxGame}).]}
+After the SQLite dependency correction, 83 of 94 archived ChatGPT P0 suites passed. Eleven remained model-attributed failures. The case register records mismatches in transformations, boundary behavior, return values, state setup and accumulation, accepted input domains, parsing, and fixtures. One historical P1 generation passed on ten of these eleven cases (90.91\%). The unresolved case was CE066 (\texttt{PushBoxGame}): P1 fixed the original player-symbol assumption but still asserted a movement return value inconsistent with the implementation's \texttt{checkWin()} result for a fixture with zero targets. This is an oracle and state-setup error, not a compilation failure.
+
+Round-2 ChatGPT results are reported separately in Table~\ref{tab:round2}. They contain 99 recorded suites across the same 11 selected tasks, not additional historical P1 observations.
