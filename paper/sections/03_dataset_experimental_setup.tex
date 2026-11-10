@@ -7,28 +7,25 @@ To evaluate LLM-based JUnit test generation on realistic object-oriented softwar
 
 \begin{table}[t]
 \centering
-\caption{Comparison Between Function-Level Benchmarks (HumanEval-Java) and ClassEval-T (Java Edition)}
+\caption{Reported ClassEval-T benchmark properties~\cite{xue2025classevalt}}
 \label{tab:benchmark_comparison}
-\renewcommand{\arraystretch}{1.15}
-\setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{p{1.95cm}p{2.75cm}p{3.05cm}}
-\hline
-\textbf{Dimension} & \textbf{HumanEval-Java~\cite{chen2021humaneval,siddiq2024junit}} & \textbf{ClassEval-T (Java)~\cite{du2024classeval,xue2025classevalt}} \\
-\hline
-Granularity & Standalone function/method & Complete OOP class \\
-Average Scale & $\sim$11.5 LOC / task & 66.7 LOC / class \\
-Task Nature & Algorithmic puzzles & Applied software \& business logic \\
-Internal Coupling & $\sim$0\% (stateless \texttt{static}) & 76.2\% field/method dependencies \\
-Ref.\ Coverage & 83.2\% branch coverage & 99.7\% stmt.\ / 98.2\% branch cov. \\
-Ref.\ Test Density & $\sim$7--10 assertions / task & 33.8 test cases / class (avg.) \\
-Oracle Challenge & Single-call input/output & Multi-step state \& domain trace \\
-\hline
+\begin{tabular}{@{}lr@{}}
+\toprule
+Property & Reported value \\
+\midrule
+Parallel class-level tasks & 94 \\
+Average lines of code per task & 66.7 \\
+Average reference tests per task & 33.8 \\
+Samples with field dependencies & 65.3\% \\
+Samples with method dependencies & 25.9\% \\
+Reference statement / branch coverage & 99.7\% / 98.2\% \\
+\bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:benchmark_comparison} contrasts ClassEval-T against traditional function-level benchmarks such as HumanEval-Java. Selecting ClassEval-T offers three methodological advantages for our study:
+Table~\ref{tab:benchmark_comparison} reports properties of the published ClassEval-T benchmark, rather than measurements of our generated suites. Selecting it offers three methodological advantages for our study:
 \begin{enumerate}
-    \item \textbf{Object-Oriented State and Coupling:} Across the 94 Java classes, 76.2\% of methods read or mutate shared instance fields (e.g., \texttt{this.\allowbreak balance}, \texttt{this.\allowbreak inventory}, \texttt{this.\allowbreak postfixStack}) or invoke other methods within the same class. This structure directly exposes \emph{state-transition} and \emph{precondition} oracle errors that cannot be observed in stateless \texttt{static} functions.
+    \item \textbf{Object-Oriented State and Coupling:} The benchmark authors report field dependencies in 65.3\% of samples and method dependencies in 25.9\%~\cite{xue2025classevalt}. These structures permit state-transition and precondition oracle errors that simple single-call examples may not expose.
     \item \textbf{Contamination Considerations:} ClassEval and its Java translation were manually constructed~\cite{du2024classeval,xue2025classevalt}. We did not perform an independent overlap audit against the evaluated models' training data, so contamination remains possible.
     \item \textbf{Domain Diversity:} To analyze failure patterns across realistic software contexts, we mapped all 94 Java classes into \textbf{seven application domains}, as summarized in Table~\ref{tab:domain_distribution}.
 \end{enumerate}
