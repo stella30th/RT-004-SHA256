@@ -1,0 +1,15 @@
+{
+  "total_records": 99,
+  "local_integrity_ok": 99,
+  "session_verified": 0,
+  "session_pending": 99,
+  "model_verified_from_export": 0,
+  "distinct_request_triplets_verified": 0,
+  "fresh_context_independence_verified": 0,
+  "replacement_runs": 2,
+  "export_sha256": null,
+  "issues": [
+    "Identical source output: p0_resample/run-01/CE043, p0_resample/run-02/CE043 (not proof of same request)",
+    "Identical source output: p0_resample/run-02/CE066, p0_resample/run-03/CE066 (not proof of same request)"
+  ]
+}
