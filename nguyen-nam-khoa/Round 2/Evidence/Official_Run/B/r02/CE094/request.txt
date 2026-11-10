@@ -1,0 +1,266 @@
+CLASSEVAL-T — ROUND 2 SINGLE-TASK JUNIT GENERATION
+TASK_ID: CE094
+
+Generate exactly one JUnit 4 test class for the task and TARGET_SOURCE provided below.
+This is a single-task request. Do not generate tests for any other task.
+Return only the complete test-class source between the required markers.
+=== BEGIN CE094 GeneratedTest_CE094.java ===
+<Java source code, starting with package org.example;>
+=== END CE094 ===
+Do not include Markdown fences, explanations, or extra classes.
+
+GENERATION REQUIREMENTS (BASELINE P0, adapted for single-task context)
+--------------------------------------------------------------------
+For every task:
+
+A. Framework and structure
+- Generate one JUnit 4 test class for the provided Java TARGET_SOURCE.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 17 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly the TEST_CLASS specified for that task.
+- Test the provided implementation as-is.
+- Call the target class from package org.example.
+- Do not modify production code.
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add unrelated dependencies.
+- Keep all tests deterministic.
+
+B. Behavioral-test requirement
+- Test ACTUAL behavior of the target class, not merely whether its API exists.
+- Every generated test class must contain behavioral assertions against observable
+  outputs, state changes, thrown exceptions, collections, files, database effects,
+  or other behavior actually supported by TARGET_SOURCE.
+- Generate at least 4 meaningful behavioral test methods whenever the target API
+  exposes enough deterministic behavior.
+- When fewer than 4 genuinely distinct behavioral tests are possible, generate the
+  maximum meaningful set supported by TARGET_SOURCE. Do NOT pad the file with weak
+  or duplicate tests merely to reach four.
+- Cover distinct behavior whenever applicable, such as:
+  1. a normal/happy-path case;
+  2. a boundary or edge case;
+  3. an invalid, empty, zero, negative, duplicate, or special-input case;
+  4. an additional semantic/state-transition case.
+- For stateful classes, test meaningful state transitions across operations.
+- For collection-oriented classes, assert actual collection contents, sizes, order,
+  membership, or mutations where relevant.
+- For calculation classes, assert concrete numeric results.
+- For string/parsing classes, assert concrete transformed or parsed results.
+- For validation classes, assert both accepted and rejected behavior when supported.
+- For file-processing classes, use deterministic temporary/local test data.
+- For database-oriented classes, test only behavior supported by the supplied API and
+  available local dependencies; do not invent schemas, credentials, or external servers.
+
+C. Weak-test prohibition
+The following DO NOT count as meaningful behavioral tests and must not be used as the
+main or only test strategy:
+- Class.forName(...) used only to prove that a class exists.
+- getDeclaredMethod(...), getDeclaredConstructor(...), getDeclaredField(...), or
+  similar reflection used only to prove API presence.
+- Tests that only instantiate the class and use assertNotNull(instance).
+- Tests that only assert that a method can be invoked without checking its behavior.
+- Tautological assertions.
+- Assertions whose expected value is copied from the actual result.
+- Duplicate tests that exercise the same behavior with no meaningful variation.
+
+Reflection may be used only as a supplementary mechanism when necessary to observe or
+invoke behavior. A reflection-only/API-presence test is insufficient.
+
+D. Oracle construction
+- Determine expected outcomes from TASK_SPECIFICATION and TARGET_SOURCE.
+- Use concrete expected values whenever the behavior is deterministic.
+- Do not copy expected values from ClassEval-T reference tests.
+- Do not access or assume the contents of reference tests.
+- Do not merely assert broad properties such as assertNotNull when TARGET_SOURCE
+  supports a more specific behavioral assertion.
+- 
+
+E. Environment constraints
+- Do not use network services or external systems unless TARGET_SOURCE makes them
+  unavoidable.
+- Prefer local deterministic fixtures.
+- Do not depend on current time, random values without a fixed seed, machine-specific
+  paths, or uncontrolled environment state.
+- Clean up temporary files/resources created by the test when applicable.
+- Use only APIs and dependencies compatible with the provided source and experiment.
+
+F. Output-quality checks
+Before outputting each test class, ensure:
+- package is org.example;
+- class name exactly matches TEST_CLASS;
+- JUnit imports are JUnit 4;
+- target method/constructor signatures actually exist in TARGET_SOURCE;
+- test code is Java 17 compatible;
+- test methods contain meaningful assertions;
+- no test is reflection-only/API-presence-only;
+- the class is deterministic and self-contained.
+
+TASK BLOCK
+----------
+CE094 — ZipFileProcessor
+
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 17 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE094
+- Test the provided solution implementation.
+- Target class: org.example.ZipFileProcessor
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE094
+DATASET: ClassEval-T
+TARGET_CLASS: ZipFileProcessor
+TEST_CLASS: GeneratedTest_CE094
+CATEGORY: DATA_FILE_DB_PROCESSING
+
+BUSINESS_PROBLEM:
+đọc/tạo/xử lý file ZIP
+
+PUBLIC_API_HINT:
+- boolean extractAll(String outputDir)
+- boolean extractFile(String fileName, String outputDir)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.io.*;
+import java.nio.file.*;
+import java.util.zip.*;
+import java.util.logging.*;
+
+public class ZipFileProcessor {
+
+    private static final Logger logger = Logger.getLogger(ZipFileProcessor.class.getName());
+    private final Path zipFilePath;
+
+    public ZipFileProcessor(String zipFileName) {
+        this.zipFilePath = Paths.get(zipFileName);
+    }
+
+    ZipFile readZipFile() {
+        if (Files.notExists(zipFilePath)) {
+            logger.log(Level.SEVERE, "Zip file does not exist: " + zipFilePath.toAbsolutePath());
+            return null;
+        }
+        try {
+            return new ZipFile(zipFilePath.toFile());
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to read the zip file: " + zipFilePath.toAbsolutePath(), e);
+            return null;
+        }
+    }
+
+    public boolean extractAll(String outputDir) {
+        Path outputDirPath = Paths.get(outputDir);
+        try (ZipFile zipFile = readZipFile()) {
+            if (zipFile == null) return false;
+
+            if (Files.notExists(outputDirPath)) {
+                try {
+                    Files.createDirectories(outputDirPath);
+                    logger.info("Created output directory: " + outputDirPath.toAbsolutePath());
+                } catch (IOException e) {
+                    logger.log(Level.SEVERE, "Failed to create output directory: " + outputDirPath.toAbsolutePath(), e);
+                    return false;
+                }
+            }
+
+            zipFile.stream().forEach(entry -> {
+                Path filePath = outputDirPath.resolve(entry.getName());
+                try {
+                    if (entry.isDirectory()) {
+                        if (Files.notExists(filePath)) {
+                            Files.createDirectories(filePath);
+                            logger.info("Created directory: " + filePath.toAbsolutePath());
+                        }
+                    } else {
+                        try (InputStream in = zipFile.getInputStream(entry);
+                             OutputStream out = Files.newOutputStream(filePath, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+                            byte[] buffer = new byte[1024];
+                            int len;
+                            while ((len = in.read(buffer)) > 0) {
+                                out.write(buffer, 0, len);
+                            }
+                            logger.info("Extracted file: " + filePath.toAbsolutePath());
+                        }
+                    }
+                } catch (IOException e) {
+                    logger.log(Level.SEVERE, "Failed to process entry: " + entry.getName(), e);
+                }
+            });
+
+            return true;
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to extract files from zip: " + zipFilePath.toAbsolutePath(), e);
+            return false;
+        }
+    }
+
+    public boolean extractFile(String fileName, String outputDir) {
+        Path outputDirPath = Paths.get(outputDir);
+        Path filePath = outputDirPath.resolve(fileName);
+        try (ZipFile zipFile = readZipFile()) {
+            if (zipFile == null) return false;
+
+            ZipEntry entry = zipFile.getEntry(fileName);
+            if (entry == null) {
+                logger.warning("File not found in zip: " + fileName);
+                return false;
+            }
+
+            if (Files.notExists(filePath.getParent())) {
+                try {
+                    Files.createDirectories(filePath.getParent());
+                    logger.info("Created parent directory: " + filePath.getParent().toAbsolutePath());
+                } catch (IOException e) {
+                    logger.log(Level.SEVERE, "Failed to create parent directory: " + filePath.getParent().toAbsolutePath(), e);
+                    return false;
+                }
+            }
+
+            try (InputStream in = zipFile.getInputStream(entry);
+                 OutputStream out = Files.newOutputStream(filePath, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+                byte[] buffer = new byte[1024];
+                int len;
+                while ((len = in.read(buffer)) > 0) {
+                    out.write(buffer, 0, len);
+                }
+                logger.info("Extracted file: " + filePath.toAbsolutePath());
+            }
+
+            return true;
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to extract file: " + fileName, e);
+            return false;
+        }
+    }
+}
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.

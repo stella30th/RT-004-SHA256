@@ -1,0 +1,97 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.ArrayList; import java.util.Arrays; import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class GeneratedTest_CE039 {
+
+private ExpressionCalculator calculator;
+
+@Before
+public void setUp() {
+    calculator = new ExpressionCalculator();
+}
+
+@Test
+public void testIsOperator() {
+    assertTrue(calculator.isOperator('+'));
+    assertTrue(calculator.isOperator('-'));
+    assertTrue(calculator.isOperator('*'));
+    assertTrue(calculator.isOperator('/'));
+    assertTrue(calculator.isOperator('%'));
+
+    assertFalse(calculator.isOperator('('));
+    assertFalse(calculator.isOperator(')'));
+    assertFalse(calculator.isOperator('~'));
+    assertFalse(calculator.isOperator('^'));
+    assertFalse(calculator.isOperator('0'));
+}
+
+@Test
+public void testCompareOperatorPrecedence() {
+    // '+' has priority 1, '*' has priority 2
+    // compare(cur_op, peek_op) checks priority(peek_op) >= priority(cur_op)
+    assertTrue(calculator.compare('+', '*'));
+    assertFalse(calculator.compare('*', '+'));
+
+    // Equal priority: '/' and '%' map to priority 2
+    assertTrue(calculator.compare('/', '%'));
+    assertTrue(calculator.compare('%', '/'));
+
+    // '+' and '-' both have priority 1
+    assertTrue(calculator.compare('+', '-'));
+    assertTrue(calculator.compare('-', '+'));
+}
+
+@Test
+public void testCalculateBasicOperations() {
+    assertEquals(8.0, calculator._calculate(5.0, 3.0, '+'), 1e-9);
+    assertEquals(2.0, calculator._calculate(5.0, 3.0, '-'), 1e-9);
+    assertEquals(15.0, calculator._calculate(5.0, 3.0, '*'), 1e-9);
+    assertEquals(2.5, calculator._calculate(5.0, 2.0, '/'), 1e-9);
+    assertEquals(2.0, calculator._calculate(8.0, 3.0, '%'), 1e-9);
+}
+
+@Test(expected = IllegalArgumentException.class)
+public void testCalculateUnsupportedOperatorThrowsException() {
+    calculator._calculate(2.0, 3.0, '^');
+}
+
+@Test
+public void testTransform() {
+    // Spaces are removed and - replaced by ~
+    assertEquals("3~2", calculator.transform("3 - 2"));
+    assertEquals("2+3*4", calculator.transform(" 2 + 3 * 4 "));
+
+    // Leading -(...) is transformed into 0-(...)
+    assertEquals("0-(4+5)", calculator.transform("-(4+5)"));
+    assertEquals("0-(2*3)", calculator.transform(" -( 2 * 3 ) "));
+
+    // Negative numbers without parenthesis become ~num
+    assertEquals("~5", calculator.transform("-5"));
+}
+
+@Test
+public void testPrepareGeneratesCorrectPostfixOrder() {
+    calculator.prepare("2+3*4");
+    List<String> tokens = new ArrayList<>(calculator.postfixStack);
+    assertEquals(Arrays.asList("2", "3", "4", "*", "+"), tokens);
+
+    calculator.prepare("(2+3)*4");
+    tokens = new ArrayList<>(calculator.postfixStack);
+    assertEquals(Arrays.asList("2", "3", "+", "4", "*"), tokens);
+}
+
+@Test
+public void testCalculateArithmeticExpressions() {
+    assertEquals(14.0, calculator.calculate("2 + 3 * 4"), 1e-9);
+    assertEquals(20.0, calculator.calculate("(2 + 3) * 4"), 1e-9);
+    assertEquals(2.5, calculator.calculate("10 / 4"), 1e-9);
+    assertEquals(1.0, calculator.calculate("7 % 3"), 1e-9);
+    assertEquals(-5.0, calculator.calculate("-(2 + 3)"), 1e-9);
+}
+
+}

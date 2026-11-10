@@ -1,0 +1,137 @@
+package org.example;
+
+import org.junit.Rule; import org.junit.Test; import
+org.junit.rules.TemporaryFolder;
+
+import java.io.File; import java.io.FileOutputStream; import
+java.io.IOException; import java.nio.charset.StandardCharsets; import
+java.nio.file.Files; import java.nio.file.Path; import java.util.LinkedHashMap;
+import java.util.Map; import java.util.zip.ZipEntry; import
+java.util.zip.ZipOutputStream;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertFalse; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE094 {
+
+@Rule
+public TemporaryFolder tempFolder = new TemporaryFolder();
+
+private File createZipArchive(String zipName, Map<String, String> entries) throws IOException {
+    File zipFile = tempFolder.newFile(zipName);
+    try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFile))) {
+        for (Map.Entry<String, String> entry : entries.entrySet()) {
+            ZipEntry ze = new ZipEntry(entry.getKey());
+            zos.putNextEntry(ze);
+            if (!entry.getKey().endsWith("/")) {
+                zos.write(entry.getValue().getBytes(StandardCharsets.UTF_8));
+            }
+            zos.closeEntry();
+        }
+    }
+    return zipFile;
+}
+
+@Test
+public void testExtractAllSuccess() throws IOException {
+    Map<String, String> entries = new LinkedHashMap<>();
+    entries.put("file1.txt", "First file content");
+    entries.put("subfolder/", "");
+    entries.put("subfolder/file2.txt", "Second file content");
+
+    File zipFile = createZipArchive("archive_all.zip", entries);
+    File destDir = tempFolder.newFolder("output_all");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractAll(destDir.getAbsolutePath());
+
+    assertTrue(success);
+
+    Path extracted1 = destDir.toPath().resolve("file1.txt");
+    Path extracted2 = destDir.toPath().resolve("subfolder").resolve("file2.txt");
+
+    assertTrue(Files.exists(extracted1));
+    assertTrue(Files.exists(extracted2));
+    assertEquals("First file content", Files.readString(extracted1, StandardCharsets.UTF_8));
+    assertEquals("Second file content", Files.readString(extracted2, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractFileSuccess() throws IOException {
+    Map<String, String> entries = new LinkedHashMap<>();
+    entries.put("target.txt", "Specific target content");
+    entries.put("other.txt", "Other content");
+
+    File zipFile = createZipArchive("archive_single.zip", entries);
+    File destDir = tempFolder.newFolder("output_single");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractFile("target.txt", destDir.getAbsolutePath());
+
+    assertTrue(success);
+
+    Path extractedTarget = destDir.toPath().resolve("target.txt");
+    Path extractedOther = destDir.toPath().resolve("other.txt");
+
+    assertTrue(Files.exists(extractedTarget));
+    assertFalse(Files.exists(extractedOther));
+    assertEquals("Specific target content", Files.readString(extractedTarget, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractFileCreatesParentDirectory() throws IOException {
+    Map<String, String> entries = new LinkedHashMap<>();
+    entries.put("deep/nested/path/config.json", "{\"key\":\"value\"}");
+
+    File zipFile = createZipArchive("archive_nested.zip", entries);
+    File destDir = tempFolder.newFolder("output_nested");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractFile("deep/nested/path/config.json", destDir.getAbsolutePath());
+
+    assertTrue(success);
+
+    Path extractedFile = destDir.toPath().resolve("deep/nested/path/config.json");
+    assertTrue(Files.exists(extractedFile));
+    assertEquals("{\"key\":\"value\"}", Files.readString(extractedFile, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractFileMissingEntryReturnsFalse() throws IOException {
+    Map<String, String> entries = new LinkedHashMap<>();
+    entries.put("existing.txt", "Hello");
+
+    File zipFile = createZipArchive("archive_missing.zip", entries);
+    File destDir = tempFolder.newFolder("output_missing");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractFile("nonexistent.txt", destDir.getAbsolutePath());
+
+    assertFalse(success);
+    assertFalse(Files.exists(destDir.toPath().resolve("nonexistent.txt")));
+}
+
+@Test
+public void testExtractNonExistentZipFile() {
+    File nonExistentZip = new File(tempFolder.getRoot(), "missing_archive.zip");
+    File destDir = new File(tempFolder.getRoot(), "output_non_existent");
+
+    ZipFileProcessor processor = new ZipFileProcessor(nonExistentZip.getAbsolutePath());
+
+    assertFalse(processor.extractAll(destDir.getAbsolutePath()));
+    assertFalse(processor.extractFile("any.txt", destDir.getAbsolutePath()));
+}
+
+@Test
+public void testExtractCorruptZipFileReturnsFalse() throws IOException {
+    File corruptFile = tempFolder.newFile("corrupt.zip");
+    Files.writeString(corruptFile.toPath(), "This is not a zip file", StandardCharsets.UTF_8);
+    File destDir = tempFolder.newFolder("output_corrupt");
+
+    ZipFileProcessor processor = new ZipFileProcessor(corruptFile.getAbsolutePath());
+
+    assertFalse(processor.extractAll(destDir.getAbsolutePath()));
+    assertFalse(processor.extractFile("any.txt", destDir.getAbsolutePath()));
+}
+
+}

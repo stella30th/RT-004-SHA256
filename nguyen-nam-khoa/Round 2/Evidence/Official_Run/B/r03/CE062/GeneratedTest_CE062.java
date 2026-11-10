@@ -1,0 +1,80 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertFalse; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE062 {
+
+private NumericEntityUnescaper unescaper;
+
+@Before
+public void setUp() {
+    unescaper = new NumericEntityUnescaper();
+}
+
+@Test
+public void testReplaceDecimalEntities() {
+    // &#65; -> 'A' (ASCII 65)
+    assertEquals("A", unescaper.replace("&#65;"));
+    // Multiple entities in sequence: &#65;&#66; -> "AB"
+    assertEquals("AB", unescaper.replace("&#65;&#66;"));
+    // Entity followed by text: "&#65;test&#66;" -> "AtestB"
+    assertEquals("AtestB", unescaper.replace("&#65;test&#66;"));
+}
+
+@Test
+public void testReplaceHexEntities() {
+    // Lowercase 'x': &#x41; -> 'A'
+    assertEquals("A", unescaper.replace("&#x41;"));
+    // Uppercase 'X': &#X42; -> 'B'
+    assertEquals("B", unescaper.replace("&#X42;"));
+    // Hex entity with letters: &#x61; -> 'a' (97)
+    assertEquals("a", unescaper.replace("&#x61;"));
+}
+
+@Test
+public void testReplaceEdgeCasesAndTruncation() {
+    // Strings shorter than 3 characters do not enter the while loop
+    assertEquals("", unescaper.replace(""));
+    assertEquals("", unescaper.replace("a"));
+    assertEquals("", unescaper.replace("ab"));
+    // Non-entity 3-char string appends index 0 and stops because pos reaches length - 2
+    assertEquals("a", unescaper.replace("abc"));
+    // Suffix truncation due to pos < length - 2 condition
+    assertEquals("he", unescaper.replace("hello"));
+}
+
+@Test
+public void testReplaceMalformedEntities() {
+    // start == length condition reached with "&#x"
+    assertEquals("", unescaper.replace("&#x"));
+    // Decimal entity containing invalid digit triggers NumberFormatException and returns current output
+    assertEquals("", unescaper.replace("&#1a;"));
+    // Missing semicolon leaves characters unescaped
+    assertEquals("&#", unescaper.replace("&#65"));
+}
+
+@Test
+public void testIsHexChar() {
+    // Decimal digits
+    assertTrue(NumericEntityUnescaper.isHexChar('0'));
+    assertTrue(NumericEntityUnescaper.isHexChar('9'));
+
+    // Lowercase hex letters a-f
+    assertTrue(NumericEntityUnescaper.isHexChar('a'));
+    assertTrue(NumericEntityUnescaper.isHexChar('f'));
+
+    // Uppercase hex letters A-F
+    assertTrue(NumericEntityUnescaper.isHexChar('A'));
+    assertTrue(NumericEntityUnescaper.isHexChar('F'));
+
+    // Non-hex characters
+    assertFalse(NumericEntityUnescaper.isHexChar('g'));
+    assertFalse(NumericEntityUnescaper.isHexChar('G'));
+    assertFalse(NumericEntityUnescaper.isHexChar(';'));
+    assertFalse(NumericEntityUnescaper.isHexChar('-'));
+}
+
+}

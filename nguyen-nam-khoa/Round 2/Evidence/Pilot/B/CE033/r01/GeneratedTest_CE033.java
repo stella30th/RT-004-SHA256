@@ -1,0 +1,96 @@
+package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+@Test
+public void testCaesarDecipherStandard() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String ciphertext = "Khoor, Zruog!";
+    String expected = "Hello, World!";
+    assertEquals(expected, utils.caesarDecipher(ciphertext, 3));
+}
+
+@Test
+public void testCaesarDecipherLargeAndZeroShift() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String text = "HelloWorld";
+    assertEquals(text, utils.caesarDecipher(text, 0));
+    assertEquals(text, utils.caesarDecipher(text, 26));
+
+    // Shift 29 is equivalent to shift 3 (29 % 26 = 3)
+    assertEquals("Hello, World!", utils.caesarDecipher("Khoor, Zruog!", 29));
+}
+
+@Test
+public void testCaesarDecipherNonLettersAndEmpty() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    assertEquals("", utils.caesarDecipher("", 5));
+    assertEquals("12345!@#$ %^&*", utils.caesarDecipher("12345!@#$ %^&*", 7));
+}
+
+@Test
+public void testVigenereDecipherStandard() {
+    DecryptionUtils utils = new DecryptionUtils("lemon");
+    String ciphertext = "LXFOPVEFRNHR";
+    String expected = "ATTACKATDAWN";
+    assertEquals(expected, utils.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testVigenereDecipherWithSpacesAndMixedCase() {
+    // Character.toLowerCase ensures key case does not affect shift
+    DecryptionUtils utils = new DecryptionUtils("LeMoN");
+    String ciphertext = "Lxfop, Vefrnhr!";
+    String expected = "Attack,复Daw... wait";
+    // L -> A, x -> t, f -> t, o -> a, p -> c, then ',' (no advance), ' ' (no advance),
+    // V -> A, e -> t, f -> d, r -> a, n -> w, h -> n, r -> ...
+    // Trace:
+    // L (11) - l(11) = A
+    // x (23) - e(4) = t (19)
+    // f (5) - m(12) = t (19)
+    // o (14) - o(14) = a (0)
+    // p (15) - n(13) = c (2)
+    // V (21) - l(11) = K (10) -- wait! Earlier ciphertext was "ATTACK ATDAWN"
+    // In "ATTACKATDAWN":
+    // A(0)+l(11)=L, T(19)+e(4)=X, T(19)+m(12)=F, A(0)+o(14)=O, C(2)+n(13)=P,
+    // K(10)+l(11)=V, A(0)+e(4)=E, T(19)+m(12)=F, D(3)+o(14)=R, A(0)+n(13)=N, W(22)+l(11)=H, N(13)+e(4)=R
+    // So "LXFOP VEFRNHR!" deciphers to "ATTACK ATDAWN!"
+    String expectedUpper = "ATTACK ATDAWN!";
+    assertEquals(expectedUpper, utils.vigenereDecipher("LXFOP VEFRNHR!"));
+}
+
+@Test
+public void testVigenereDecipherEmpty() {
+    DecryptionUtils utils = new DecryptionUtils("secret");
+    assertEquals("", utils.vigenereDecipher(""));
+}
+
+@Test
+public void testRailFenceDecipherThreeRails() {
+    DecryptionUtils utils = new DecryptionUtils("dummy");
+    // "Hello, World!" with 3 rails encodes to "Hoo!el,Wrdl l"
+    String encrypted = "Hoo!el,Wrdl l";
+    String expected = "Hello, World!";
+    assertEquals(expected, utils.railFenceDecipher(encrypted, 3));
+}
+
+@Test
+public void testRailFenceDecipherTwoRails() {
+    DecryptionUtils utils = new DecryptionUtils("dummy");
+    // "Hello,World!" with 2 rails:
+    // row 0: H l o W r d
+    // row 1: e l , o l !
+    String encrypted = "HloWrdel,ol!";
+    String expected = "Hello,World!";
+    assertEquals(expected, utils.railFenceDecipher(encrypted, 2));
+}
+
+@Test
+public void testRailFenceDecipherEmptyString() {
+    DecryptionUtils utils = new DecryptionUtils("dummy");
+    assertEquals("", utils.railFenceDecipher("", 3));
+}
+
+}

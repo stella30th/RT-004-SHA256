@@ -1,0 +1,70 @@
+=== BEGIN CE033 GeneratedTest_CE033.java === package org.example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+@Test
+public void testCaesarDecipherBasic() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String decrypted = utils.caesarDecipher("Khoor, Zruog!", 3);
+    assertEquals("Hello, World!", decrypted);
+}
+
+@Test
+public void testCaesarDecipherShiftVariations() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    // Shift 0 should produce the same string
+    assertEquals("Sample Text 123", utils.caesarDecipher("Sample Text 123", 0));
+    // Shift 26 is equivalent to shift 0
+    assertEquals("Sample Text 123", utils.caesarDecipher("Sample Text 123", 26));
+    // Shift 29 is equivalent to shift 3 (29 % 26 == 3)
+    assertEquals("Hello", utils.caesarDecipher("Khoor", 29));
+}
+
+@Test
+public void testCaesarDecipherNonAlphabetic() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String symbolsOnly = "12345!@#$%^&*()_+ \t\n";
+    assertEquals(symbolsOnly, utils.caesarDecipher(symbolsOnly, 7));
+}
+
+@Test
+public void testVigenereDecipherBasic() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String ciphertext = "Rijvs, Uyvjn!";
+    assertEquals("Hello, World!", utils.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testVigenereDecipherUppercaseKeyAndPunctuation() {
+    DecryptionUtils utils = new DecryptionUtils("LEMON");
+    String ciphertext = "Lxfop, Vefrnhr!";
+    assertEquals("Attack, Atdawn!", utils.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testRailFenceDecipherTwoRails() {
+    DecryptionUtils utils = new DecryptionUtils("anyKey");
+    String ciphertext = "ACEBDF";
+    assertEquals("ABCDEF", utils.railFenceDecipher(ciphertext, 2));
+}
+
+@Test
+public void testRailFenceDecipherThreeRails() {
+    DecryptionUtils utils = new DecryptionUtils("anyKey");
+    String ciphertext = "HOLELWRDLO";
+    assertEquals("HELLOWORLD", utils.railFenceDecipher(ciphertext, 3));
+}
+
+@Test
+public void testEmptyStringsAllAlgorithms() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    assertEquals("", utils.caesarDecipher("", 5));
+    assertEquals("", utils.vigenereDecipher(""));
+    assertEquals("", utils.railFenceDecipher("", 3));
+}
+
+} === END CE033 ===

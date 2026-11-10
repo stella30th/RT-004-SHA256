@@ -1,0 +1,92 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+private EncryptionUtils encryptionUtils;
+
+@Before
+public void setUp() {
+    encryptionUtils = new EncryptionUtils("lemon");
+}
+
+@Test
+public void testCaesarCipherNormalAndMixedCase() {
+    String plaintext = "Hello, World!";
+    String result = encryptionUtils.caesarCipher(plaintext, 3);
+    assertEquals("Khoor, Zruog!", result);
+}
+
+@Test
+public void testCaesarCipherWrapping() {
+    String plaintext = "xyzXYZ";
+    String result = encryptionUtils.caesarCipher(plaintext, 3);
+    assertEquals("abcABC", result);
+}
+
+@Test
+public void testCaesarCipherZeroShiftAndNonLetters() {
+    assertEquals("Hello, World!", encryptionUtils.caesarCipher("Hello, World!", 0));
+    assertEquals("12345 @#!", encryptionUtils.caesarCipher("12345 @#!", 7));
+}
+
+@Test
+public void testCaesarCipherEmptyString() {
+    assertEquals("", encryptionUtils.caesarCipher("", 5));
+}
+
+@Test
+public void testVigenereCipherNormal() {
+    EncryptionUtils utils = new EncryptionUtils("lemon");
+    String plaintext = "ATTACKATDAWN";
+    String expected = "LXFOPVEFRNHR";
+    assertEquals(expected, utils.vigenereCipher(plaintext));
+}
+
+@Test
+public void testVigenereCipherMixedCaseAndPunctuation() {
+    EncryptionUtils utils = new EncryptionUtils("LeMoN");
+    String plaintext = "Atta ck At Dawn!";
+    String expected = "Lxfo pv Ef Rnhr!";
+    assertEquals(expected, utils.vigenereCipher(plaintext));
+}
+
+@Test
+public void testVigenereCipherEmptyString() {
+    EncryptionUtils utils = new EncryptionUtils("secret");
+    assertEquals("", utils.vigenereCipher(""));
+}
+
+@Test
+public void testRailFenceCipherThreeRails() {
+    // "HelloWorld" (len 10) on 3 rails:
+    // row 0: H . . . o . . . l . -> "Hol"
+    // row 1: . e . l . W . r . d -> "elWrd"
+    // row 2: . . l . . . o . . . -> "lo"
+    // Encrypted text: "HolelWrdlo"
+    String plaintext = "HelloWorld";
+    String result = encryptionUtils.railFenceCipher(plaintext, 3);
+    assertEquals("HolelWrdlo", result);
+}
+
+@Test
+public void testRailFenceCipherTwoRails() {
+    // "HelloWorld" on 2 rails:
+    // row 0: H l o o l -> "Hlool"
+    // row 1: e l W r d -> "elWrd"
+    // Encrypted text: "HloolelWrd"
+    String plaintext = "HelloWorld";
+    String result = encryptionUtils.railFenceCipher(plaintext, 2);
+    assertEquals("HloolelWrd", result);
+}
+
+@Test
+public void testRailFenceCipherEmptyAndShortString() {
+    assertEquals("", encryptionUtils.railFenceCipher("", 3));
+    assertEquals("abc", encryptionUtils.railFenceCipher("abc", 5));
+}
+
+}

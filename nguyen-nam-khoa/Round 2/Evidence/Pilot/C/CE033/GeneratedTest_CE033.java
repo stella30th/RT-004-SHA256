@@ -1,0 +1,91 @@
+package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+@Test
+public void testCaesarDecipherStandard() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+    String ciphertext = "Khoor, Zruog!";
+    String expected = "Hello, World!";
+    assertEquals(expected, utils.caesarDecipher(ciphertext, 3));
+
+    String sentenceCipher = "Wkh txlfn eurzq ira mxpsv ryhu wkh odcb grj.";
+    String expectedSentence = "The quick brown fox jumps over the lazy dog.";
+    assertEquals(expectedSentence, utils.caesarDecipher(sentenceCipher, 3));
+}
+
+@Test
+public void testCaesarDecipherWrapAndShiftEdgeCases() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+
+    // Shift with wrapping across 'A' and 'a' boundaries
+    assertEquals("ZyzY", utils.caesarDecipher("AzaZ", 1));
+
+    // Zero shift preserves text
+    assertEquals("Hello, World!", utils.caesarDecipher("Hello, World!", 0));
+
+    // Shift greater than 26 wraps modulo 26 (29 % 26 == 3)
+    assertEquals("Hello", utils.caesarDecipher("Khoor", 29));
+
+    // Empty string
+    assertEquals("", utils.caesarDecipher("", 5));
+
+    // Non-letter characters remain unchanged
+    assertEquals("12345!@#$%^&*()_+", utils.caesarDecipher("12345!@#$%^&*()_+", 7));
+}
+
+@Test
+public void testVigenereDecipherStandard() {
+    // Key "abc" produces shifts 0, 1, 2
+    DecryptionUtils utils = new DecryptionUtils("abc");
+    String ciphertext = "Hfnlp, Yosnd!";
+    String expected = "Hello, World!";
+    assertEquals(expected, utils.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testVigenereDecipherKeyCaseAndPunctuation() {
+    // Upper-case key should behave identical to lower-case key
+    // Shift values for "KEY": K -> 10, E -> 4, Y -> 24
+    // 'C' (2) + 10 = 'M' (12); 'A' (0) + 4 = 'E' (4); 'T' (19) + 24 % 26 = 'R' (17)
+    DecryptionUtils utils = new DecryptionUtils("KEY");
+    assertEquals("CAT", utils.vigenereDecipher("MER"));
+
+    // Non-letters should be passed through and should not advance keyIndex
+    DecryptionUtils utilsShift1 = new DecryptionUtils("b");
+    assertEquals("A 1 B", utilsShift1.vigenereDecipher("B 1 C"));
+
+    // Empty string ciphertext
+    assertEquals("", utils.vigenereDecipher(""));
+}
+
+@Test
+public void testRailFenceDecipherThreeRails() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+
+    // "HELLOWORLD" rail-fence encrypted with rails=3 is "HORELWRDLO"
+    assertEquals("HELLOWORLD", utils.railFenceDecipher("HORELWRDLO", 3));
+
+    // "WEAREDISCOVEREDFLEEATONCE" with rails=3
+    String encrypted = "WECRLTEERDSOEEFEAOCAIVDEN";
+    String expected = "WEAREDISCOVEREDFLEEATONCE";
+    assertEquals(expected, utils.railFenceDecipher(encrypted, 3));
+}
+
+@Test
+public void testRailFenceDecipherTwoRailsAndEdgeCases() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+
+    // "HelloWorld" rail-fence encrypted with rails=2 is "HloolelWrd"
+    assertEquals("HelloWorld", utils.railFenceDecipher("HloolelWrd", 2));
+
+    // Empty string
+    assertEquals("", utils.railFenceDecipher("", 3));
+
+    // Single character text
+    assertEquals("X", utils.railFenceDecipher("X", 2));
+}
+
+}

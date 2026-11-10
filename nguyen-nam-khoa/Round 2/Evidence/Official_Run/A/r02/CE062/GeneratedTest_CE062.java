@@ -1,0 +1,74 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertFalse; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE062 {
+
+private NumericEntityUnescaper unescaper;
+
+@Before
+public void setUp() {
+    unescaper = new NumericEntityUnescaper();
+}
+
+@Test
+public void testIsHexCharValidAndInvalid() {
+    assertTrue(NumericEntityUnescaper.isHexChar('0'));
+    assertTrue(NumericEntityUnescaper.isHexChar('9'));
+    assertTrue(NumericEntityUnescaper.isHexChar('a'));
+    assertTrue(NumericEntityUnescaper.isHexChar('f'));
+    assertTrue(NumericEntityUnescaper.isHexChar('A'));
+    assertTrue(NumericEntityUnescaper.isHexChar('F'));
+
+    assertFalse(NumericEntityUnescaper.isHexChar('g'));
+    assertFalse(NumericEntityUnescaper.isHexChar('G'));
+    assertFalse(NumericEntityUnescaper.isHexChar('z'));
+    assertFalse(NumericEntityUnescaper.isHexChar(';'));
+    assertFalse(NumericEntityUnescaper.isHexChar('&'));
+}
+
+@Test
+public void testReplaceDecimalEntities() {
+    String input = "&#65;&#66;&#67;";
+    String expected = "ABC";
+    assertEquals(expected, unescaper.replace(input));
+}
+
+@Test
+public void testReplaceHexEntitiesBothLowerAndUpperCasePrefix() {
+    String input = "&#x41;&#X42;&#x30;";
+    String expected = "AB0";
+    assertEquals(expected, unescaper.replace(input));
+}
+
+@Test
+public void testReplaceShortAndEmptyInput() {
+    assertEquals("", unescaper.replace(""));
+    assertEquals("", unescaper.replace("a"));
+    assertEquals("", unescaper.replace("ab"));
+}
+
+@Test
+public void testReplaceIncompleteHexPrefixAtEnd() {
+    assertEquals("", unescaper.replace("&#x"));
+}
+
+@Test
+public void testReplaceInvalidDecimalFormatTerminatesGracefully() {
+    // "1a" contains hex characters but is parsed as base 10 because isHex is false,
+    // causing NumberFormatException which returns the accumulated output.
+    String input = "Z&#1a;rest";
+    assertEquals("Z", unescaper.replace(input));
+}
+
+@Test
+public void testReplaceUnmatchedEntityPattern() {
+    // Without semicolon, it should not decode the entity
+    String input = "&#65";
+    assertEquals("&", unescaper.replace(input));
+}
+
+}

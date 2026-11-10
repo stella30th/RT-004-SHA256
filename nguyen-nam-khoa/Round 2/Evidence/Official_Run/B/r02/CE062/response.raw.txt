@@ -1,0 +1,69 @@
+=== BEGIN CE062 GeneratedTest_CE062.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertFalse; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE062 {
+
+private NumericEntityUnescaper unescaper;
+
+@Before
+public void setUp() {
+    unescaper = new NumericEntityUnescaper();
+}
+
+@Test
+public void testReplaceDecimalEntity() {
+    String input = "Hello &#65;&#66;&#67;";
+    // '&#65;' -> 'A', '&#66;' -> 'B', '&#67;' -> 'C'
+    String result = unescaper.replace(input);
+    assertEquals("Hello ABC", result);
+}
+
+@Test
+public void testReplaceHexadecimalEntityLowercaseAndUppercase() {
+    String inputLower = "&#x41;";
+    String inputUpper = "&#X42;";
+    assertEquals("A", unescaper.replace(inputLower));
+    assertEquals("B", unescaper.replace(inputUpper));
+}
+
+@Test
+public void testReplaceShortStringAndBoundary() {
+    // Strings with length < 3 do not enter the loop (pos < length - 2)
+    assertEquals("", unescaper.replace(""));
+    assertEquals("", unescaper.replace("a"));
+    assertEquals("", unescaper.replace("ab"));
+}
+
+@Test
+public void testReplaceIncompleteEntityAtEnd() {
+    // start == length check when string is "&#x"
+    assertEquals("", unescaper.replace("&#x"));
+}
+
+@Test
+public void testReplaceInvalidEntityValueFormat() {
+    // "&#;" has empty digits, throwing NumberFormatException caught to return out.toString()
+    assertEquals("", unescaper.replace("&#;"));
+}
+
+@Test
+public void testIsHexChar() {
+    assertTrue(NumericEntityUnescaper.isHexChar('0'));
+    assertTrue(NumericEntityUnescaper.isHexChar('9'));
+    assertTrue(NumericEntityUnescaper.isHexChar('a'));
+    assertTrue(NumericEntityUnescaper.isHexChar('f'));
+    assertTrue(NumericEntityUnescaper.isHexChar('A'));
+    assertTrue(NumericEntityUnescaper.isHexChar('F'));
+
+    assertFalse(NumericEntityUnescaper.isHexChar('g'));
+    assertFalse(NumericEntityUnescaper.isHexChar('G'));
+    assertFalse(NumericEntityUnescaper.isHexChar(';'));
+    assertFalse(NumericEntityUnescaper.isHexChar('&'));
+    assertFalse(NumericEntityUnescaper.isHexChar('#'));
+}
+
+} === END CE062 ===

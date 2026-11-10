@@ -1,0 +1,87 @@
+package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+@Test
+public void testCaesarDecipherBasic() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+    String ciphertext = "khoor";
+    String plaintext = utils.caesarDecipher(ciphertext, 3);
+    assertEquals("hello", plaintext);
+}
+
+@Test
+public void testCaesarDecipherPreservesNonLettersAndCase() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+    String ciphertext = "Khoor, Zruog! 123";
+    String plaintext = utils.caesarDecipher(ciphertext, 3);
+    assertEquals("Hello, World! 123", plaintext);
+}
+
+@Test
+public void testCaesarDecipherLargeShiftAndEmpty() {
+    DecryptionUtils utils = new DecryptionUtils("defaultKey");
+    String ciphertext = "khoor";
+    // Shift 29 is equivalent to shift 3 (29 % 26 = 3)
+    String plaintext = utils.caesarDecipher(ciphertext, 29);
+    assertEquals("hello", plaintext);
+
+    assertEquals("", utils.caesarDecipher("", 5));
+}
+
+@Test
+public void testVigenereDecipherBasic() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String ciphertext = "rijvs";
+    String decrypted = utils.vigenereDecipher(ciphertext);
+    assertEquals("hello", decrypted);
+}
+
+@Test
+public void testVigenereDecipherMixedCaseAndNonLetters() {
+    DecryptionUtils utils = new DecryptionUtils("KEY");
+    String ciphertext = "Rijvs, Uyvjn!";
+    String decrypted = utils.vigenereDecipher(ciphertext);
+    assertEquals("Hello, World!", decrypted);
+}
+
+@Test
+public void testVigenereDecipherEmpty() {
+    DecryptionUtils utils = new DecryptionUtils("secret");
+    assertEquals("", utils.vigenereDecipher(""));
+}
+
+@Test
+public void testRailFenceDecipherRailsThree() {
+    DecryptionUtils utils = new DecryptionUtils("unused");
+    // "DEFENDTHEEASTWALL" encrypted with rails = 3 produces "DNETLEEDHATWLFTSA"
+    String ciphertext = "DNETLEEDHATWLFTSA";
+    String decrypted = utils.railFenceDecipher(ciphertext, 3);
+    assertEquals("DEFENDTHEEASTWALL", decrypted);
+
+    // "Hello, World!" encrypted with rails = 3 produces "Hoo!el,Wrdl l"
+    String decryptedPhrase = utils.railFenceDecipher("Hoo!el,Wrdl l", 3);
+    assertEquals("Hello, World!", decryptedPhrase);
+}
+
+@Test
+public void testRailFenceDecipherRailsTwo() {
+    DecryptionUtils utils = new DecryptionUtils("unused");
+    // "HELLO" with rails = 2: Row 0 has H, L, O; Row 1 has E, L -> "HLOEL"
+    String ciphertext = "HLOEL";
+    String decrypted = utils.railFenceDecipher(ciphertext, 2);
+    assertEquals("HELLO", decrypted);
+}
+
+@Test
+public void testRailFenceDecipherEmptyAndShortText() {
+    DecryptionUtils utils = new DecryptionUtils("unused");
+    assertEquals("", utils.railFenceDecipher("", 3));
+
+    // Shorter than rail count
+    assertEquals("AB", utils.railFenceDecipher("AB", 3));
+}
+
+}

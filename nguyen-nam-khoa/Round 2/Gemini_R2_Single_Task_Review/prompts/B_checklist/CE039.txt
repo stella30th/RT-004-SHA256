@@ -1,0 +1,260 @@
+CLASSEVAL-T — ROUND 2 SINGLE-TASK JUNIT GENERATION
+TASK_ID: CE039
+
+Generate exactly one JUnit 4 test class for the task and TARGET_SOURCE provided below.
+This is a single-task request. Do not generate tests for any other task.
+Return only the complete test-class source between the required markers.
+=== BEGIN CE039 GeneratedTest_CE039.java ===
+<Java source code, starting with package org.example;>
+=== END CE039 ===
+Do not include Markdown fences, explanations, or extra classes.
+
+GENERATION REQUIREMENTS (BASELINE P0, adapted for single-task context)
+--------------------------------------------------------------------
+For every task:
+
+A. Framework and structure
+- Generate one JUnit 4 test class for the provided Java TARGET_SOURCE.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 17 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly the TEST_CLASS specified for that task.
+- Test the provided implementation as-is.
+- Call the target class from package org.example.
+- Do not modify production code.
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add unrelated dependencies.
+- Keep all tests deterministic.
+
+B. Behavioral-test requirement
+- Test ACTUAL behavior of the target class, not merely whether its API exists.
+- Every generated test class must contain behavioral assertions against observable
+  outputs, state changes, thrown exceptions, collections, files, database effects,
+  or other behavior actually supported by TARGET_SOURCE.
+- Generate at least 4 meaningful behavioral test methods whenever the target API
+  exposes enough deterministic behavior.
+- When fewer than 4 genuinely distinct behavioral tests are possible, generate the
+  maximum meaningful set supported by TARGET_SOURCE. Do NOT pad the file with weak
+  or duplicate tests merely to reach four.
+- Cover distinct behavior whenever applicable, such as:
+  1. a normal/happy-path case;
+  2. a boundary or edge case;
+  3. an invalid, empty, zero, negative, duplicate, or special-input case;
+  4. an additional semantic/state-transition case.
+- For stateful classes, test meaningful state transitions across operations.
+- For collection-oriented classes, assert actual collection contents, sizes, order,
+  membership, or mutations where relevant.
+- For calculation classes, assert concrete numeric results.
+- For string/parsing classes, assert concrete transformed or parsed results.
+- For validation classes, assert both accepted and rejected behavior when supported.
+- For file-processing classes, use deterministic temporary/local test data.
+- For database-oriented classes, test only behavior supported by the supplied API and
+  available local dependencies; do not invent schemas, credentials, or external servers.
+
+C. Weak-test prohibition
+The following DO NOT count as meaningful behavioral tests and must not be used as the
+main or only test strategy:
+- Class.forName(...) used only to prove that a class exists.
+- getDeclaredMethod(...), getDeclaredConstructor(...), getDeclaredField(...), or
+  similar reflection used only to prove API presence.
+- Tests that only instantiate the class and use assertNotNull(instance).
+- Tests that only assert that a method can be invoked without checking its behavior.
+- Tautological assertions.
+- Assertions whose expected value is copied from the actual result.
+- Duplicate tests that exercise the same behavior with no meaningful variation.
+
+Reflection may be used only as a supplementary mechanism when necessary to observe or
+invoke behavior. A reflection-only/API-presence test is insufficient.
+
+D. Oracle construction
+- Determine expected outcomes from TASK_SPECIFICATION and TARGET_SOURCE.
+- Use concrete expected values whenever the behavior is deterministic.
+- Do not copy expected values from ClassEval-T reference tests.
+- Do not access or assume the contents of reference tests.
+- Do not merely assert broad properties such as assertNotNull when TARGET_SOURCE
+  supports a more specific behavioral assertion.
+- 
+
+E. Environment constraints
+- Do not use network services or external systems unless TARGET_SOURCE makes them
+  unavoidable.
+- Prefer local deterministic fixtures.
+- Do not depend on current time, random values without a fixed seed, machine-specific
+  paths, or uncontrolled environment state.
+- Clean up temporary files/resources created by the test when applicable.
+- Use only APIs and dependencies compatible with the provided source and experiment.
+
+F. Output-quality checks
+Before outputting each test class, ensure:
+- package is org.example;
+- class name exactly matches TEST_CLASS;
+- JUnit imports are JUnit 4;
+- target method/constructor signatures actually exist in TARGET_SOURCE;
+- test code is Java 17 compatible;
+- test methods contain meaningful assertions;
+- no test is reflection-only/API-presence-only;
+- the class is deterministic and self-contained.
+
+TASK BLOCK
+----------
+CE039 — ExpressionCalculator
+
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 17 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE039
+- Test the provided solution implementation.
+- Target class: org.example.ExpressionCalculator
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE039
+DATASET: ClassEval-T
+TARGET_CLASS: ExpressionCalculator
+TEST_CLASS: GeneratedTest_CE039
+CATEGORY: ALGORITHMS_MATH_TEXT
+
+BUSINESS_PROBLEM:
+phân tích và tính biểu thức
+
+PUBLIC_API_HINT:
+- double calculate(String expression)
+- void prepare(String expression)
+- boolean isOperator(char ch)
+- boolean compare(char op1, char op2)
+- String transform(String expression)
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.util.*;
+
+public class ExpressionCalculator {
+    Deque<String> postfixStack;
+
+    public ExpressionCalculator() {
+        postfixStack = new ArrayDeque<>();
+    }
+
+    public double calculate(String expression) {
+        String transformedExpression = transform(expression);
+        prepare(transformedExpression);
+        return evaluatePostfix();
+    }
+
+    public void prepare(String expression) {
+        postfixStack.clear();
+        Deque<Character> operatorStack = new ArrayDeque<>();
+        int length = expression.length();
+        for (int i = 0; i < length; i++) {
+            char ch = expression.charAt(i);
+            if (Character.isDigit(ch) || ch == '.') {
+                StringBuilder num = new StringBuilder();
+                while (i < length && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
+                    num.append(expression.charAt(i++));
+                }
+                i--;
+                postfixStack.add(num.toString());
+            } else if (ch == '(') {
+                operatorStack.push(ch);
+            } else if (ch == ')') {
+                while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
+                    postfixStack.add(String.valueOf(operatorStack.pop()));
+                }
+                operatorStack.pop();
+            } else if (isOperator(ch)) {
+                while (!operatorStack.isEmpty() && isOperator(operatorStack.peek()) && !compare(operatorStack.peek(), ch)) {
+                    postfixStack.add(String.valueOf(operatorStack.pop()));
+                }
+                operatorStack.push(ch);
+            }
+        }
+        while (!operatorStack.isEmpty()) {
+            postfixStack.add(String.valueOf(operatorStack.pop()));
+        }
+    }
+
+    public boolean isOperator(char ch) {
+        return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%';
+    }
+
+    public boolean compare(char op1, char op2) {
+        char cur_op = op1 == '%' ? '/' : op1;
+        char peek_op = op2 == '%' ? '/' : op2;
+        int[] operat_priority = {0, 3, 2, 1, -1, 1, 0, 2};
+        return operat_priority[peek_op - 40] >= operat_priority[cur_op - 40];
+    }
+
+    private double evaluatePostfix() {
+        Deque<Double> stack = new ArrayDeque<>();
+        for (String token : postfixStack) {
+            if (isOperator(token.charAt(0))) {
+                double b = stack.pop();
+                double a = stack.pop();
+                stack.push(_calculate(a, b, token.charAt(0)));
+            } else {
+                stack.push(Double.parseDouble(token));
+            }
+        }
+        return stack.pop();
+    }
+
+    double _calculate(double a, double b, char operator) {
+        switch (operator) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+            case '%':
+                return a % b;
+            default:
+                throw new IllegalArgumentException("Unsupported operator: " + operator);
+        }
+    }
+
+    public String transform(String expression) {
+        expression = expression.replaceAll(" ", "");
+        expression = expression.replaceAll("-", "~");
+        char[] chars = expression.toCharArray();
+        if (chars[0] == '~' && expression.length() > 1 && chars[1] == '(') {
+            chars[0] = '-';
+            expression=String.valueOf(chars);
+            return "0" + expression;
+        }
+        else {
+            return expression;
+        }
+    }
+}
+
+EXPERIMENTAL ADDENDUM: SOURCE-FIRST ORACLE VERIFICATION (CHECKLIST ONLY)
+Before returning the JUnit class, internally verify each item below. Do not print reasoning.
+1. Read method signatures, overloads, visibility, imports, and constructor preconditions.
+2. Identify exact accepted input domains; do not infer from conventional APIs.
+3. Follow branches and exception paths for the supplied input.
+4. Trace instance state and inter-method side effects across calls.
+5. Compute expected numbers, strings and boolean return values from the source.
+6. Check every assertion against the executed code path and final state.
+7. Check boundary and empty-state cases, including zero elements/targets.
+8. Use deterministic fixtures; do not modify SUT or use reference tests.
+9. Check Java 17, JUnit 4.13.2, package org.example and imports.

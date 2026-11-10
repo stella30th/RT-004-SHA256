@@ -1,0 +1,72 @@
+=== BEGIN CE037 GeneratedTest_CE037.java === package org.example;
+
+import org.junit.Assert; import org.junit.Test;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipherNormalAndWrap() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+
+    String encrypted1 = utils.caesarCipher("Hello, World!", 3);
+    Assert.assertEquals("Khoor, Zruog!", encrypted1);
+
+    String encrypted2 = utils.caesarCipher("xyzXYZ", 3);
+    Assert.assertEquals("abcABC", encrypted2);
+}
+
+@Test
+public void testCaesarCipherNonLettersAndEmpty() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+
+    String nonLetters = utils.caesarCipher("12345 @#$%", 7);
+    Assert.assertEquals("12345 @#$%", nonLetters);
+
+    String empty = utils.caesarCipher("", 5);
+    Assert.assertEquals("", empty);
+}
+
+@Test
+public void testVigenereCipherNormal() {
+    EncryptionUtils utilsKey = new EncryptionUtils("key");
+    String encrypted = utilsKey.vigenereCipher("Hello, World!");
+    Assert.assertEquals("Rijvs, Uyvjn!", encrypted);
+
+    EncryptionUtils utilsAbc = new EncryptionUtils("abc");
+    String encryptedAbc = utilsAbc.vigenereCipher("abc");
+    Assert.assertEquals("ace", encryptedAbc);
+}
+
+@Test
+public void testVigenereCipherPreservesCaseAndNonLetters() {
+    EncryptionUtils utils = new EncryptionUtils("secret");
+    String encrypted = utils.vigenereCipher("123 AbC!");
+    Assert.assertEquals("123 SfE!", encrypted);
+
+    String empty = utils.vigenereCipher("");
+    Assert.assertEquals("", empty);
+}
+
+@Test
+public void testRailFenceCipherWithThreeRails() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+
+    String encrypted1 = utils.railFenceCipher("HELLOWORLD", 3);
+    Assert.assertEquals("HOLELWRLOD", encrypted1);
+
+    String encrypted2 = utils.railFenceCipher("Defend the East Wall", 3);
+    Assert.assertEquals("DnhaWeedteEs alf  tl", encrypted2);
+}
+
+@Test
+public void testRailFenceCipherWithTwoRailsAndEmpty() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+
+    String encrypted = utils.railFenceCipher("ABCDEF", 2);
+    Assert.assertEquals("ACEBDF", encrypted);
+
+    String empty = utils.railFenceCipher("", 3);
+    Assert.assertEquals("", empty);
+}
+
+} === END CE037 ===

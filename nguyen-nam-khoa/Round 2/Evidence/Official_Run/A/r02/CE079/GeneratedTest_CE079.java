@@ -1,0 +1,79 @@
+package org.example;
+
+import org.junit.Rule; import org.junit.Test; import
+org.junit.rules.TemporaryFolder;
+
+import java.io.File; import java.io.IOException; import java.nio.file.Files;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertNotNull; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE079 {
+
+@Rule
+public TemporaryFolder temporaryFolder = new TemporaryFolder();
+
+@Test
+public void testWriteAndReadFile() throws IOException {
+    File file = temporaryFolder.newFile("test_write_read.txt");
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+
+    String content = "Hello, World!\nTesting TextFileProcessor.";
+    processor.write_file(content);
+
+    String readContent = processor.read_file();
+    assertEquals(content, readContent);
+}
+
+@Test
+public void testReadFileAsJson() throws IOException {
+    File file = temporaryFolder.newFile("test_data.json");
+    String jsonContent = "{\"name\":\"Alice\",\"age\":30}";
+    Files.write(file.toPath(), jsonContent.getBytes());
+
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+    Object result = processor.read_file_as_json();
+
+    assertNotNull(result);
+    assertTrue(result instanceof Map);
+    @SuppressWarnings("unchecked")
+    Map<String, Object> jsonMap = (Map<String, Object>) result;
+    assertEquals("Alice", jsonMap.get("name"));
+    assertEquals(30, jsonMap.get("age"));
+}
+
+@Test
+public void testProcessFileRemovesNonAlphabeticCharacters() throws IOException {
+    File file = temporaryFolder.newFile("test_process.txt");
+    String rawContent = "Hello, World! 123-456_ABC.";
+    Files.write(file.toPath(), rawContent.getBytes());
+
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+    String processed = processor.process_file();
+
+    assertEquals("HelloWorldABC", processed);
+    assertEquals("HelloWorldABC", processor.read_file());
+}
+
+@Test
+public void testProcessFileWithAllNonAlphabeticalCharacters() throws IOException {
+    File file = temporaryFolder.newFile("test_non_alpha.txt");
+    String rawContent = "12345!@#$%^&*()_+ \t\n";
+    Files.write(file.toPath(), rawContent.getBytes());
+
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+    String processed = processor.process_file();
+
+    assertEquals("", processed);
+    assertEquals("", processor.read_file());
+}
+
+@Test(expected = IOException.class)
+public void testReadNonExistentFileThrowsException() throws IOException {
+    File nonExistent = new File(temporaryFolder.getRoot(), "missing_file.txt");
+    TextFileProcessor processor = new TextFileProcessor(nonExistent.getAbsolutePath());
+    processor.read_file();
+}
+
+}

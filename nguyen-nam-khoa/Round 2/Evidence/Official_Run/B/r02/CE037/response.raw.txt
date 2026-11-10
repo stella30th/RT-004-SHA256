@@ -1,0 +1,78 @@
+=== BEGIN CE037 GeneratedTest_CE037.java === package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipherBasicShiftAndNonLetters() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    // 'H' -> 'K', 'e' -> 'h', 'l' -> 'o', 'l' -> 'o', 'o' -> 'r'
+    // Non-letter characters like ' ' and '!' remain unchanged
+    String result = utils.caesarCipher("Hello, World!", 3);
+    assertEquals("Khoor, Zruog!", result);
+}
+
+@Test
+public void testCaesarCipherWrapAroundAndEmptyString() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    // 'x' -> 'a', 'y' -> 'b', 'z' -> 'c' (with shift 3)
+    // 'X' -> 'A', 'Y' -> 'B', 'Z' -> 'C'
+    String result = utils.caesarCipher("xyz XYZ", 3);
+    assertEquals("abc ABC", result);
+
+    String emptyResult = utils.caesarCipher("", 5);
+    assertEquals("", emptyResult);
+}
+
+@Test
+public void testVigenereCipherWithKey() {
+    // key = "lemon"
+    // key shifts: l=11, e=4, m=12, o=14, n=13
+    // plainText = "ATTACKATDAWN"
+    // A(0)+11=L, T(19)+4=X, T(19)+12=F, A(0)+14=O, C(2)+13=P, K(10)+11=V ...
+    EncryptionUtils utils = new EncryptionUtils("lemon");
+    String result = utils.vigenereCipher("ATTACKATDAWN");
+    assertEquals("LXFOPVEFRNHR", result);
+}
+
+@Test
+public void testVigenereCipherPreservesCaseAndNonLetters() {
+    // key = "KEY" -> shifts: k=10, e=4, y=24
+    // 'H' (7+10=17 -> 'R'), 'e' (4+4=8 -> 'i'), 'l' (11+24=35%26=9 -> 'j'), 'l' (11+10=21 -> 'v'), 'o' (14+4=18 -> 's')
+    EncryptionUtils utils = new EncryptionUtils("KEY");
+    String result = utils.vigenereCipher("Hello, World!");
+    // 'W' (22+24=46%26=20 -> 'U'), 'o' (14+10=24 -> 'y'), 'r' (17+4=21 -> 'v'), 'l' (11+24=35%26=9 -> 'j'), 'd' (3+10=13 -> 'n')
+    assertEquals("Rijvs, Uyvjn!", result);
+}
+
+@Test
+public void testRailFenceCipherBasic() {
+    EncryptionUtils utils = new EncryptionUtils("any");
+    // "WEAREDISCOVEREDFLEEATONCE", rails = 3
+    // Row 0: W . . . E . . . C . . . R . . . L . . . T . . . E
+    // Row 1: . E . R . D . S . O . E . E . F . E . A . O . C .
+    // Row 2: . . A . . . I . . . V . . . D . . . E . . . N . .
+    // Row 0: WECRLTE
+    // Row 1: ERDSOEEFEAOC
+    // Row 2: AIVDEN
+    // Combined: WECRLTEERDSOEEFEAOCAIVDEN
+    String result = utils.railFenceCipher("WEAREDISCOVEREDFLEEATONCE", 3);
+    assertEquals("WECRLTEERDSOEEFEAOCAIVDEN", result);
+}
+
+@Test
+public void testRailFenceCipherEmptyAndShortString() {
+    EncryptionUtils utils = new EncryptionUtils("any");
+    String emptyResult = utils.railFenceCipher("", 3);
+    assertEquals("", emptyResult);
+
+    // Plaintext length <= rails
+    // plainText = "ABC", rails = 4
+    // col 0: 'A', col 1: 'B', col 2: 'C'
+    // row 0: 'A', row 1: 'B', row 2: 'C', row 3: none
+    String shortResult = utils.railFenceCipher("ABC", 4);
+    assertEquals("ABC", shortResult);
+}
+
+} === END CE037 ===

@@ -1,0 +1,98 @@
+=== BEGIN CE033 GeneratedTest_CE033.java === package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+@Test
+public void testCaesarDecipherNormal() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String ciphertext = "Khoor, Zruog!";
+    String result = utils.caesarDecipher(ciphertext, 3);
+    assertEquals("Hello, World!", result);
+}
+
+@Test
+public void testCaesarDecipherWithShiftGreaterThan26AndWrap() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    // Shift 29 is equivalent to shift 3 (29 % 26 = 3)
+    String ciphertext = "Khoor, Zruog!";
+    String result = utils.caesarDecipher(ciphertext, 29);
+    assertEquals("Hello, World!", result);
+}
+
+@Test
+public void testCaesarDecipherZeroShiftAndSpecialCharacters() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String ciphertext = "123 !? #$%";
+    String result = utils.caesarDecipher(ciphertext, 5);
+    assertEquals("123 !? #$%", result);
+
+    assertEquals("", utils.caesarDecipher("", 10));
+}
+
+@Test
+public void testVigenereDecipherNormal() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    // "Hello, World!" encrypted with key "key":
+    // H + k (10) -> R
+    // e + e (4)  -> i
+    // l + y (24) -> j
+    // l + k (10) -> v
+    // o + e (4)  -> s
+    // , (non-letter, key index unchanged)
+    // ' ' (non-letter)
+    // W + y (24) -> U
+    // o + k (10) -> y
+    // r + e (4)  -> v
+    // l + y (24) -> j
+    // d + k (10) -> n
+    // ! (non-letter)
+    String ciphertext = "Rijvs, Uyvjn!";
+    String result = utils.vigenereDecipher(ciphertext);
+    assertEquals("Hello, World!", result);
+}
+
+@Test
+public void testVigenereDecipherWithMixedCaseKeyAndPunctuation() {
+    DecryptionUtils utils = new DecryptionUtils("AbC");
+    // A -> shift 0, b -> shift 1, C -> shift 2
+    // "Hello!" -> H (shift 0 -> H), f (shift 1 -> e), n (shift 2 -> l), l (shift 0 -> l), p (shift 1 -> o), !
+    String ciphertext = "Hfnlp!";
+    String result = utils.vigenereDecipher(ciphertext);
+    assertEquals("Hello!", result);
+}
+
+@Test
+public void testRailFenceDecipherThreeRails() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    // "HELLOWORLD" with 3 rails:
+    // row 0: H, O, L -> "HOL"
+    // row 1: E, L, W, R, D -> "ELWRD"
+    // row 2: L, O -> "LO"
+    // ciphertext = "HOLELWRDLO"
+    String encrypted = "HOLELWRDLO";
+    String result = utils.railFenceDecipher(encrypted, 3);
+    assertEquals("HELLOWORLD", result);
+}
+
+@Test
+public void testRailFenceDecipherTwoRails() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    // "HELLO" with 2 rails:
+    // row 0: H, L, O
+    // row 1: E, L
+    // ciphertext = "HLOEL"
+    String encrypted = "HLOEL";
+    String result = utils.railFenceDecipher(encrypted, 2);
+    assertEquals("HELLO", result);
+}
+
+@Test
+public void testRailFenceDecipherEmptyString() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String result = utils.railFenceDecipher("", 3);
+    assertEquals("", result);
+}
+
+} === END CE033 ===

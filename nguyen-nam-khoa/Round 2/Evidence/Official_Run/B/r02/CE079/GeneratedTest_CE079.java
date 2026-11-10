@@ -1,0 +1,97 @@
+package org.example;
+
+import org.junit.Rule; import org.junit.Test; import
+org.junit.rules.TemporaryFolder;
+
+import java.io.File; import java.io.IOException; import java.util.List; import
+java.util.Map;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertNotNull; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE079 {
+
+@Rule
+public TemporaryFolder tempFolder = new TemporaryFolder();
+
+@Test
+public void testWriteAndReadFile() throws IOException {
+    File file = tempFolder.newFile("test_rw.txt");
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+
+    String testContent = "Hello, JUnit 4 Testing!\nLine 2.";
+    processor.write_file(testContent);
+
+    String readResult = processor.read_file();
+    assertEquals(testContent, readResult);
+}
+
+@Test
+public void testProcessFileFiltersNonAlphabeticalCharacters() throws IOException {
+    File file = tempFolder.newFile("test_process.txt");
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+
+    processor.write_file("Hello, World! 1234_#");
+    String processed = processor.process_file();
+
+    assertEquals("HelloWorld", processed);
+    assertEquals("HelloWorld", processor.read_file());
+}
+
+@Test
+public void testProcessFileWithOnlyNonAlphabeticCharacters() throws IOException {
+    File file = tempFolder.newFile("test_symbols.txt");
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+
+    processor.write_file("12345!@#$%^&*()_+=-`~[]\\{}|;':\",./<>?");
+    String processed = processor.process_file();
+
+    assertEquals("", processed);
+    assertEquals("", processor.read_file());
+}
+
+@Test
+public void testReadFileAsJsonObject() throws IOException {
+    File file = tempFolder.newFile("test_object.json");
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+
+    String jsonContent = "{\"name\":\"Alice\",\"age\":30}";
+    processor.write_file(jsonContent);
+
+    Object result = processor.read_file_as_json();
+    assertTrue(result instanceof Map);
+
+    @SuppressWarnings("unchecked")
+    Map<String, Object> map = (Map<String, Object>) result;
+    assertEquals("Alice", map.get("name"));
+    assertEquals(30, map.get("age"));
+}
+
+@Test
+public void testReadFileAsJsonArray() throws IOException {
+    File file = tempFolder.newFile("test_array.json");
+    TextFileProcessor processor = new TextFileProcessor(file.getAbsolutePath());
+
+    String jsonContent = "[\"apple\", \"banana\", \"cherry\"]";
+    processor.write_file(jsonContent);
+
+    Object result = processor.read_file_as_json();
+    assertTrue(result instanceof List);
+
+    @SuppressWarnings("unchecked")
+    List<Object> list = (List<Object>) result;
+    assertEquals(3, list.size());
+    assertEquals("apple", list.get(0));
+    assertEquals("banana", list.get(1));
+    assertEquals("cherry", list.get(2));
+}
+
+@Test(expected = IOException.class)
+public void testReadFileNonExistentThrowsException() throws IOException {
+    File nonExistent = new File(tempFolder.getRoot(), "missing_file.txt");
+    TextFileProcessor processor = new TextFileProcessor(nonExistent.getAbsolutePath());
+
+    processor.read_file();
+}
+
+}

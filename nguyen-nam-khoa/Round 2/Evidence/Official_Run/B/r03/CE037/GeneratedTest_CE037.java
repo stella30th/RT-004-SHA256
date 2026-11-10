@@ -1,0 +1,73 @@
+package org.example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipher_StandardShiftAndWrapping() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    String plaintext = "abc XYZ";
+    int shift = 3;
+    String expected = "def ABC";
+    assertEquals(expected, utils.caesarCipher(plaintext, shift));
+}
+
+@Test
+public void testCaesarCipher_PreserveNonLettersAndEmpty() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    assertEquals("", utils.caesarCipher("", 5));
+    assertEquals("1234!@# \t\n", utils.caesarCipher("1234!@# \t\n", 4));
+    assertEquals("Khoor, Zruog! 123", utils.caesarCipher("Hello, World! 123", 3));
+}
+
+@Test
+public void testVigenereCipher_StandardCasePreservation() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    // 'k' -> shift 10, 'e' -> shift 4, 'y' -> shift 24
+    // 'H' (7) + 10 = 17 ('R')
+    // 'e' (4) + 4 = 8 ('i')
+    // 'l' (11) + 24 = 35 % 26 = 9 ('j')
+    // 'l' (11) + 10 = 21 ('v')
+    // 'o' (14) + 4 = 18 ('s')
+    // non-letters preserved, keyIndex not incremented
+    // 'W' (22) + 24 = 46 % 26 = 20 ('U')
+    // 'o' (14) + 10 = 24 ('y')
+    // 'r' (17) + 4 = 21 ('v')
+    // 'l' (11) + 24 = 35 % 26 = 9 ('j')
+    // 'd' (3) + 10 = 13 ('n')
+    assertEquals("Rijvs, Uyvjn!", utils.vigenereCipher("Hello, World!"));
+}
+
+@Test
+public void testVigenereCipher_KeyWithIdentityShiftAndEmpty() {
+    EncryptionUtils identityUtils = new EncryptionUtils("a");
+    assertEquals("Testing 123!", identityUtils.vigenereCipher("Testing 123!"));
+    assertEquals("", identityUtils.vigenereCipher(""));
+}
+
+@Test
+public void testRailFenceCipher_ThreeRails() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    // "HELLO WORLD" (length 11) with 3 rails:
+    // Row 0: H . . . O . . . R . . -> "HOR"
+    // Row 1: . E . L .   . O . L . -> "EL OL"
+    // Row 2: . . L . . . W . . . D -> "LWD"
+    // Result: "HOREL OLLWD"
+    String plaintext = "HELLO WORLD";
+    assertEquals("HOREL OLLWD", utils.railFenceCipher(plaintext, 3));
+}
+
+@Test
+public void testRailFenceCipher_TwoRailsAndEdgeCases() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    // 2 rails: alternates between row 0 and row 1
+    // "ABCDEF" -> row 0: ACE, row 1: BDF -> "ACEBDF"
+    assertEquals("ACEBDF", utils.railFenceCipher("ABCDEF", 2));
+    assertEquals("", utils.railFenceCipher("", 3));
+    assertEquals("A", utils.railFenceCipher("A", 2));
+}
+
+}

@@ -1,0 +1,103 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+private DecryptionUtils decryptionUtils;
+
+@Before
+public void setUp() {
+    decryptionUtils = new DecryptionUtils("lemon");
+}
+
+@Test
+public void testCaesarDecipherNormalAndMixedCase() {
+    // Shift by 3: "Khoor, Zruog!" should decrypt to "Hello, World!"
+    String ciphertext = "Khoor, Zruog!";
+    String result = decryptionUtils.caesarDecipher(ciphertext, 3);
+    assertEquals("Hello, World!", result);
+}
+
+@Test
+public void testCaesarDecipherShiftGreaterThan26() {
+    // Shift 29 is equivalent to shift 3 (29 % 26 = 3)
+    String ciphertext = "Khoor, Zruog!";
+    String result = decryptionUtils.caesarDecipher(ciphertext, 29);
+    assertEquals("Hello, World!", result);
+}
+
+@Test
+public void testCaesarDecipherZeroAndModuloZeroShift() {
+    String ciphertext = "Test String 123!";
+    assertEquals("Test String 123!", decryptionUtils.caesarDecipher(ciphertext, 0));
+    assertEquals("Test String 123!", decryptionUtils.caesarDecipher(ciphertext, 26));
+}
+
+@Test
+public void testCaesarDecipherEmptyAndNonLettersOnly() {
+    assertEquals("", decryptionUtils.caesarDecipher("", 5));
+    assertEquals("12345 @#!", decryptionUtils.caesarDecipher("12345 @#!", 10));
+}
+
+@Test
+public void testVigenereDecipherNormal() {
+    // Plaintext: "ATTACKATDAWN" encrypted with "LEMON" yields "LXFOPVEFRNHR"
+    DecryptionUtils utils = new DecryptionUtils("lemon");
+    String ciphertext = "LXFOPVEFRNHR";
+    String expected = "ATTACKATDAWN";
+    assertEquals(expected, utils.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testVigenereDecipherWithSpacesAndCaseSensitivity() {
+    // Key is case-insensitive for shift calculation; text case should be preserved
+    DecryptionUtils utils = new DecryptionUtils("LeMoN");
+    // "Attack at Dawn!" encrypted with "lemon":
+    // A -> L, t -> x, t -> f, a -> o, c -> p, k -> v, a -> e, t -> f, D -> R, a -> n, w -> h, n -> r
+    String ciphertext = "Lxfo pv Ef Rnhr!";
+    String expected = "Atta ck At Dawn!";
+    assertEquals(expected, utils.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testVigenereDecipherEmptyString() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    assertEquals("", utils.vigenereDecipher(""));
+}
+
+@Test
+public void testRailFenceDecipherThreeRails() {
+    // "HelloWorld" (len 10) on 3 rails:
+    // row 0: H . . . o . . . r . (Hor)
+    // row 1: . e . l . W . r . d (elWrd)
+    // row 2: . . l . . . o . . . (lo)
+    // Ciphertext: "HorelWrdlo"
+    String ciphertext = "HorelWrdlo";
+    String result = decryptionUtils.railFenceDecipher(ciphertext, 3);
+    assertEquals("HelloWorld", result);
+}
+
+@Test
+public void testRailFenceDecipherTwoRails() {
+    // "HelloWorld" on 2 rails:
+    // row 0: H l o o l
+    // row 1: e l W r d
+    // Ciphertext: "HloolelWrd"
+    String ciphertext = "HloolelWrd";
+    String result = decryptionUtils.railFenceDecipher(ciphertext, 2);
+    assertEquals("HelloWorld", result);
+}
+
+@Test
+public void testRailFenceDecipherEmptyAndShortString() {
+    assertEquals("", decryptionUtils.railFenceDecipher("", 3));
+
+    // When text length is less than rails, it stays in order along the initial diagonal
+    String shortText = "abc";
+    assertEquals("abc", decryptionUtils.railFenceDecipher(shortText, 5));
+}
+
+}

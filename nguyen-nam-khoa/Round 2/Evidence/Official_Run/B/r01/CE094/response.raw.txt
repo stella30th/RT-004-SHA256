@@ -1,0 +1,159 @@
+=== BEGIN CE094 GeneratedTest_CE094.java === package org.example;
+
+import org.junit.Rule; import org.junit.Test; import
+org.junit.rules.TemporaryFolder;
+
+import java.io.File; import java.io.FileOutputStream; import
+java.io.IOException; import java.nio.charset.StandardCharsets; import
+java.nio.file.Files; import java.nio.file.Path; import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile; import java.util.zip.ZipOutputStream;
+
+import static org.junit.Assert.*;
+
+public class GeneratedTest_CE094 {
+
+@Rule
+public TemporaryFolder tempFolder = new TemporaryFolder();
+
+private File createSampleZip(String zipFileName) throws IOException {
+    File zipFile = tempFolder.newFile(zipFileName);
+    try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFile))) {
+        // Add a directory entry
+        ZipEntry dirEntry = new ZipEntry("dir/");
+        zos.putNextEntry(dirEntry);
+        zos.closeEntry();
+
+        // Add a top-level file
+        ZipEntry fileEntry1 = new ZipEntry("hello.txt");
+        zos.putNextEntry(fileEntry1);
+        zos.write("Hello World".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+
+        // Add a nested file inside dir/
+        ZipEntry fileEntry2 = new ZipEntry("dir/nested.txt");
+        zos.putNextEntry(fileEntry2);
+        zos.write("Nested Content".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+    }
+    return zipFile;
+}
+
+@Test
+public void testReadZipFileWhenFileDoesNotExist() {
+    File nonExistent = new File(tempFolder.getRoot(), "missing.zip");
+    ZipFileProcessor processor = new ZipFileProcessor(nonExistent.getAbsolutePath());
+
+    ZipFile zipFile = processor.readZipFile();
+    assertNull("Reading a non-existent zip file should return null", zipFile);
+}
+
+@Test
+public void testReadZipFileWhenFileExists() throws IOException {
+    File zipFile = createSampleZip("sample.zip");
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+
+    ZipFile result = processor.readZipFile();
+    assertNotNull("Reading a valid zip file should return non-null ZipFile", result);
+    result.close();
+}
+
+@Test
+public void testExtractAllSuccess() throws IOException {
+    File zipFile = createSampleZip("archive.zip");
+    File outputDir = new File(tempFolder.getRoot(), "out_all");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractAll(outputDir.getAbsolutePath());
+
+    assertTrue("extractAll should succeed for valid zip", success);
+
+    Path extractedHello = outputDir.toPath().resolve("hello.txt");
+    assertTrue("hello.txt should exist", Files.exists(extractedHello));
+    assertEquals("Hello World", Files.readString(extractedHello, StandardCharsets.UTF_8));
+
+    Path extractedDir = outputDir.toPath().resolve("dir");
+    assertTrue("dir directory should exist", Files.isDirectory(extractedDir));
+
+    Path extractedNested = outputDir.toPath().resolve("dir").resolve("nested.txt");
+    assertTrue("dir/nested.txt should exist", Files.exists(extractedNested));
+    assertEquals("Nested Content", Files.readString(extractedNested, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractAllNonExistentZip() {
+    File missingZip = new File(tempFolder.getRoot(), "not_found.zip");
+    File outputDir = new File(tempFolder.getRoot(), "out_missing");
+
+    ZipFileProcessor processor = new ZipFileProcessor(missingZip.getAbsolutePath());
+    boolean success = processor.extractAll(outputDir.getAbsolutePath());
+
+    assertFalse("extractAll should return false when zip does not exist", success);
+}
+
+@Test
+public void testExtractFileSuccess() throws IOException {
+    File zipFile = createSampleZip("archive_single.zip");
+    File outputDir = new File(tempFolder.getRoot(), "out_single");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractFile("hello.txt", outputDir.getAbsolutePath());
+
+    assertTrue("extractFile should succeed for existing entry", success);
+
+    Path extracted = outputDir.toPath().resolve("hello.txt");
+    assertTrue("Extracted file should exist", Files.exists(extracted));
+    assertEquals("Hello World", Files.readString(extracted, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractFileNestedEntrySuccess() throws IOException {
+    File zipFile = createSampleZip("archive_nested.zip");
+    File outputDir = new File(tempFolder.getRoot(), "out_nested");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractFile("dir/nested.txt", outputDir.getAbsolutePath());
+
+    assertTrue("extractFile should succeed for nested entry", success);
+
+    Path extracted = outputDir.toPath().resolve("dir").resolve("nested.txt");
+    assertTrue("Extracted nested file should exist", Files.exists(extracted));
+    assertEquals("Nested Content", Files.readString(extracted, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractFileEntryNotFound() throws IOException {
+    File zipFile = createSampleZip("archive_not_found.zip");
+    File outputDir = new File(tempFolder.getRoot(), "out_entry_missing");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean success = processor.extractFile("non_existent.txt", outputDir.getAbsolutePath());
+
+    assertFalse("extractFile should return false when entry does not exist", success);
+    Path extracted = outputDir.toPath().resolve("non_existent.txt");
+    assertFalse("Target file should not have been created", Files.exists(extracted));
+}
+
+@Test
+public void testExtractFileNonExistentZip() {
+    File missingZip = new File(tempFolder.getRoot(), "no_such_file.zip");
+    File outputDir = new File(tempFolder.getRoot(), "out_no_zip");
+
+    ZipFileProcessor processor = new ZipFileProcessor(missingZip.getAbsolutePath());
+    boolean success = processor.extractFile("hello.txt", outputDir.getAbsolutePath());
+
+    assertFalse("extractFile should return false when zip does not exist", success);
+}
+
+@Test
+public void testExtractCorruptZip() throws IOException {
+    File corruptZip = tempFolder.newFile("corrupt.zip");
+    Files.writeString(corruptZip.toPath(), "This is not a valid zip content.");
+
+    ZipFileProcessor processor = new ZipFileProcessor(corruptZip.getAbsolutePath());
+    File outputDir = new File(tempFolder.getRoot(), "out_corrupt");
+
+    assertFalse("extractAll should fail on corrupt zip", processor.extractAll(outputDir.getAbsolutePath()));
+    assertFalse("extractFile should fail on corrupt zip", processor.extractFile("any.txt", outputDir.getAbsolutePath()));
+}
+
+} === END CE094 ===

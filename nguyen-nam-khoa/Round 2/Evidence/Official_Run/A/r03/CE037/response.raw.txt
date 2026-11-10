@@ -1,0 +1,68 @@
+=== BEGIN CE037 GeneratedTest_CE037.java === package org.example;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before; import org.junit.Test;
+
+public class GeneratedTest_CE037 {
+
+private EncryptionUtils utils;
+
+@Before
+public void setUp() {
+    utils = new EncryptionUtils("key");
+}
+
+@Test
+public void testCaesarCipherNormalAndWrapAround() {
+    String input = "xyzXYZ 123!";
+    String encrypted = utils.caesarCipher(input, 1);
+    assertEquals("yzaYZA 123!", encrypted);
+
+    String greeting = "Hello, World!";
+    assertEquals("Khoor, Zruog!", utils.caesarCipher(greeting, 3));
+}
+
+@Test
+public void testCaesarCipherEmptyAndZeroShift() {
+    assertEquals("", utils.caesarCipher("", 5));
+    assertEquals("NoChangeHere!", utils.caesarCipher("NoChangeHere!", 0));
+    assertEquals("SameText", utils.caesarCipher("SameText", 26));
+}
+
+@Test
+public void testVigenereCipherBasic() {
+    // key is "key": shifts are k=10, e=4, y=24
+    String input = "Hello, World!";
+    String encrypted = utils.vigenereCipher(input);
+    assertEquals("Rijvs, Uyvjn!", encrypted);
+}
+
+@Test
+public void testVigenereCipherUppercaseKeyAndNonLetters() {
+    EncryptionUtils upperKeyUtils = new EncryptionUtils("KEY");
+    String result = upperKeyUtils.vigenereCipher("Hello, World!");
+    assertEquals("Rijvs, Uyvjn!", result);
+
+    String nonLettersOnly = "12345 !?#";
+    assertEquals("12345 !?#", upperKeyUtils.vigenereCipher(nonLettersOnly));
+}
+
+@Test
+public void testRailFenceCipherWithThreeRails() {
+    String input = "HELLO WORLD";
+    String encrypted = utils.railFenceCipher(input, 3);
+    assertEquals("HOREL OLLWD", encrypted);
+
+    String sentence = "WEAREDISCOVEREDFLEEATONCE";
+    assertEquals("WECRLTEERDSOEEFEAOCAIVDEN", utils.railFenceCipher(sentence, 3));
+}
+
+@Test
+public void testRailFenceCipherWithTwoRailsAndEmptyString() {
+    String digits = "123456";
+    assertEquals("135246", utils.railFenceCipher(digits, 2));
+    assertEquals("", utils.railFenceCipher("", 3));
+}
+
+} === END CE037 ===
