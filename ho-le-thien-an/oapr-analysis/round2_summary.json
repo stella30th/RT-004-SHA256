@@ -61,6 +61,59 @@
       "conditional_micro_mutation_score": 0.7938144329896907
     }
   },
+  "round2_gemini_only": {
+    "source": "Khoa Official_Run execution_summary.csv and per-run files",
+    "by_arm": {
+      "A": {
+        "suites": 21,
+        "pass": 17,
+        "fail": 4,
+        "by_task_pass": {
+          "CE033": 1,
+          "CE037": 2,
+          "CE039": 3,
+          "CE062": 2,
+          "CE073": 3,
+          "CE079": 3,
+          "CE094": 3
+        }
+      },
+      "B": {
+        "suites": 21,
+        "pass": 18,
+        "fail": 3,
+        "by_task_pass": {
+          "CE033": 2,
+          "CE037": 3,
+          "CE039": 3,
+          "CE062": 2,
+          "CE073": 2,
+          "CE079": 3,
+          "CE094": 3
+        }
+      },
+      "C": {
+        "suites": 21,
+        "pass": 15,
+        "fail": 6,
+        "by_task_pass": {
+          "CE033": 0,
+          "CE037": 2,
+          "CE039": 3,
+          "CE062": 3,
+          "CE073": 1,
+          "CE079": 3,
+          "CE094": 3
+        }
+      }
+    },
+    "overall_pass": 50,
+    "overall_suites": 63,
+    "raw_run_sets_present": 63,
+    "model_or_interface_unverified_in_per_run_metadata": 63,
+    "mutation_results_available": false,
+    "protocol_freeze_verified": false
+  },
   "round2_task_run_cells": 33,
   "round2_p0_to_checklist_pass": {
     "1->1": 23,
@@ -87,9 +140,10 @@
     "ce023_p0_pass_verification": "absent; retain only as sensitivity scenario"
   },
   "evidence_limitations": [
-    "The five primary Hào ZIP archives listed in SHA256_MANIFEST.csv are not committed; this audit checks CSV indexes, not all raw Maven/PIT XML.",
+    "Hao's 99 raw JUnit and 89 eligible PIT evidence sets are committed unpacked; the five named ZIP packages are absent.",
     "Two P0 round-2 cells are labeled replacement outputs; independent generation provenance is incomplete.",
-    "Three runs per task are correlated; suite-level binomial intervals are descriptive, not independent-task inference.",
-    "Khoa's new handover audits historical Gemini P0/P1; no Gemini three-arm repeated-run registry was found."
+    "Three runs per task are correlated in both model cohorts; suite-level binomial intervals are descriptive.",
+    "Khoa's 63 Gemini A/B/C run sets are committed, but all per-run metadata files lack a verified model version/interface; no Gemini mutation results are reported.",
+    "The Gemini round-2 protocol remains marked DRAFT, and its single-task baseline differs from historical P0."
   ]
 }

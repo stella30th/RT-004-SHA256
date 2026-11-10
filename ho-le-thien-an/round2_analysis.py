@@ -1,7 +1,7 @@
-"""Audit Hao's round-2 CSV indexes and keep them separate from historical OAPR.
+"""Audit both round-2 cohorts and keep them separate from historical OAPR.
 
 Run from the repository root: python ho-le-thien-an/round2_analysis.py
-Primary ZIP artifacts are not in Git; this checks the committed indexes only.
+The script validates indexes and presence of committed raw evidence, not AI sessions.
 """
 
 from __future__ import annotations
@@ -16,10 +16,15 @@ from analysis import exact_ci
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "huynh-gia-hao" / "experiment" / "round2" / "SWT_Hao_Round2_Final_Handover"
+HAO_RAW = ROOT / "huynh-gia-hao" / "experiment" / "round2" / "outputs"
+GEMINI_BASE = ROOT / "nguyen-nam-khoa" / "Round 2" / "Evidence"
 OUT = Path(__file__).resolve().parent / "oapr-analysis"
 CONDITIONS = ("p0_resample", "checklist_only", "checklist_focus")
 RUNS = ("run-01", "run-02", "run-03")
 TASKS = ("CE033", "CE041", "CE043", "CE050", "CE053", "CE060", "CE065", "CE066", "CE077", "CE085", "CE090")
+GEMINI_TASKS = ("CE033", "CE037", "CE039", "CE062", "CE073", "CE079", "CE094")
+GEMINI_ARMS = ("A", "B", "C")
+GEMINI_RUNS = ("r01", "r02", "r03")
 
 
 def load_csv(name: str) -> list[dict[str, str]]:
@@ -39,6 +44,62 @@ def is_pass(row: dict[str, str]) -> bool:
     if observed != (row["classification"] == "PASS"):
         raise ValueError(f"PASS fields disagree for {(row['condition'], row['run'], row['task'])}")
     return observed
+
+
+def audit_gemini() -> dict:
+    with (GEMINI_BASE / "execution_summary.csv").open(encoding="utf-8-sig", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    expected = {(task, arm, run) for task in GEMINI_TASKS for arm in GEMINI_ARMS for run in GEMINI_RUNS}
+    keys = [(row["task_id"], row["arm"], row["replicate"]) for row in rows]
+    if len(keys) != 63 or len(set(keys)) != 63 or set(keys) != expected:
+        raise ValueError("Gemini round 2 does not contain 7 tasks × 3 arms × 3 runs")
+    by_arm = {}
+    unverified_metadata = 0
+    for row in rows:
+        key = (row["task_id"], row["arm"], row["replicate"])
+        passed = (row["compiled"] == "TRUE" and int(row["tests_run"]) > 0
+                  and int(row["failures"]) == 0 and int(row["errors"]) == 0)
+        if passed != (row["suite_pass"] == "TRUE"):
+            raise ValueError(f"Gemini PASS fields disagree for {key}")
+        if row["status"] not in ("PASS", "TEST_FAIL") or row["compiled"] != "TRUE":
+            raise ValueError(f"Unexpected Gemini execution classification for {key}")
+        run_dir = GEMINI_BASE / "Official_Run" / row["arm"] / row["replicate"] / row["task_id"]
+        required = (
+            run_dir / "request.txt",
+            run_dir / "response.raw.txt",
+            run_dir / f"GeneratedTest_{row['task_id']}.java",
+            run_dir / "execution_logs" / "compile.log",
+            run_dir / "execution_logs" / "test.log",
+            run_dir / "execution_logs" / "surefire-reports" / f"TEST-org.example.GeneratedTest_{row['task_id']}.xml",
+            run_dir / "execution_logs" / "metadata.json",
+        )
+        if any(not file.is_file() for file in required):
+            raise ValueError(f"Gemini raw evidence missing for {key}")
+        metadata = json.loads((run_dir / "execution_logs" / "metadata.json").read_text(encoding="utf-8-sig"))
+        if not metadata.get("model_version_verified") or not metadata.get("interface"):
+            unverified_metadata += 1
+    for arm in GEMINI_ARMS:
+        arm_rows = [row for row in rows if row["arm"] == arm]
+        passed = sum(row["suite_pass"] == "TRUE" for row in arm_rows)
+        by_arm[arm] = {
+            "suites": 21,
+            "pass": passed,
+            "fail": 21 - passed,
+            "by_task_pass": {task: sum(row["suite_pass"] == "TRUE" for row in arm_rows if row["task_id"] == task)
+                             for task in GEMINI_TASKS},
+        }
+    if [(by_arm[arm]["pass"], by_arm[arm]["fail"]) for arm in GEMINI_ARMS] != [(17, 4), (18, 3), (15, 6)]:
+        raise ValueError("Gemini headline counts changed from report")
+    return {
+        "source": "Khoa Official_Run execution_summary.csv and per-run files",
+        "by_arm": by_arm,
+        "overall_pass": 50,
+        "overall_suites": 63,
+        "raw_run_sets_present": 63,
+        "model_or_interface_unverified_in_per_run_metadata": unverified_metadata,
+        "mutation_results_available": False,
+        "protocol_freeze_verified": False,
+    }
 
 
 def main() -> None:
@@ -107,6 +168,18 @@ def main() -> None:
     if len(matched_mutation) != 23 or len(replacements) != 2:
         raise ValueError("Unexpected matched mutation count or replacement count")
 
+    hao_raw = HAO_RAW / "final_audit_99" / "evidence"
+    for condition, run, task in expected:
+        run_dir = hao_raw / condition / run / task
+        if any(not (run_dir / name).is_file() for name in ("generated.java", "maven.log", "surefire.xml", "result.json")):
+            raise ValueError(f"Hao raw JUnit evidence missing for {(condition, run, task)}")
+        mutation_dir = HAO_RAW / "mutation_java17" / condition / run / task
+        if not (mutation_dir / "mutation_result.json").is_file():
+            raise ValueError(f"Hao mutation result missing for {(condition, run, task)}")
+        if mutation_by_key[(condition, run, task)]["status"] == "MUTATION_COMPLETE":
+            if any(not (mutation_dir / name).is_file() for name in ("mutations.xml", "baseline_maven.log", "pit_maven.log")):
+                raise ValueError(f"Hao raw PIT evidence missing for {(condition, run, task)}")
+
     historical = json.loads((OUT / "summary.json").read_text(encoding="utf-8"))
     historical_187 = {
         "valid_pairs": 187,
@@ -119,6 +192,7 @@ def main() -> None:
         raise ValueError("187-pair valid-cohort accounting failed")
     summary = {
         "round2_chatgpt_only": conditions,
+        "round2_gemini_only": audit_gemini(),
         "round2_task_run_cells": 33,
         "round2_p0_to_checklist_pass": dict(Counter(f"{r['p0_pass']}->{r['only_pass']}" for r in pair_cells)),
         "round2_p0_replacement_outputs": replacements,
@@ -130,10 +204,11 @@ def main() -> None:
             "ce023_p0_pass_verification": "absent; retain only as sensitivity scenario",
         },
         "evidence_limitations": [
-            "The five primary Hào ZIP archives listed in SHA256_MANIFEST.csv are not committed; this audit checks CSV indexes, not all raw Maven/PIT XML.",
+            "Hao's 99 raw JUnit and 89 eligible PIT evidence sets are committed unpacked; the five named ZIP packages are absent.",
             "Two P0 round-2 cells are labeled replacement outputs; independent generation provenance is incomplete.",
-            "Three runs per task are correlated; suite-level binomial intervals are descriptive, not independent-task inference.",
-            "Khoa's new handover audits historical Gemini P0/P1; no Gemini three-arm repeated-run registry was found.",
+            "Three runs per task are correlated in both model cohorts; suite-level binomial intervals are descriptive.",
+            "Khoa's 63 Gemini A/B/C run sets are committed, but all per-run metadata files lack a verified model version/interface; no Gemini mutation results are reported.",
+            "The Gemini round-2 protocol remains marked DRAFT, and its single-task baseline differs from historical P0.",
         ],
     }
     OUT.mkdir(parents=True, exist_ok=True)

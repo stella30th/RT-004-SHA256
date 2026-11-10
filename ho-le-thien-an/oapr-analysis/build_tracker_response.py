@@ -70,7 +70,7 @@ for owner in (styles["Title"]._element,):
         ppr.remove(border)
 
 doc.add_paragraph("Phản hồi tracker OAPR của Hồ Lê Thiên An", style="Title")
-doc.add_paragraph("Bản cập nhật ngày 09/11/2026 sau khi tích hợp handover của Hào, Khoa và Khôi. Giữ nguyên ID của reviewer tracker. Trạng thái Xong chỉ được dùng sau khi nhóm kiểm tra artifact và bản paper cuối.")
+doc.add_paragraph("Bản cập nhật ngày 10/11/2026 sau khi đối chiếu develop mới nhất của Hào, Khoa và Khôi. Giữ nguyên ID của reviewer tracker. Trạng thái Xong chỉ được dùng sau khi nhóm kiểm tra artifact và bản paper cuối.")
 
 doc.add_paragraph("Kết quả đã đối soát", style="Heading 1")
 doc.add_paragraph(
@@ -79,13 +79,13 @@ doc.add_paragraph(
     "Gemini 5/7 [29,04%; 96,33%]. Khi loại CE023 khỏi cohort hợp lệ: P0 169/187, carry-forward 184/187. "
     "Kịch bản cũ 170/188 và 185/188 cần một lần P0 CE023 chạy lại có bằng chứng. "
     "Vòng 2 ChatGPT có 99 bản ghi: P0-resample PASS 23/33, checklist-only và checklist+focus cùng PASS 33/33; "
-    "hai checklist cùng ghi 924/1.164 mutant bị diệt. Gemini chưa có ba nhánh chạy lặp."
+    "hai checklist cùng ghi 924/1.164 mutant bị diệt. Gemini vòng 2 có 63 lượt: A 17/21, B 18/21, C 15/21 PASS; chưa có mutation Gemini."
 )
 
 doc.add_paragraph("Nguồn bằng chứng trong dự án", style="Heading 2")
 for item in (
     "ho-le-thien-an/analysis.py và round2_analysis.py; oapr-analysis/summary.json và round2_summary.json",
-    "huynh-gia-hao/experiment/round2/SWT_Hao_Round2_Final_Handover/; nguyen-nam-khoa/Output_task_71126/",
+    "huynh-gia-hao/experiment/round2/outputs/ và SWT_Hao_Round2_Final_Handover/; nguyen-nam-khoa/Round 2/Evidence/",
     "paper/main.tex và paper/sections/ (bản tổng hợp; cần biên dịch và rà trước khi nộp)",
 ):
     doc.add_paragraph(item, style="List Bullet")
@@ -102,18 +102,18 @@ rows = [
     ("H15", "Đang làm", "Threats nêu focus do người viết, replacement outputs và thiếu provenance độc lập. Cần xác nhận người phân tích 18 lỗi, quy tắc viết focus và việc làm mù."),
     ("H16", "Đang làm", "Conclusion dùng focused recovery; tách mutation khỏi JUnit PASS và nêu 187 valid pairs. Cần biên dịch, rà toàn văn và nhóm duyệt."),
     ("H17", "Chờ xác minh", "Bản thảo có mục AI use, Artifacts, Funding/COI ở dạng chờ. Cần từng tác giả xác nhận công cụ, công đoạn, URL dữ liệu, tài trợ và xung đột lợi ích."),
-    ("H18", "Đang làm", "Có 33 cặp task-run ChatGPT nhưng chỉ 11 task, 2 P0 replacement và provenance chưa đủ. Báo descriptive; không dùng p-value/McNemar như bằng chứng nhân quả."),
-    ("M2", "Đang làm", "Discussion mô tả hai cohort riêng, không kết luận model nào tốt hơn. Cần rà lại bảng/hình cuối để tránh diễn giải superiority."),
-    ("M6", "Đang làm", "Abstract mới có 189 từ theo phép đếm tách từ, trong khoảng 150–200. Cần kiểm tra bằng bộ đếm của nơi nộp và bản PDF cuối."),
-    ("M13", "Đang làm", "Results có 187 valid pairs, 15/18 recovery, CI và bảng 99 run ChatGPT. Không báo p-value vì task-run phụ thuộc và provenance chưa đủ."),
+    ("H18", "Đang làm", "ChatGPT có 33 cặp task-run trên 11 task, Gemini có 21 cặp trên 7 task. Hai cohort khác thiết kế; có 2 P0 replacement ChatGPT và provenance chưa đủ. Không dùng p-value như bằng chứng nhân quả."),
+    ("M2", "Đang làm", "Discussion tách cohort lịch sử, ChatGPT vòng 2 và Gemini vòng 2; không kết luận model nào tốt hơn. Cần rà bảng/hình cuối để tránh diễn giải superiority."),
+    ("M6", "Đang làm", "Abstract mới có 160 từ theo phép đếm tách từ, trong khoảng 150–200. Cần kiểm tra bằng bộ đếm của nơi nộp và bản PDF cuối."),
+    ("M13", "Đang làm", "Results có 187 valid pairs, 15/18 recovery, CI, bảng 99 run ChatGPT và 63 run Gemini riêng. Không báo p-value vì task-run phụ thuộc và provenance chưa đủ."),
     ("M14", "Đang làm", "Discussion đối chiếu ChatTester/TestART/YATE; phân biệt JUnit PASS với mutation. Cần Khôi xác minh các trích dẫn và lời khuyên sau khi render."),
-    ("M15", "Đang làm", "Threats chia Internal/External/Construct/Conclusion; ghi CE023, 2 replacement, 11 task lặp và ZIP primary chưa ở repo. Cần rà với artifact gốc."),
-    ("M16", "Đang làm", "Conclusion: RQ1 15 assertion/2 runtime/1 compile; RQ2 15/18; RQ3 169/187→184/187. Vòng 2 ChatGPT tách riêng. Cần rà PDF cuối."),
+    ("M15", "Đang làm", "Threats ghi CE023, 2 replacement, task lặp, khác biệt baseline Gemini và provenance. Repo có raw JUnit/PIT Hào và raw Gemini; cần rà phát biểu với artifact."),
+    ("M16", "Đang làm", "Conclusion: RQ1 15 assertion/2 runtime/1 compile; RQ2 15/18; RQ3 169/187→184/187. Hai cohort vòng 2 tách riêng. Cần rà PDF cuối."),
     ("M17", "Chờ xác minh", "AI-use disclosure hiện chưa có phiên bản/công cụ và vai trò soạn bài đã xác nhận. Cần tác giả cung cấp thông tin thực tế."),
-    ("M18", "Chờ Khôi/Hào", "Data availability đã liệt kê CSV và 5 ZIP primary chưa trong repo. Cần URL/DOI kiểm chứng hoặc lý do hạn chế; tracker gốc ghi owner Khôi + Hào."),
+    ("M18", "Chờ Khôi/Hào", "Repo đã có raw evidence giải nén của Hào và Gemini Official_Run.zip; 5 ZIP đóng gói của Hào chưa ở repo. Cần URL/DOI hoặc lý do hạn chế; owner gốc Khôi + Hào."),
     ("M19", "Chờ cả nhóm", "Chưa thể khai 'không có tài trợ/xung đột' khi chưa nhận xác nhận của từng tác giả. Tracker gốc ghi owner cả nhóm."),
     ("M20", "Đang làm", "Đã bỏ các claim nhân quả và superiority trong paper/sections/; cần đối chiếu từng câu Phụ lục A và rà toàn văn cuối."),
-    ("M11 (phối hợp)", "Đang làm", "Methodology quy định PASS = biên dịch + ít nhất 1 test + 0 fail/error; round2_analysis.py kiểm tra 99 index. Cần đối chiếu raw ZIP."),
+    ("M11 (phối hợp)", "Đang làm", "Methodology quy định PASS = biên dịch + ít nhất 1 test + 0 fail/error; script kiểm tra 99 ChatGPT và 63 Gemini run cùng sự hiện diện raw evidence. Cần rà phiên sinh."),
 ]
 
 table = doc.add_table(rows=1, cols=3)
@@ -138,8 +138,8 @@ for i, row in enumerate(rows):
 
 doc.add_paragraph("Điều kiện trước khi đánh dấu Xong", style="Heading 1")
 doc.add_paragraph(
-    "Hào cung cấp 5 ZIP primary và provenance của các lần sinh; Khoa cung cấp ba nhánh Gemini nếu đã chạy hoặc xác nhận chưa có; "
-    "Khôi rà trích dẫn và venue; cả nhóm xác nhận disclosures. CE023 cần P0 gốc chạy lại sau sửa đầu vào nếu muốn dùng mẫu số 188. "
+    "Hào và Khoa xác nhận provenance phiên sinh, cấu hình model và trạng thái khóa protocol; Khôi rà trích dẫn và venue; "
+    "cả nhóm xác nhận disclosures và nơi lưu artifact. CE023 cần một P0 baseline mới với source đúng nếu muốn dùng mẫu số 188. "
     "Sau khi biên dịch và rà bản paper, An cập nhật tracker gốc theo vị trí và artifact rồi gửi giảng viên kiểm tra."
 )
 

@@ -39,3 +39,20 @@ Checklist plus focus & 33/33 & 33/33 & 924/1,164 \\
 \end{table*}
 
 Table~\ref{tab:round2} reports a \emph{separate} ChatGPT cohort; its 99 suite records are not added to the historical 187 pairs. The P0 resample had 8, 8, and 7 passes across the three runs; both checklist conditions passed 11/11 in each run. Ten P0 resample suites failed the reference baseline and were excluded from mutation scoring rather than assigned a score of zero. The two checklist conditions had identical recorded per-suite mutation scores on all 33 task--run cells, despite generating different test-source hashes. The P0 mutation denominator covers only 23 baseline-valid cells, so its 649/730 conditional score cannot be ranked against 924/1,164 as an unconditional condition effect.
+
+\begin{table}[t]
+\caption{Separate Gemini round-2 JUnit outcomes on seven selected tasks}
+\label{tab:gemini_round2}
+\centering\scriptsize
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Condition & PASS & FAIL \\
+\midrule
+A: single-task baseline & 17/21 & 4 \\
+B: checklist only & 18/21 & 3 \\
+C: checklist plus focus & 15/21 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:gemini_round2} summarizes 63 separate Gemini suites. Their A/B/C prompts and task set differ from ChatGPT's round-2 study, and no Gemini mutation endpoint is available. In this sample, adding the task-specific focus did not increase observed JUnit PASS over the checklist alone. Neither round-2 cohort is included in the historical 187-pair denominator; the two cohorts do not provide a controlled model-to-model comparison.

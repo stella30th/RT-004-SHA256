@@ -5,13 +5,13 @@ Automated unit test generation using Large Language Models (LLMs) complements Se
 
 Class-level object-oriented tasks add constructors, mutable fields, and coupled methods to the input-output behavior emphasized by function-level benchmarks such as HumanEval~\cite{chen2021humaneval,siddiq2024junit,du2024classeval,xue2025classevalt}. Repair systems including ChatTester and TestART use execution feedback~\cite{yuan2024chattester,gu2024testart}. Our narrower question is how often a failure-informed, source-first prompt produces a suite compatible with the same Java implementation after a previously observed P0 failure.
 
-We study an Oracle-Aware Prompt Refinement (OAPR) workflow on 94 ClassEval-T Java classes under two reported model configurations. P0 is the baseline prompt; P1 combines a source-tracing checklist and case-specific focus derived from P0 failures. We ask: (RQ1) which failure patterns appear in the P0 suites; (RQ2) how many selected P0 failures become compile-and-pass P1 suites; and (RQ3) how the carry-forward workflow changes the combined count and what limitations remain. A separate 11-task ChatGPT round-2 dataset compares three prompting conditions descriptively.
+We study an Oracle-Aware Prompt Refinement (OAPR) workflow on 94 ClassEval-T Java classes under two reported model configurations. P0 is the baseline prompt; P1 combines a source-tracing checklist and case-specific focus derived from P0 failures. We ask: (RQ1) which failure patterns appear in the P0 suites; (RQ2) how many selected P0 failures become compile-and-pass P1 suites; and (RQ3) how the carry-forward workflow changes the combined count and what limitations remain. Separate 11-task ChatGPT and seven-task Gemini round-2 cohorts compare three prompting conditions descriptively.
 
 This paper makes the following key contributions:
 \begin{enumerate}
     \item \textbf{Failure register:} Of 187 valid historical model--task pairs, 18 P0 suites failed: 11 ChatGPT and seven Gemini. Their archived stage labels are 15 assertion, two runtime, and one compilation failure.
     \item \textbf{Focused recovery:} One archived P1 regeneration passed on 15/18 selected failures (83.33\%), yielding a carry-forward count of 184/187. This is not a full-P1 result or a causal effect estimate.
-    \item \textbf{Separate round-2 evidence:} Three recorded ChatGPT runs per condition on 11 selected tasks provide JUnit and mutation outcomes for P0 resampling, checklist-only, and checklist-plus-focus prompts.
+    \item \textbf{Separate round-2 evidence:} Three recorded runs per condition on 11 ChatGPT tasks provide JUnit and mutation outcomes; seven Gemini tasks provide JUnit outcomes under an adapted single-task A/B/C design.
 \end{enumerate}
 
 The rest of this paper is organized as follows: Section~\ref{sec:background} surveys related work; Section~\ref{sec:dataset_setup} describes ClassEval-T and the experimental setup; Section~\ref{sec:methodology} outlines our methodology; Section~\ref{sec:results} presents the results; Section~\ref{sec:discussion} and Section~\ref{sec:threats} discuss implications and threats; and Section~\ref{sec:conclusion} concludes.

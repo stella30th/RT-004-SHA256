@@ -7,11 +7,15 @@ The historical study generated one P0 JUnit suite for each of 94 Java tasks unde
 
 A separate round-2 ChatGPT evaluation revisited the same 11 historically failing ChatGPT tasks. The committed result index contains three recorded runs for each of three prompt conditions, yielding 99 suite records. The two historical and round-2 datasets are analyzed separately. The round-2 handover labels two P0 records as replacement outputs because their originals were unavailable.
 
+A further Gemini round-2 archive covers seven historically failing Gemini tasks under a single-task baseline (A), baseline plus the source-first checklist (B), and B plus a predeclared task focus (C). Three recorded generations per arm and task yield 63 suites. This A prompt is an adapted single-task baseline, not a replay of the historical multi-task P0 context. We count each suite after compilation and JUnit execution, retaining the original generated source and final Surefire evidence. No Gemini mutation campaign is reported.
+
 \subsection{Baseline Prompt Design ($P_0$) and Oracle-Aware Prompt Refinement ($P_1$)}
 \label{subsec:prompt_design}
 P0 supplies the task identifier, target and test class names, category and context, API hints, and target Java source. It asks for deterministic JUnit 4 tests with concrete assertions and no production-code modification. Historical P1 retains those constraints and adds a nine-step source-first checklist: identify exact API and return types; check inputs and preconditions; establish initial state; trace the selected control-flow branch; follow state mutations; derive expected values and exceptions; check boundaries; verify JUnit and fixture compatibility; and link every assertion to its setup and source path. Manually authored, case-specific focus statements identify the observed P0 failure mechanism without supplying a corrected expected value.
 
 Round 2 separates P0 resampling, checklist-only, and checklist-plus-focus conditions. The latter includes both the generic checklist and task-specific focus. The committed protocol describes equal task sets and three labeled runs per condition, but full independent-generation provenance and exact model settings remain unverified. These records support a descriptive condition comparison, not an isolated causal estimate.
+
+For Gemini, A/B/C follow the same conceptual intervention order but use separate one-task prompts. The archived protocol remains marked DRAFT; generation-session model identifiers and interface settings are not independently verified by the committed per-run metadata.
 
 \subsection{Inclusion/Exclusion Criteria and Evaluation Metrics}
 \label{subsec:metrics}
