@@ -1,0 +1,143 @@
+package org.example;
+
+import org.junit.Rule; import org.junit.Test; import
+org.junit.rules.TemporaryFolder;
+
+import java.io.File; import java.io.FileOutputStream; import
+java.io.IOException; import java.nio.charset.StandardCharsets; import
+java.nio.file.Files; import java.nio.file.Path; import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile; import java.util.zip.ZipOutputStream;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertFalse; import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull; import static
+org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE094 {
+
+@Rule
+public TemporaryFolder temporaryFolder = new TemporaryFolder();
+
+private File createSampleZip(String zipFileName) throws IOException {
+    File zipFile = temporaryFolder.newFile(zipFileName);
+    try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFile))) {
+        // Add root-level file
+        ZipEntry entry1 = new ZipEntry("file1.txt");
+        zos.putNextEntry(entry1);
+        zos.write("Content of file 1".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+
+        // Add directory entry
+        ZipEntry dirEntry = new ZipEntry("dir/");
+        zos.putNextEntry(dirEntry);
+        zos.closeEntry();
+
+        // Add nested file
+        ZipEntry entry2 = new ZipEntry("dir/file2.txt");
+        zos.putNextEntry(entry2);
+        zos.write("Nested file content".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+    }
+    return zipFile;
+}
+
+@Test
+public void testExtractAllSuccess() throws IOException {
+    File zip = createSampleZip("sample.zip");
+    File outputDir = new File(temporaryFolder.getRoot(), "out_all");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zip.getAbsolutePath());
+    boolean success = processor.extractAll(outputDir.getAbsolutePath());
+
+    assertTrue(success);
+
+    Path extractedFile1 = outputDir.toPath().resolve("file1.txt");
+    Path extractedDir = outputDir.toPath().resolve("dir");
+    Path extractedFile2 = outputDir.toPath().resolve("dir/file2.txt");
+
+    assertTrue(Files.exists(extractedFile1));
+    assertTrue(Files.isDirectory(extractedDir));
+    assertTrue(Files.exists(extractedFile2));
+
+    String content1 = Files.readString(extractedFile1, StandardCharsets.UTF_8);
+    String content2 = Files.readString(extractedFile2, StandardCharsets.UTF_8);
+    assertEquals("Content of file 1", content1);
+    assertEquals("Nested file content", content2);
+}
+
+@Test
+public void testExtractFileSuccess() throws IOException {
+    File zip = createSampleZip("sample_single.zip");
+    File outputDir = new File(temporaryFolder.getRoot(), "out_single");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zip.getAbsolutePath());
+    boolean success = processor.extractFile("file1.txt", outputDir.getAbsolutePath());
+
+    assertTrue(success);
+
+    Path extractedFile1 = outputDir.toPath().resolve("file1.txt");
+    assertTrue(Files.exists(extractedFile1));
+    assertEquals("Content of file 1", Files.readString(extractedFile1, StandardCharsets.UTF_8));
+
+    // file2 should not have been extracted
+    Path extractedFile2 = outputDir.toPath().resolve("dir/file2.txt");
+    assertFalse(Files.exists(extractedFile2));
+}
+
+@Test
+public void testExtractNestedFileWithAutomaticParentDirCreation() throws IOException {
+    File zip = temporaryFolder.newFile("nested_only.zip");
+    try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zip))) {
+        // Add nested file without explicit directory entry
+        ZipEntry entry = new ZipEntry("deeply/nested/structure/data.txt");
+        zos.putNextEntry(entry);
+        zos.write("Deep data".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+    }
+
+    File outputDir = new File(temporaryFolder.getRoot(), "out_deep");
+    ZipFileProcessor processor = new ZipFileProcessor(zip.getAbsolutePath());
+    boolean success = processor.extractFile("deeply/nested/structure/data.txt", outputDir.getAbsolutePath());
+
+    assertTrue(success);
+    Path targetPath = outputDir.toPath().resolve("deeply/nested/structure/data.txt");
+    assertTrue(Files.exists(targetPath));
+    assertEquals("Deep data", Files.readString(targetPath, StandardCharsets.UTF_8));
+}
+
+@Test
+public void testExtractFileNotFoundInZip() throws IOException {
+    File zip = createSampleZip("sample_missing_entry.zip");
+    File outputDir = new File(temporaryFolder.getRoot(), "out_missing");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zip.getAbsolutePath());
+    boolean success = processor.extractFile("nonexistent.txt", outputDir.getAbsolutePath());
+
+    assertFalse(success);
+    assertFalse(outputDir.toPath().resolve("nonexistent.txt").toFile().exists());
+}
+
+@Test
+public void testNonExistentZipFile() {
+    File nonExistent = new File(temporaryFolder.getRoot(), "does_not_exist.zip");
+    File outputDir = new File(temporaryFolder.getRoot(), "out_non_existent");
+
+    ZipFileProcessor processor = new ZipFileProcessor(nonExistent.getAbsolutePath());
+
+    assertNull(processor.readZipFile());
+    assertFalse(processor.extractAll(outputDir.getAbsolutePath()));
+    assertFalse(processor.extractFile("any.txt", outputDir.getAbsolutePath()));
+}
+
+@Test
+public void testReadZipFileSuccess() throws IOException {
+    File zip = createSampleZip("readable.zip");
+    ZipFileProcessor processor = new ZipFileProcessor(zip.getAbsolutePath());
+
+    try (ZipFile zipFile = processor.readZipFile()) {
+        assertNotNull(zipFile);
+        assertNotNull(zipFile.getEntry("file1.txt"));
+    }
+}
+
+}

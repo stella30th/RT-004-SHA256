@@ -1,0 +1,74 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.Arrays; import java.util.Collections; import java.util.List;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE073 {
+
+private SplitSentence splitSentence;
+
+@Before
+public void setUp() {
+    splitSentence = new SplitSentence();
+}
+
+@Test
+public void testSplitSentences_standardSentences() {
+    String text = "Hello world. How are you? I am fine.";
+    List<String> expected = Arrays.asList("Hello world.", "How are you?", "I am fine.");
+    List<String> actual = splitSentence.splitSentences(text);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testSplitSentences_handlesAbbreviations() {
+    String text = "Mr. Smith went to Washington. He saw e.g. monuments.";
+    List<String> expected = Arrays.asList("Mr. Smith went to Washington.", "He saw e.g. monuments.");
+    List<String> actual = splitSentence.splitSentences(text);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testSplitSentences_emptyAndNoDelimiter() {
+    List<String> emptyResult = splitSentence.splitSentences("");
+    assertTrue(emptyResult.isEmpty());
+
+    List<String> noDelimiterResult = splitSentence.splitSentences("Hello world");
+    assertEquals(Collections.singletonList("Hello world"), noDelimiterResult);
+}
+
+@Test
+public void testSplitSentences_exclamationMarkNotTreatedAsSplitPoint() {
+    String text = "Wow! That is amazing. Really?";
+    List<String> expected = Arrays.asList("Wow! That is amazing.", "Really?");
+    List<String> actual = splitSentence.splitSentences(text);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testCountWords_removesPunctuationAndNumbers() {
+    int count1 = splitSentence.countWords("One two three four five.");
+    assertEquals(5, count1);
+
+    int count2 = splitSentence.countWords("Hello, world! 123");
+    assertEquals(2, count2);
+}
+
+@Test
+public void testProcessTextFile_findsMaxWordCount() {
+    String text = "Short sentence. This is a much longer sentence with many words. Small.";
+    int maxWords = splitSentence.processTextFile(text);
+    assertEquals(9, maxWords);
+}
+
+@Test
+public void testProcessTextFile_emptyString() {
+    int maxWords = splitSentence.processTextFile("");
+    assertEquals(0, maxWords);
+}
+
+}

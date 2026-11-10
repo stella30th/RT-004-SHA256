@@ -1,0 +1,22 @@
+﻿{
+    "run_id":  "gemini_official_ce094_rerun_C_r01_CE094",
+    "phase":  "official_harness_rerun",
+    "arm":  "C",
+    "replicate":  "r01",
+    "task_id":  "CE094",
+    "timestamp_utc":  "2026-11-10T14:09:34.2745435Z",
+    "original_java_sha256":  "a2c7c86bdf91087f17d324955eb871b746bd8208a39327b0f4b481a634e12812",
+    "request_sha256":  "937dc5ed8bea1addb2fdd803c08b145abc6bd130169579a3281dac5644d37e3f",
+    "response_sha256":  "22b4d6a0beca89dac49a9f1ef60884ec72b29be3a23d1223b983de6f7b283f2a",
+    "compiled":  true,
+    "compile_exit_code":  0,
+    "test_exit_code":  0,
+    "tests":  6,
+    "failures":  0,
+    "errors":  0,
+    "skipped":  0,
+    "suite_pass":  true,
+    "outcome":  "PASS",
+    "message":  "",
+    "note":  "Harness-only rerun; original model output and original execution_logs are unchanged."
+}

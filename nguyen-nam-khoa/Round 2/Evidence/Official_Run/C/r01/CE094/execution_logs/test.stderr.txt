@@ -1,0 +1,24 @@
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor extractFile
+INFO: Created parent directory: C:\Users\ADMIN\AppData\Local\Temp\junit17210878762907660392\out_deep\deeply\nested\structure
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor extractFile
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit17210878762907660392\out_deep\deeply\nested\structure\data.txt
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor extractFile
+INFO: Created parent directory: C:\Users\ADMIN\AppData\Local\Temp\junit2710118143839717258\out_single
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor extractFile
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit2710118143839717258\out_single\file1.txt
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor extractFile
+WARNING: File not found in zip: nonexistent.txt
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor readZipFile
+SEVERE: Zip file does not exist: C:\Users\ADMIN\AppData\Local\Temp\junit17125939931936899655\does_not_exist.zip
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor readZipFile
+SEVERE: Zip file does not exist: C:\Users\ADMIN\AppData\Local\Temp\junit17125939931936899655\does_not_exist.zip
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor readZipFile
+SEVERE: Zip file does not exist: C:\Users\ADMIN\AppData\Local\Temp\junit17125939931936899655\does_not_exist.zip
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor extractAll
+INFO: Created output directory: C:\Users\ADMIN\AppData\Local\Temp\junit16566391565895833571\out_all
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor lambda$extractAll$0
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit16566391565895833571\out_all\file1.txt
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor lambda$extractAll$0
+INFO: Created directory: C:\Users\ADMIN\AppData\Local\Temp\junit16566391565895833571\out_all\dir
+Nov 10, 2026 9:09:33 PM org.example.ZipFileProcessor lambda$extractAll$0
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit16566391565895833571\out_all\dir\file2.txt

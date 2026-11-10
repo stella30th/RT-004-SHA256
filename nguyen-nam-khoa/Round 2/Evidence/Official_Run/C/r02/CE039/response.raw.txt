@@ -1,0 +1,123 @@
+=== BEGIN CE039 GeneratedTest_CE039.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.ArrayList; import java.util.Arrays; import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class GeneratedTest_CE039 {
+
+private ExpressionCalculator calculator;
+
+@Before
+public void setUp() {
+    calculator = new ExpressionCalculator();
+}
+
+@Test
+public void testIsOperator() {
+    assertTrue(calculator.isOperator('+'));
+    assertTrue(calculator.isOperator('-'));
+    assertTrue(calculator.isOperator('*'));
+    assertTrue(calculator.isOperator('/'));
+    assertTrue(calculator.isOperator('%'));
+
+    assertFalse(calculator.isOperator('('));
+    assertFalse(calculator.isOperator(')'));
+    assertFalse(calculator.isOperator('~'));
+    assertFalse(calculator.isOperator('0'));
+    assertFalse(calculator.isOperator('x'));
+}
+
+@Test
+public void testComparePriority() {
+    // compare(op1, op2) returns priority[op2] >= priority[op1]
+    // '+' has priority 1, '*' has priority 2
+    assertTrue(calculator.compare('+', '*'));
+    assertFalse(calculator.compare('*', '+'));
+
+    // Equal priorities return true
+    assertTrue(calculator.compare('+', '+'));
+    assertTrue(calculator.compare('*', '*'));
+    assertTrue(calculator.compare('+', '-'));
+
+    // '%' is mapped to '/' (priority 2)
+    assertTrue(calculator.compare('%', '/'));
+    assertTrue(calculator.compare('/', '%'));
+    assertTrue(calculator.compare('+', '%'));
+    assertFalse(calculator.compare('%', '+'));
+}
+
+@Test
+public void testTransformExpression() {
+    // Space removal
+    assertEquals("1+2*3", calculator.transform("1 + 2 * 3"));
+
+    // Leading negative before parenthesis: chars[0] == '~' and chars[1] == '('
+    assertEquals("0-(2+3)", calculator.transform("-(2 + 3)"));
+
+    // Non-leading negative or without parenthesis: '-' becomes '~'
+    assertEquals("5~3", calculator.transform("5 - 3"));
+    assertEquals("~3", calculator.transform("-3"));
+}
+
+@Test
+public void testPreparePostfix() {
+    // 1 + 2 * 3 -> postfix tokens: 1, 2, 3, *, +
+    calculator.prepare("1+2*3");
+    List<String> tokens1 = new ArrayList<>(calculator.postfixStack);
+    assertEquals(Arrays.asList("1", "2", "3", "*", "+"), tokens1);
+
+    // (1 + 2) * 3 -> postfix tokens: 1, 2, +, 3, *
+    calculator.prepare("(1+2)*3");
+    List<String> tokens2 = new ArrayList<>(calculator.postfixStack);
+    assertEquals(Arrays.asList("1", "2", "+", "3", "*"), tokens2);
+}
+
+@Test
+public void testCalculateStandardOperations() {
+    // Addition and multiplication precedence
+    assertEquals(14.0, calculator.calculate("2 + 3 * 4"), 0.0001);
+
+    // Parentheses override
+    assertEquals(20.0, calculator.calculate("(2 + 3) * 4"), 0.0001);
+
+    // Modulo operator
+    assertEquals(1.0, calculator.calculate("10 % 3"), 0.0001);
+
+    // Floating point division
+    assertEquals(3.0, calculator.calculate("7.5 / 2.5"), 0.0001);
+}
+
+@Test
+public void testCalculateLeadingNegativeParenthesis() {
+    // "-(2 + 3)" transforms to "0-(2+3)" which evaluates to -5.0
+    assertEquals(-5.0, calculator.calculate("-(2 + 3)"), 0.0001);
+}
+
+@Test
+public void testCalculateConsecutiveDivisionsEvaluationOrder() {
+    // Due to compare(op1, op2) returning true on equal priority,
+    // consecutive '/' operators are pushed onto operatorStack without popping,
+    // causing right-associative evaluation: 10 / (2 / 2) = 10.0
+    assertEquals(10.0, calculator.calculate("10 / 2 / 2"), 0.0001);
+}
+
+@Test
+public void testCalculateInternalDirectAndUnsupportedOperator() {
+    assertEquals(7.0, calculator._calculate(3.0, 4.0, '+'), 0.0001);
+    assertEquals(2.0, calculator._calculate(5.0, 3.0, '-'), 0.0001);
+    assertEquals(12.0, calculator._calculate(3.0, 4.0, '*'), 0.0001);
+    assertEquals(2.5, calculator._calculate(5.0, 2.0, '/'), 0.0001);
+    assertEquals(1.0, calculator._calculate(7.0, 3.0, '%'), 0.0001);
+
+    try {
+        calculator._calculate(2.0, 3.0, '^');
+        fail("Expected IllegalArgumentException for unsupported operator");
+    } catch (IllegalArgumentException e) {
+        assertTrue(e.getMessage().contains("Unsupported operator"));
+    }
+}
+
+} === END CE039 ===

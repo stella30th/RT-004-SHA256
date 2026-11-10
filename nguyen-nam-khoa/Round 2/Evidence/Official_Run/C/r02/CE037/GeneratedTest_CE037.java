@@ -1,0 +1,80 @@
+package org.example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipherBasicAndWrapAround() {
+    EncryptionUtils utils = new EncryptionUtils("dummyKey");
+
+    // Basic shift with mixed case and punctuation
+    String result = utils.caesarCipher("Hello, World!", 3);
+    assertEquals("Khoor, Zruog!", result);
+
+    // Alphabet wrap-around
+    String wrapResult = utils.caesarCipher("xyz XYZ", 3);
+    assertEquals("abc ABC", wrapResult);
+
+    // Shift by 0 and full alphabet cycle (26)
+    assertEquals("Hello, World!", utils.caesarCipher("Hello, World!", 0));
+    assertEquals("Hello, World!", utils.caesarCipher("Hello, World!", 26));
+
+    // Non-letter characters only
+    assertEquals("12345!@#$%", utils.caesarCipher("12345!@#$%", 5));
+}
+
+@Test
+public void testVigenereCipherStandard() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    String encrypted = utils.vigenereCipher("Hello, World!");
+    assertEquals("Rijvs, Uyvjn!", encrypted);
+
+    // Case-insensitivity of the encryption key
+    EncryptionUtils upperKeyUtils = new EncryptionUtils("KEY");
+    String upperKeyResult = upperKeyUtils.vigenereCipher("Hello, World!");
+    assertEquals("Rijvs, Uyvjn!", upperKeyResult);
+}
+
+@Test
+public void testVigenereCipherSpecialCases() {
+    // Shift with key 'a' (0 shift)
+    EncryptionUtils utilsZero = new EncryptionUtils("a");
+    assertEquals("TestString!", utilsZero.vigenereCipher("TestString!"));
+
+    // Non-letters should preserve position and not consume key index
+    EncryptionUtils utilsAlternating = new EncryptionUtils("ab");
+    assertEquals("a 1 c", utilsAlternating.vigenereCipher("a 1 b"));
+}
+
+@Test
+public void testRailFenceCipherWithThreeRails() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+
+    // Rail fence cipher with 3 rails without spaces
+    String encryptedWithoutSpaces = utils.railFenceCipher("HELLOWORLD", 3);
+    assertEquals("HOLELWRDLO", encryptedWithoutSpaces);
+
+    // Rail fence cipher with 3 rails including spaces
+    String encryptedWithSpaces = utils.railFenceCipher("HELLO WORLD", 3);
+    assertEquals("HOREL OLLWD", encryptedWithSpaces);
+}
+
+@Test
+public void testRailFenceCipherWithTwoRails() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    String encrypted = utils.railFenceCipher("ABCDE", 2);
+    assertEquals("ACEBD", encrypted);
+}
+
+@Test
+public void testEmptyInputs() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    assertEquals("", utils.caesarCipher("", 5));
+    assertEquals("", utils.vigenereCipher(""));
+    assertEquals("", utils.railFenceCipher("", 3));
+}
+
+}

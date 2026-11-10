@@ -1,0 +1,93 @@
+=== BEGIN CE073 GeneratedTest_CE073.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertNotNull;
+
+public class GeneratedTest_CE073 {
+
+private SplitSentence splitter;
+
+@Before
+public void setUp() {
+    splitter = new SplitSentence();
+}
+
+@Test
+public void testSplitSentencesStandard() {
+    String text = "This is the first sentence. Is this the second? Here is the third.";
+    List<String> sentences = splitter.splitSentences(text);
+
+    assertNotNull(sentences);
+    assertEquals(3, sentences.size());
+    assertEquals("This is the first sentence.", sentences.get(0));
+    assertEquals("Is this the second?", sentences.get(1));
+    assertEquals("Here is the third.", sentences.get(2));
+}
+
+@Test
+public void testSplitSentencesWithAbbreviationPrefix() {
+    // Words like "Mr." or "Dr." matching [A-Z][a-z]\. should not trigger a split
+    String text = "Mr. Smith went to Washington. Did he arrive on time?";
+    List<String> sentences = splitter.splitSentences(text);
+
+    assertNotNull(sentences);
+    assertEquals(2, sentences.size());
+    assertEquals("Mr. Smith went to Washington.", sentences.get(0));
+    assertEquals("Did he arrive on time?", sentences.get(1));
+}
+
+@Test
+public void testSplitSentencesSingleSentence() {
+    String text = "Just a single sentence without trailing space.";
+    List<String> sentences = splitter.splitSentences(text);
+
+    assertNotNull(sentences);
+    assertEquals(1, sentences.size());
+    assertEquals("Just a single sentence without trailing space.", sentences.get(0));
+}
+
+@Test
+public void testCountWordsPunctuationAndNumbers() {
+    // Non-letter characters should be stripped before splitting words
+    String sentence = "There are 123 apples, 456 oranges, and 789 bananas!";
+    int count = splitter.countWords(sentence);
+
+    // Stripped: "There are  apples  oranges and  bananas"
+    // Words: "There", "are", "apples", "oranges", "and", "bananas" -> 6 words
+    assertEquals(6, count);
+}
+
+@Test
+public void testCountWordsSimple() {
+    String sentence = "The quick brown fox jumps over the lazy dog";
+    int count = splitter.countWords(sentence);
+
+    assertEquals(9, count);
+}
+
+@Test
+public void testProcessTextFileFindsMaxWordCount() {
+    String text = "Short sentence. This is a much longer sentence with many words? Medium length.";
+    int maxWords = splitter.processTextFile(text);
+
+    // Sentence 1: "Short sentence." -> 2 words
+    // Sentence 2: "This is a much longer sentence with many words?" -> 9 words
+    // Sentence 3: "Medium length." -> 2 words
+    assertEquals(9, maxWords);
+}
+
+@Test
+public void testProcessTextFileWithAbbreviations() {
+    String text = "Dr. Jekyll was quiet. Mr. Hyde was completely wild and dangerous.";
+    int maxWords = splitter.processTextFile(text);
+
+    // Sentence 1: "Dr. Jekyll was quiet." -> 4 words
+    // Sentence 2: "Mr. Hyde was completely wild and dangerous." -> 7 words
+    assertEquals(7, maxWords);
+}
+
+} === END CE073 ===

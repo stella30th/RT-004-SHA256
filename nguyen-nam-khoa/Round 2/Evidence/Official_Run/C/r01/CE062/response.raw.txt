@@ -1,0 +1,75 @@
+=== BEGIN CE062 GeneratedTest_CE062.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertFalse; import static org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE062 {
+
+private NumericEntityUnescaper unescaper;
+
+@Before
+public void setUp() {
+    unescaper = new NumericEntityUnescaper();
+}
+
+@Test
+public void testReplaceDecimalEntities() {
+    String input = "&#65;&#66;&#67;";
+    String expected = "ABC";
+    assertEquals(expected, unescaper.replace(input));
+}
+
+@Test
+public void testReplaceHexEntitiesCaseInsensitive() {
+    String input = "&#x30;&#X31;";
+    String expected = "01";
+    assertEquals(expected, unescaper.replace(input));
+}
+
+@Test
+public void testReplaceShortAndPlainTextTruncation() {
+    assertEquals("", unescaper.replace(""));
+    assertEquals("", unescaper.replace("a"));
+    assertEquals("", unescaper.replace("ab"));
+    assertEquals("abc", unescaper.replace("abcde"));
+}
+
+@Test
+public void testReplaceInvalidDecimalNumberFormatException() {
+    // "1a" contains hex characters accepted by the loop, but parseInt with radix 10 throws NumberFormatException
+    String input = "&#1a;";
+    assertEquals("", unescaper.replace(input));
+}
+
+@Test
+public void testReplaceMalformedEntityWithoutSemicolon() {
+    String input = "&#65";
+    // String length is 4. pos 0 appends '&', pos 1 appends '#', loop stops at pos 2 (< 2 is false)
+    assertEquals("&#", unescaper.replace(input));
+}
+
+@Test
+public void testReplaceCutoffAtHexPrefix() {
+    String input = "prefix&#x";
+    // length is 9. Indices 0-5 append "prefix". At pos 6 ("&#x"), start reaches length 9 and early returns.
+    assertEquals("prefix", unescaper.replace(input));
+}
+
+@Test
+public void testIsHexChar() {
+    assertTrue(NumericEntityUnescaper.isHexChar('0'));
+    assertTrue(NumericEntityUnescaper.isHexChar('9'));
+    assertTrue(NumericEntityUnescaper.isHexChar('a'));
+    assertTrue(NumericEntityUnescaper.isHexChar('f'));
+    assertTrue(NumericEntityUnescaper.isHexChar('A'));
+    assertTrue(NumericEntityUnescaper.isHexChar('F'));
+
+    assertFalse(NumericEntityUnescaper.isHexChar('g'));
+    assertFalse(NumericEntityUnescaper.isHexChar('G'));
+    assertFalse(NumericEntityUnescaper.isHexChar(';'));
+    assertFalse(NumericEntityUnescaper.isHexChar('#'));
+}
+
+} === END CE062 ===

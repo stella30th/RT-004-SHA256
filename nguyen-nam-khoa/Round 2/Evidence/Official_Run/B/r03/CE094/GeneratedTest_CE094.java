@@ -1,0 +1,149 @@
+package org.example;
+
+import org.junit.Rule; import org.junit.Test; import
+org.junit.rules.TemporaryFolder;
+
+import java.io.File; import java.io.FileOutputStream; import
+java.io.IOException; import java.nio.charset.StandardCharsets; import
+java.nio.file.Files; import java.nio.file.Path; import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile; import java.util.zip.ZipOutputStream;
+
+import static org.junit.Assert.*;
+
+public class GeneratedTest_CE094 {
+
+@Rule
+public TemporaryFolder tempFolder = new TemporaryFolder();
+
+private File createSampleZip(String zipName) throws IOException {
+    File zipFile = tempFolder.newFile(zipName);
+    try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFile))) {
+        // Add a directory entry
+        ZipEntry dirEntry = new ZipEntry("subdir/");
+        zos.putNextEntry(dirEntry);
+        zos.closeEntry();
+
+        // Add a file inside the directory
+        ZipEntry fileEntry1 = new ZipEntry("subdir/file1.txt");
+        zos.putNextEntry(fileEntry1);
+        zos.write("Content of file 1".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+
+        // Add a root-level file
+        ZipEntry fileEntry2 = new ZipEntry("file2.txt");
+        zos.putNextEntry(fileEntry2);
+        zos.write("Content of file 2".getBytes(StandardCharsets.UTF_8));
+        zos.closeEntry();
+    }
+    return zipFile;
+}
+
+@Test
+public void testExtractAllSuccess() throws IOException {
+    File zipFile = createSampleZip("test_extract_all.zip");
+    File outputDir = tempFolder.newFolder("output_all");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean result = processor.extractAll(outputDir.getAbsolutePath());
+
+    assertTrue("extractAll should return true for a valid zip", result);
+
+    Path extractedDir = outputDir.toPath().resolve("subdir");
+    Path extractedFile1 = outputDir.toPath().resolve("subdir/file1.txt");
+    Path extractedFile2 = outputDir.toPath().resolve("file2.txt");
+
+    assertTrue("Subdirectory should have been created", Files.isDirectory(extractedDir));
+    assertTrue("Subdir file should exist", Files.isRegularFile(extractedFile1));
+    assertTrue("Root file should exist", Files.isRegularFile(extractedFile2));
+
+    String content1 = Files.readString(extractedFile1, StandardCharsets.UTF_8);
+    assertEquals("Content of file 1", content1);
+
+    String content2 = Files.readString(extractedFile2, StandardCharsets.UTF_8);
+    assertEquals("Content of file 2", content2);
+}
+
+@Test
+public void testExtractAllNonExistentZipFile() {
+    File nonExistentZip = new File(tempFolder.getRoot(), "missing.zip");
+    File outputDir = new File(tempFolder.getRoot(), "output_missing");
+
+    ZipFileProcessor processor = new ZipFileProcessor(nonExistentZip.getAbsolutePath());
+    boolean result = processor.extractAll(outputDir.getAbsolutePath());
+
+    assertFalse("extractAll should return false when the zip file does not exist", result);
+    assertFalse("Output directory should not be created if zip file is missing", outputDir.exists());
+}
+
+@Test
+public void testExtractFileSuccess() throws IOException {
+    File zipFile = createSampleZip("test_extract_file.zip");
+    File outputDir = tempFolder.newFolder("output_single");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean result = processor.extractFile("file2.txt", outputDir.getAbsolutePath());
+
+    assertTrue("extractFile should return true for an existing file in zip", result);
+
+    Path extractedFile = outputDir.toPath().resolve("file2.txt");
+    assertTrue("Extracted file should exist", Files.isRegularFile(extractedFile));
+
+    String content = Files.readString(extractedFile, StandardCharsets.UTF_8);
+    assertEquals("Content of file 2", content);
+}
+
+@Test
+public void testExtractFileNestedPathSuccess() throws IOException {
+    File zipFile = createSampleZip("test_extract_nested.zip");
+    File outputDir = tempFolder.newFolder("output_nested");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean result = processor.extractFile("subdir/file1.txt", outputDir.getAbsolutePath());
+
+    assertTrue("extractFile should succeed for nested file entry", result);
+
+    Path extractedFile = outputDir.toPath().resolve("subdir/file1.txt");
+    assertTrue("Nested file should exist on filesystem", Files.isRegularFile(extractedFile));
+
+    String content = Files.readString(extractedFile, StandardCharsets.UTF_8);
+    assertEquals("Content of file 1", content);
+}
+
+@Test
+public void testExtractFileEntryNotFound() throws IOException {
+    File zipFile = createSampleZip("test_extract_not_found.zip");
+    File outputDir = tempFolder.newFolder("output_not_found");
+
+    ZipFileProcessor processor = new ZipFileProcessor(zipFile.getAbsolutePath());
+    boolean result = processor.extractFile("non_existent.txt", outputDir.getAbsolutePath());
+
+    assertFalse("extractFile should return false when entry does not exist", result);
+    assertFalse("No file should be written", Files.exists(outputDir.toPath().resolve("non_existent.txt")));
+}
+
+@Test
+public void testExtractFileFromNonExistentZip() {
+    File nonExistentZip = new File(tempFolder.getRoot(), "missing2.zip");
+    File outputDir = new File(tempFolder.getRoot(), "output_dir2");
+
+    ZipFileProcessor processor = new ZipFileProcessor(nonExistentZip.getAbsolutePath());
+    boolean result = processor.extractFile("any.txt", outputDir.getAbsolutePath());
+
+    assertFalse("extractFile should return false when zip does not exist", result);
+}
+
+@Test
+public void testReadZipFileBehavior() throws IOException {
+    File zipFile = createSampleZip("test_read.zip");
+    ZipFileProcessor validProcessor = new ZipFileProcessor(zipFile.getAbsolutePath());
+
+    try (ZipFile openedZip = validProcessor.readZipFile()) {
+        assertNotNull("readZipFile should return a non-null ZipFile for valid zip", openedZip);
+        assertEquals(3, openedZip.size());
+    }
+
+    ZipFileProcessor missingProcessor = new ZipFileProcessor(new File(tempFolder.getRoot(), "absent.zip").getAbsolutePath());
+    assertNull("readZipFile should return null for missing zip", missingProcessor.readZipFile());
+}
+
+}

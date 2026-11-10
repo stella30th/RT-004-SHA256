@@ -1,0 +1,83 @@
+=== BEGIN CE073 GeneratedTest_CE073.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE073 {
+
+private SplitSentence splitter;
+
+@Before
+public void setUp() {
+    splitter = new SplitSentence();
+}
+
+@Test
+public void testSplitSentences_MultipleSentencesWithPeriodAndQuestion() {
+    String input = "Hello world. Is it raining? Yes it is.";
+    List<String> sentences = splitter.splitSentences(input);
+
+    assertEquals(3, sentences.size());
+    assertEquals("Hello world.", sentences.get(0));
+    assertEquals("Is it raining?", sentences.get(1));
+    assertEquals("Yes it is.", sentences.get(2));
+}
+
+@Test
+public void testSplitSentences_AbbreviationsNotSplit() {
+    String input = "Dr. Smith went to Washington. He met Mr. Jones.";
+    List<String> sentences = splitter.splitSentences(input);
+
+    assertEquals(2, sentences.size());
+    assertEquals("Dr. Smith went to Washington.", sentences.get(0));
+    assertEquals("He met Mr. Jones.", sentences.get(1));
+}
+
+@Test
+public void testSplitSentences_TwoLetterDotPatternNotSplit() {
+    String input = "Please see e.g. chapter two. Thank you.";
+    List<String> sentences = splitter.splitSentences(input);
+
+    assertEquals(2, sentences.size());
+    assertEquals("Please see e.g. chapter two.", sentences.get(0));
+    assertEquals("Thank you.", sentences.get(1));
+}
+
+@Test
+public void testSplitSentences_EmptyAndNoDelimiter() {
+    List<String> emptyResult = splitter.splitSentences("");
+    assertTrue(emptyResult.isEmpty());
+
+    List<String> singleResult = splitter.splitSentences("A simple sentence without punctuation");
+    assertEquals(1, singleResult.size());
+    assertEquals("A simple sentence without punctuation", singleResult.get(0));
+}
+
+@Test
+public void testCountWords_VariousPunctuationAndNumbers() {
+    int count1 = splitter.countWords("Hello world.");
+    assertEquals(2, count1);
+
+    int count2 = splitter.countWords("Hello, world! 123 test.");
+    assertEquals(3, count2);
+}
+
+@Test
+public void testProcessTextFile_FindsMaxWordCount() {
+    String input = "First sentence is short. The second sentence contains more words than the first one. Done.";
+    int maxWords = splitter.processTextFile(input);
+
+    assertEquals(10, maxWords);
+}
+
+@Test
+public void testProcessTextFile_EmptyStringReturnsZero() {
+    int maxWords = splitter.processTextFile("");
+    assertEquals(0, maxWords);
+}
+
+} === END CE073 ===

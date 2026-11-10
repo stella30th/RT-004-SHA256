@@ -1,0 +1,125 @@
+=== BEGIN CE039 GeneratedTest_CE039.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.ArrayList; import java.util.Arrays; import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class GeneratedTest_CE039 {
+
+private ExpressionCalculator calculator;
+private static final double DELTA = 1e-9;
+
+@Before
+public void setUp() {
+    calculator = new ExpressionCalculator();
+}
+
+@Test
+public void testCalculateBasicArithmetic() {
+    double resultAddition = calculator.calculate("12 + 34");
+    assertEquals(46.0, resultAddition, DELTA);
+
+    double resultMultiplication = calculator.calculate("6 * 7");
+    assertEquals(42.0, resultMultiplication, DELTA);
+
+    double resultDivision = calculator.calculate("48 / 6");
+    assertEquals(8.0, resultDivision, DELTA);
+
+    double resultModulo = calculator.calculate("19 % 4");
+    assertEquals(3.0, resultModulo, DELTA);
+}
+
+@Test
+public void testCalculateOperatorPrecedenceAndParentheses() {
+    double resultPrecedence = calculator.calculate("2 + 3 * 4");
+    assertEquals(14.0, resultPrecedence, DELTA);
+
+    double resultParentheses = calculator.calculate("(2 + 3) * 4");
+    assertEquals(20.0, resultParentheses, DELTA);
+
+    double nestedResult = calculator.calculate("2 * (3 + (4 * 2))");
+    assertEquals(22.0, nestedResult, DELTA);
+}
+
+@Test
+public void testCalculateWithDecimals() {
+    double result = calculator.calculate("2.5 * 4.0 + 1.25");
+    assertEquals(11.25, result, DELTA);
+
+    double divisionResult = calculator.calculate("7.5 / 2.5");
+    assertEquals(3.0, divisionResult, DELTA);
+}
+
+@Test
+public void testCalculateNegativeExpressionWithParentheses() {
+    double result = calculator.calculate("-(15 + 25)");
+    assertEquals(-40.0, result, DELTA);
+
+    double complexNegative = calculator.calculate("-(4 * 5)");
+    assertEquals(-20.0, complexNegative, DELTA);
+}
+
+@Test
+public void testTransform() {
+    assertEquals("1+2", calculator.transform(" 1 + 2 "));
+    assertEquals("0-(3+4)", calculator.transform("-(3 + 4)"));
+    assertEquals("~5+2", calculator.transform("-5 + 2"));
+    assertEquals("10~4", calculator.transform("10 - 4"));
+}
+
+@Test
+public void testPreparePostfixOrder() {
+    calculator.prepare("3+4*2");
+    List<String> postfixTokens1 = new ArrayList<>(calculator.postfixStack);
+    assertEquals(Arrays.asList("3", "4", "2", "*", "+"), postfixTokens1);
+
+    calculator.prepare("(1+2)*3");
+    List<String> postfixTokens2 = new ArrayList<>(calculator.postfixStack);
+    assertEquals(Arrays.asList("1", "2", "+", "3", "*"), postfixTokens2);
+}
+
+@Test
+public void testIsOperator() {
+    assertTrue(calculator.isOperator('+'));
+    assertTrue(calculator.isOperator('-'));
+    assertTrue(calculator.isOperator('*'));
+    assertTrue(calculator.isOperator('/'));
+    assertTrue(calculator.isOperator('%'));
+
+    assertFalse(calculator.isOperator('('));
+    assertFalse(calculator.isOperator(')'));
+    assertFalse(calculator.isOperator('~'));
+    assertFalse(calculator.isOperator('.'));
+    assertFalse(calculator.isOperator('5'));
+    assertFalse(calculator.isOperator('x'));
+}
+
+@Test
+public void testComparePrecedence() {
+    assertTrue(calculator.compare('+', '*'));
+    assertFalse(calculator.compare('*', '+'));
+    assertTrue(calculator.compare('+', '+'));
+    assertTrue(calculator.compare('+', '-'));
+    assertTrue(calculator.compare('%', '*'));
+    assertTrue(calculator.compare('*', '%'));
+    assertTrue(calculator.compare('+', '%'));
+    assertFalse(calculator.compare('%', '+'));
+}
+
+@Test
+public void testInternalCalculateValidOperators() {
+    assertEquals(15.0, calculator._calculate(10.0, 5.0, '+'), DELTA);
+    assertEquals(5.0, calculator._calculate(10.0, 5.0, '-'), DELTA);
+    assertEquals(50.0, calculator._calculate(10.0, 5.0, '*'), DELTA);
+    assertEquals(2.0, calculator._calculate(10.0, 5.0, '/'), DELTA);
+    assertEquals(1.0, calculator._calculate(10.0, 3.0, '%'), DELTA);
+}
+
+@Test(expected = IllegalArgumentException.class)
+public void testInternalCalculateUnsupportedOperator() {
+    calculator._calculate(2.0, 3.0, '^');
+}
+
+} === END CE039 ===

@@ -1,0 +1,27 @@
+﻿{
+    "run_id":  "gemini_official_A_r01_CE037",
+    "phase":  "official",
+    "model_label":  "Gemini",
+    "model_version_verified":  null,
+    "interface":  null,
+    "arm":  "A",
+    "replicate":  "r01",
+    "task_id":  "CE037",
+    "timestamp_utc":  "2026-11-10T13:52:41.3617513Z",
+    "source_test_sha256":  "cc8d931170958fefd2d5b9ded0b6c27f93254fc156d71987da2a8aed381e7cf6",
+    "prompt_sha256":  "ea3c946704ef37635a185d5118dfbfc8314e1f68c238f6668f20f1d773f62911",
+    "response_sha256":  "87f0a0aea6b8bee22ae392b64353d8ae106dbf16c44a29386a5adc5c78b2351a",
+    "compiled":  true,
+    "compile_exit_code":  0,
+    "test_exit_code":  1,
+    "tests":  8,
+    "failures":  1,
+    "errors":  0,
+    "skipped":  0,
+    "suite_pass":  false,
+    "outcome":  "TEST_FAIL",
+    "warnings":  [
+
+                 ],
+    "note":  "Preserve original Gemini files. Verify request/response and classification with Surefire XML."
+}

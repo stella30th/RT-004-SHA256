@@ -1,0 +1,176 @@
+CLASSEVAL-T — ROUND 2 SINGLE-TASK JUNIT GENERATION
+TASK_ID: CE079
+
+Generate exactly one JUnit 4 test class for the task and TARGET_SOURCE provided below.
+This is a single-task request. Do not generate tests for any other task.
+Return only the complete test-class source between the required markers.
+=== BEGIN CE079 GeneratedTest_CE079.java ===
+<Java source code, starting with package org.example;>
+=== END CE079 ===
+Do not include Markdown fences, explanations, or extra classes.
+
+GENERATION REQUIREMENTS (BASELINE P0, adapted for single-task context)
+--------------------------------------------------------------------
+For every task:
+
+A. Framework and structure
+- Generate one JUnit 4 test class for the provided Java TARGET_SOURCE.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 17 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly the TEST_CLASS specified for that task.
+- Test the provided implementation as-is.
+- Call the target class from package org.example.
+- Do not modify production code.
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add unrelated dependencies.
+- Keep all tests deterministic.
+
+B. Behavioral-test requirement
+- Test ACTUAL behavior of the target class, not merely whether its API exists.
+- Every generated test class must contain behavioral assertions against observable
+  outputs, state changes, thrown exceptions, collections, files, database effects,
+  or other behavior actually supported by TARGET_SOURCE.
+- Generate at least 4 meaningful behavioral test methods whenever the target API
+  exposes enough deterministic behavior.
+- When fewer than 4 genuinely distinct behavioral tests are possible, generate the
+  maximum meaningful set supported by TARGET_SOURCE. Do NOT pad the file with weak
+  or duplicate tests merely to reach four.
+- Cover distinct behavior whenever applicable, such as:
+  1. a normal/happy-path case;
+  2. a boundary or edge case;
+  3. an invalid, empty, zero, negative, duplicate, or special-input case;
+  4. an additional semantic/state-transition case.
+- For stateful classes, test meaningful state transitions across operations.
+- For collection-oriented classes, assert actual collection contents, sizes, order,
+  membership, or mutations where relevant.
+- For calculation classes, assert concrete numeric results.
+- For string/parsing classes, assert concrete transformed or parsed results.
+- For validation classes, assert both accepted and rejected behavior when supported.
+- For file-processing classes, use deterministic temporary/local test data.
+- For database-oriented classes, test only behavior supported by the supplied API and
+  available local dependencies; do not invent schemas, credentials, or external servers.
+
+C. Weak-test prohibition
+The following DO NOT count as meaningful behavioral tests and must not be used as the
+main or only test strategy:
+- Class.forName(...) used only to prove that a class exists.
+- getDeclaredMethod(...), getDeclaredConstructor(...), getDeclaredField(...), or
+  similar reflection used only to prove API presence.
+- Tests that only instantiate the class and use assertNotNull(instance).
+- Tests that only assert that a method can be invoked without checking its behavior.
+- Tautological assertions.
+- Assertions whose expected value is copied from the actual result.
+- Duplicate tests that exercise the same behavior with no meaningful variation.
+
+Reflection may be used only as a supplementary mechanism when necessary to observe or
+invoke behavior. A reflection-only/API-presence test is insufficient.
+
+D. Oracle construction
+- Determine expected outcomes from TASK_SPECIFICATION and TARGET_SOURCE.
+- Use concrete expected values whenever the behavior is deterministic.
+- Do not copy expected values from ClassEval-T reference tests.
+- Do not access or assume the contents of reference tests.
+- Do not merely assert broad properties such as assertNotNull when TARGET_SOURCE
+  supports a more specific behavioral assertion.
+- 
+
+E. Environment constraints
+- Do not use network services or external systems unless TARGET_SOURCE makes them
+  unavoidable.
+- Prefer local deterministic fixtures.
+- Do not depend on current time, random values without a fixed seed, machine-specific
+  paths, or uncontrolled environment state.
+- Clean up temporary files/resources created by the test when applicable.
+- Use only APIs and dependencies compatible with the provided source and experiment.
+
+F. Output-quality checks
+Before outputting each test class, ensure:
+- package is org.example;
+- class name exactly matches TEST_CLASS;
+- JUnit imports are JUnit 4;
+- target method/constructor signatures actually exist in TARGET_SOURCE;
+- test code is Java 17 compatible;
+- test methods contain meaningful assertions;
+- no test is reflection-only/API-presence-only;
+- the class is deterministic and self-contained.
+
+TASK BLOCK
+----------
+CE079 — TextFileProcessor
+
+You are generating a JUnit 4 test class for the ClassEval-T Java task below.
+
+Requirements:
+- Output Java source code for this task only between the required BEGIN/END markers.
+- Do not use Markdown fences or explanations.
+- Use JUnit 4.13.2 only. Do not use JUnit 5 APIs.
+- Use Java 17 compatible syntax and APIs.
+- The first Java line must be: package org.example;
+- The public test class name must be exactly: GeneratedTest_CE079
+- Test the provided solution implementation.
+- Target class: org.example.TextFileProcessor
+- Do not invent methods, constructors, fields, packages, or dependencies.
+- Do not add dependencies beyond JUnit 4.13.2 and dependencies already required by TARGET_SOURCE.
+- Do not modify production code.
+- Keep all tests deterministic.
+- Prefer observable public behavior.
+- Derive assertions from TARGET_SOURCE only.
+- Do not use or reconstruct the ClassEval-T reference test file.
+- Verify package/import/class structure and compilation compatibility before finalizing.
+
+TASK_ID: CE079
+DATASET: ClassEval-T
+TARGET_CLASS: TextFileProcessor
+TEST_CLASS: GeneratedTest_CE079
+CATEGORY: DATA_FILE_DB_PROCESSING
+
+BUSINESS_PROBLEM:
+đọc/ghi/xử lý file văn bản
+
+PUBLIC_API_HINT:
+- Object read_file_as_json()
+- String read_file()
+- void write_file(String content)
+- String process_file()
+
+TASK_SPECIFICATION:
+No separate natural-language specification is present in the provided dataset.
+Treat TARGET_SOURCE as the authoritative behavioral specification.
+Test only behavior supported by the source code.
+
+TARGET_SOURCE:
+package org.example;
+
+import java.io.*;
+import java.nio.file.*;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class TextFileProcessor {
+    private String file_path;
+
+    public TextFileProcessor(String file_path) {
+        this.file_path = file_path;
+    }
+
+    public Object read_file_as_json() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(new File(file_path), Object.class);
+    }
+
+    public String read_file() throws IOException {
+        return new String(Files.readAllBytes(Paths.get(file_path)));
+    }
+
+    public void write_file(String content) throws IOException {
+        Files.write(Paths.get(file_path), content.getBytes());
+    }
+
+    public String process_file() throws IOException {
+        String content = read_file();
+        String processedContent = content.replaceAll("[^a-zA-Z]", "");
+        write_file(processedContent);
+        return processedContent;
+    }
+}

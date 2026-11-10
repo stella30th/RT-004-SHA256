@@ -1,0 +1,83 @@
+=== BEGIN CE037 GeneratedTest_CE037.java === package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipher_basicShift() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String result = utils.caesarCipher("abcXYZ", 3);
+    assertEquals("defABC", result);
+}
+
+@Test
+public void testCaesarCipher_withPunctuationAndSpaces() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String result = utils.caesarCipher("Hello, World! 123", 3);
+    assertEquals("Khoor, Zruog! 123", result);
+}
+
+@Test
+public void testCaesarCipher_wrapAround() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String result = utils.caesarCipher("xyzXYZ", 2);
+    assertEquals("zabZAB", result);
+}
+
+@Test
+public void testCaesarCipher_zeroShiftAndEmpty() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    assertEquals("Test-String 42", utils.caesarCipher("Test-String 42", 0));
+    assertEquals("", utils.caesarCipher("", 5));
+}
+
+@Test
+public void testVigenereCipher_mixedCaseAndPunctuation() {
+    EncryptionUtils utils = new EncryptionUtils("KEY");
+    String result = utils.vigenereCipher("Hello, World!");
+    assertEquals("Rijvs, Uyvjn!", result);
+}
+
+@Test
+public void testVigenereCipher_lowercaseRepeatingKey() {
+    EncryptionUtils utils = new EncryptionUtils("abc");
+    String result = utils.vigenereCipher("abcdef");
+    assertEquals("acedfh", result);
+}
+
+@Test
+public void testVigenereCipher_nonLettersDoNotAdvanceKeyIndex() {
+    EncryptionUtils utils = new EncryptionUtils("b");
+    String result = utils.vigenereCipher("a 1 b");
+    assertEquals("b 1 c", result);
+}
+
+@Test
+public void testVigenereCipher_emptyString() {
+    EncryptionUtils utils = new EncryptionUtils("SECRET");
+    assertEquals("", utils.vigenereCipher(""));
+}
+
+@Test
+public void testRailFenceCipher_threeRails() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String result = utils.railFenceCipher("HELLOWORLD", 3);
+    assertEquals("HOLELWRDLO", result);
+}
+
+@Test
+public void testRailFenceCipher_twoRails() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String result = utils.railFenceCipher("HELLO", 2);
+    assertEquals("HLOEL", result);
+}
+
+@Test
+public void testRailFenceCipher_withSpacesAndEmpty() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    assertEquals("ABC  ", utils.railFenceCipher("A B C", 2));
+    assertEquals("", utils.railFenceCipher("", 3));
+}
+
+} === END CE037 ===

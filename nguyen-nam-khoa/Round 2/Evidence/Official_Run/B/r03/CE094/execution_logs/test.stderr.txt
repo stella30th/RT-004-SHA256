@@ -1,0 +1,20 @@
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor extractFile
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit15082814009187359597\output_single\file2.txt
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor extractFile
+WARNING: File not found in zip: non_existent.txt
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor readZipFile
+SEVERE: Zip file does not exist: C:\Users\ADMIN\AppData\Local\Temp\junit3334448103572575875\absent.zip
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor extractFile
+INFO: Created parent directory: C:\Users\ADMIN\AppData\Local\Temp\junit7107784276779361682\output_nested\subdir
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor extractFile
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit7107784276779361682\output_nested\subdir\file1.txt
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor readZipFile
+SEVERE: Zip file does not exist: C:\Users\ADMIN\AppData\Local\Temp\junit14553837786275117224\missing2.zip
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor readZipFile
+SEVERE: Zip file does not exist: C:\Users\ADMIN\AppData\Local\Temp\junit9904917367159836635\missing.zip
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor lambda$extractAll$0
+INFO: Created directory: C:\Users\ADMIN\AppData\Local\Temp\junit7854618077501765294\output_all\subdir
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor lambda$extractAll$0
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit7854618077501765294\output_all\subdir\file1.txt
+Nov 10, 2026 9:09:24 PM org.example.ZipFileProcessor lambda$extractAll$0
+INFO: Extracted file: C:\Users\ADMIN\AppData\Local\Temp\junit7854618077501765294\output_all\file2.txt

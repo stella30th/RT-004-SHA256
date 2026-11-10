@@ -1,0 +1,70 @@
+package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals; import static
+org.junit.Assert.assertTrue;
+
+public class GeneratedTest_CE073 {
+
+private SplitSentence splitSentence;
+
+@Before
+public void setUp() {
+    splitSentence = new SplitSentence();
+}
+
+@Test
+public void testSplitSentencesBasic() {
+    String text = "This is the first sentence. Is this the second sentence? Yes it is.";
+    List<String> sentences = splitSentence.splitSentences(text);
+
+    assertEquals(3, sentences.size());
+    assertEquals("This is the first sentence.", sentences.get(0));
+    assertEquals("Is this the second sentence?", sentences.get(1));
+    assertEquals("Yes it is.", sentences.get(2));
+}
+
+@Test
+public void testSplitSentencesWithAbbreviations() {
+    String text = "Dr. Smith went to the store, e.g. the grocery shop. He bought apples.";
+    List<String> sentences = splitSentence.splitSentences(text);
+
+    assertEquals(2, sentences.size());
+    assertEquals("Dr. Smith went to the store, e.g. the grocery shop.", sentences.get(0));
+    assertEquals("He bought apples.", sentences.get(1));
+}
+
+@Test
+public void testSplitSentencesEdgeCases() {
+    List<String> emptyResult = splitSentence.splitSentences("");
+    assertTrue(emptyResult.isEmpty());
+
+    String single = "A simple sentence without end punctuation";
+    List<String> singleResult = splitSentence.splitSentences(single);
+    assertEquals(1, singleResult.size());
+    assertEquals("A simple sentence without end punctuation", singleResult.get(0));
+}
+
+@Test
+public void testCountWordsWithPunctuationAndNumbers() {
+    String sentence = "Hello, world! This is 123 Java.";
+    int count = splitSentence.countWords(sentence);
+
+    assertEquals(5, count);
+}
+
+@Test
+public void testProcessTextFile() {
+    String text = "Short one. This sentence has many more words than the first one. Ok.";
+    int maxWords = splitSentence.processTextFile(text);
+
+    assertEquals(11, maxWords);
+
+    int emptyMax = splitSentence.processTextFile("");
+    assertEquals(0, emptyMax);
+}
+
+}

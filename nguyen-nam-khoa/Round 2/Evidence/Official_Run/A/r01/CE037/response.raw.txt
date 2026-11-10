@@ -1,0 +1,80 @@
+=== BEGIN CE037 GeneratedTest_CE037.java === package org.example;
+
+import org.junit.Test; import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipherNormal() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+    String plaintext = "Hello, World!";
+    String encrypted = utils.caesarCipher(plaintext, 3);
+    assertEquals("Khoor, Zruog!", encrypted);
+}
+
+@Test
+public void testCaesarCipherWrapAroundAndZeroShift() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+    String encryptedWrap = utils.caesarCipher("xyzXYZ", 3);
+    assertEquals("abcABC", encryptedWrap);
+
+    String encryptedZero = utils.caesarCipher("No change here!", 0);
+    assertEquals("No change here!", encryptedZero);
+
+    String encryptedFullCycle = utils.caesarCipher("No change here!", 26);
+    assertEquals("No change here!", encryptedFullCycle);
+}
+
+@Test
+public void testCaesarCipherEmptyAndNonLetters() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+    assertEquals("", utils.caesarCipher("", 5));
+    assertEquals("12345 @#! \t\n", utils.caesarCipher("12345 @#! \t\n", 4));
+}
+
+@Test
+public void testVigenereCipherNormal() {
+    EncryptionUtils utils = new EncryptionUtils("key");
+    String plaintext = "Hello, World!";
+    String encrypted = utils.vigenereCipher(plaintext);
+    assertEquals("Rijvs, Uyvjn!", encrypted);
+}
+
+@Test
+public void testVigenereCipherCaseInsensitiveKey() {
+    EncryptionUtils utils = new EncryptionUtils("KEY");
+    String plaintext = "attackatdawn";
+    String encrypted = utils.vigenereCipher(plaintext);
+    assertEquals("kxrkigkxbkal", encrypted);
+}
+
+@Test
+public void testVigenereCipherEmptyAndNonAlpha() {
+    EncryptionUtils utils = new EncryptionUtils("secret");
+    assertEquals("", utils.vigenereCipher(""));
+    assertEquals("12345 !?", utils.vigenereCipher("12345 !?"));
+}
+
+@Test
+public void testRailFenceCipherRails3() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+    String plainText = "HELLO WORLD";
+    String encrypted = utils.railFenceCipher(plainText, 3);
+    assertEquals("HOREL OLLWD", encrypted);
+
+    String longerText = "WEAREDISCOVEREDFLEEATONCE";
+    String encryptedLonger = utils.railFenceCipher(longerText, 3);
+    assertEquals("WECRLTEERDSOEEFEAOCAIVDEN", encryptedLonger);
+}
+
+@Test
+public void testRailFenceCipherRails2AndEmpty() {
+    EncryptionUtils utils = new EncryptionUtils("defaultKey");
+    String plainText = "HELLO";
+    String encrypted = utils.railFenceCipher(plainText, 2);
+    assertEquals("HLOEL", encrypted);
+
+    assertEquals("", utils.railFenceCipher("", 3));
+}
+
+} === END CE037 ===

@@ -1,0 +1,95 @@
+=== BEGIN CE037 GeneratedTest_CE037.java === package org.example;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE037 {
+
+@Test
+public void testCaesarCipherBasicShift() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String plaintext = "Hello, World!";
+    int shift = 3;
+    String expected = "Khoor, Zruog!";
+    assertEquals(expected, utils.caesarCipher(plaintext, shift));
+}
+
+@Test
+public void testCaesarCipherWrapAroundAndNonLetters() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String plaintext = "zZ 123 !?";
+    int shift = 1;
+    String expected = "aA 123 !?";
+    assertEquals(expected, utils.caesarCipher(plaintext, shift));
+}
+
+@Test
+public void testCaesarCipherFullAlphabetShift() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String plaintext = "abc XYZ";
+    int shift = 26;
+    String expected = "abc XYZ";
+    assertEquals(expected, utils.caesarCipher(plaintext, shift));
+}
+
+@Test
+public void testCaesarCipherEmptyString() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    assertEquals("", utils.caesarCipher("", 5));
+}
+
+@Test
+public void testVigenereCipherBasic() {
+    EncryptionUtils utils = new EncryptionUtils("KEY");
+    String plaintext = "Hello, World!";
+    String expected = "Rijvs, Uyvjn!";
+    assertEquals(expected, utils.vigenereCipher(plaintext));
+}
+
+@Test
+public void testVigenereCipherZeroShiftKey() {
+    EncryptionUtils utils = new EncryptionUtils("a");
+    String plaintext = "Testing 123!";
+    assertEquals(plaintext, utils.vigenereCipher(plaintext));
+}
+
+@Test
+public void testVigenereCipherSingleLetterKeyShift() {
+    EncryptionUtils utils = new EncryptionUtils("B");
+    String plaintext = "abcXYZ";
+    String expected = "bcdYZA";
+    assertEquals(expected, utils.vigenereCipher(plaintext));
+}
+
+@Test
+public void testVigenereCipherEmptyString() {
+    EncryptionUtils utils = new EncryptionUtils("secret");
+    assertEquals("", utils.vigenereCipher(""));
+}
+
+@Test
+public void testRailFenceCipherThreeRails() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String plaintext = "HELLOWORLD";
+    int rails = 3;
+    String expected = "HOLELWRDLO";
+    assertEquals(expected, utils.railFenceCipher(plaintext, rails));
+}
+
+@Test
+public void testRailFenceCipherTwoRails() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    String plaintext = "HELLO";
+    int rails = 2;
+    String expected = "HLOEL";
+    assertEquals(expected, utils.railFenceCipher(plaintext, rails));
+}
+
+@Test
+public void testRailFenceCipherEmptyString() {
+    EncryptionUtils utils = new EncryptionUtils("dummy");
+    assertEquals("", utils.railFenceCipher("", 3));
+}
+
+} === END CE037 ===

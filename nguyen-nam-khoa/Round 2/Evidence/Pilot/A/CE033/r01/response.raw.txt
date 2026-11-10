@@ -1,0 +1,85 @@
+=== BEGIN CE033 GeneratedTest_CE033.java === package org.example;
+
+import org.junit.Before; import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class GeneratedTest_CE033 {
+
+private DecryptionUtils decryptionUtils;
+
+@Before
+public void setUp() {
+    decryptionUtils = new DecryptionUtils("key");
+}
+
+@Test
+public void testCaesarDecipherBasic() {
+    String ciphertext = "Khoor, Zruog!";
+    String expected = "Hello, World!";
+    String actual = decryptionUtils.caesarDecipher(ciphertext, 3);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testCaesarDecipherShiftWraparoundAndZeroShift() {
+    assertEquals("z", decryptionUtils.caesarDecipher("a", 1));
+    assertEquals("Z", decryptionUtils.caesarDecipher("A", 1));
+    assertEquals("Hello, World!", decryptionUtils.caesarDecipher("Hello, World!", 0));
+    assertEquals("Hello, World!", decryptionUtils.caesarDecipher("Khoor, Zruog!", 29));
+}
+
+@Test
+public void testCaesarDecipherNonAlphabeticAndEmpty() {
+    assertEquals("", decryptionUtils.caesarDecipher("", 5));
+    assertEquals("12345!@#$ %^&*", decryptionUtils.caesarDecipher("12345!@#$ %^&*", 7));
+}
+
+@Test
+public void testVigenereDecipherBasic() {
+    DecryptionUtils utils = new DecryptionUtils("key");
+    String ciphertext = "Rijvs, Uyvjn!";
+    String expected = "Hello, World!";
+    String actual = utils.vigenereDecipher(ciphertext);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testVigenereDecipherCaseInsensitiveKeyAndPreserveNonLetters() {
+    DecryptionUtils utilsUpper = new DecryptionUtils("KEY");
+    String ciphertext = "Rijvs, 123 Uyvjn!";
+    String expected = "Hello, 123 World!";
+    assertEquals(expected, utilsUpper.vigenereDecipher(ciphertext));
+}
+
+@Test
+public void testVigenereDecipherWrapAroundAndEmpty() {
+    DecryptionUtils utils = new DecryptionUtils("b");
+    assertEquals("z", utils.vigenereDecipher("a"));
+    assertEquals("Z", utils.vigenereDecipher("A"));
+    assertEquals("", utils.vigenereDecipher(""));
+}
+
+@Test
+public void testRailFenceDecipherTwoRails() {
+    String ciphertext = "HloWrdel ol";
+    String expected = "Hello World";
+    String actual = decryptionUtils.railFenceDecipher(ciphertext, 2);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testRailFenceDecipherThreeRails() {
+    String ciphertext = "WECRLTEERDSOEEFEAOCAIVDEN";
+    String expected = "WEAREDISCOVEREDFLEEATONCE";
+    String actual = decryptionUtils.railFenceDecipher(ciphertext, 3);
+    assertEquals(expected, actual);
+}
+
+@Test
+public void testRailFenceDecipherEmptyAndSingleChar() {
+    assertEquals("", decryptionUtils.railFenceDecipher("", 3));
+    assertEquals("A", decryptionUtils.railFenceDecipher("A", 3));
+}
+
+} === END CE033 ===

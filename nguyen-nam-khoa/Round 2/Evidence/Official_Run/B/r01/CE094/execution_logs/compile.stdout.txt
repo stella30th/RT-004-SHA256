@@ -1,0 +1,30 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< research:classeval-workspace >--------------------
+[INFO] Building classeval-workspace 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ classeval-workspace ---
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ classeval-workspace ---
+[INFO] skip non existing resourceDirectory C:\Users\ADMIN\OneDrive\Desktop\study\ky 5\SWT\RBL\src code\RT-SWT302-004-SHA256\nguyen-nam-khoa\Round 2\_ce094_rerun_workspaces\B_r01_CE094\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ classeval-workspace ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 94 source files with javac [debug target 17] to target\classes
+[INFO] /C:/Users/ADMIN/OneDrive/Desktop/study/ky 5/SWT/RBL/src code/RT-SWT302-004-SHA256/nguyen-nam-khoa/Round 2/_ce094_rerun_workspaces/B_r01_CE094/src/main/java/org/example/AccessGatewayFilter.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/ADMIN/OneDrive/Desktop/study/ky 5/SWT/RBL/src code/RT-SWT302-004-SHA256/nguyen-nam-khoa/Round 2/_ce094_rerun_workspaces/B_r01_CE094/src/main/java/org/example/AccessGatewayFilter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ classeval-workspace ---
+[INFO] skip non existing resourceDirectory C:\Users\ADMIN\OneDrive\Desktop\study\ky 5\SWT\RBL\src code\RT-SWT302-004-SHA256\nguyen-nam-khoa\Round 2\_ce094_rerun_workspaces\B_r01_CE094\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ classeval-workspace ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug target 17] to target\test-classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.533 s
+[INFO] Finished at: 2026-11-10T21:09:04+07:00
+[INFO] ------------------------------------------------------------------------
