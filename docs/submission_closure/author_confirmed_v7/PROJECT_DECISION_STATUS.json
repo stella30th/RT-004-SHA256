@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "authority": "project lead reported delegated final decision authority",
+  "project": "SWT OAPR ClassEval-T",
+  "declared_models": [
+    "GPT-6 Sol via web UI",
+    "Gemini 3.8 Flash via web UI"
+  ],
+  "historical_ai_usage": "test suite generation only, author-reported",
+  "revised_manuscript_ai_assistance": "yes, this draft package uses AI for language; declare if adopted",
+  "protocol_freeze": "reported evidence exists; commit/content/timestamp not inspected",
+  "funding": "no external funding or sponsored credits, author-reported",
+  "competing_interests": "none, all-author affirmation reported by lead",
+  "artifact_host": "UNDECIDED",
+  "ce023_treatment": "historical 188 with explicit source discrepancy plus 187-pair bookkeeping sensitivity",
+  "submission_ready": false,
+  "reviewer_items_accepted": 0,
+  "caveat": "project lead can approve scoped research deliverables; cannot verify absent evidence or an unpublished artifact"
+}

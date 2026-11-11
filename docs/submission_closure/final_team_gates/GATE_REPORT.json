@@ -1,0 +1,25 @@
+{
+  "submission_ready": false,
+  "checks": {
+    "All authors approved record": false,
+    "Model provenance honestly resolved": false,
+    "AI use author approved": false,
+    "Protocol disposition documented": false,
+    "Funding fact signed": false,
+    "Competing interests signed": false,
+    "Anonymous accessible publication": false,
+    "CE023 disposition transparent": false,
+    "Full manuscript review": false
+  },
+  "unresolved": [
+    "All authors approved record",
+    "Model provenance honestly resolved",
+    "AI use author approved",
+    "Protocol disposition documented",
+    "Funding fact signed",
+    "Competing interests signed",
+    "Anonymous accessible publication",
+    "CE023 disposition transparent",
+    "Full manuscript review"
+  ]
+}

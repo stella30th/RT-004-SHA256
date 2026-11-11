@@ -1,0 +1,7 @@
+﻿commit,committer_time,subject
+522e34d3651d8745f63871f01221f8e7e3b15e75,2026-11-10T22:25:00+07:00,Merge pull request #29 from stella30th/rbl/khoa
+4981f07f547da87b7d97fd4790073e5acc6b103c,2026-11-10T22:22:51+07:00,gemini round 2 run
+f55b82bc06e07ccce4fa1590ec868094e2294d05,2026-11-10T12:47:11+07:00,docs: close Round 2 provenance audit with documented limitations
+1dc556018b632b376eb3c1cc836404268f38cf87,2026-11-10T12:39:48+07:00,docs: add Hao Round 2 provenance audit and reproducibility limitations
+c9542f8fb57954dc772e80340e17671cb934c73f,2026-11-09T19:16:54+07:00,feat: complete Hao Round 2 experiments and mutation analysis
+14f1673a7543e1cf3e0293d1dc6bd1d8b1815cd3,2026-11-09T19:13:36+07:00,Hao push done -2

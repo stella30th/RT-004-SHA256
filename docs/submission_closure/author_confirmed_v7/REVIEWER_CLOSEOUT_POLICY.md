@@ -1,0 +1,7 @@
+# Reviewer tracker disposition policy (41 items)
+
+This package carries forward the previously prepared item-specific reviewer draft and evidence tracker. The lead selected a truthful, scoped ICST NIER paper rather than fabricating unsupported causal effects or unperformed additional experiments. **A response draft is not reviewer acceptance**. Each row must ultimately identify the manuscript page/section and artifact link; open empirical requirements can only be closed by satisfying their requested evidence or obtaining reviewer/advisor approval of a scoped alternative.
+
+Use `TRACKER_41_UPDATED.csv` for internal tracking. `AUTHOR_REPORTED_FACT` means the project lead answered, not externally verified. `DRAFT_PREPARED` means supporting prose exists, not that the final paper contains it. `BLOCKED` means the requirement lacks necessary evidence.
+
+Key priorities: H2/M1/M10 need original session exports; H4/H6/H13 cannot infer fresh independent calls from source counts; H17/M17/M19 now have author-reported wording but require individual signoffs and AI-assisted revision disclosure; H3 has CE023 upstream match and explicitly conditional sensitivity, plus CE029/CE087 handling; M4/M18 need a real anonymously accessible release; B1 requires genuine editorial review rather than gaming an AI detector; M22 requires a final IEEE formatted anonymous PDF. Full matched 18-task repeat and causal identification remain open unless the advisor accepts the reduced claims.
