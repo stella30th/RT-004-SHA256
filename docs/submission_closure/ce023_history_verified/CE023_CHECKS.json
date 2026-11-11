@@ -1,0 +1,8 @@
+{
+  "original_references_ClassroomManagementTest_Course": true,
+  "modified_has_nested_static_Course": true,
+  "modified_adds_equals": true,
+  "modified_adds_hashCode": true,
+  "all_modified_snapshots_identical": true,
+  "all_expected_hashes_match": true
+}

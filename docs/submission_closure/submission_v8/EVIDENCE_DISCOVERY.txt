@@ -1,0 +1,51 @@
+﻿=== GIT HEAD AND STATUS ===
+355dac0d64fade435b6385811c232eec9378e1b3 2026-11-11 13:52:03 +0700 docs: reconcile CE023 snapshots and submission readiness gates
+## feature/Hao...origin/feature/Hao [ahead 9]
+?? docs/project_wide_closeout/
+?? docs/submission_closure/author_confirmed_v7/
+?? docs/submission_closure/final_team_gates/
+?? docs/submission_closure/project_v6/
+?? docs/submission_closure/submission_v8/
+?? paper/icst_nier_submission_candidate_v8.pdf
+?? paper/icst_nier_submission_candidate_v8.tex
+=== CANDIDATE EVIDENCE FILENAMES (NO CONTENT) ===
+data\ClassEval-T\solution_chatGPT\MANIFEST.json
+docs\dataset_manifest.csv
+docs\experiment_protocol.md
+docs\review_protocol.md
+docs\submission_closure\ce023_history_verified\CE023_HASH_MANIFEST.csv
+docs\submission_closure\submission_v8\PROTOCOL_AND_SESSION_EVIDENCE.md
+huynh-gia-hao\experiment\pilot_run_kit\task_manifest_pilot.csv
+huynh-gia-hao\experiment\round2\model_metadata_TEMPLATE.csv
+huynh-gia-hao\experiment\round2\PROTOCOL_FROZEN_DRAFT.md
+huynh-gia-hao\experiment\round2\batch_33\checklist_focus\prompt_manifest.csv
+huynh-gia-hao\experiment\round2\batch_33\checklist_only\prompt_manifest.csv
+huynh-gia-hao\experiment\round2\prompts\generated\prompt_manifest.json
+huynh-gia-hao\experiment\round2\provenance_audit\generation_manifest_99_verified.csv
+huynh-gia-hao\experiment\round2\provenance_audit\missing_session_evidence.csv
+huynh-gia-hao\experiment\round2\provenance_audit\closure\SESSION_EVIDENCE_CLOSURE_99.csv
+huynh-gia-hao\experiment\round2\SWT_Hao_Round2_Final_Handover\SHA256_MANIFEST.csv
+nguyen-hoang-khoi\dataset_manifest.csv
+nguyen-nam-khoa\Round 2\Gemini_R2_Single_Task_Review\prompt_manifest.csv
+=== PROTOCOL COMMITS ===
+c9542f8 2026-11-09 19:16:54 +0700 feat: complete Hao Round 2 experiments and mutation analysis
+14f1673 2026-11-09 19:13:36 +0700 Hao push done -2
+a6a6f51 2026-10-16 01:58:48 +0700 [RBL-3] An: define metrics thresholds and baseline
+bea0880 2026-10-13 09:37:49 +0700 update FINAL 6
+636129b 2026-10-06 12:52:37 +0700 chore: add research protocol and experiment skeleton
+=== KNOWN SESSION PROVENANCE SUMMARY ===
+{
+  "total_records": 99,
+  "local_integrity_ok": 99,
+  "session_verified": 0,
+  "session_pending": 99,
+  "model_verified_from_export": 0,
+  "distinct_request_triplets_verified": 0,
+  "fresh_context_independence_verified": 0,
+  "replacement_runs": 2,
+  "export_sha256": null,
+  "issues": [
+    "Identical source output: p0_resample/run-01/CE043, p0_resample/run-02/CE043 (not proof of same request)",
+    "Identical source output: p0_resample/run-02/CE066, p0_resample/run-03/CE066 (not proof of same request)"
+  ]
+}

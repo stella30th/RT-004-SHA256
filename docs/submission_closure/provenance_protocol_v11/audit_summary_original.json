@@ -1,0 +1,37 @@
+{
+  "audited_at_utc": "2026-11-11T09:00:57.620427+00:00",
+  "commit": "eb6a7e7c50c7d99a8fada7a824a622ea77ef0bfb",
+  "branch": "feature/Hao",
+  "repo_remote_sanitized": "origin\thttps://github.com/stella30th/RT-SWT302-004-SHA256.git (fetch)\norigin\thttps://github.com/stella30th/RT-SWT302-004-SHA256.git (push)",
+  "protocol_candidates": 14,
+  "evidence_candidates": 2607,
+  "round2_commits": 6,
+  "previous_audit_summaries": [
+    {
+      "path": "huynh-gia-hao/experiment/round2/provenance_audit/provenance_summary.json",
+      "sha256": "7b6ef520386663329be3599433317eb07da8ad79647fe27d8df722071dd7204b",
+      "summary": {
+        "total_records": 99,
+        "local_integrity_ok": 99,
+        "session_verified": 0,
+        "session_pending": 99,
+        "model_verified_from_export": 0,
+        "distinct_request_triplets_verified": 0,
+        "fresh_context_independence_verified": 0,
+        "replacement_runs": 2,
+        "export_sha256": null,
+        "issues": [
+          "Identical source output: p0_resample/run-01/CE043, p0_resample/run-02/CE043 (not proof of same request)",
+          "Identical source output: p0_resample/run-02/CE066, p0_resample/run-03/CE066 (not proof of same request)"
+        ]
+      }
+    }
+  ],
+  "verdict": "INDETERMINATE_REQUIRES_SESSION_TO_PROMPT_MATCH_AND_PROTOCOL_CHRONOLOGY",
+  "cautions": [
+    "Git committer dates are not a trustworthy generation timestamp.",
+    "Artifact SHA-256 does not prove session model version, fresh context, or sampling settings.",
+    "A protocol existing in Git does not establish prior approval or freeze.",
+    "No private session contents have been copied into this report."
+  ]
+}

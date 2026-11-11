@@ -1,0 +1,90 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\begin{document}
+\title{Focused Recovery of Failing LLM-Generated JUnit Suites}
+\author{Anonymous Authors}
+\maketitle
+
+\begin{abstract}
+Generated JUnit suites may compile yet assert behavior inconsistent with the evaluated Java implementation. We study a source-first, failure-informed prompt refinement workflow on ClassEval-T classes. The historical adjusted register has 188 model--task pairs, including one Gemini task (CE023) with a mismatched-source baseline. Excluding CE023 yields a 187-pair matched-source sensitivity cohort. In the matched-source sensitivity cohort, baseline suites passed 169/187; one refined regeneration recovered 15 of 18 selected failures (83.33\%, exact 95\% interval 58.58--96.42\%). Carrying forward baseline passes yields 184/187, not a full-refinement success rate. Separate three-condition studies cover 99 ChatGPT and 63 Gemini suites. ChatGPT baseline, checklist-only, and checklist-plus-focus conditions passed 23/33, 33/33, and 33/33; both checklist variants killed the same 924/1,164 recorded mutants. Gemini's adapted baseline and checklist variants passed 17/21, 18/21, and 15/21. Repeated tasks and incomplete session provenance limit inference. These outcomes describe executable compatibility, not an isolated causal prompt effect or independently verified oracle correctness.
+\end{abstract}
+\begin{IEEEkeywords}
+LLM-generated tests, test oracle, JUnit, prompt refinement
+\end{IEEEkeywords}
+
+\section{Introduction}
+Large language models produce plausible test code, but passing a reference implementation requires assertions consistent with its control flow and state. Class-level tasks add constructors, shared fields, and method interactions to the oracle problem. ClassEval-T supplies 94 Java classes with reference tests and diverse dependencies~\cite{classevalt}. Prior repair systems use compiler or execution feedback~\cite{chattester,testart}. We examine a narrower workflow: a person diagnoses a failed initial suite and requests one new suite with a source-tracing checklist and case-specific failure focus.
+
+We ask how many archived baseline failures become compile-and-pass suites after refinement and how the carry-forward count changes. Separate repeated-run datasets permit descriptive comparison of baseline, checklist-only, and checklist-plus-focus prompts. We keep the historical and repeated-run datasets separate because their contexts and sampling units differ. Our endpoint is compatibility with the supplied implementation, not correctness under an independent specification.
+
+\section{Study Design}
+\subsection{Historical focused recovery}
+The historical archive has one P0 suite for each of 94 tasks under each of two reported model configurations. PASS requires compilation, at least one executed JUnit test, and zero failures or errors. Two ChatGPT P0 suites initially failed because the SQLite driver was missing; both passed without test changes after the dependency was added. Gemini CE023 used a P0 target source inconsistent with the execution project: its prompt referred to \texttt{ClassroomManagementTest.Course}, while the project defines \texttt{Classroom.Course}. A corrected-source P1 suite passed, but no comparable corrected-input P0 generation is archived. The historical adjusted 188-pair register retains this entry with a qualification; the primary matched-input sensitivity excludes it.
+
+The resulting cohort has 187 pairs, 169 P0 passes, and 18 selected P0 failures (11 ChatGPT and seven Gemini). For each failure, the team inspected source and execution evidence and generated one P1 suite. P1 added a nine-item source-first checklist covering API, preconditions, state, branches, expected values, boundaries, fixtures, and assertion traceability, plus a manually written case-specific failure focus. The outcome combines an extra generation, checklist, and focus; there is no equal-budget historical control that separates their effects.
+
+\subsection{Separate three-condition cohorts}
+The ChatGPT round-2 archive contains 11 historically failing tasks, three conditions, and three recorded runs per condition: 99 suites. Conditions are P0 resample, checklist-only, and checklist plus focus. PIT mutation testing was attempted only after a suite passed the reference implementation. The Gemini archive independently contains seven historically failing tasks with three recorded runs under A, a single-task baseline; B, A plus checklist; and C, B plus focus. Its 63 suites have compile and JUnit evidence but no mutation endpoint. Gemini A is an adapted single-task request, not a replay of historical multi-task P0. Different task sets and generation contexts prevent pooling the two cohorts.
+\section{Results}
+\begin{table}[t]
+\caption{Historical adjusted accounting and matched-input sensitivity}
+\label{tab:hist}
+\centering\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Cohort & Pairs & P0 PASS & P1 recovery & Carry-forward \\
+\midrule
+Adjusted register$^*$ & 188 & 170 & 15/18 & 185/188 \\
+Matched-source & 187 & 169 & 15/18 & 184/187 \\
+\bottomrule
+\end{tabular}
+\par\raggedright\scriptsize $^*$Adjusted CE023 P0 success is an accounting classification, not a corrected-input P0 observation.
+\end{table}
+
+Among the 18 eligible historical failures, the archived register labels 15 as assertion-failing suites, two as runtime errors, and one as a compilation failure. Fifteen recovered after one P1 regeneration (83.33\%; two-sided exact 95\% Clopper--Pearson interval 58.58--96.42\%): ChatGPT 10/11 and Gemini 5/7 (Table~\ref{tab:hist}). Three remained unsuccessful. Carrying P0 passes forward gives 184/187 (98.40\%) versus 169/187 (90.37\%) at P0, an arithmetic change of 8.02 percentage points. P1 was not applied to P0-passing pairs, so this is a workflow count rather than a full-P1 rate. The historical adjusted register reports 170/188 P0 PASS and 185/188 carry-forward PASS, but counts CE023 as a success without an observed corrected-input P0 run; these 188-pair figures describe bookkeeping rather than a clean matched-SUT experiment. The 187-pair cohort is the matched-input sensitivity.
+\begin{table}[t]
+\caption{Separate round-2 suite outcomes}
+\label{tab:r2}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Model & Condition & JUnit PASS & Mutants killed \\
+\midrule
+ChatGPT & P0 resample & 23/33 & 649/730$^\dagger$ \\
+ & Checklist & 33/33 & 924/1,164 \\
+ & Checklist + focus & 33/33 & 924/1,164 \\
+\midrule
+Gemini & A: baseline & 17/21 & -- \\
+ & B: checklist & 18/21 & -- \\
+ & C: checklist + focus & 15/21 & -- \\
+\bottomrule
+\end{tabular}
+\par\raggedright\scriptsize $^\dagger$Only 23 passing P0 suites were eligible for PIT; ten failed suites were excluded.
+\end{table}
+
+ChatGPT P0 resampling passed 8, 8, and 7 suites across its three runs. Both checklist conditions passed all 11 tasks in every run. The two checklist variants have identical recorded per-suite mutant outcomes on all 33 task--run cells, despite different generated-source hashes. Their common 924/1,164 mutant count does not show a benefit from case-specific focus. The P0 mutation ratio is conditional on 23 reference-valid suites and cannot be ranked as an unconditional treatment effect against ratios from 33 valid checklist suites.
+
+In Gemini round 2, all 63 suites compiled and executed tests. Thirteen failed one assertion each; none failed compilation. Checklist-only B passed one more suite than baseline A, while checklist-plus-focus C passed three fewer than B. CE033 and CE073 account for most C failures, partly offset by CE062. These are observed differences in seven selected tasks, not evidence that focus caused a decline. Gemini did not report PIT outcomes.
+\section{Interpretation and Validity}
+The historical 15/18 recovery measures one manually diagnosed regeneration on a failure-selected cohort. It cannot attribute improvement separately to source reading, checklist, case focus, or another model draw. In round 2, three runs per task repeat only 11 ChatGPT or seven Gemini tasks. Two ChatGPT P0 cells are labeled replacement outputs, and two P0 run pairs have identical source hashes. The Gemini protocol remains labeled draft; all 63 committed per-run metadata files leave model version and interface unverified. Authors report ChatGPT and Gemini web interfaces (UI labels ``chat 6 sol'' and ``gemini 3.8 flash''), but original session-export model metadata and exact settings have not been checked against the archived outputs. A purported protocol freeze is author-reported; the inspected Round-2 protocol remains marked DRAFT, so prospective locking is not established.
+
+Passing the current implementation is a compatibility measure. A suite can pass with weak assertions, while a failing assertion can reflect a bad fixture or specification disagreement. Mutation testing probes artificial faults and is available only for ChatGPT. Different tasks, prompts, and endpoints preclude a controlled ChatGPT-versus-Gemini comparison. The 15/18 interval describes simple-binomial uncertainty; it does not correct failure selection or dependence.
+
+\section{Future Work and Conclusion}
+Independent oracle review, held-out tasks, and preregistered session controls are needed before stronger claims. A future study should run P1 on P0-passing tasks to measure regressions, preserve model/session settings, and compare fault sensitivity on a common set of baseline-valid suites. For the archived workflow, 15/18 eligible failures became executable P1 suites. Round 2 shows no additional recorded mutant kills from ChatGPT's focus condition and no Gemini JUnit PASS advantage for its focus condition. These limits on a source-first prompt do not establish general defect-detection improvement.
+
+
+\section*{Declarations}
+\textbf{Funding and conflicts:} The authors report no external funding, sponsored compute credits, or competing interests. \textbf{AI use:} ChatGPT and Gemini generated the evaluated test suites through web interfaces. ChatGPT assisted with subsequent manuscript and reviewer-response drafting~\cite{chatgpttool}; authors are responsible for reviewing adopted text. The manuscript sections revised with this assistance include the study summary, validity discussion, and declarations. \textbf{Artifacts:} The authors intend an anonymous reviewer-accessible replication release, but a verified URL is not available at this draft stage. Exact historical model sessions and prospective protocol locking are not independently verified.
+
+\begin{thebibliography}{4}
+\bibitem{classevalt} P. Xue et al., ClassEval-T: Evaluating large language models in class-level code translation, \emph{Proc. ACM Softw. Eng.}, vol. 2, no. ISSTA, 2025, doi: 10.1145/3728940.
+\bibitem{chattester} Z. Yuan et al., Evaluating and improving ChatGPT for unit test generation, \emph{Proc. ACM Softw. Eng.}, vol. 1, no. FSE, 2024, doi: 10.1145/3660783.
+\bibitem{testart} S. Gu et al., TestART: Improving LLM-based unit testing via co-evolution of automated generation and repair iteration, arXiv:2408.03095, 2024.
+\bibitem{chatgpttool} OpenAI, ``ChatGPT,'' generative AI system, https://chatgpt.com/ (accessed Nov. 2026).
+\end{thebibliography}
+\end{document}

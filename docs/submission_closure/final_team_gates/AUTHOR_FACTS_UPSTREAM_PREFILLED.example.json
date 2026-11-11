@@ -1,0 +1,60 @@
+{
+  "author_approval": {
+    "approved": false,
+    "approval_date": "",
+    "approval_record_location": ""
+  },
+  "model_provenance": {
+    "status": "UNVERIFIED",
+    "historical_model_ids": [],
+    "interface": "",
+    "session_evidence_location": "",
+    "authors_accept_limits": false
+  },
+  "ai_use": {
+    "authors_approved": false,
+    "research_tools": [],
+    "manuscript_ai_generated_text_used": null,
+    "affected_sections": [],
+    "ai_system_citations_verified": false,
+    "acknowledgements_checked": false
+  },
+  "protocol": {
+    "authors_approved": false,
+    "frozen_before_generation": null,
+    "pre_generation_commit": "",
+    "pre_generation_timestamp": "",
+    "retrospective_disclosed": false
+  },
+  "funding": {
+    "authors_approved": false,
+    "statement": ""
+  },
+  "competing_interests": {
+    "authors_approved": false,
+    "statement": ""
+  },
+  "artifact": {
+    "publication_url": "",
+    "immutable_revision": "",
+    "license_reviewed": false,
+    "anonymous_review_passed": false,
+    "reviewer_access_verified": false
+  },
+  "ce023": {
+    "historical_git_discrepancy_verified": true,
+    "upstream_revision": "fd41d22e6ee2e7497087f4724d4d0a8292ec9491",
+    "upstream_path": "ClassEval_T/java/solutuon/Classroom.java",
+    "upstream_sha256": "df08e31ecd6bf6d8cf66c60b126b3fc7b92b3837c04353dde0af2daabfd09ed8",
+    "upstream_mapping_to_original_generation_verified": false,
+    "sensitivity_disclosed": false
+  },
+  "manuscript": {
+    "all_tracker_items_reviewed": false,
+    "all_claims_edited_and_verified": false,
+    "ieee_pdf_validated": false,
+    "nier_page_limit_validated": false,
+    "anonymity_checked": false,
+    "all_author_approval": false
+  }
+}

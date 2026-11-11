@@ -1,0 +1,4 @@
+Condition,JUnit_PASS,JUnit_TOTAL,PIT_Completed,BaselineExcluded,Killed,Total,ScorePercent
+A,17,21,17,4,392,467,83.94
+B,18,21,18,3,453,534,84.83
+C,15,21,15,6,366,430,85.12
