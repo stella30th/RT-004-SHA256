@@ -1,0 +1,6 @@
+label,commit,path,sha256,bytes,expected_hash_match
+initial_import,34e1d57,data/ClassEval-T/solution/Classroom.java,df08e31ecd6bf6d8cf66c60b126b3fc7b92b3837c04353dde0af2daabfd09ed8,1337,True
+human_snapshot,74b4d0f,data/ClassEval-T/solution_human/Classroom.java,2a3593e97b4707d841754caadc29035e8d43c85d2eb7d89e410784a76fe29095,2174,True
+repro_p0,74665e4,ho-le-thien-an/oapr-analysis/ce023-repro-p0/src/main/java/org/example/Classroom.java,2a3593e97b4707d841754caadc29035e8d43c85d2eb7d89e410784a76fe29095,2174,True
+repro_p1,74665e4,ho-le-thien-an/oapr-analysis/ce023-repro-p1/src/main/java/org/example/Classroom.java,2a3593e97b4707d841754caadc29035e8d43c85d2eb7d89e410784a76fe29095,2174,True
+round2,c9542f8,huynh-gia-hao/experiment/round2/mutation_work_java17/src/main/java/org/example/Classroom.java,2a3593e97b4707d841754caadc29035e8d43c85d2eb7d89e410784a76fe29095,2174,True
