@@ -1,0 +1,36 @@
+{
+  "data_sha256": "f7fcb5275aa94f6f8472d42f56764567f99dbff122d724941046046a36912251",
+  "conditions": {
+    "A": {
+      "total_suites": 21,
+      "baseline_pass": 17,
+      "baseline_excluded": 4,
+      "mutation_complete": 17,
+      "mutants_killed": 392,
+      "total_mutants": 467,
+      "mutation_score_pct": 83.94
+    },
+    "B": {
+      "total_suites": 21,
+      "baseline_pass": 18,
+      "baseline_excluded": 3,
+      "mutation_complete": 18,
+      "mutants_killed": 453,
+      "total_mutants": 534,
+      "mutation_score_pct": 84.83
+    },
+    "C": {
+      "total_suites": 21,
+      "baseline_pass": 15,
+      "baseline_excluded": 6,
+      "mutation_complete": 15,
+      "mutants_killed": 366,
+      "total_mutants": 430,
+      "mutation_score_pct": 85.12
+    }
+  },
+  "total_suites": 63,
+  "mutation_complete": 50,
+  "baseline_fail_excluded": 13,
+  "interpretation": "All reported mutant ratios conditional on baseline-valid suites; task sets differ from ChatGPT."
+}
